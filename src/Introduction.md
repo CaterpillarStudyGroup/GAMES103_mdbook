@@ -43,3 +43,19 @@ goa.lt:
 而定，可以是：
 p.0， p, 外观..…
 Note time step 可以与帧率不一至文
+
+根据 object 特点分类。
+刚体 igit body,， Mesh,粒子（模拟刚体破碎了 3
+and Hair, Nh mesh
+弹性物体：姚 body.
+流体液体气体|糊(re。以测，体素、烟，
+水、 Meh, 做。
+（实时）
+（小花 粉，体素
+Mesh 用 face 把所有心比连成一个整做.适用于飘
+性要疑强的对家.
+Particle 把每个比比当作一个独立的个体，每个个体对自己
+的运动负责适用于松散的对家
+Grid 行相者之间，把 object 划分成 gmd.gg 但 grid
+之间又存在连续性。
+
