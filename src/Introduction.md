@@ -36,40 +36,71 @@ $$
 \text{几何}\rightarrow \text{动画}\rightarrow\text{渲染}\rightarrow \text{显示}
 $$
 
-##几何[41：47了
+## 几何[41：47]
 
-- mesh
-顶鼠。面片（三角形四边形.的边形、四面体）
-__☆
-要解决的问题 2
-生成、简化、细分、优化。 Volume Mesh.（难点）
-1在线，对后面的算法有影响）。
-一点云 1
-简单，通常是 naw dat Tn scan,不能直接用于渲染
+—— mesh
+
+顶点 面片（**三角形**、四边形、多边形、四面体）
+
+要解决的问题
+
+生成、简化、细分、优化、Volume Mesh（难点）
+
+（在线，对后面的算法有影响）。
+
+—— 点云 
+
+简单，通常是 raw da from scan,不能直接用于渲染
+
 要解决的问题：
-点云→ mesh,重采样，
-一 Grid 格子/体素
-国于医学是像
-要解决的问题，
-Memory cost, volumetric Ǜǜ ,
-##渲染
-真事实洹长的非真实渲染
-基于 ray tracing US 基于 rendering pipeline
+
+$$
+\text{点云}\rightarrow \text{mesh}
+$$
+
+重采样
+
+—— Grid 格子/体素
+
+用于医学呈像
+
+要解决的问题
+
+Memory cost, volumetric 渲染（rendering) ,
+
+## 渲染
+
+真实渲染VS非真实渲染
+ 
+基于 ray tracing VS 基于 rendering pipeline
+
 材质扫描
-##动画
-人体动画、物理动画
+
+## 动画
+
+人体动画、物理动画 
+
 goa.lt:
 计算 object 在每个 time step 的状态，汰态由具体应用
+
 而定，可以是：
+
 p.0， p, 外观..…
+
 Note time step 可以与帧率不一至文
 
 根据 object 特点分类。
+
 刚体 igit body,， Mesh,粒子（模拟刚体破碎了 3
+
 and Hair, Nh mesh
+
 弹性物体：姚 body.
+
 流体液体气体|糊(re。以测，体素、烟，
+
 水、 Meh, 做。
+
 （实时）
 （小花 粉，体素
 Mesh 用 face 把所有心比连成一个整做.适用于飘
