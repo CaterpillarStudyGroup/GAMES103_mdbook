@@ -50,7 +50,7 @@ $$
 
 —— 点云 
 
-简单，通常是 raw da from scan,不能直接用于渲染
+简单，通常是 raw data from scan,不能直接用于渲染
 
 要解决的问题：
 
@@ -80,33 +80,27 @@ Memory cost, volumetric 渲染（rendering) ,
 
 人体动画、物理动画 
 
-goa.lt:
-计算 object 在每个 time step 的状态，汰态由具体应用
+goal:
 
-而定，可以是：
+计算 object 在每个 time step 的状态，状态由具体应用而定，可以是：
 
-p.0， p, 外观..…
+p，v，p， 外观……
 
-Note time step 可以与帧率不一至文
+Note ：time step 可以与帧率不一致
 
-根据 object 特点分类。
+根据 object 特点分类：
 
-刚体 igit body,， Mesh,粒子（模拟刚体破碎了 3
+刚体：right body→ Mesh, 粒子（模拟刚体破碎）
 
-and Hair, Nh mesh
+Cloth and Hair, Mesh
 
-弹性物体：姚 body.
+弹性物体：soft body，Mesh
 
-流体液体气体|糊(re。以测，体素、烟，
+流体，液体，气体：粒子(real-time)，体素，；水，Mesh（实时），体素；花，粒子，体素
 
-水、 Meh, 做。
+Mesh 用 face 把所有vertex连成一个整体，适用于整体性较强的对象。
 
-（实时）
-（小花 粉，体素
-Mesh 用 face 把所有心比连成一个整做.适用于飘
-性要疑强的对家.
-Particle 把每个比比当作一个独立的个体，每个个体对自己
-的运动负责适用于松散的对家
-Grid 行相者之间，把 object 划分成 gmd.gg 但 grid
-之间又存在连续性。
+Particle 把每个vertex当作一个独立的个体，每个个体对自己的运动负责，适用于松散的对象。
+
+Grid 介于相者之间，把 object 划分成 grid 但 grid 之间又存在连续性。
 
