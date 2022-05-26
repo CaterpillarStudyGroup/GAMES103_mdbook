@@ -1,8 +1,8 @@
-.
-Lecture 02.
-数学基础： 4
-. Vector, Matrix, Tear Calculus
-# Vector .
+# Lecture 02
+
+# 数学基础：  Vector, Matrix, Tear Calculus
+
+# Vector 
 能无量黑体，小马标量飙体矩阵上黑体大写
 在手坐不稳 OpenGL. Research.
 直牲概， Unity. DirectX [06：34图]
