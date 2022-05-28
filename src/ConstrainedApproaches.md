@@ -61,3 +61,95 @@ A Qua Quad ric Bending Model flu surfaces
 自由度=3#找点一井边二变量一约定
 解决方法
 l. 谦弹蛋压缩时减小弹性系数
+
+2.假设弹簧在一定范围内可以自由活动，没有能量
+3.把自由度定义在边上（复杂） 35
+#约束方法 [50：40]
+Shape Matching 跳过了
+##要解决的问题
+Stiffness Issue..
+Real Word.弯曲到一定承度变得很难弯曲
+Explicit Model。会变得不稳定，
+需通过 smaller go 来解决
+Implicit Model.会出现 ill condition
+需通过 more iteration 来解决
+井井只有一根弹簧 [1：00：00图了
+把弹簧的长度看作约束。
+中心二 lki-yl-l.io
+挺函数：
+促使顶点满足以上约来
+
+所有满是 reference status 的人组成平面曲一面4-ooarn.or.stooorrnsr.se,
+合理的区域 r. 死
+对于任意入={心们，移动人到2区域中
+用钱表达。即. 且移动的距离尽量少。
+{xi.xjl-angmnimilki-xilktmjhxixj.li 了，
+约束。 中《'）=0
+结论。 [1'一05：26了
+tt Multiple Springs
+##Gauss Seidel 方法
+[1：11：30了 依酶次处理每根弹弹
+用上面的方法，上弹簧变成 reference status
+特点
+1.如果不能保证满足所有的来，
+最后会达到最满足约来的状态。
+2.不同的顺序会产生不同的 bias 和纩溢
+和熢毽度
+##Jacobi 方法
+目的：1.消除 order 带来的 bias
+2提升可并行性
+方法把每个弹黄对顶点的影响存下来。
+顶完的更'所做所有更新方案的平均鱼、
+特点与收敛速度越慢
+
+# tt PBD 方法 [148230]
+###具体步马一 Overview
+PBD 方法没有弹性系数，如果体现了单性事？便 引
+-迭代越做， 少一有弹性
+- 网格㩔䬚， 少一有弹性
+###具体步骤
+A Simulator
+U =___
+X =-n
+k P 13 D
+N = Projection 比）
+v = 0 t 比一×11比
+人= N
+##也1特点
+l. 容易并行，容易实现通用性强，低分辨率时效率高
+2没有物体戤，无精确解，高分辨率时效率低
+井拓展阅读
+Hierarchical Position Based Dynamics
+# Strain Limiting
+目的，.防止物体的大形变，让模拟更稳定一点
+
+比：32：30]
+在 Simulator 阶段
+隒在计算 v 和七时，同时考虑弹簧系统 38
+在 Projection 阶段
+起纠错目的保证模拟稳定
+##单个弹贵的 Strain hint
+定义拉伸比例。 o = 以煢
+拉伸范围。 o.mn <o <omax
+、 、
+构造投影函数
+不要求长度为原长，
+只要求搜伸比例满足拉伸范围
+Projection 的具体步骤，
+l. 计算拉伸比例，
+o = i 11心一州
+2.计算目标拉伸比例，
+Go = minlmaxlo.o.mn)， o may
+了。根据0更新 Xi 和对
+
+##Triangle Area Limit
+[1：34-48] 3/
+Constraint: AM's A cry man
+尽影地移动三闺形顶点心、分，人，使满是
+约束，且质心位置不变。
+##Strain Limo 分折。
+1-保证模拟过程中不会产生大的形变
+2用于布料的非线性形变（1：45：24右）
+3.可解决 looking issue.
+
+
