@@ -3,23 +3,30 @@
 # 数学基础：  Vector, Matrix, Tear Calculus
 
 # Vector 
-能无量黑体，小马标量飙体矩阵上黑体大写
-在手坐不稳 OpenGL. Research.
-直牲概， Unity. DirectX [06：34图]
-假设物体都在屏幕后面）
-Vector 有时只是能用手一堆糊的集合。维度不定是物
-自理上有意义的维度。
+
+矢量：黑体，小写 标量：斜体 矩阵：黑体，大写
+
+右手坐标系：OpenGL， Research
+
+左手坐标系；Unity，Dired-X [06：34图]（假设物体都在屏幕后面）
+
+Vector 有时只是被用于一堆数据的集合，维度不一定是物理上有意义的维度。
+
 GAMES 101讲过的，不重复
-避
-Vetor 的他用场景
-l. 描述线性钱派513
+
+Vetor 的加减法使用场景
+
+l.描述线性公式[16:51]
+
 2.线性差值[17：51]
-3.描述 line. ray, segment
-Norm 范数.ch 吼）
-Vector 的 Nom 使用场景。
-1-距离 一只能以"不起唔向
-2单义单位向量 >蜘"方向不出心大小
-3-向量单位毛
+
+3.描述 line, ray, segment
+
+Norm 范数 [link]()
+
+Vector 的 Norm 使用场景:
+
+![](GAMES103/1)
 
 点乘。 5
 p-q.42， qp.PT 表达出来的不同
@@ -68,7 +75,7 @@ v = j h. A
 体积是 Signed Volume.[146：30了
 2[l'-18-18] Baryonic Weights
 类似于三角形
-3. particle、 triangle 碰控检叫[1：21：20]
+1. particle、 triangle 碰控检叫[1：21：20]
 （12(tl-Xoj-Xoxx.no 二 0
 t = CR-xol.to/lxzo-­v.XoXXzo­t 为与三角形所在平面相交的时刻，
 还需检查吣是否在三角形内
