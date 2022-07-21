@@ -1,9 +1,3 @@
-# GAMES 103
-
-# 基于物理的计算机动画入门 
-
-# Lecture 01
-
 # Introduction
 
 # 准备工作[11：03]
