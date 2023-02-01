@@ -11,7 +11,7 @@ P3
     - You should know how to calculate basic derivatives and integrals; you should understand chain rules, gradients, etc.    
  - Programming Skills     
     - C, or C++, or C#, or Javascript    
- - Ready to learn by yourself    
+ - Ready to <u>learn by yourself</u>    
  - The life will be much easier if you took    
     - Numerical methods (numerical linear algebra, numerical PDEs), finite element analysis, fluid dynamics...     
 
@@ -39,30 +39,33 @@ P14
 ## Real-Time Graphics Pipeline     
 
 
-![](\assets\01-1.png)    
+
+![](./assets/01-1-1.PNG)   
 
 
-
+P15  
 The number of frames sent to display in a second is called the *frame rate*.    
 For example, 24 FPS, 30 FPS, 60 FPS, …     
 
 
 
-
+P17
 ## Animation Playback
 
-![](\assets\01-2.png)   
+![](./assets/01-1.PNG) 
 
+
+P18
 ## Movie
 
-![](\assets\01-3.png)   
+![](./assets/01-2.PNG) 
 
 
-
+P19
 ## Geometry: Three Representations     
 
 
-![](\assets\01-4.png)   
+![](./assets/01-3.PNG)   
 
 
 
@@ -78,19 +81,19 @@ For example, 24 FPS, 30 FPS, 60 FPS, …
 
 
 
-
+P20
 ## Geometry: Three Representations    
 
 
 
-![](\assets\01-5.png)   
+![](./assets/01-4.PNG)    
 
 
-
+P21
 ## Geometry: Three Representations    
 
 
-![](\assets\01-6.png)   
+![](./assets/01-5.PNG)    
 
 
 
@@ -104,11 +107,11 @@ For example, 24 FPS, 30 FPS, 60 FPS, …
     - …    
 
 
-
+P22
 ## Geometry: Three Representations    
 
 
-![](\assets\01-7.png)   
+![](./assets/01-6.PNG) 
 
 
 
@@ -122,25 +125,31 @@ For example, 24 FPS, 30 FPS, 60 FPS, …
 
 
 
-
+P23
 
 ## Rendering: Non-Photorealistic vs. Photorealistic
 
-![](\assets\01-8.png)   
-![](\assets\01-9.png)   
-![](\assets\01-10.png)   
-
-
-## Character Animation Physics-Based Animation
-
-
-![](\assets\01-11.png)   
+![](./assets/01-7.PNG)   
 
 
 
+P27
+## Character and Physics-Based Animation      
+
+![](./assets/01-10.PNG) 
+
+
+
+P36
+## Computer Graphics for Augmented Reality (AR)
+
+
+![](./assets/01-11.PNG)    
+
+
+P37
 ## Issues for Discussion Today    
 
-![](\assets\01-12.png)   
 
 
  - What’s computer graphics?    
@@ -149,11 +158,11 @@ For example, 24 FPS, 30 FPS, 60 FPS, …
  - What are the topics to be studied in this class?    
  
  
- 
+P38 
  
 ## Animation Paradigm
 
-![](\assets\01-12.png)   
+![](./assets/01-12.PNG)   
 
 
  - The goal of animation is to **update the state in every time step**.    
@@ -167,27 +176,27 @@ For example, 24 FPS, 30 FPS, 60 FPS, …
     - It’s common to animate multiple time steps then render one frame.    
     
     
-
+P39
 ## Physics-Based Animation Topics    
 
 
-![](\assets\01-13.png)   
+![](./assets/01-13.PNG)    
 
 
-
+P54
 ## Physics-Based Animation Topics    
 
 
-![](\assets\01-14.png)   
+![](./assets/01-14.PNG)   
 
 
-
+P56
 ## Physics-Based Animation Topics
 
-![](\assets\01-15.png)   
+![](./assets/01-15.PNG)    
 
 
-
+P58
 ## Issues for Discussion Today     
 
 
@@ -199,15 +208,15 @@ For example, 24 FPS, 30 FPS, 60 FPS, …
  
  
  
-
+P59
 ## Topics in This Class    
 
-![](\assets\01-16.png)   
+![](./assets/1-16.PNG)   
 
-
+P60
 ## My Own Expertise    
 
-![](\assets\01-17.png)   
+![](./assets/01-17.PNG)   
 
 
 
