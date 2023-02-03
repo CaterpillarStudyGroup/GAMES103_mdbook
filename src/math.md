@@ -152,7 +152,7 @@ $$
  - \\(\mathbf{p\cdot q=q\cdot p} \\)    
  - \\(\mathbf{p\cdot (q+r)=p\cdot q+p\cdot r} \\)    
  - \\(\mathbf{p \cdot p = ||p||^2_2} \\), a different way to write norm.     
- - If\\(\mathbf{p·q} = 0\\)and \\(\mathbf{p,q}\ne 0\\)then \\(\cos \theta =0\\),then \\(\mathbf{p} and \\(\mathbf{q}\\) are orthogonal.    
+ - If \\(\mathbf{p·q} = 0\\)and \\(\mathbf{p,q}\ne 0\\)  then  \\(\cos \theta = 0\\),then \\(\mathbf{p}\\) and \\(\mathbf{q}\\) are orthogonal.    
 
 
 P11
@@ -169,13 +169,14 @@ P12
 ![](./assets/02-13-1.PNG)
 
 
+
 $$
-s= \mathbf{(p−c)^Tn } \left\{\begin{matrix}> 0
-  & \mathrm{Above the plane} \\\\
+s=\mathbf{(p−c)^Tn } \left\{\begin{matrix} 
+ > 0 & \mathrm{Above the plane} \\\\
  = 0 & \mathrm{On the plane} \\\\
- < 0 & \mathrm{Below the plane} 
+ < 0 & \mathrm{Below the plane} \\\\
 \end{matrix}\right.
-$$
+$$    
 
 S: The <u>signed</u> distance to the plane     
 
@@ -235,7 +236,7 @@ $$
  - \\(\mathbf r·\mathbf p = 0; \mathbf r·\mathbf q = 0; ||\mathbf r|| = ||\mathbf p||||\mathbf q||   \sin 0\\)                      
  - \\(\mathbf p\times \mathbf q =-\mathbf q\times \mathbf p\\)
  - \\(\mathbf p\times (\mathbf q +\mathbf r) = \mathbf p\times \mathbf q +\mathbf p\times \mathbf r\\)   
- - \\(If \mathbf p \times  \mathbf q =\mathbf 0 and \mathbf p,\mathbf q\ne 0 then \sin =0,then \mathbf p and \mathbf q \\) are parallel (in the same or opposite direction)      
+ - If \\( \mathbf p \times  \mathbf q =\mathbf 0\\) and \\(\mathbf p,\mathbf q\ne 0 \\) then \\(\sin = 0\\), then \\(\mathbf p\\) and \\(\mathbf q \\) are parallel (in the same or opposite direction)      
 
 
 P15
@@ -280,6 +281,16 @@ $$
 \mathbf{(x_2-p)\times (x_0-p)\cdot n> 0} \\\\
 \end{matrix}\right\}
 $$
+
+$$
+\left.\begin{matrix}
+ \mathbf{(x_0-p)\times (x_1-p)\cdot n> 0}  \\\\ 
+ \mathbf{(x_1-p)\times (x_2-p)\cdot n> 0}  \\\\ 
+ \mathbf{(x_2-p)\times (x_0-p)\cdot n> 0} 
+\end{matrix}\right\}
+$$
+
+
 Inside of triangle Otherwise, outside.   
 
 
@@ -292,134 +303,358 @@ Inside of triangle Otherwise, outside.
 
 
 
-
+P19
 ## xample 7: Barycentric Coordinates
 
-![](./assets/02-23.PNG)
-![](./assets/02-24.PNG)
-![](./assets/02-25.PNG)
-![](./assets/02-26.PNG)
-![](./assets/02-27.PNG)
+![](./assets/02-22.PNG)     
+
+Note that:    
+$$
+\frac{1}{2} \mathbf{(x_0−p)×(x_1−p)\cdot n} 
+$$
+
+$$
+=\begin{cases} 
+  \frac{1}{2}||\mathbf{(x_0−p)×(x_1−p)} ||& \mathrm{inside}  \\\\  
+  \frac{1}{2}||\mathbf{(x_0−p)×(x_1−p)} || & \mathrm{outside} 
+  \end{cases}  
+$$
+
+Signed areas:   
+
+$$
+\mathbf{A_2=\frac{1}{2} (x_0−p)×(x_1−p)\cdot n}
+$$
+
+$$
+\mathbf{A_0=\frac{1}{2} (x_1−p)×(x_2−p)\cdot n}
+$$
+
+$$
+\mathbf{A_1=\frac{1}{2} (x_2−p)×(x_0−p)\cdot n}
+$$
+
+$$
+\mathbf{A_0+A_1+A_2=A}
+$$
+
+
+Barycentric weights of **p** :    
+
+$$
+b_0=A_0/A   \quad  b_1=A_1/A   \quad  b_2=A_2/A 
+$$
+
+
+Barycentric Interpolation
+
+$$
+\mathbf{p} =b_0\mathbf{x} _0+b_1\mathbf{x} _1+b_2\mathbf{x} _2
+$$
 
 
 
+
+
+
+P20
 ## Gouraud Shading    
 
-![](./assets/02-28.PNG)
+![](./assets/02-23.PNG)
 
  - Barycentric weights allows the interior points of a triangle to be interpolated.     
- - In a traditional graphics pipeline, pixel colors are calculated at triangle vertices first, and then interpolated within. This is known as Gouraud shading.    
+ - In a traditional graphics pipeline, pixel colors are calculated at triangle vertices first, and then interpolated within. This is known as *Gouraud shading*.    
  - It is hardware accelerated.    
  - It is no longer popular.     
  
  
  
-
+P21
 ## Example 9: Tetrahedral Volume    
+
+
+![](./assets/02-24.PNG)
+
+Edge vectors:    
+
+
+$$
+\mathbf{X_{10}=X_1-X_0   \quad X_{20}=X_2-X_0   \quad X_{30}=X_3-X_0} 
+$$
+
+Base triangle area:   
+
+$$
+A=\frac{1}{2} ||\mathbf{X} _{10}\times \mathbf{X} _{20}||
+$$
+
+Volume:    
+
+$$
+\begin{align*}
+ V&=\frac{1}{3} ℎA=\frac{1}{6} \mathbf{x} _{30}\cdot \mathbf{x} _{10}\times \mathbf{x} _{20}\\\\
+&=\frac{1}{6}\begin{vmatrix}
+ \mathbf{x} _1 & \mathbf{x} _2 & \mathbf{x} _3 &\mathbf{x} _0 \\\\
+  1& 1 & 1 &1
+\end{vmatrix}
+\end{align*}
+$$
+
+
+
+P22
+## Example 9: Tetrahedral Volume
+
+
+
+Note that the volume \\(V =\frac{1}{3}h\mathit{A} =\frac{1}{6} \mathbf{x} _ {30}\cdot (\mathbf{x} _ {10}\times \mathbf{x}_{20})\\) **signed**.
+
+![](./assets/02-25.PNG)
+
+
+P23
+## Example 10: Barycentric Weights (cont.)
+
+
+![](./assets/02-26.PNG)   
+
+
+ - **p** splits the tetrahedron into four sub-tetrahedra:    
+
+ $$
+ \begin{matrix}
+ V_0=\mathrm{Vol} (\mathbf{x}_3,\mathbf{x}_2, \mathbf{x}_1, \mathbf{p} )\\\\
+ V_1=\mathrm{Vol} (\mathbf{x}_2,\mathbf{x}_3, \mathbf{x}_0, \mathbf{p} )\\\\
+ V_2=\mathrm{Vol} (\mathbf{x}_1,\mathbf{x}_0, \mathbf{x}_3, \mathbf{p} )\\\\ 
+ V_3=\mathrm{Vol} (\mathbf{x}_0,\mathbf{x}_1, \mathbf{x}_2, \mathbf{p} )
+ \end{matrix} 
+ $$
+
+
+
+
+
+ - **p** is inside if and only if: \\(V_0,V_1,V_2, V_3 > 0\\).    
+
+
+
+ - Barycentric weights:    
+ $$
+ b_0=V_0/V   \quad   b_1=V_1/V   \quad b_2=V_2/V   \quad   b_3=V_3/V
+ $$
+
+ $$
+ b_0+b_1+b_2+b_3=1
+ $$
+
+ $$
+ \mathbf{p} =b_0\mathbf{x} _0+b_1\mathbf{x} _1+b_2\mathbf{x} _2+b_3\mathbf{x} _3
+ $$
+
+
+
+
+
+P24
+## Example 11: Particle-triangle Intersection
+
+![](./assets/02-27.PNG)
+
+ - First, we find t when the particle hits the plane:   
+
+ $$
+ (\mathbf{p} (t)−\mathbf{x} _0)\cdot  \mathbf{x} _{10}\times \mathbf{x} _{20}=0
+ $$
+
+ $$
+ (\mathbf{p}-\mathbf{x} _0+t\mathbf{v})\cdot  \mathbf{x} _{10}\times \mathbf{x} _{20}=0
+ $$
+
+ $$
+ t=\frac{(\mathbf{p}−\mathbf{x}_0)\cdot  \mathbf{x} _{10}\times \mathbf{x} _{20}}{\mathbf{v}\cdot \mathbf{x} _{10}\times \mathbf{x} _{20}} 
+ $$
+ 
+ 
+ - We then check if \\(\mathbf{p}(t)\\) is inside or not.   
+    - See Example 6.    
+
+
+
+
+
+P25
+## Matrices  
+
+
+
+P26
+## Matrix: Definition
+
+
+A real matrix is a set of real elements arranged in rows and columns.    
+
+$$
+A=\begin{bmatrix}
+ a_{00} & a_{01} & a_{02} \\\\
+ a_{10}& a_{11} & a_{12} \\\\
+ a_{20}& a_{21} & a_{22}
+\end{bmatrix}=[a_{0} \quad a_{1} \quad  a_{2}]\in \mathbf{R}   ^{3\times 3}
+$$
 
 
 ![](./assets/02-29.PNG)
 
 
-## Example 9: Tetrahedral Volume
+$$
+\mathbf{A^T=A}    \quad  \mathrm{Symmetric} 
+$$
 
 
-
-Note that the volume \\(\mathbf{V} =\frac{1}{3}h\mathit{A} =\frac{1}{6}\mathbf{x} _{30}\cdot (\mathbf{x}_{10}\times \mathbf{x}_{20})\\) **signed**.
-
-![](./assets/02-30.PNG)
-
-
-
-## Example 10: Barycentric Weights (cont.)
-
-
-![](./assets/02-31.PNG)
-
-## Example 11: Particle-triangle Intersection
-
-![](./assets/02-32.PNG)
-
-
-## Matrices  
-
-
-## Matrix: Definition
-
-
-
-A real matrix is a set of real elements arranged in rows and columns.
-
-
-![](./assets/02-33.PNG)
-
-
-
+P27
 ## Matrix: Multiplication    
 
-How to do matrix-vector and matrix-matrix multiplication? (Omitted)
+How to do matrix-vector and matrix-matrix multiplication? (Omitted)    
+
+ - \\(\mathbf{AB≠BA} 	 \quad \quad \quad \quad  	\quad  \quad \quad \quad \mathbf{(AB)x=A(Bx)} \\)     
+ - \\(\mathbf{(AB)^T=B^TA^T}	 \quad \quad	\quad \quad \quad \quad \mathbf{(A^TA)^T=A^TA}\\)    
+ - \\(\mathbf{Ix=x}		 \quad 	\quad \quad   \quad \quad \quad \quad \quad \quad \mathbf{AI=IA=A}\\)    
+  \\(\quad\\) 	
+ - \\(\mathbf{A^{−1}:  AA^{−1}=A^{−1}A=I}	 \quad \quad \mathrm{inverse}\\)     
+ - \\(\mathbf{(AB)^{−1}=B^{−1}A^{−1}}\\)
+ - Not every matrix is invertible, e.g., \\(\mathbf{A} =\begin{bmatrix}
+ 0 & 0 & 0\\\\
+ 0 & 0 & 0\\\\
+ 0 & 0 & 0
+\end{bmatrix}\\)    
 
 
-![](./assets/02-34.PNG)
 
 
+P28
 ## Matrix: Orthogonality
 
 
 An orthogonal matrix is a matrix made of orthogonal **unit** vectors. 
 
+$$
+\mathbf{A} =[\mathbf{a} _0\quad \mathbf{a} _1\quad \mathbf{a} _2]\quad\mathrm{such \quad that
+} \quad \mathbf{a}_i^\mathbf{T}\mathbf{a}_j =\begin{cases}
+  1，& \text{ if } i= j\\\\
+  0.& \text{ if } i\ne j
+\end{cases}
+$$
 
-![](./assets/02-35.PNG)
+$$
+\mathbf{A^TA}=\begin{bmatrix}
+\mathbf{a ^T}_0 \\\\
+\mathbf{a^T}_1 \\\\
+\mathbf{a^T}_2
+\end{bmatrix}\begin{bmatrix}
+ \mathbf{a}_0 & \mathbf{a}_1 &\mathbf{a}_2
+\end{bmatrix}=\begin{bmatrix}
+ \mathbf{a^T}_0 \mathbf{a}_0 &  \mathbf{a^T}_0 \mathbf{a}_1 &  \mathbf{a^T}_0 \mathbf{a}_2\\\\
+ \mathbf{a^T}_1 \mathbf{a}_0 &  \mathbf{a^T}_1 \mathbf{a}_1 &  \mathbf{a^T}_1 \mathbf{a}_2\\\\
+  \mathbf{a^T}_2 \mathbf{a}_0 &  \mathbf{a^T}_2 \mathbf{a}_1 &  \mathbf{a^T}_2 \mathbf{a}_2
+\end{bmatrix}=I
+$$
+
+$$
+\mathbf{A^T=A^{-1}}
+$$
 
 
+P29   
 ## Matrix Transformation
 
 
 A rotation can be represented by an orthogonal matrix.    
 
-![](./assets/02-36.PNG)
+![](./assets/02-30.PNG)
 
 
+
+P30    
 A scaling can be represented by a diagonal matrix.  
 
 
-![](./assets/02-37.PNG)
+![](./assets/02-31.PNG)
 
 
+
+P31    
 ## Singular Value Decomposition   
 
 A matrix can be decomposed into:     
-\\(\mathbf{A=UDV^T}\\)such that \mathbf {D} is diagonal,and U and V are orthogonal.     
-D 的对角线元素是**singular values**   
+\\(\mathbf{A=UDV^T} \quad\\)such that \\(\mathbf {D}\\) is diagonal,and \\(\mathbf {U}\\) and \\(\mathbf {V}\\) are orthogonal.     
+ \\(\quad \quad \quad  \quad\quad\\) D 的对角线元素是**singular values**   
+
+
 Any **linear deformation** can be decomposed into three steps: rotation, scaling and rotation:    
 
 
-![](./assets/02-38.PNG)
+![](./assets/02-32.PNG)
 
 
+P32   
 ## Eigenvalue Decomposition
 A **symmetric** matrix can be decomposed into:     
-\\(\mathbf{A=UDV^{-1}}\\)such that \mathbf {D} is diagonal,and U is orthogonal.     
-D 的对角线元素是**eigenvalues**    
+\\(\mathbf{A=UDV^{-1}}\quad\\)such that \\(\mathbf {D}\\) is diagonal,and \\(\mathbf {U}\\) is orthogonal.     
+\\(\quad \quad \quad  \quad\quad\\) D 的对角线元素是**eigenvalues**    
 
-![](./assets/02-39.PNG)
+As in the textbook     
+Let \\(\mathbf{U} =\begin{bmatrix}
+ \cdots  & \mathbf{u} _i &\cdots
+\end{bmatrix}\\), we have:    
+
+$$
+\mathbf{Au} _i= \mathbf{UDU^T} \mathbf{u} _i=\mathbf{UD} \begin{bmatrix}
+ \vdots \\\\
+ 0\\\\
+ 1\\\\
+ 0\\\\
+\vdots 
+\end{bmatrix}=\mathbf{U} \begin{bmatrix}
+ \vdots \\\\
+ 0\\\\
+ d_i\\\\
+ 0\\\\
+\vdots 
+\end{bmatrix}=d_i\mathbf{u} _i
+$$
+
+> \\(\mathbf{U}\\):是the eigenvector of \\(d_i\\)     
+> \\(d_i:\\)是 eigenualue
 
 
 We can apply eigenvalue decomposition to <u>asymmetric</u> matrices too, if we allow eigenvalues and eigenvectors to be **complex**. **Not considered here**.
 
 
-
+P33   
 ## Symmetric Positive Definiteness (s.p.d.)   
 
+\\(\mathbf{A}\\)  is s.p.d. if only if: 		\\(\quad\quad\quad\quad\quad\quad\quad\quad	\\)	\\(\mathbf{v^TAv}>0\\), for any \\(\mathbf{v} ≠ 0. \\)
 
-![](./assets/02-40.PNG)
+\\(\mathbf{A}\\) is symmetric semi-definite if only if: 	\\(\quad\quad	\\)	\\(\mathbf{v^TAv}≥0\\), for any \\(\mathbf{v}≠ 0\\). 
+
+
 
 |  What does this even mean???   | 
 |:----- |
 
-![](./assets/02-41.PNG)
+\\(d>0   \quad\Leftrightarrow \quad  \mathbf{v^T} d\mathbf{v} >0\\), for any \\(\mathbf{v} ≠ 0. \\)      
+\\(\mathbf{A}\\) is symmetric semi-definite if only if: 	v^TAv≥0, for any v≠0. 
 
 
+
+\\(d_0, d_1,…>0     \quad\Leftrightarrow \quad     \mathbf{v^TDv=v^T} \begin{bmatrix}
+ \ddots  & \Box  & \Box\\\\
+\Box  & d_i & \Box\\\\
+\Box  &\Box  &\ddots 
+\end{bmatrix}\mathbf{v} >0\\), for any \\(\mathbf{v} ≠0.\\)    
+
+
+
+P34   
 ## Symmetric Positive Definiteness (s.p.d.)
 
 
@@ -431,7 +666,7 @@ We can apply eigenvalue decomposition to <u>asymmetric</u> matrices too, if we a
  - In practice, people often choose other ways to check  if **A** is sp.d. For example,    
 
 
-![](./assets/02-42.PNG)
+![](./assets/02-36.PNG)
 
 
 Finally, a s.p.d.matrix must be invertible:   
@@ -444,7 +679,7 @@ $$.
 
 
 Prove that if **A** is s.p.d., then \\(\mathbf{B} =\begin{bmatrix}
- \mathbf{A} &\mathbf{-A} \\
+ \mathbf{A} &\mathbf{-A} \\\\
 \mathbf{-A}  &\mathbf{A}
 \end{bmatrix}\\)is symmetric semi-definite.     
 
@@ -454,15 +689,15 @@ $$
 \begin{bmatrix}
 \mathbf{ x^T}&\mathbf{ y^T}
 \end{bmatrix}\mathbf{B}\begin{bmatrix}
-\mathbf{x} \\
+\mathbf{x} \\\\
 \mathbf{y}
 \end{bmatrix}=\begin{bmatrix}
 \mathbf{ x^T}&\mathbf{ y^T}
 \end{bmatrix}\begin{bmatrix}
- \mathbf{A} &\mathbf{-A} \\
+ \mathbf{A} &\mathbf{-A} \\\\
 \mathbf{-A}  &\mathbf{A}
 \end{bmatrix}\begin{bmatrix}
-\mathbf{x} \\
+\mathbf{x} \\\\
 \mathbf{y}
 \end{bmatrix}
 $$
@@ -479,7 +714,7 @@ $$
 \begin{bmatrix}
  \mathbf{ x^T} & \mathbf{y^T} 
 \end{bmatrix}\mathbf{B} \begin{bmatrix}
- \mathbf{x} \\
+ \mathbf{x} \\\\
 \mathbf{y} 
 \end{bmatrix}\ge 0
 $$
