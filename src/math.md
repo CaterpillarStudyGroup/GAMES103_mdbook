@@ -70,9 +70,15 @@ $$
 $$
 \mathbf{p+q=q+p} 
 $$
-![](./assets/02-5.PNG)    
+
+| Addition is commutative.|  
+|----|
+
+![](./assets/02-5-1.PNG)    
 
 
+| Geometric Meanings|  
+|----|
 
 
 P7
@@ -82,9 +88,11 @@ P7
 
 A (geometric) vector can represent a position, a velocity, a force, or a line/ray/segment.    
 
-![](./assets/02-6.PNG)    
-![](./assets/02-7.PNG)    
+![](./assets/02-6-2.PNG)    
 
+ 
+
+![](./assets/02-7-2.PNG)    
 
 
 P8
@@ -108,21 +116,25 @@ $$
 \mathbf{||q-p||} 
 $$
 
-> Distance between **q** and **p**    
+|  Distance between **q** and **p** |  
+|----|
+  
 
 $$
 \mathbf{||p||} =1
 $$
 
-> A unit vector
 
+|  A unit vector |  
+|----|
 
 $$
 \mathbf{\bar{p} =p/||p||} 
 $$
 
-> Normalization as
 
+|  Normalization as |  
+|----|
 
 
 
@@ -134,32 +146,31 @@ P10
 A dot product, also called inner product, is:
 
 
+![](./assets/02-11-1.PNG) 
 
+|  Geometric Meanings |  
+|----|
 
 $$
 \begin{array}{c} 
-  \mathbf{p\cdot q}=p_xq_x+p_yq_y+p_zq_z=\mathbf{p^Tq}   \\ \\
+  \mathbf{p\cdot q}=p_xq_x+p_yq_y+p_zq_z=\mathbf{p^Tq}   \\\\
  =||\mathbf{p} ||||\mathbf{q} ||\cos \theta 
 \end{array}
 $$
 
 
-![](./assets/02-11-1.PNG)   
-
-> Geometric Meanings    
-
 
  - \\(\mathbf{p\cdot q=q\cdot p} \\)    
  - \\(\mathbf{p\cdot (q+r)=p\cdot q+p\cdot r} \\)    
  - \\(\mathbf{p \cdot p = ||p||^2_2} \\), a different way to write norm.     
- - If \\(\mathbf{p·q} = 0\\)and \\(\mathbf{p,q}\ne 0\\)  then  \\(\cos \theta = 0\\),then \\(\mathbf{p}\\) and \\(\mathbf{q}\\) are orthogonal.    
+ - If \\(\mathbf{p·q} = 0\\) and  \\(\mathbf{p,q}\ne 0\\)  then  \\(\cos \theta = 0\\),then \\(\mathbf{p}\\) and \\(\mathbf{q}\\) are orthogonal.    
 
 
 P11
 ## Example 2: Particle-Line Projection
 
 
-![](./assets/02-12-1.PNG)
+![](./assets/02-12-2.PNG)
 
 
 
@@ -170,13 +181,7 @@ P12
 
 
 
-$$
-s=\mathbf{(p−c)^Tn } \left\{\begin{matrix} 
- > 0 & \mathrm{Above the plane} \\\\
- = 0 & \mathrm{On the plane} \\\\
- < 0 & \mathrm{Below the plane} \\\\
-\end{matrix}\right.
-$$    
+![](./assets/02-12P.PNG)
 
 S: The <u>signed</u> distance to the plane     
 
@@ -233,10 +238,10 @@ p_xq_y-p_yq_x\\\\
 $$
 
 
- - \\(\mathbf r·\mathbf p = 0; \mathbf r·\mathbf q = 0; ||\mathbf r|| = ||\mathbf p||||\mathbf q||   \sin 0\\)                      
- - \\(\mathbf p\times \mathbf q =-\mathbf q\times \mathbf p\\)
+ - \\(\mathbf r·\mathbf p = 0; \mathbf r·\mathbf q = 0; ||\mathbf r|| = ||\mathbf p||||\mathbf q||   \sin \theta\\)          
+ - \\(\mathbf p\times \mathbf q =-\mathbf q\times \mathbf p\\)   
  - \\(\mathbf p\times (\mathbf q +\mathbf r) = \mathbf p\times \mathbf q +\mathbf p\times \mathbf r\\)   
- - If \\( \mathbf p \times  \mathbf q =\mathbf 0\\) and \\(\mathbf p,\mathbf q\ne 0 \\) then \\(\sin = 0\\), then \\(\mathbf p\\) and \\(\mathbf q \\) are parallel (in the same or opposite direction)      
+ - If \\( \mathbf p \times  \mathbf q =\mathbf 0\\) and \\(\mathbf p,\mathbf q\ne 0 \\) then \\(\sin \theta= 0\\), then \\(\mathbf p\\) and \\(\mathbf q \\) are parallel (in the same or opposite direction).      
 
 
 P15
@@ -250,38 +255,29 @@ P15
  - The normal depends on the triangle index order, also known as topological order.      
 
 
-P16
+
+P16    
 Quiz: How to test if three points are on the same line (co-linear)?     
 
 
-P17
+P17   
 ## Example 6: Triangle Inside/Outside Test    
 
 
-![](./assets/02-19-1.PNG)
-
-> lf **p** is inside of \\(\mathbf{x_ox_1} \\), then:\\(\mathbf{(x_o - p)\times (x_1 -p)\cdot n >0 } \\)   
-
-
-![](./assets/02-19-2.PNG)
-
-> lf **p** is inside of \\(\mathbf{x_ox_1} \\), then:\\(\mathbf{(x_o - p)\times (x_1 -p)\cdot n < 0 } \\)    
+![](./assets/02-177.PNG)
+ 
 
 
 P18
 ## Example 6: Triangle Inside/Outside Test
 
 
-![](./assets/02-20-1.PNG)
+![](./assets/02-188.PNG)
 
-$$
-\left.\begin{matrix}
-\mathbf{(x_0-p)\times (x_1-p)\cdot n> 0}  \\\\ 
-\mathbf{(x_1-p)\times (x_2-p)\cdot n> 0}  \\\\ 
-\mathbf{(x_2-p)\times (x_0-p)\cdot n> 0} \\\\
-\end{matrix}\right\}
-$$
 
+
+
+**(请帮看看为什么公式显示不了部分)**
 $$
 \left.\begin{matrix}
  \mathbf{(x_0-p)\times (x_1-p)\cdot n> 0}  \\\\ 
@@ -294,31 +290,32 @@ $$
 Inside of triangle Otherwise, outside.   
 
 
+
 \\(\left.\begin{matrix}\mathbf{(x_0-p)\times (x_1-p)\cdot n> 0} 
  \\\\ \mathbf{(x_1-p)\times (x_2-p)\cdot n> 0} 
  \\\\ \mathbf{(x_2-p)\times (x_0-p)\cdot n> 0} 
 \end{matrix}\right\}\\) Inside of triangle Otherwise, outside.  
 
-
+**(请帮看看为什么公式显示不了部分)**
 
 
 
 P19
 ## xample 7: Barycentric Coordinates
 
-![](./assets/02-22.PNG)     
+![](./assets/02-22-1.PNG)     
 
 Note that:    
-$$
-\frac{1}{2} \mathbf{(x_0−p)×(x_1−p)\cdot n} 
-$$
 
 $$
-=\begin{cases} 
+\frac{1}{2} \mathbf{(x_0−p)×(x_1−p)\cdot n} =\begin{cases} 
   \frac{1}{2}||\mathbf{(x_0−p)×(x_1−p)} ||& \mathrm{inside}  \\\\  
   \frac{1}{2}||\mathbf{(x_0−p)×(x_1−p)} || & \mathrm{outside} 
-  \end{cases}  
+  \end{cases} 
 $$
+
+
+
 
 Signed areas:   
 
@@ -345,6 +342,10 @@ $$
 b_0=A_0/A   \quad  b_1=A_1/A   \quad  b_2=A_2/A 
 $$
 
+$$
+b_0+b_1+b_2=1
+$$
+
 
 Barycentric Interpolation
 
@@ -364,7 +365,9 @@ P20
 
  - Barycentric weights allows the interior points of a triangle to be interpolated.     
  - In a traditional graphics pipeline, pixel colors are calculated at triangle vertices first, and then interpolated within. This is known as *Gouraud shading*.    
+
  - It is hardware accelerated.    
+
  - It is no longer popular.     
  
  
@@ -387,6 +390,12 @@ Base triangle area:
 $$
 A=\frac{1}{2} ||\mathbf{X} _{10}\times \mathbf{X} _{20}||
 $$
+
+Height:    
+$$
+h=\mathbf{x} _{30}\cdot\mathbf{n} =\mathbf{x} _{30}\cdot \frac{\mathbf{x} _{10}\times \mathbf{x} _{20}}{‖\mathbf{x} _{10}\times \mathbf{x} _{20}‖} 
+$$
+
 
 Volume:    
 
@@ -546,15 +555,15 @@ $$
 
 $$
 \mathbf{A^TA}=\begin{bmatrix}
-\mathbf{a ^T}_0 \\\\
-\mathbf{a^T}_1 \\\\
-\mathbf{a^T}_2
+\mathbf{a}_0^\mathbf{T} \\\\
+\mathbf{a}_1^\mathbf{T} \\\\
+\mathbf{a}_2^\mathbf{T}
 \end{bmatrix}\begin{bmatrix}
  \mathbf{a}_0 & \mathbf{a}_1 &\mathbf{a}_2
 \end{bmatrix}=\begin{bmatrix}
- \mathbf{a^T}_0 \mathbf{a}_0 &  \mathbf{a^T}_0 \mathbf{a}_1 &  \mathbf{a^T}_0 \mathbf{a}_2\\\\
- \mathbf{a^T}_1 \mathbf{a}_0 &  \mathbf{a^T}_1 \mathbf{a}_1 &  \mathbf{a^T}_1 \mathbf{a}_2\\\\
-  \mathbf{a^T}_2 \mathbf{a}_0 &  \mathbf{a^T}_2 \mathbf{a}_1 &  \mathbf{a^T}_2 \mathbf{a}_2
+ \mathbf{a}_0^\mathbf{T} \mathbf{a}_0 &  \mathbf{a}_0^\mathbf{T} \mathbf{a}_1 &  \mathbf{a}_0^\mathbf{T} \mathbf{a}_2\\\\
+ \mathbf{a}_1^\mathbf{T} \mathbf{a}_0 &  \mathbf{a}_1^\mathbf{T} \mathbf{a}_1 &  \mathbf{a}_1^\mathbf{T} \mathbf{a}_2\\\\
+  \mathbf{a}_2^\mathbf{T} \mathbf{a}_0 &  \mathbf{a}_2^\mathbf{T} \mathbf{a}_1 &  \mathbf{a}_2^\mathbf{T} \mathbf{a}_2
 \end{bmatrix}=I
 $$
 
@@ -601,11 +610,11 @@ A **symmetric** matrix can be decomposed into:
 \\(\mathbf{A=UDV^{-1}}\quad\\)such that \\(\mathbf {D}\\) is diagonal,and \\(\mathbf {U}\\) is orthogonal.     
 \\(\quad \quad \quad  \quad\quad\\) D 的对角线元素是**eigenvalues**    
 
-As in the textbook     
+
+>**As in the textbook**     
 Let \\(\mathbf{U} =\begin{bmatrix}
  \cdots  & \mathbf{u} _i &\cdots
 \end{bmatrix}\\), we have:    
-
 $$
 \mathbf{Au} _i= \mathbf{UDU^T} \mathbf{u} _i=\mathbf{UD} \begin{bmatrix}
  \vdots \\\\
@@ -621,9 +630,11 @@ $$
 \vdots 
 \end{bmatrix}=d_i\mathbf{u} _i
 $$
+\\(\mathbf{U}\\): 是 the eigenvector of \\(d_i\\)     
+\\(d_i\\): 是 eigenualue    
 
-> \\(\mathbf{U}\\):是the eigenvector of \\(d_i\\)     
-> \\(d_i:\\)是 eigenualue
+
+
 
 
 We can apply eigenvalue decomposition to <u>asymmetric</u> matrices too, if we allow eigenvalues and eigenvectors to be **complex**. **Not considered here**.
@@ -641,8 +652,8 @@ P33
 |  What does this even mean???   | 
 |:----- |
 
-\\(d>0   \quad\Leftrightarrow \quad  \mathbf{v^T} d\mathbf{v} >0\\), for any \\(\mathbf{v} ≠ 0. \\)      
-\\(\mathbf{A}\\) is symmetric semi-definite if only if: 	v^TAv≥0, for any v≠0. 
+\\(d>0   \quad\quad\quad\quad\Leftrightarrow \quad  \mathbf{v^T} d\mathbf{v} >0\\), for any \\(\mathbf{v} ≠ 0. \\)      
+
 
 
 
@@ -650,7 +661,12 @@ P33
  \ddots  & \Box  & \Box\\\\
 \Box  & d_i & \Box\\\\
 \Box  &\Box  &\ddots 
-\end{bmatrix}\mathbf{v} >0\\), for any \\(\mathbf{v} ≠0.\\)    
+\end{bmatrix}\mathbf{v} >0\\), for any \\(\mathbf{v} ≠0.\\)     
+
+
+\\(d_0, d_1,…>0    \quad\Leftrightarrow \quad     \mathbf{v^T(UDU^T)v=v^TUU^T(UDU^T)UU^Tv}\\)   
+
+\\(\mathbf{U}\\) **orthogonal** \\(\quad\quad\quad\quad\quad\quad\quad\quad=\mathbf{(U^Tv)^T(D)(U^Tv)>0 } \\), for any \\(\mathbf{v} ≠0 \\)     
 
 
 
@@ -660,21 +676,37 @@ P34
 
 
  - **A** is s.p.d. if only if all of its eigenvalues are positive:     
- \\(\mathbf{A=UDU^T}  and d_o,d_1,\cdots > 0.\\)    
+ \\(\mathbf{A=UDU^T}\\)  and \\(d_o,d_1,\cdots > 0.\\)    
 
  - But eigenvalue decomposition is a stupid idea most of the time, since it takes lotsof time to compute.     
  - In practice, people often choose other ways to check  if **A** is sp.d. For example,    
 
 
-![](./assets/02-36.PNG)
+> \\(a_{ii}>∑_{i≠j}|a_{ij}|\\) for all \\(i\\)          
+ A diagonally dominant matrix is p.d.    
 
-
-Finally, a s.p.d.matrix must be invertible:   
 $$
-\mathbf{A^{-1} =(U^T)^{-1}D^{-1}U^{-1} = UD^{-1}U^T}.
-$$.
+\begin{bmatrix}
+  4&3  & 0\\\\
+  -1& 5 &3 \\\\
+  -8& 0 &9
+\end{bmatrix}\begin{matrix}\quad\quad
+ \quad4>3+0\\\\
+\quad\quad\quad 5>1+3 \\\\
+ \quad\quad9>8
+\end{matrix}
+$$
 
 
+
+ - Finally, a s.p.d.matrix must be invertible:   
+ $$
+ \mathbf{A^{-1} =(U^T)^{-1}D^{-1}U^{-1} = UD^{-1}U^T}.
+ $$.
+
+
+
+P35
 ## Question   
 
 
@@ -683,7 +715,7 @@ Prove that if **A** is s.p.d., then \\(\mathbf{B} =\begin{bmatrix}
 \mathbf{-A}  &\mathbf{A}
 \end{bmatrix}\\)is symmetric semi-definite.     
 
-For any\\( \mathbf{x} and \mathbf{y}\\), we know:
+For any \\( \mathbf{x}\\) and \\(\mathbf{y}\\), we know:
 
 $$
 \begin{bmatrix}
@@ -703,7 +735,7 @@ $$
 $$
 
 $$
-\mathbf{=x^T(x-y)-y^TA(x-y)=(x-y)^TA(x-y)} 
+\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\mathbf{=x^TA(x-y)-y^TA(x-y)=(x-y)^TA(x-y)} 
 $$
 
 
@@ -722,14 +754,15 @@ $$
 
 
 
-
+P36
 ## Linear Solver    
 
 
 Many numerical problems are ended up with solving a linear system:   
 
 
-![](./assets/02-43.PNG)
+![](./assets/02-32-1.PNG)
+
 
 
 It's expensive to compute \\(\mathbf{A^{-1}} \\), especially if \\(\mathbf{A} \\) is large and sparse. So we cannot simplydo:\\(\mathbf{x = A^{-1}b}\\).     
@@ -738,21 +771,36 @@ There are two popular linear solver approaches: direct and iterative.
 
 
 
-
+P37   
 ## Direct Linear Solver    
 
 
-A direct solver is typically based LU factorization, or its variant: Cholesky, \\(LDL^T\\), etc…    
+A direct solver is typically based LU factorization, or its variant: Cholesky, \\(\mathrm{LDL^\top } \\), etc…    
 
-![](./assets/02-44.PNG)
+$$
+\mathbf{A=LU=} \begin{bmatrix}
+ l_{00} & \Box  & \Box \\\\
+  l_{10} &  l_{11} & \Box \\\\
+  \vdots & \cdots  &\ddots 
+\end{bmatrix}\begin{bmatrix}
+ \ddots  & \cdots  &\vdots  \\\\
+  \Box&u_{n−1,n−1}  &u_{n−1,n} \\\\
+ \Box & \Box &u_{n,n}
+\end{bmatrix}
+$$
+\\(\quad\quad\quad\quad\quad\quad\quad\\)lower triangular   \\(\quad\quad\\) upper triangular
 
-![](./assets/02-45.PNG)
-![](./assets/02-46.PNG)
+
+
+
+![](./assets/02-33-1.PNG)
+
+![](./assets/02-34-1.PNG)
 
 
 
 
-
+P38
 ## Direct Linear Solver    
 
 
@@ -764,74 +812,120 @@ A direct solver is typically based LU factorization, or its variant: Cholesky, \
 
 
 
-
+P39
 ## Iterative Linear Solver    
 
 
 An iterative solver has the form:   
 
-![](./assets/02-47.PNG)
+![](./assets/02-355.PNG)
 
 
 Why does it work?    
 
-![](./assets/02-48.PNG)
+
+
+$$
+\begin{matrix}
+ \mathbf{b−Ax} ^{[k+1]} =\mathbf{b−Ax} ^{[k]}−\mathbf{αAM} ^{−1}(\mathbf{b−Ax} ^{[k]}) \\\\
+\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad=(\mathbf{I−αAM} ^{−1})(\mathbf{b−Ax} ^{[k]}) =(\mathbf{I−αAM} ^{−1})^{k+1}(\mathbf{b−Ax} ^{[0]})
+\end{matrix}
+$$
+
 
 
 So,
 
-![](./assets/02-49.PNG)
+\\(\mathbf{b−Ax} ^{[k+1]}→0\\), if \\(ρ(\mathbf{I−αAM} ^{−1})<1.\\)    
 
 
-\\(\rho\\):矩阵的spectral radius (the largest absolute value of the eigenvalues)
+\\(\rho\\):矩阵的spectral radius (the largest absolute value of the eigenvalues)     
 
 
+ 
+P39     
 \\(\mathbf{M}\\) must be easier to solve:    
-![](./assets/02-50.PNG)
+
+
+| \\(\mathbf{M} =\mathrm{diag} (\mathbf{A} )\\)  <br> Jacobi Method |
+|---|    
+
+\\(\quad\\)
+
+| \\(\mathbf{M} =\mathrm{lower} (\mathbf{A} )\\) <br>Gauss-Seidel Method  |        
+|---|    
+
 
 
 
 The convergence can be accelerated: Chebyshev, Conjugate Gradient, … (Omitted here.)    
 
 优点：
-![](./assets/02-51.PNG)
+![](./assets/02-38.PNG)
 
 缺点：
 
-![](./assets/02-52.PNG)
+![](./assets/02-39.PNG)
 
 
-
+P41
 ## Tensor Calculus   
 
-
+P42
 ## Basic Concepts: 1st-Order Derivatives   
 
 
-![](./assets/02-53.PNG)
+If  \\(f(\mathbf{x} )\in \mathbf{R} \\), then \\(df=\frac{∂f}{∂x}dx+\frac{∂f}{∂y}dy+\frac{∂f}{∂z}dz=\begin{bmatrix}
+ \frac{∂f}{∂x} & \frac{∂f}{∂y} &\frac{∂f}{∂z}
+\end{bmatrix}\begin{bmatrix}
+dx \\\\
+ dy\\\\
+dz
+\end{bmatrix}\\).
 
-![](./assets/02-54.PNG)
+$$
+\frac{∂f}{∂x}=\begin{bmatrix}
+ \frac{∂f}{∂x} & \frac{∂f}{∂y} &\frac{∂f}{∂z}
+\end{bmatrix}  
+$$
 
-![](./assets/02-55.PNG)
+$$
+\mathrm{ or  }
+$$
+
+|  \\(\nabla f(\mathbf{x} )=\begin{bmatrix}\frac{∂f}{∂x} \\\\ \frac{∂f}{∂y}\\\\\frac{∂f}{∂z}\end{bmatrix}\\) <br>  gradient  |    
+|----|   
 
 
+
+![](./assets/02-42.PNG)   
+
+Gradient is the steepest direction for increasing  \\(f\\). It’s perpendicular to the isosurface.
+
+
+
+P43    
 ## Basic Concepts: 1st-Order Derivatives    
 
 
+If \\(f(\mathbf{x} )=\begin{bmatrix}
+f(\mathbf{x} ) \\\\
+ g(\mathbf{x} )\\\\
+h(\mathbf{x} )
+\end{bmatrix}\in \mathbf{R} ^3\\),then:
 
-![](./assets/02-56.PNG)
+![](./assets/02-43.PNG)
 
 
-
-
+P44   
 ## Basic Concepts: 2nd-Order Derivatives    
 
 If \\(f\mathbf{(x)\in R} \\),then:   
 
-![](./assets/02-57.PNG)
+![](./assets/02-44.PNG)
 
 
-秦勒展开
+秦勒展开    
 ①\\(x\in R,f(x)\in R\\)     
 $$
 f(x)=f(x_0)+{f}' (x_0)(x-x_0)+\frac{1}{2} {f}'' (x_0)(x-x_0)^2+\cdots 
@@ -843,29 +937,38 @@ $$
 f(x)=f(x_0)+\rhd {f}' (x_0)\cdot (x-x_0)+\frac{1}{2}(x-x_0)^TH(x-x_0)+\cdots 
 $$
 
-当\\(H正定时,f(x)\\)满足一些特殊的性质
+当**H**正定时, \\(f(x)\\)满足一些特殊的性质    
 
 
 
 
-
+P45   
 ## Quiz:     
 
+\\(\frac{∂‖\mathbf{x}‖}{∂\mathbf{x}} = ?\\)    
 
-![](./assets/02-58.PNG) 
+$$
+\frac{∂‖\mathbf{x‖}}{∂\mathbf{x}  } =  \frac{∂(\mathbf{\mathbf{x^Tx} } )^{1/2}}{∂\mathbf{x} }=\frac{1}{2}(\mathbf{x^{T}x} )^{−1/2}
+\frac{∂(\mathbf{x^Tx}  )}{∂\mathbf{x} }=\frac{1}{2‖\mathbf{x} ‖}2\mathbf{x^T} =\frac{\mathbf{x^T} }{‖\mathbf{x} ‖}
+$$
+
+| $$\frac{∂(\mathbf{\mathbf{x^Tx} } )}{∂\mathbf{x} }=\frac{∂(x^2+y^2+z^2)}{∂\mathbf{x} }= \begin{bmatrix}2x& 2y &2z \end{bmatrix}= 2\mathbf{x^T}$$|   
+|----|   
 
 
+
+P46   
 ## Example: A Spring    
 
 
-![](./assets/02-59.PNG)
+![](./assets/02-46.PNG)
 
 
 Choi and Ko. 2002. Stable But Responive Cloth. TOG (SIGGRAPH)    
 
 
-
+P47   
 ## Example: A Spring with Two Ends    
 
 
-![](./assets/02-60.PNG)
+![](./assets/02-47-1.PNG)
