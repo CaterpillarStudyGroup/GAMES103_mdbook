@@ -181,35 +181,34 @@ P18
  
  
  
- 
+P19   
 ## Impulse Method    
 
 
 
 An impulse method assumes that collision changes the position and the velocity all of sudden.      
 
-图20
+![](./assets/04-16.PNG)    
 
-图21
+![](./assets/04-17.PNG)    
 
 
-
+P20    
 Changing the position is not enough, we must change the velocity as well.      
 
 
-
-图22
-
+![](./assets/04-18.PNG)    
 
 
+P21   
 ## Rigid Body Collision Detection and Response   
 
 
-
+P23   
 ## Rigid Body Collision Detection   
 
 
-图23
+![](./assets/04-19.PNG)    
 
 
 When the body is made of many vertices, we can detect its collision by testing each vertex:     
@@ -222,56 +221,71 @@ No a perfect solution, but acceptable (will come back to this weeks later…)
 
 
 
-
+P24   
 ## Rigid Body Collision Response by Impulse
 
 
-图24
+![](./assets/04-20.PNG)    
 
 
 
 Vertex *i*:    
 
-图25
+![](./assets/04-21.PNG)    
 
 Problem: **we cannot directly modif**y \\(\mathbf{x}_i\\) or \\(\mathbf{v}_i\\) **isince they not state variables**. They areindirectly determined.     
 
 
 Solution: we will find a way to modify \\(\mathbf{v}\\) and \\(\mathbf{\omega}\\).     
 
+   
 
 
-
-
-## Rigid Body Collision Response by Impulse    
-
-
-
+P25   
 思考过程：   
-What happens to \\(\mathbf{V}_i\\) when an impulse \\(\mathbf{j} is appliedat vertex *i*?      
+What happens to \\(\mathbf{V}_i\\) when an impulse \\(\mathbf{j}\\) is appliedat vertex \\(i\\)?      
 
-图26
-
-
+![](./assets/04-22.PNG)    
 
 
+
+P27    
+We can convert the cross product \\(\mathbf{r}x\\) into a matrix product \\(\mathbf{r}^*\\).    
+
+$$
+\mathbf{v_i^{new}} = \mathbf{v} _i+\frac{1}{M}\mathbf{j} −(\mathbf{Rr} _i)×(\mathbf{I} ^{−1}(\mathbf{Rr} _\mathbf{i}\times \mathbf{j} ))
+$$
+
+$$
+\mathbf{v_i^{new}} = \mathbf{v} _i+\frac{1}{M} \mathbf{j} −(\mathbf{Rr} _i)^∗\mathbf{I} ^{−1} (\mathbf{Rr} _i)^∗\mathbf{j} 
+$$
+
+
+> 
+$$
+\mathbf{v_i^{new}}-\mathbf{v}_i=\mathbf{Kj}
+$$
+
+$$
+\mathbf{K} \longleftarrow \frac{1}{M} \mathbf{1} −(\mathbf{Rr} _i)^{∗}\mathbf{I} ^{−1}(\mathbf{Rr} _i)^{∗}
+$$
+
+
+P26   
 ## Cross Product as a Matrix Product    
 
 
-图28(与25页图27交换)
-
-We can convert the cross product \\(\mathbf{r}x into a matrix product \\(\mathbf{r}^*.    
-
-图27
+![](./assets/04-23.PNG)    
 
 
 
-
+P28  
 ## Rigid Body Collision Response by Impulse    
 
+![](./assets/04-24.PNG)    
 
-图29
 
+P29  
 ## Some Implementation Details    
 
 
@@ -287,11 +301,11 @@ We can convert the cross product \\(\mathbf{r}x into a matrix product \\(\mathbf
 
 
 
-
+P30   
 ## Rigid Body Collision Response by Impulse    
 
 
-图30
+![](./assets/04-25.PNG)    
 
 
 
