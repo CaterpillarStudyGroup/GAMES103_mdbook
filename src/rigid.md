@@ -239,8 +239,7 @@ Let \\(\mathbf{q}  = \begin{bmatrix}
 \\(\quad\\)    
 
 
-(图)
-![](./assets/03-18.PNG) 
+
 
 
 
