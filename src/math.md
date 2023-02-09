@@ -272,31 +272,20 @@ P18
 ## Example 6: Triangle Inside/Outside Test
 
 
-![](./assets/02-188.PNG)
 
-
-
-
-**(请帮看看为什么公式显示不了部分)**
-$$
-\left.\begin{matrix}
+\\(\left.\begin{matrix}
  \mathbf{(x_0-p)\times (x_1-p)\cdot n> 0}  \\\\ 
  \mathbf{(x_1-p)\times (x_2-p)\cdot n> 0}  \\\\ 
  \mathbf{(x_2-p)\times (x_0-p)\cdot n> 0} 
-\end{matrix}\right\}
-$$
+\end{matrix}\right\)\\) Inside of triangle      
+
+Otherwise, outside.   
 
 
-Inside of triangle Otherwise, outside.   
 
 
 
-\\(\left.\begin{matrix}\mathbf{(x_0-p)\times (x_1-p)\cdot n> 0} 
- \\\\ \mathbf{(x_1-p)\times (x_2-p)\cdot n> 0} 
- \\\\ \mathbf{(x_2-p)\times (x_0-p)\cdot n> 0} 
-\end{matrix}\right\}\\) Inside of triangle Otherwise, outside.  
 
-**(请帮看看为什么公式显示不了部分)**
 
 
 
