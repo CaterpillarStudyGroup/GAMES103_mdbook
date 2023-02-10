@@ -7,3 +7,4 @@
 - [Lecture 02](math.md)
 - [Lecture 03](rigid.md)
 - [Lecture 04](rigidcontact.md)
+- [Lecture 05](cloth.md)
