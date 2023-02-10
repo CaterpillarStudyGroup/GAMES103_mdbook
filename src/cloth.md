@@ -226,32 +226,26 @@ According to Lecture 2, Page 48,
 ![](./assets/05-17.PNG)    
 
 
-This is because for any \\(\mathbf{x} _ij, \mathbf{v} ≠0\\),    
-
-$$
-\mathbf{v}^\mathbf{T}\frac{{\mathbf{x}_{ij}\mathbf{x}_{ij}}^\mathbf{T}} {||\mathbf{x}_{ij}||^2}\mathbf{v}=||\frac{{\mathbf{x}_{ij}}^\mathbf{T}\mathbf{v}}{||\mathbf{x} _{ij}||}||^2 > 0
-$$
-
-$$
-\mathbf{v}^\mathbf{T}\frac{\mathbf{x}_{ij}\mathbf{x}_{ij}{^\mathbf{T}}} {||\mathbf{x}_{ij}||^2}\mathbf{v} 
-$$
-
-$$
-=||\frac{\mathbf{x}_{ij}{^\mathbf{T}}\mathbf{v}}{||\mathbf{x} _{ij}||}||^2 > 0
-$$
+This is because for any \\(\mathbf{x} _{ij}, \mathbf{v} ≠0\\),    
 
 
 $$
-\mathbf{v} ^\mathbf{T} (\mathbf{I} -\frac{{\mathbf{x}_{ij}\mathbf{x}}^\mathbf{T}_{ij}} {||\mathbf{x}_{ij}||^2}) \mathbf{v} =\frac{||\mathbf{x} _{ij}||^2||\mathbf{v}||^2- ||{\mathbf{x}_{ij}}^\mathbf{T}\mathbf{v}||^2 }{||\mathbf{x} _{ij}||^2}\ge 0
+\mathbf{V}^\mathbf{T}\frac{{\mathbf{x} _{ij}\mathbf{x} _{ij}}^\mathbf{T} }{||\mathbf{x} _{ij}||^2}\mathbf{V}=||\frac{{\mathbf{x} _{ij}}^\mathbf{T} \mathbf{v} }{||\mathbf{x} _{ij}||}||^2> 0
 $$
 
+
+
+
+$$
+\mathbf{V} ^\mathbf{T} (\mathbf{I} -\frac{{\mathbf{x} _{ij}\mathbf{x} _{ij}}^\mathbf{T} }{||\mathbf{x} _{ij}||^2}) \mathbf{V} =\frac{||\mathbf{x} _{ij}||^2||\mathbf{v} ||^2-||{\mathbf{x} _{ij}}^\mathbf{T} \mathbf{v} ||^2}{||\mathbf{x} _{ij}||^2}\ge 0 
+$$
 
 
 
 P20   
 When a spring is stretched, \\(\mathbf{H} _e\\) is s.p.d.; but when it’s compressed, \\(\mathbf{H} _e\\) may not be s.p.d.     
 
-As a result, \\(\mathbf{H} _x\\) may not be s.p.d. (Lecture 2, Page 36).    
+As a result, \\(\mathbf{H}(\mathbf{x})\\) may not be s.p.d. (Lecture 2, Page 36).    
 
 \\(\mathbf{A}\\) may not be s.p.d. either.    
 
@@ -266,16 +260,16 @@ When a spring is compressed, the spring Hessian may not be positive definite. Th
 ![](./assets/05-19.PNG)    
 
 
-Note: This issue occurs only in 2D and 3D. In 1D, \\((E)=\frac{1}{2} k(x−L)^2\\) and \\({E}''(x)=k>0\\).     
+> Note: This issue occurs only in 2D and 3D. In 1D, \\(E(x)=\frac{1}{2} k(x−L)^2\\) and \\({E}''(x)=k>0\\).     
 
 
 
 P23   
 ## Enforcement of Positive Definiteness   
 
- - Nevertheless, some linear solvers can fail to work if the matrix A in A∆x=b is not positive definite.    
+ - Nevertheless, some linear solvers can fail to work if the matrix \\(\mathbf{A}\\) in \\(\mathbf{A}\bigtriangleup \mathbf{x}=\mathbf{b}\\) is not positive definite.    
 
- - One solution is to simply drop the ending term, when \\({\color{Orange} ||\mathbf{x} _{ij}||<\mathbf{L} _e}:\\)       
+ - One solution is to simply drop the ending term, when \\({\color{Orange}{ ||\mathbf{x} _{ij}||<\mathbf{L} _e}}:\\)       
 
 
  ![](./assets/05-20.PNG)    
@@ -289,15 +283,15 @@ P23
 P24   
 ## The Jacobi Method    
 
-We can use the Jacobi method to solve \\(\mathbf{A}\bigtriangleup \mathbf{x}  =\mathbf{b} \\).   
+We can use the Jacobi method to solve \\(\mathbf{A}∆\mathbf{x}  = \mathbf{b} \\).   
 
 ![](./assets/05-21.PNG)    
 
 
 
-The vanilla Jacobi method (\\(α\\)=1) has a tight convergence requirement on **A**, i.e., being diagonal dominant.    
+The vanilla Jacobi method (\\(α\\) = 1) has a tight convergence requirement on \\(\mathbf{A}\\), i.e., being diagonal dominant.    
 
-The use of \\(α\\) allows the method to converget even when **A** is positive definite only.    
+The use of \\(α\\) allows the method to converget even when \\(\mathbf{A}\\) is positive definite only.    
 
 
 
@@ -324,7 +318,7 @@ P25
 P26   
 ## The Jacobi Method with Chebyshev Acceleration    
 
-We can use the accelerated Jacobi method to solve \\(\mathbf{A}\bigtriangleup \mathbf{x}  =\mathbf{b} \\).    
+We can use the accelerated Jacobi method to solve \\(\mathbf{A}∆\mathbf{x} =\mathbf{b} \\).    
 
 > The Accelerated Jacobi Method    
 > \\(∆\mathbf{x}  \longleftarrow \mathbf{0} \\)    
@@ -332,13 +326,13 @@ We can use the accelerated Jacobi method to solve \\(\mathbf{A}\bigtriangleup \m
 > For \\(k=0\dots \mathbf{K}\\)   
 \\(\mathbf{r}  \longleftarrow \mathbf{b} −\mathbf{A} ∆\mathbf{x}\\)    
 If \\(||\mathbf{r} ||<\omega \quad\\)	break     
-If  \\(k=0	\quad\quad \omega =1\\)   
-Else \\(If  k=1 \omega =2/(2-\rho^2)\\)    
-Else \\(\quad\quad\omega =4/(4-\rho ^2\omega )\\)      
-old_\\(\bigtriangleup \mathbf{x} \longleftarrow \bigtriangleup \mathbf{x}\\)    
+If  \\(k=0	\quad\quad\quad \omega =1\\)   
+Else If \\( k=1 \quad \quad\quad\omega =2/(2-\rho^2)\\)    
+Else \\(\quad\quad\quad\omega =4/(4-\rho ^2\omega )\\)      
+old_\\(∆ \mathbf{x} \longleftarrow ∆ \mathbf{x}\\)    
 \\(∆\mathbf{x} ⟵∆\mathbf{x} +\mathbf{αD} ^{−1}\mathbf{r}\\)   
-\\(∆\mathbf{x} \longleftarrow \omega ∆ \mathbf{x} +(1−\omega)\\)last_\\(∆\mathbf{x}\\）   
-last_\\(∆\mathbf{x} \longleftarrow\\) old_\\(∆\mathbf{x}\\)    
+\\(∆\mathbf{x} \longleftarrow \omega ∆ \mathbf{x} +(1−\omega)\\)last_∆\\(\mathbf{x} <br>\\)   
+last_\\(∆\mathbf{x} \longleftarrow \\) old_\\(∆\mathbf{x}\\)    
 
 
 
@@ -371,15 +365,15 @@ A **bending** spring offers **little resistance** when cloth is nearly planar, s
 P30   
 ## A Dihedral Angle Model
 
-A dihedral angle model defines bending forces as a function of \\(\theta : \mathbf{f} _i=\mathbf{f} (\theta )\mathbf{u} _i\\).    
+A dihedral angle model defines bending forces as a function of \\(\theta : \mathbf{f} _i=f (\theta )\mathbf{u} _i\\).    
 
 ![](./assets/05-23.PNG)    
 
  - First, \\(\mathbf{u}_1\\) and \\(\mathbf{u}_2\\) should be in the normal directions \\(\mathbf{n}_1\\) and \\(\mathbf{n}_2\\).     
 
- - Second, bending doesn’t stretch the edge, so \\(\mathbf{u}_4\\)−\\(\mathbf{u}_3\\) should be orthogonal to the edge, i.e., in the span of \\(\mathbf{n}_1\\) and \\(\mathbf{n}_2\\).
+ - Second, bending **doesn’t stretch the edge**, so \\(\mathbf{u}_4\\)−\\(\mathbf{u}_3\\) should be orthogonal to the edge, i.e., in the span of \\(\mathbf{n}_1\\) and \\(\mathbf{n}_2\\).
 
- - Finally, \\(\mathbf{u}_1+\mathbf{u}_2+\mathbf{u}_3+\mathbf{u}_4=0\\), which means \\(\mathbf{u}_3\\) and \\(\mathbf{u}_4\\) are in the span of \\(\mathbf{n}_1\\) and \\(\mathbf{n}_2\\).    
+ - Finally, \\(\mathbf{u}_1+\mathbf{u}_2+\mathbf{u}_3+\mathbf{u}_4=\mathbf{0}\\), which means \\(\mathbf{u}_3\\) and \\(\mathbf{u}_4\\) are in the span of \\(\mathbf{n}_1\\) and \\(\mathbf{n}_2\\).    
 
 
 
@@ -398,10 +392,11 @@ Planar case:
 > \\(\mathbf{f} _i=k\frac{||\mathbf{E}||^2}{||\mathbf{N}_1||+||\mathbf{N}_2||} \sin(\frac{π−\theta}{2})\mathbf{u} _i\\)    
 
 
-Non-planar case:
-$$
-\mathbf{f} _i=k\frac{||\mathbf{E} ||^2}{||\mathbf{N} _1||+||\mathbf{N} _2||}(\sin(\frac{π−\theta}{2})-\sin(\frac{π−\theta_0}{2}))\mathbf{u}_i
-$$
+Non-planar case:    
+
+ >$$
+ \mathbf{f} _i=k\frac{||\mathbf{E} ||^2}{||\mathbf{N} _1||+||\mathbf{N} _2||}(\sin(\frac{π−\theta}{2})-\sin(\frac{π−\theta_0}{2}))\mathbf{u}_i
+ $$
 
 
 
@@ -437,17 +432,17 @@ $$
 \mathbf{Q} =\frac{3}{\mathbf{A} _0+\mathbf{A} _1}\mathbf{qq^T}
 $$
 
-$$
-\mathbf{q} = \begin{bmatrix}
+
+\\(\mathbf{q} = \begin{bmatrix}
  (\cot\theta _1+ \cot\theta _3)\mathbf{I} \\\\
  (\cot\theta _0+ \cot\theta _2)\mathbf{I} \\\\
  (-\cot\theta _0- \cot\theta _1)\mathbf{I} \\\\
 (-\cot\theta _2- \cot\theta _3)\mathbf{I}
-\end{bmatrix}
-$$
+\end{bmatrix}\\)
+
 \\(\mathbf{I}\\) is 3-by-3 identity.    
 
-It’s not hard to see that: \\(\mathbf{E} (\mathbf{x} )=\frac{3||\mathbf{q} ^T\mathbf{x} ||^2}{2(A_0+A_1)}\\).  Also, \\(\mathbf{E} (\mathbf{x} )=0\\) when the triangles are flat.    
+It’s not hard to see that: \\(E (\mathbf{x} )=\frac{3||\mathbf{q} ^\mathbf{T}\mathbf{x} ||^2}{2(A_0+A_1)}\\).  Also, \\(E (\mathbf{x} )=0\\) when the triangles are flat.    
 
 
 P35  
@@ -455,10 +450,23 @@ P35
 
  - Easy to implement:   
 
+ $$
+ \mathbf{f} (\mathbf{x} )=−\nabla \mathbf{E} (x)= −\mathbf{Q} \begin{bmatrix}
+ \mathbf{x} _0\\\\
+ \mathbf{x} _1\\\\
+  \mathbf{x} _2 \\\\
+ \mathbf{x} _3
+ \end{bmatrix}
+ $$
 
+ $$
+ \mathbf{H} (\mathbf{x} )=\frac{∂^2E(\mathbf{x} )}{∂\mathbf{x} ^2}=\mathbf{Q} 
+ $$
 
- - Compatible with implicit integration.    
+ - Compatible with implicit integration.     
+
  - No longer valid if cloth stretches much.    
+
  - Not suitable if the rest configuration is not planar.   
      - Cubic shell model.    
      - Projective dynamics model.    
@@ -520,10 +528,10 @@ P42
 We can then define the quadratic energy as:   
 
 $$
-\mathbf{E} (\mathbf{x} )=\frac{1}{2}||\mathbf{F−R} ||^2
+E (\mathbf{x} )=\frac{1}{2}||\mathbf{F−R} ||^2
 $$
 
-(\\(\mathbf{R}\\) is the rotation inside of \\(\mathbf{F}\\).  This energy tries to penalize the existence of \\(\mathbf{S}\\).     
+(\\(\mathbf{R}\\) is the rotation inside of \\(\mathbf{F}\\).  This energy tries to penalize the existence of \\(\mathbf{S}\\)).     
 
 Assuming that \\(\mathbf{R}\\) is constant, this \\(E(\mathbf{x})\\) becomes a quadratic function.  We can then derive the force and the Hessian.    
 
@@ -540,9 +548,9 @@ P43
 ## A Summary For the Day    
 
  - A mass-spring system          
-     - Planar springs against stretching/compression	- replaceable by co-rotational model
-     - Bending springs				- replaceable by dihedral or quadratic bending
-     - Regardless of the models, as long as we have \\(\mathbf{E} (\mathbf{x}\\), we can calculate force \\(\mathbf{f} (\mathbf{x} )=−∇ \mathbf{E} (\mathbf{x})\\) and Hessian \\(\mathbf{H} (\mathbf{x} )=∂E^2(\mathbf{x} )/∂\mathbf{x} ^2\\).  Forces and Hessians are stackable.    
+     - Planar springs against stretching/compression	\\(\quad\\)- replaceable by co-rotational model
+     - Bending springs				\\(\quad\\)- replaceable by dihedral or quadratic bending
+     - Regardless of the models, as long as we have \\(E (\mathbf{x})\\), we can calculate force \\(\mathbf{f} (\mathbf{x} )=−∇ \mathbf{E} (\mathbf{x})\\) and Hessian \\(\mathbf{H} (\mathbf{x} )=∂E^2(\mathbf{x} )/∂\mathbf{x} ^2\\).  Forces and Hessians are stackable.    
 
  - Two integration approaches    
      - Explicit integration, just need force.  Instability
