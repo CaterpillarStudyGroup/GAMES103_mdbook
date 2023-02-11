@@ -17,7 +17,7 @@ P6
 The goal of simulation is to update the state variable \\(\mathbf{s} ^{[k]}\\) over time.     
 
 
-![](./assets/03-1.PNG)     
+![](./assets/03-1.png)     
 
 
 
@@ -28,7 +28,7 @@ P7
 If a rigid body cannot deform, its motion consists of two parts: translation and rotation.   
 
 
-![](./assets/03-2.PNG)     
+![](./assets/03-2.png)     
 
 
 P9
@@ -39,7 +39,7 @@ P10
 ## Translational Motion   
 
 
-![](./assets/03-3.PNG)     
+![](./assets/03-3.png)     
 
 
 For translational motion, the state variablecontains the position \\(\mathbf{x}\\) and the velocity \\(\mathbf{v}\\).     
@@ -63,25 +63,25 @@ P11
 
 By definition, the integral \\(\mathbf{x} (t) = \int \mathbf{v}  (t) dt\\) is the area. Many methods estimate the area as a box.   
 
-![](./assets/03-4.PNG) 
+![](./assets/03-4.png) 
 
-![](./assets/03-5.PNG) 
+![](./assets/03-5.png) 
 
 
 P12   
 ## Integration Methods Explained    
 
-![](./assets/03-6.PNG) 
+![](./assets/03-6.png) 
 
-![](./assets/03-7.PNG) 
+![](./assets/03-7.png) 
 
 
 P13  
 ## Integration Methods Explained   
 
-![](./assets/03-8.PNG) 
+![](./assets/03-8.png) 
 
-![](./assets/03-9.PNG) 
+![](./assets/03-9.png) 
 
 
 
@@ -106,7 +106,7 @@ By definition, the integral \\(\mathbf{x} (t)=∫\mathbf{v} (t) dt\\) is the are
 |----|
 
 
-![](./assets/03-10.PNG)    
+![](./assets/03-10.png)    
 
 
 
@@ -127,14 +127,14 @@ P16
 ## Leapfrog Integration    
 
 
-![](./assets/03-11.PNG)    
+![](./assets/03-11.png)    
 
 
 In some literature, such a approach is called *semi-implicit*.  
 
 It has a funnier name: the *leapfrog method*.
 
-![](./assets/03-12.PNG)    
+![](./assets/03-12.png)    
 
 
 
@@ -142,16 +142,16 @@ P17
 ## Types of Forces  
 
 
-![](./assets/03-13.PNG)    
+![](./assets/03-13.png)    
 
 
 P18  
 ## igid Body Simulation (Translation Only)    
 
 
-![](./assets/03-14.PNG)    
+![](./assets/03-14.png)    
 
-![](./assets/03-15.PNG)    
+![](./assets/03-15.png)    
 
 The mass \\(M\\) and the time step \\(\Delta t\\) are user-specified variables.     
 
@@ -196,14 +196,14 @@ P22
 
 The alignment of two or more axes results in a loss of rotational DoFs.     
 
-![](./assets/03-16.PNG)    
+![](./assets/03-16.png)    
 
 
 
 P23  
 ## Rotation Represented by Quaternion    
 
-![](./assets/03-17.PNG)    
+![](./assets/03-17.png)    
 
 In the complex system, two numbers represent a 2D point.   
 
@@ -250,7 +250,7 @@ P25
 
  - To represent a rotation around \\(\mathbf{v}\\) by angle \\(0\\), we set the quaternion as:    
 
-   ![](./assets/03-19.PNG)    
+   ![](./assets/03-19.png)    
 
  - lt's very intuitive. lt's the built-in representation in Unity.     
  - Convertible to the matrix:   
@@ -270,7 +270,7 @@ P27
 ## Rotational Motion    
 
 
-![](./assets/03-20.PNG)    
+![](./assets/03-20.png)    
 
 Now we choose quaternion \\(\mathbf{q}\\) to represent theorientation, i.e., the rotation from the *reference* to the *current*.    
 
@@ -280,14 +280,14 @@ We use a 3D vector \\(\mathbf{\omega}\\) to denote angularvelocity.
 > The direction of \\(\mathbf{\omega}\\) is the axis.     
 The magnitude of \\(\mathbf{\omega}\\) is the speed.    
 
-![](./assets/03-21.PNG)     
+![](./assets/03-21.png)     
 
 
 
 P28   
 ## Torque and Inertia
 
-![](./assets/03-22.PNG)     
+![](./assets/03-22.png)     
 
 
 P29   
@@ -296,7 +296,7 @@ P29
 
 |    |Translational (linear)|Rotational (Angular)|
 |---|---|---|
-|Updafe|![](./assets/03-23.PNG)   |![](./assets/03-24.PNG)   |
+|Updafe|![](./assets/03-23.png)   |![](./assets/03-24.png)   |
 |states| Velocity \\(\mathbf{v}\\) <br> Position \\(\mathbf{x}\\)|Angular velocity \\(\mathbf{ω} \\)<br>   Quaternion \\(\mathbf{q}\\) |
 | Physical Quantities |Mass \\(\mathbf{M}\\) <br> Force \\(\mathbf{f}\\) | Inertia \\(\mathbf{I} \\) <br> Torque \\(\mathbf{τ} \\) |
 
@@ -310,13 +310,13 @@ P30
 ## Rigid Body Simulation    
 
 
-![](./assets/03-27.PNG)     
+![](./assets/03-27.png)     
 
 平移：   
-![](./assets/03-25.PNG)     
+![](./assets/03-25.png)     
 
 旋转：   
-![](./assets/03-26-1.PNG)     
+![](./assets/03-26-1.png)     
 
 
 
