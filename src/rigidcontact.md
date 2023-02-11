@@ -7,7 +7,7 @@ P2
 In practice, we update the same state variable \\(\mathbf{s} =\\){\\(\mathbf{v,x,\omega ,q}\\)} over time.     
 
 
-![](./assets/04-1.PNG)     
+![](./assets/04-1.png)     
 
 
 
@@ -18,7 +18,7 @@ P3
 A torque is the rotational equivalent of a force. It describes the rotational <u>tendency</u> caused by a force.    
 
 
-![](./assets/04-2.PNG)     
+![](./assets/04-2.png)     
 
 
 \\(\mathbf{τ} _i\\) is perpendicular to both vectors: \\(\mathbf{Rr} _i\\) and \\(\mathbf{f} _i\\).    
@@ -45,7 +45,7 @@ Similar to mass, an inertia tensor describes the resistance to rotational tenden
 
 
 
-![](./assets/04-3.PNG)     
+![](./assets/04-3.png)     
 
 
 
@@ -61,7 +61,7 @@ It’s a matrix! The mass inverse is the resistance (just like mass).
 
 
 
-![](./assets/04-4.PNG)     
+![](./assets/04-4.png)     
 
 \\(\mathbf{I} _{\mathbf{ref} }=\sum m_i(\mathbf{r} _i^\mathbf{T} \mathbf{r} _i\mathbf{1} −\mathbf{r} _i\mathbf{r} _i^\mathbf{T} )\\)
 
@@ -69,7 +69,7 @@ It’s a matrix! The mass inverse is the resistance (just like mass).
 
 
 
-![](./assets/04-5.PNG)     
+![](./assets/04-5.png)     
 
 What about the current inertia?      
 
@@ -99,7 +99,7 @@ P11
 A <u>signed</u> distance function \\(\phi (\mathbf{x} )\\) defines the distance from \\(\mathbf{x}\\) to a surface with a signThe sign indicates on which side \\(\mathbf{x}\\) is located.     
 
 
-![](./assets/04-6.PNG)     
+![](./assets/04-6.png)     
 
 
 
@@ -107,14 +107,14 @@ P12
 ## Signed Distance Function Examples    
 
 
-![](./assets/04-07.PNG)     
+![](./assets/04-07.png)     
 
 
 
 P13   
 ## Intersection of Signed Distance Functions    
 
-![](./assets/04-8.PNG)     
+![](./assets/04-8.png)     
 
 > If \\(\phi _0(\mathbf{x} )<0\\) and \\(\phi_1(\mathbf{x} )<0\\) and \\(\phi_2(\mathbf{x} )<0\\)      
 then inside    
@@ -127,7 +127,7 @@ P14
 ## Union of Signed Distance Functions   
 
 
-![](./assets/04-9.PNG)     
+![](./assets/04-9.png)     
 
 Intuitively, we can consider collision detection with the union of two objects as **collision detection with two separate objects**.     
 
@@ -139,9 +139,9 @@ P15
 
 A penalty method applies a penalty force in the next update. When the penalty potential is quadratic, the force is linear.     
 
-![](./assets/04-11.PNG)     
+![](./assets/04-11.png)     
 
-![](./assets/04-10.PNG)     
+![](./assets/04-10.png)     
 
 
 P16   
@@ -150,8 +150,8 @@ P16
 
 A buffer helps lessen the penetration issue. But it cannot strictly prevent penetration, no matter how large \\(k\\) is.      
 
-![](./assets/04-12.PNG)     
-![](./assets/04-13.PNG)     
+![](./assets/04-12.png)     
+![](./assets/04-13.png)     
 
 
 
@@ -161,9 +161,9 @@ P17
 
 A log-barrier penalty potential ensures that the force can be large enough. But it assumes \\(\phi (\mathbf{x} ) < 0\\) will never happen!!! To achieve that, it needs to adjust \\(\Delta t\\).     
 
-![](./assets/04-14.PNG)     
+![](./assets/04-14.png)     
 
-![](./assets/04-15.PNG)     
+![](./assets/04-15.png)     
 
 
 
@@ -191,16 +191,16 @@ P19
 
 An impulse method assumes that collision changes the position and the velocity all of sudden.      
 
-![](./assets/04-16.PNG)    
+![](./assets/04-16.png)    
 
-![](./assets/04-17.PNG)    
+![](./assets/04-17.png)    
 
 
 P20    
 Changing the position is not enough, we must change the velocity as well.      
 
 
-![](./assets/04-18.PNG)    
+![](./assets/04-18.png)    
 
 
 P21   
@@ -211,7 +211,7 @@ P23
 ## Rigid Body Collision Detection   
 
 
-![](./assets/04-19.PNG)    
+![](./assets/04-19.png)    
 
 
 When the body is made of many vertices, we can detect its collision by testing each vertex:     
@@ -228,13 +228,13 @@ P24
 ## Rigid Body Collision Response by Impulse
 
 
-![](./assets/04-20.PNG)    
+![](./assets/04-20.png)    
 
 
 
 Vertex *i*:    
 
-![](./assets/04-21.PNG)    
+![](./assets/04-21.png)    
 
 Problem: **we cannot directly modif**y \\(\mathbf{x}_i\\) or \\(\mathbf{v}_i\\) **isince they not state variables**. They areindirectly determined.     
 
@@ -248,7 +248,7 @@ P25
 思考过程：   
 What happens to \\(\mathbf{V}_i\\) when an impulse \\(\mathbf{j}\\) is appliedat vertex \\(i\\)?      
 
-![](./assets/04-22.PNG)    
+![](./assets/04-22.png)    
 
 
 
@@ -277,14 +277,14 @@ P26
 
 We can convert the cross product \\(\mathbf{r}x\\) into a matrix product \\(\mathbf{r}^*\\).    
 
-![](./assets/04-23.PNG)    
+![](./assets/04-23.png)    
 
 
 
 P28  
 ## Rigid Body Collision Response by Impulse    
 
-![](./assets/04-24.PNG)    
+![](./assets/04-24.png)    
 
 
 P29  
@@ -309,7 +309,7 @@ P30
 ## Rigid Body Collision Response by Impulse    
 
 
-![](./assets/04-25.PNG)    
+![](./assets/04-25.png)    
 
 Relative velocity at joints     
 
@@ -373,7 +373,7 @@ P33
 
 We allow each vertex to have its own velocity, so it can move by itself.     
 
-![](./assets/04-26.PNG)    
+![](./assets/04-26.png)    
 
 
 
@@ -388,7 +388,7 @@ P34
 
 Now \\(\mathbf{c}\\) and \\(\mathbf{R}\\) are unknowns we want to find out from:
 
-![](./assets/04-27.PNG)    
+![](./assets/04-27.png)    
 
 
 
@@ -396,7 +396,7 @@ P35
 ## Mathematical Formulation   
 
 
-![](./assets/04-28.PNG)    
+![](./assets/04-28.png)    
 
 
 P36   
@@ -405,17 +405,17 @@ P36
 
 Singular value decomposition says any matrix can be decomposed into: rotation,scaling and rotation: \\(\mathbf{A = UDV} ^T\\).    
 
-![](./assets/04-29.PNG)    
+![](./assets/04-29.png)    
 
 We can rotate the object back before the final rotation: \\(\mathbf{A}  = (\mathbf{UV} ^T)(\mathbf{VDV} ^T)\\).    
 
-![](./assets/04-30.PNG)    
+![](./assets/04-30.png)    
 
 
 P37   
 We can rotate the object back before the final rotation: \\(\mathbf{A}  = (\mathbf{UV} ^T)(\mathbf{VDV} ^T)\\).    
 
-![](./assets/04-31.PNG)    
+![](./assets/04-31.png)    
 
 
 
@@ -425,7 +425,7 @@ We can rotate the object back before the final rotation: \\(\mathbf{A}  = (\math
 P38  
 ## Polar Decomposition     
 
-![](./assets/04-32.PNG)    
+![](./assets/04-32.png)    
 
 $$
 \mathbf{A=RS} 
