@@ -850,7 +850,7 @@ P39
 The convergence can be accelerated: Chebyshev, Conjugate Gradient, … (Omitted here.)    
 
 优点：
-![](./assets/02-38.PNG)
+![](./assets/02-38.png)
 
 缺点：
 
