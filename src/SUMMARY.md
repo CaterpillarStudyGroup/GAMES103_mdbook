@@ -8,3 +8,4 @@
 - [Lecture 03](rigid.md)
 - [Lecture 04](rigidcontact.md)
 - [Lecture 05](cloth.md)
+- [Lecture 06](constraints.md)
