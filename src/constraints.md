@@ -23,7 +23,7 @@ If a spring is infinitely stiff, we can treat the length as a constraint and def
 
 ![](./assets/06-1.png)    
 
-\\(\phi (\mathbf{x} )=||\mathbf{x} _i− \mathbf{x} _j||−L=0\\)      
+\\(\mathbf{ϕ} (\mathbf{x} )=||\mathbf{x} _i− \mathbf{x} _j||−L=0\\)      
 Constraint     
 
 ![](./assets/06-2.png)    
@@ -38,15 +38,16 @@ If a spring is infinitely stiff, we can treat the length as a constraint and def
 ![](./assets/06-3.png)    
 
 
-{\\(\mathbf{x} _i^{\mathbf{new},\mathbf{x} _j^{\mathbf{new} }\\)}}= argmin \\( \frac{1}{2}\\){\\(m_i||\mathbf{x} _i^{\mathbf{new} }−\mathbf{x} _i||^2+m_j||\mathbf{x} _j^{\mathbf{new}} −\mathbf{x} _j||^2\\)}    
+{\\(\mathbf{x} _i^{\mathbf{new}},\mathbf{x} _j^{\mathbf{new} }\\)}= argmin \\( \frac{1}{2}\\){\\(m_i||\mathbf{x} _i^{\mathbf{new} }−\mathbf{x} _i||^2+m_j||\mathbf{x} _j^{\mathbf{new}} −\mathbf{x} _j||^2\\)}    
 
-such that  \\(\phi (\mathbf{x} )=0\\)
+such that  \\(\mathbf{ϕ} (\mathbf{x} )=0\\)
 
 
 
 P7   
 ## A Single Spring     
 
+> __________________ 
 $$
 \mathbf{x} ^{\mathbf{new} } \longleftarrow  \mathrm{Projection} (\mathbf{x})
 $$   
@@ -57,14 +58,16 @@ $$
 $$
    
 $$
-\mathbf{x} _j^{\mathbf{new} }\longleftarrow \mathbf{x} _j−\frac{m_i}{m_i+m_j} (||\mathbf{x} _i−\mathbf{x} _j||−L)\frac{\mathbf{x} _i−\mathbf{x}_j}{||\mathbf{x} _i−\mathbf{x} _j||} 
+\mathbf{x} _j^{\mathbf{new} }\longleftarrow \mathbf{x} _j+\frac{m_i}{m_i+m_j} (||\mathbf{x} _i−\mathbf{x} _j||−L)\frac{\mathbf{x} _i−\mathbf{x}_j}{||\mathbf{x} _i−\mathbf{x} _j||} 
 $$
+> __________________ 
 
 $$
-\phi (\mathbf{x} ^{\mathbf{new} })=||\mathbf{x} _i^{\mathbf{new} }− \mathbf{x} _j^{\mathrm{new} }||−L=||\mathbf{x} _i−\mathbf{x} _j−\mathbf{x} _i+\mathbf{x} _j+L||−L=0
+\mathbf{ϕ} (\mathbf{x} ^{\mathbf{new} })=||\mathbf{x} _i^{\mathbf{new} }− \mathbf{x} _j^{\mathrm{new} }||−L=||\mathbf{x} _i−\mathbf{x} _j−\mathbf{x} _i+\mathbf{x} _j+L||−L=0
 $$
 
-By default, \\(m_i=m_j\\), but we can also set m_i=∞ for stationary nodes.   
+
+By default, \\(m_i=m_j\\), but we can also set \\(m_i=\infty\\) for stationary nodes.   
 
 
 
@@ -84,7 +87,7 @@ P9
 
 > Projection (by Gauss-Seidel)     
 \\(\quad\quad\\) For \\(k=0…K\\)    
-For every edge \\(e\\)={\\(i,j\\0}    
+For every edge \\(e\\) = {\\(i,j\\)}    
 $$
 \mathbf{x} _i\longleftarrow \mathbf{x} _i−\frac{1}{2} (||\mathbf{x} _i−\mathbf{x} _j||−L_e)\frac{\mathbf{x} _i−\mathbf{x}_j}{||\mathbf{x} _i−\mathbf{x} _j||}   
 $$
@@ -105,13 +108,14 @@ P10
 ## Multiple Springs – A Jacobi Approach   
 
 
- - To avoid bias, the Jacobi approach projects all of the edges simultaneously and then linearly blend the results.    
+ - To avoid bias, the Jacobi approach projects all of the edges **simultaneously** and then linearly blend the results.    
 
  - The problem is an even lower convergence rate. 
 
  - Again, the more iterations it uses, the better the constraints are enforced.    
 
 
+> __________________
 Projection (by Jacobi)    
 For \\(k = 0…K\\)    
 For every vertex \\(i\\)    
@@ -124,7 +128,7 @@ $$
 n _i\longleftarrow 0
 $$
 
-For every edge e={\\(i,j\\)}     
+For every edge \\(e\\) = {\\(i,j\\)}     
 
 $$
 \mathbf{x}^{\mathbf{new} } _i\longleftarrow \mathbf{x}^{\mathbf{new} } _i+\mathbf{x}_i−\frac{1}{2} (||\mathbf{x} _i−\mathbf{x} _j||−L_e)\frac{\mathbf{x} _i−\mathbf{x}_j}{||\mathbf{x} _i−\mathbf{x} _j||}    
@@ -143,11 +147,13 @@ $$
 n _j\longleftarrow n_j+1
 $$
 
-For every vertex \\(i\\）   
+For every vertex \\(i\\)     
+
 $$
 \mathbf{x} _i⟵(\mathbf{x} _i^{\mathbf{new} }+α\mathbf{x} _i)/(n_i+α)
 $$
 
+> __________________ 
 
 
 
@@ -159,7 +165,7 @@ P11
 
 Position based dynamics (PBD) is based on the projection function.    
 
- - The stiffness behavior, i.e., how tightly constraints are enforced, is subject to non-physical factors. 
+ - The stiffness behavior, i.e., how tightly constraints are enforced, is subject to **non-physical** factors. 
     - The number of iterations 
     - The mesh resolution
  - The velocity update following projection is important to dynamic effects. 
@@ -237,12 +243,15 @@ We can set the spring strain, i.e., the stretching ratio σ, to be within a limi
 ![](./assets/06-6.png)    
 
 $$
-\sigma ^{min}≤\frac{1}{L}||\mathbf{x} _i− \mathbf{x} _j||≤\sigma^{max}
+\sigma ^\mathrm{{min}}≤\frac{1}{L}||\mathbf{x} _i− \mathbf{x} _j||≤\sigma^\mathrm{{max}}
 $$
 
 Constraint
 
 ![](./assets/06-7.png)    
+
+ 
+
 
 
 
@@ -270,6 +279,9 @@ $$
 $$
 
 > ____________________
+\\(\mathrm{PBD}: \sigma _0≡1;\quad\quad\\)No limit: \\(\sigma ^{\mathrm{min} }, σ^{\mathrm{max} }\longleftarrow \infty\\)   
+
+
 
 
 P17  
@@ -289,6 +301,7 @@ such that the constraint is satisfied.
 
 P18   
 
+> ____________________
 $$
 \mathbf{x} ^{\mathbf{new}} ⟵\mathrm{Projection} (\mathbf{x} )
 $$
@@ -298,7 +311,7 @@ $$
 $$
 
 $$
-\mathbf{s} \longleftarrow \sqrt{\mathrm{min} (\mathrm{max} (A,A^{min}),A^{max})/A}
+\mathbf{s} \longleftarrow \sqrt{\mathrm{\mathrm{min}} (\mathrm{\mathrm{max}} (A,A^{\mathrm{min}}),A^{\mathrm{max}})/A}
 $$
 
 $$
@@ -316,7 +329,7 @@ $$
 $$
 \mathbf{x} _k^{\mathrm{new}}\longleftarrow \mathbf{c} +s(\mathbf{x} _k−\mathbf{c} )
 $$
-
+> ____________________
 
 
 
@@ -341,21 +354,23 @@ P21
 P22   
 ## Projective Dynamics     
 
-Instead of blending projections in a Jacobi or Gauss-Seidel fashion as in PBD, projective dynamics uses projection to define a quadratic energy.      
+Instead of blending projections in a Jacobi or Gauss-Seidel fashion as in PBD, projective dynamics uses <u>projection</u> to define a <u>quadratic</u> energy.      
 
 ![](./assets/06-10.png)    
 
-$$
-E (\mathbf{x} )=\sum_{e=（i,j）}\frac{1}{2} ||(\mathbf{x} _i−\mathbf{x} _j)−(\mathbf{x} ^{\mathrm{new} }_{e,i}−\mathbf{x} ^{\mathrm{new} }_{e,j})||^2
-$$
+> ____________________
 
-{\\(\mathbf{x} _{e,i}^{\mathrm{new} }\mathbf{x} ^{\mathrm{new} }_{e,j}\\)}=\\(\mathrm{Projection} _e(\mathbf{x}_i,\mathbf{x}_j)\\) for every edge \\(e\\)    
-
-$$
-\mathbf{f} _i=−\nabla_iE(\mathbf{x} )=−\sum _{e:i\in e}(\mathbf{x} _i−\mathbf{x} _j)−(\mathbf{x} _{e,i}^{\mathrm{new}} −\mathbf{x} _{e,j}^{\mathbf{new} })
-$$
+\\(E(\mathbf{x} ) = {\textstyle \sum_{e = (i,j)}}\frac{1}{2} ||(\mathbf{x} _i−\mathbf{x} _j)−(\mathbf{x} _{e,i}^{\mathrm{new} }−\mathbf{x} _{e,j}^{\mathrm{new} })||^2\\)
 
 
+
+{\\(\mathbf{x} _{e,i}^{\mathrm{new} },\mathbf{x} _{e,j}^{\mathrm{new} }\\)} = \\(\mathrm{Projection} _e(\mathbf{x}_i,\mathbf{x}_j)\\) for every edge \\(e\\)    
+> ____________________
+
+
+$$
+\mathbf{f} _i=−\nabla_iE(\mathbf{x} )=−{\textstyle \sum _{e:i\in e}}(\mathbf{x} _i−\mathbf{x} _j)−(\mathbf{x} _{e,i}^{\mathrm{new}} −\mathbf{x} _{e,j}^{\mathbf{new} })
+$$
 
 P23   
 ## Projective Dynamics – Explained   
@@ -377,9 +392,15 @@ Shape matching is also projective dynamics, if we view rotation as projection:
 
 ![](./assets/06-15.png)    
 
-![](./assets/06-13.png)    
+![](./assets/06-013.png)    
+**The 2D Space**    
 
-![](./assets/06-14.png)    
+\\(\quad\\)
+
+![](./assets/06-014.png)    
+**The 3D Space**    
+
+\\(\quad\\)
 
 Assuming that \\(\mathbf{{\color{Orange} R} }\\) is constant,     
 $$
@@ -401,7 +422,7 @@ P25
 
  - We can use a direct solver with **only one factorization of A**.
 
->————————————————
+>________________
 Initialize  \\(\mathbf{x} ^{(0)}\\), often as\\( \mathbf{x} ^{[0]} \\)or \\(\mathbf{x} ^{[0]} +∆t\mathbf{v} ^{[0]} \\)    
 
 For \\(k=0\dots K\\)     
@@ -410,7 +431,7 @@ Solve \\((\frac{1}{∆t^2}\mathbf{M} +\mathbf{H} )∆\mathbf{x} =−\frac{1}{∆
 
 \\(\mathbf{x} ^{(k+1)}\longleftarrow \mathbf{x} ^{(k)}+∆\mathbf{x} \\)      
 
-If \\(||∆\mathbf{x}||\\) is small	then break     
+If \\(||∆\mathbf{x}||\\) is small	\\(\quad\\) then break     
 
 \\(\mathbf{x} ^{[1]}\longleftarrow \mathbf{x} ^{(k+1)}\\)    
 
@@ -418,7 +439,7 @@ If \\(||∆\mathbf{x}||\\) is small	then break
 
 “Newton’s Method”    
 
->————————————————
+>________________
 
 
 P26  
@@ -475,24 +496,24 @@ A critical problem exists: what if constraints/forces are **very very stiff**? O
 ![](./assets/06-17.png)    
 
 $$
-\phi _e(\mathbf{x} )=||\mathbf{x} _{ei}− \mathbf{x} _{ej}||−L_e
+\mathbf{ϕ} _e(\mathbf{x} )=||\mathbf{x} _{ei}− \mathbf{x} _{ej}||−L_e
 $$
 
 Compliant constraint    
 
 $$
-E(\mathbf{x} )=\sum_e\frac{1}{2} k(||\mathbf{x} _{ei} −\mathbf{x} _{ej}||−L_e)^2=\frac{1}{2} \mathbf{\phi^T(x)C} ^{−1}\phi (\mathbf{x} )
+E(\mathbf{x} )={\textstyle \sum_e}\frac{1}{2} k(||\mathbf{x} _{ei} −\mathbf{x} _{ej}||−L_e)^2=\frac{1}{2} \mathbf{\mathbf{ϕ}^T(x)C} ^{−1}\mathbf{ϕ} (\mathbf{x} )
 $$
 
 $$
 \mathbf{f} (\mathbf{x} )=−∇E=-\begin{pmatrix}
- \frac{∂E}{∂\phi}  & \frac{∂\phi}{∂x}
-\end{pmatrix}^\mathbf{T} =−\mathbf{J^TC} ^{−1}\phi =\mathbf{J^Tλ} 
+ \frac{∂E}{∂\mathbf{ϕ}}  & \frac{∂\mathbf{ϕ}}{∂x}
+\end{pmatrix}^\mathbf{T} =−\mathbf{J^TC} ^{−1}\mathbf{ϕ} =\mathbf{J^Tλ} 
 $$
 
 
 
-Let N be the number of vertices and E be the number of constraints,    
+Let \\(N\\) be the number of vertices and E be the number of constraints,    
 
 $$
 \phi (\mathbf{x} )\in \mathbf{R} ^E
@@ -509,6 +530,9 @@ Compliant matrix
 
 | \\(\mathbf{J} =\frac{∂\phi}{∂\mathbf{x} } \in \mathbf{R} ^{E×3N}\\) <br>Jacobian  |  
 |----|  
+
+\\(\quad\\)
+
 |  \\(\mathbf{λ} =−\mathbf{C} ^{−1}\phi \in \mathbf{R} ^E\\)<br> Dual variables (Lagrangian multipliers)  |   
 |----|  
 
@@ -524,7 +548,7 @@ $$
 
 Meanwhile,
 $$
-\mathbf{Cλ} ^{\mathrm{new} }=−\phi ^{\mathrm{new} }≈−\phi −\mathbf{J} (\mathbf{x} ^{\mathrm{new} }−\mathbf{x} )≈−\phi −∆t\mathbf{Jv} ^{\mathrm{new} }
+\mathbf{Cλ} ^{\mathrm{new} }=−\mathbf{ϕ} ^{\mathrm{new} }≈−\mathbf{ϕ} −\mathbf{J} (\mathbf{x} ^{\mathrm{new} }−\mathbf{x} )≈−\mathbf{ϕ} −∆t\mathbf{Jv} ^{\mathrm{new} }
 $$
 
 $$
@@ -536,7 +560,7 @@ $$
 \mathbf{λ} ^{\mathrm{new} }
 \end{bmatrix}\begin{bmatrix}
 \mathbf{Mv}  \\\\
--\phi 
+-\mathbf{ϕ} 
 \end{bmatrix}
 $$
 
@@ -544,12 +568,9 @@ $$
 
 
 P32    
- -Now we have a system with two sets of variables: the primal variable \\(\mathbf {x}\\) (or \\(\mathbf {v=x}\\) ̇) and the dual variable \\(\mathbf {λ}\\).   
+ - Now we have a system with two sets of variables: the primal variable \\(\mathbf {x}\\) (or \\(\mathbf {v=x}\\) ̇) and the dual variable \\(\mathbf {λ}\\).   
 
- -Method 1: We can solve the two variables by a **direct solver** together, in a <u>primal-dual</u> fashion:   
-
-
- -Method 2: We can **reduce the system** by Schur complement and solve \\(\mathbf {λ}^{\mathrm{new} }\\) first.  
+ - Method 1: We can solve the two variables by a **direct solver** together, in a <u>primal-dual</u> fashion:   
 
 $$
 \begin{bmatrix}
@@ -560,9 +581,15 @@ $$
 \mathbf{λ} ^{\mathrm{new} }
 \end{bmatrix}\begin{bmatrix}
 \mathbf{Mv}  \\\\
--\phi 
+-\mathbf{ϕ} 
 \end{bmatrix}
 $$ 
+
+ - Method 2: We can **reduce the system** by Schur complement and solve \\(\mathbf {λ}^{\mathrm{new} }\\) first.  
+
+$$
+(∆t^2\mathbf{JM} ^{−1}\mathbf{J} ^\mathbf{T} +\mathbf{C} )\mathbf{λ} ^{\mathrm{new} } =−\mathbf{ϕ} −∆t\mathbf{Jv} 
+$$
 
 $$
 \mathbf{v} ^{\mathrm{new}}\longleftarrow \mathbf{v} +−∆t\mathbf{M} ^{−1}\mathbf{J^Tλ} ^{\mathrm{new}}
@@ -599,7 +626,7 @@ $$
 
 ![](./assets/06-18.png)    
 
-constrained dynamics:\\(\mathbf{f} (\mathbf{x} )=\mathbf{J^Tλ}\\)  and \\(\mathbf{λ} =−\mathbf{C} ^{−1}\phi \\), so: 
+According to constrained dynamics:\\(\mathbf{f} (\mathbf{x} )=\mathbf{J^Tλ}\\)  and \\(\mathbf{λ} =−\mathbf{C} ^{−1}\\mathbf{ϕ} \\), so: 
 
 ![](./assets/06-19.png)   
 
