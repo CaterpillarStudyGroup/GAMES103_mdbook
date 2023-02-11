@@ -27,7 +27,7 @@ $$
 
 The vector **p** is defined with respect to the origin **o**.
 
-![](./assets/02-2.PNG)     
+![](./assets/02-2.png)     
 
 
 
@@ -39,7 +39,7 @@ P4
 The choice of a right-hand or left-hand system is largely due to:    
 **the convention of the screen space**.    
 
-![](./assets/02-3.PNG)    
+![](./assets/02-3.png)    
 
 
 P5
@@ -48,7 +48,7 @@ P5
 
 Vectors can be stacked up to form a high-dimensional vector, commonly used for describing the state of an object.     
 
-![](./assets/02-4-1.PNG)    
+![](./assets/02-4-1.png)    
 
 
 
@@ -74,7 +74,7 @@ $$
 | Addition is commutative.|  
 |----|
 
-![](./assets/02-5-1.PNG)    
+![](./assets/02-5-1.png)    
 
 
 | Geometric Meanings|  
@@ -88,11 +88,11 @@ P7
 
 A (geometric) vector can represent a position, a velocity, a force, or a line/ray/segment.    
 
-![](./assets/02-6-2.PNG)    
+![](./assets/02-6-2.png)    
 
  
 
-![](./assets/02-7-2.PNG)    
+![](./assets/02-7-2.png)    
 
 
 P8
@@ -101,7 +101,7 @@ P8
 
 A vector norm measures the magnitude of a vector: its length. 
 
-![](./assets/02-8.PNG)
+![](./assets/02-8.png)
 
 
 
@@ -110,7 +110,7 @@ P9
 ## Vector Norm: Usage  
 
 
-![](./assets/02-09.PNG)   
+![](./assets/02-09.png)   
 
 $$
 \mathbf{||q-p||} 
@@ -146,7 +146,7 @@ P10
 A dot product, also called inner product, is:
 
 
-![](./assets/02-11-1.PNG) 
+![](./assets/02-11-1.png) 
 
 |  Geometric Meanings |  
 |----|
@@ -170,31 +170,31 @@ P11
 ## Example 2: Particle-Line Projection
 
 
-![](./assets/02-12-2.PNG)
+![](./assets/02-12-2.png)
 
 
 
 P12
 ## Example 3: Plane Representation     
 
-![](./assets/02-13-1.PNG)
+![](./assets/02-13-1.png)
 
 
 
-![](./assets/02-12P.PNG)
+![](./assets/02-12P.png)
 
 S: The <u>signed</u> distance to the plane     
 
 
 Quiz: How to test if a point is within a box?    
 
-![](./assets/02-14-1.PNG)
+![](./assets/02-14-1.png)
 
 
 P13
 ## Example 4: Particle-Sphere Collision    
 
-![](./assets/02-15.PNG)
+![](./assets/02-15.png)
 
 
 If collision does happen, then:
@@ -224,7 +224,7 @@ P14
 ## Vector Arithematic: Cross Product
 
 
-![](./assets/02-17.PNG)
+![](./assets/02-17.png)
 
 
 The result of a cross product is a vector:
@@ -248,7 +248,7 @@ P15
 ## Example 5: Triangle Normal and Area   
 
 
-![](./assets/02-18.PNG)
+![](./assets/02-18.png)
 
 
  - Cross product gives both the normal and the area.    
@@ -264,7 +264,7 @@ P17
 ## Example 6: Triangle Inside/Outside Test    
 
 
-![](./assets/02-177.PNG)
+![](./assets/02-177.png)
  
 
 
@@ -292,7 +292,7 @@ Otherwise, outside.
 P19
 ## xample 7: Barycentric Coordinates
 
-![](./assets/02-22-1.PNG)     
+![](./assets/02-22-1.png)     
 
 Note that:    
 
@@ -350,7 +350,7 @@ $$
 P20
 ## Gouraud Shading    
 
-![](./assets/02-23.PNG)
+![](./assets/02-23.png)
 
  - Barycentric weights allows the interior points of a triangle to be interpolated.     
  - In a traditional graphics pipeline, pixel colors are calculated at triangle vertices first, and then interpolated within. This is known as *Gouraud shading*.    
@@ -365,7 +365,7 @@ P21
 ## Example 9: Tetrahedral Volume    
 
 
-![](./assets/02-24.PNG)
+![](./assets/02-24.png)
 
 Edge vectors:    
 
@@ -382,7 +382,7 @@ $$
 
 Height:    
 $$
-h=\mathbf{x} _{30}\cdot\mathbf{n} =\mathbf{x} _{30}\cdot \frac{\mathbf{x} _{10}\times \mathbf{x} _{20}}{‖\mathbf{x} _{10}\times \mathbf{x} _{20}‖} 
+h=\mathbf{x} _{30}\cdot\mathbf{n} =\mathbf{x} _{30}\cdot \frac{\mathbf{x} _{10}\times \mathbf{x} _{20}}{||\mathbf{x} _{10}\times \mathbf{x} _{20}||} 
 $$
 
 
@@ -407,14 +407,14 @@ P22
 
 Note that the volume \\(V =\frac{1}{3}h\mathit{A} =\frac{1}{6} \mathbf{x} _ {30}\cdot (\mathbf{x} _ {10}\times \mathbf{x}_{20})\\) **signed**.
 
-![](./assets/02-25.PNG)
+![](./assets/02-25.png)
 
 
 P23
 ## Example 10: Barycentric Weights (cont.)
 
 
-![](./assets/02-26.PNG)   
+![](./assets/02-26.png)   
 
 
  - **p** splits the tetrahedron into four sub-tetrahedra:    
@@ -456,7 +456,7 @@ P23
 P24
 ## Example 11: Particle-triangle Intersection
 
-![](./assets/02-27.PNG)
+![](./assets/02-27.png)
 
  - First, we find t when the particle hits the plane:   
 
@@ -500,7 +500,7 @@ A=\begin{bmatrix}
 $$
 
 
-![](./assets/02-29.PNG)
+![](./assets/02-29.png)
 
 
 $$
@@ -567,7 +567,7 @@ P29
 
 A rotation can be represented by an orthogonal matrix.    
 
-![](./assets/02-30.PNG)
+![](./assets/02-30.png)
 
 
 
@@ -575,7 +575,7 @@ P30
 A scaling can be represented by a diagonal matrix.  
 
 
-![](./assets/02-31.PNG)
+![](./assets/02-31.png)
 
 
 
@@ -590,7 +590,7 @@ A matrix can be decomposed into:
 Any **linear deformation** can be decomposed into three steps: rotation, scaling and rotation:    
 
 
-![](./assets/02-32.PNG)
+![](./assets/02-32.png)
 
 
 P32   
@@ -750,7 +750,7 @@ P36
 Many numerical problems are ended up with solving a linear system:   
 
 
-![](./assets/02-32-1.PNG)
+![](./assets/02-32-1.png)
 
 
 
@@ -782,9 +782,9 @@ $$
 
 
 
-![](./assets/02-33-1.PNG)
+![](./assets/02-33-1.png)
 
-![](./assets/02-34-1.PNG)
+![](./assets/02-34-1.png)
 
 
 
@@ -807,7 +807,7 @@ P39
 
 An iterative solver has the form:   
 
-![](./assets/02-355.PNG)
+![](./assets/02-355.png)
 
 
 Why does it work?    
@@ -854,7 +854,7 @@ The convergence can be accelerated: Chebyshev, Conjugate Gradient, … (Omitted 
 
 缺点：
 
-![](./assets/02-39.PNG)
+![](./assets/02-39.png)
 
 
 P41
@@ -887,7 +887,7 @@ $$
 
 
 
-![](./assets/02-42.PNG)   
+![](./assets/02-42.png)   
 
 Gradient is the steepest direction for increasing  \\(f\\). It’s perpendicular to the isosurface.
 
@@ -903,7 +903,7 @@ f(\mathbf{x} ) \\\\
 h(\mathbf{x} )
 \end{bmatrix}\in \mathbf{R} ^3\\),then:
 
-![](./assets/02-43.PNG)
+![](./assets/02-43.png)
 
 
 P44   
@@ -911,7 +911,7 @@ P44
 
 If \\(f\mathbf{(x)\in R} \\),then:   
 
-![](./assets/02-44.PNG)
+![](./assets/02-44.png)
 
 
 秦勒展开    
@@ -934,11 +934,11 @@ $$
 P45   
 ## Quiz:     
 
-\\(\frac{∂‖\mathbf{x}‖}{∂\mathbf{x}} = ?\\)    
+\\(\frac{∂||\mathbf{x}||}{∂\mathbf{x}} = ?\\)    
 
 $$
-\frac{∂‖\mathbf{x‖}}{∂\mathbf{x}  } =  \frac{∂(\mathbf{\mathbf{x^Tx} } )^{1/2}}{∂\mathbf{x} }=\frac{1}{2}(\mathbf{x^{T}x} )^{−1/2}
-\frac{∂(\mathbf{x^Tx}  )}{∂\mathbf{x} }=\frac{1}{2‖\mathbf{x} ‖}2\mathbf{x^T} =\frac{\mathbf{x^T} }{‖\mathbf{x} ‖}
+\frac{∂||\mathbf{x}||}{∂\mathbf{x}  } =  \frac{∂(\mathbf{\mathbf{x^Tx} } )^{1/2}}{∂\mathbf{x} }=\frac{1}{2}(\mathbf{x^{T}x} )^{−1/2}
+\frac{∂(\mathbf{x^Tx}  )}{∂\mathbf{x} }=\frac{1}{2||\mathbf{x} ||}2\mathbf{x^T} =\frac{\mathbf{x^T} }{||\mathbf{x} ||}
 $$
 
 | $$\frac{∂(\mathbf{\mathbf{x^Tx} } )}{∂\mathbf{x} }=\frac{∂(x^2+y^2+z^2)}{∂\mathbf{x} }= \begin{bmatrix}2x& 2y &2z \end{bmatrix}= 2\mathbf{x^T}$$|   
@@ -950,7 +950,7 @@ P46
 ## Example: A Spring    
 
 
-![](./assets/02-46.PNG)
+![](./assets/02-46.png)
 
 
 Choi and Ko. 2002. Stable But Responive Cloth. TOG (SIGGRAPH)    
@@ -960,4 +960,4 @@ P47
 ## Example: A Spring with Two Ends    
 
 
-![](./assets/02-47-1.PNG)
+![](./assets/02-47-1.png)
