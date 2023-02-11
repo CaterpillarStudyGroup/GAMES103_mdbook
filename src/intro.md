@@ -40,7 +40,7 @@ P14
 
 
 
-![](./assets/01-1-1.PNG)   
+![](./assets/01-1-1.png)   
 
 
 P15  
@@ -52,20 +52,20 @@ For example, 24 FPS, 30 FPS, 60 FPS, …
 P17
 ## Animation Playback
 
-![](./assets/01-1.PNG) 
+![](./assets/01-1.png) 
 
 
 P18
 ## Movie
 
-![](./assets/01-2.PNG) 
+![](./assets/01-2.png) 
 
 
 P19
 ## Geometry: Three Representations     
 
 
-![](./assets/01-3.PNG)   
+![](./assets/01-3.png)   
 
 
 
@@ -86,14 +86,14 @@ P20
 
 
 
-![](./assets/01-4.PNG)    
+![](./assets/01-4.png)    
 
 
 P21
 ## Geometry: Three Representations    
 
 
-![](./assets/01-5.PNG)    
+![](./assets/01-5.png)    
 
 
 
@@ -111,7 +111,7 @@ P22
 ## Geometry: Three Representations    
 
 
-![](./assets/01-6.PNG) 
+![](./assets/01-6.png) 
 
 
 
@@ -129,14 +129,14 @@ P23
 
 ## Rendering: Non-Photorealistic vs. Photorealistic
 
-![](./assets/01-7.PNG)   
+![](./assets/01-7.png)   
 
 
 
 P27
 ## Character and Physics-Based Animation      
 
-![](./assets/01-10.PNG) 
+![](./assets/01-10.png) 
 
 
 
@@ -144,7 +144,7 @@ P36
 ## Computer Graphics for Augmented Reality (AR)
 
 
-![](./assets/01-11.PNG)    
+![](./assets/01-11.png)    
 
 
 P37
@@ -162,7 +162,7 @@ P38
  
 ## Animation Paradigm
 
-![](./assets/01-12.PNG)   
+![](./assets/01-12.png)   
 
 
  - The goal of animation is to **update the state in every time step**.    
@@ -180,20 +180,20 @@ P39
 ## Physics-Based Animation Topics    
 
 
-![](./assets/01-13.PNG)    
+![](./assets/01-13.png)    
 
 
 P54
 ## Physics-Based Animation Topics    
 
 
-![](./assets/01-14.PNG)   
+![](./assets/01-14.png)   
 
 
 P56
 ## Physics-Based Animation Topics
 
-![](./assets/01-15.PNG)    
+![](./assets/01-15.png)    
 
 
 P58
@@ -211,12 +211,12 @@ P58
 P59
 ## Topics in This Class    
 
-![](./assets/1-16.PNG)   
+![](./assets/1-16.png)   
 
 P60
 ## My Own Expertise    
 
-![](./assets/01-17.PNG)   
+![](./assets/01-17.png)   
 
 
 
