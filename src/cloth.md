@@ -11,9 +11,9 @@ P4
 
 An ideal spring satisfies Hooke’s law: the spring force tries to restore the rest length.    
 
-![](./assets/05-1.PNG) 
+![](./assets/05-1.png) 
 
-![](./assets/05-2.PNG)    
+![](./assets/05-2.png)    
 
 
 \\(E(\mathbf{x})=\frac{1}{2}k (||\mathbf{x}_i −\mathbf{x}_j||−\mathbf{L} )^2\\)
@@ -33,7 +33,7 @@ P5
 
 When there are many springs, the energies and the forces can be simply summed up.     
 
-![](./assets/05-3.PNG)    
+![](./assets/05-3.png)    
 
 $$
 E= {\textstyle \sum_{e=0}^{3}}E_e= {\textstyle \sum_{e=0}^{3}} (\frac{1}{2} k(||\mathbf{x} _i −\mathbf{x}_e ||−L_e)^2)
@@ -52,7 +52,7 @@ $$
 P6  
 ## Structured Spring Networks   
 
-![](./assets/05-4.PNG)    
+![](./assets/05-4.png)    
 
 
 P7  
@@ -61,7 +61,7 @@ P7
 
 We can also turn an unstructured triangle mesh into a spring network for simulation.    
 
-![](./assets/05-5.PNG)  
+![](./assets/05-5.png)  
 
 
 
@@ -72,7 +72,7 @@ P8
 
 The basic representation of a triangle mesh uses vertex and triangle lists. 
 
-![](./assets/05-6.PNG)    
+![](./assets/05-6.png)    
 
 Vertex list: {\\(\mathbf{x} _0, \mathbf{x}_1, \mathbf{x}_2, \mathbf{x}_3, \mathbf{x}_4\\)}    (3D vectors)    
 
@@ -88,18 +88,18 @@ P9
 
 The key to topological construction is to sort triangle edge triples.    
 
-![](./assets/05-7.PNG)    
+![](./assets/05-7.png)    
 
 
 Each triple contains: edge vertex index 0, edge vertex index 1 and triangle index (index 0<index). 
 
-![](./assets/05-8.PNG)    
+![](./assets/05-8.png)    
 
 
 P11   
 ## Explicit Integration of A Mass-Spring System   
 
-![](./assets/05-9.PNG)    
+![](./assets/05-9.png)    
 
 
 
@@ -110,7 +110,7 @@ Explicit integration suffers from **numerical instability** caused by <u>oversho
 
 A naive solution is to use a small \\(∆t\\) . But that slows down the simulation.    
 
-![](./assets/05-10.PNG)    
+![](./assets/05-10.png)    
 
 
 P13  
@@ -118,10 +118,10 @@ P13
 
 Implicit integration is a better solution to numerical instability.  The idea is to integrate both **x** and **v** implicitly.   
 
-![](./assets/05-11.PNG)    
+![](./assets/05-11.png)    
 
 消元得：    
-![](./assets/05-12.PNG)    
+![](./assets/05-12.png)    
 
 
 Assuming that \\(\mathbf{f}\\) is *holonomic*, i.e., depending on \\(\mathbf{x}\\) only, our question is how to solve:    
@@ -137,7 +137,7 @@ $$
 P14   
 
 $$
-\mathbf{‖x‖_M^2=x^TMx} 
+\mathbf{||x||_M^2=x^TMx} 
 $$
 
 >\\(\mathbf{x} ^{[1]} =\\) argmin \\(F(\mathbf{x})\quad\\)  for   \\(\quad F(\mathbf{x}) = \frac{1}{2∆t^2}||\mathbf{x} −\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]}||_M^2+E(\mathbf{x} )\\)    
@@ -152,7 +152,7 @@ P15
 
 The Newton-Raphson method, commonly known as Newton’s method, solves the optimization problem: \\(x^{[1]}\\) = argmin \\(F(x)\\).   
 
-![](./assets/05-13.PNG)    
+![](./assets/05-13.png)    
 
 Given a current \\(x^{(k)}\\), we approximate our goal by: 
 
@@ -160,14 +160,14 @@ $$
 0={F}' (x)≈{F}'(x^{(k)})+{F}'' (x^{(k)})(x−x^{(k)})
 $$
 
-![](./assets/05-14.PNG)    
+![](./assets/05-14.png)    
 
 
 
 P16    
 Newton’s method finds an extremum, but it can be a minimum or maximum.    
 
-![](./assets/05-15.PNG)    
+![](./assets/05-15.png)    
 
  - At a minimum \\(x^∗, {F}'' (x^∗)>0\\).     
  - At a maximum \\(x^∗, {F}''(x^∗)<0\\). 
@@ -186,7 +186,7 @@ $$
 0=\nabla F( \mathbf{x}) ≈\nabla F (\mathbf{x} ^{(k)})+\frac{∂F ^2(\mathbf{x} ^{(k)})}{∂\mathbf{x} ^2} (\mathbf{x−x} ^{(k)}) 
 $$
 
-![](./assets/05-16.PNG)    
+![](./assets/05-16.png)    
 
 
 
@@ -223,7 +223,7 @@ P19
 
 According to Lecture 2, Page 48,      
 
-![](./assets/05-17.PNG)    
+![](./assets/05-17.png)    
 
 
 This is because for any \\(\mathbf{x} _{ij}, \mathbf{v} ≠0\\),    
@@ -249,7 +249,7 @@ As a result, \\(\mathbf{H}(\mathbf{x})\\) may not be s.p.d. (Lecture 2, Page 36
 
 \\(\mathbf{A}\\) may not be s.p.d. either.    
 
-![](./assets/05-18.PNG)    
+![](./assets/05-18.png)    
 
 P22 
 
@@ -257,7 +257,7 @@ P22
 
 When a spring is compressed, the spring Hessian may not be positive definite. This means there can be multiple local minima (outcomes).    
 
-![](./assets/05-19.PNG)    
+![](./assets/05-19.png)    
 
 
 > Note: This issue occurs only in 2D and 3D. In 1D, \\(E(x)=\frac{1}{2} k(x−L)^2\\) and \\({E}''(x)=k>0\\).     
@@ -272,7 +272,7 @@ P23
  - One solution is to simply drop the ending term, when \\({\color{Orange}{ ||\mathbf{x} _{ij}||<\mathbf{L} _e}}:\\)       
 
 
- ![](./assets/05-20.PNG)    
+ ![](./assets/05-20.png)    
 
 
  - Other solutions exist. For example,     
@@ -285,7 +285,7 @@ P24
 
 We can use the Jacobi method to solve \\(\mathbf{A}∆\mathbf{x}  = \mathbf{b} \\).   
 
-![](./assets/05-21.PNG)    
+![](./assets/05-21.png)    
 
 
 
@@ -358,7 +358,7 @@ P29
 A **bending** spring offers **little resistance** when cloth is nearly planar, since its length barely changes.     
 
 
-![](./assets/05-22.PNG)    
+![](./assets/05-22.png)    
 
 
 
@@ -367,7 +367,7 @@ P30
 
 A dihedral angle model defines bending forces as a function of \\(\theta : \mathbf{f} _i=f (\theta )\mathbf{u} _i\\).    
 
-![](./assets/05-23.PNG)    
+![](./assets/05-23.png)    
 
  - First, \\(\mathbf{u}_1\\) and \\(\mathbf{u}_2\\) should be in the normal directions \\(\mathbf{n}_1\\) and \\(\mathbf{n}_2\\).     
 
@@ -381,7 +381,7 @@ A dihedral angle model defines bending forces as a function of \\(\theta : \math
 P31    
 Conclusion:
 
-![](./assets/05-24.PNG)    
+![](./assets/05-24.png)    
 
 
 
@@ -415,7 +415,7 @@ P34
 
 A quadratic bending model has two assumptions: 1) planar case; 2) little stretching.      
 
-![](./assets/05-25.PNG)    
+![](./assets/05-25.png)    
 
 $$
 E(\mathbf{x} )=\frac{1}{2} \begin{bmatrix}
@@ -508,7 +508,7 @@ P40
 The basic idea is to define a quadratic energy based on the rotated reference element. To do so, we split transformation into deformation + rotation.     
 
 
-![](./assets/05-26.PNG)    
+![](./assets/05-26.png)    
 
 
 
@@ -519,7 +519,7 @@ P41
 The basic idea is to define a quadratic energy based on the rotated reference element. To do so, we split transformation into deformation + rotation.
 
 
-![](./assets/05-27.PNG)    
+![](./assets/05-27.png)    
 
 
 P42   
