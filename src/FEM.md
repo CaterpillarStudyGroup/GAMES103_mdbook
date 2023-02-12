@@ -4,7 +4,7 @@ P3
 P4  
 ## The Linear FEM Assumption   
 
-In a nutshell, linear FEM assumes that for any point\\(\mathbf{X}\\) in the reference triangle, its deformed correspondence is: \\(\mathbf{x=FX+c}\\).    
+In a nutshell, linear FEM assumes that for any point \\(\mathbf{X}\\) in the reference triangle, its deformed correspondence is: \\(\mathbf{x=FX+c}\\).    
 
 ![](./assets/07-1.png)    
 
@@ -23,7 +23,7 @@ Therefore, we can calculate the deformation gradient by edge vectors.
 ![](./assets/07-2.png)    
 
 
-Problem: \\(\mathbf{F}\\) is related to deformation, but it contains rotation.     
+**Problem:** \\(\mathbf{F}\\) **is related to deformation, but it contains rotation**.     
 
 
 
@@ -38,11 +38,11 @@ Ideally, we need a tensor to describe shape deformation only.  Recall that SVD g
 So we get rid of \\(\mathbf{U}\\) as: \\(\mathbf{G} =\frac{1}{2} (\mathbf{F^TF−I} )=\frac{1}{2} (\mathbf{VD} ^2\mathbf{V} ^\mathbf{T} −\mathbf{I} )=\begin{bmatrix}
  \varepsilon _{uu} & \varepsilon _{uv}\\\\
 \varepsilon _{uv} & \varepsilon _{vv}
-\end{bmatrix}\\), Green strain.
+\end{bmatrix}\\), *Green strain*.
 
 
  - If no deformation, \\(\mathbf{G=0}\\); if deformation increases,  ||\\(\mathbf{G}\\)|| increases.    
- - Three deformation modes: ε_uu, ε_vv and ε_uv.
+ - Three deformation modes: \\(\varepsilon _{uu}\\), \\(\varepsilon _{vv}\\) and \\(\varepsilon _{uv}\\).
  - \\(\mathbf{G}\\) is <u>rotation invariant</u>: if additional rotation \\(\mathbf{R}\\), then deformation gradient is \\(\mathbf{RF}\\) but green strain is the same: \\(\mathbf{G} =\frac{1}{2} (\mathbf{F^TF−I} )=\frac{1}{2} (\mathbf{VD} ^2\mathbf{V} ^\mathbf{T} −\mathbf{I} )\\).    
 
 
@@ -50,7 +50,7 @@ P7
 ## Strain Energy Density Function    
 
 
-Let \\(\mathbf{G}\\) be the the green strain describing deformation. We consider the **energy density** per reference area as: \\(W\mathbf{G}\\).    
+Let \\(\mathbf{G}\\) be the the green strain describing deformation. We consider the **energy density** per reference area as: \\(W (\mathbf{G})\\).    
 
 ![](./assets/07-4.png)    
 
@@ -151,7 +151,7 @@ P12
     - Deformation gradient \\(\mathbf{F} \in \mathbf{R} ^{3×3}\\)   
     - Green strain \\(\mathbf{G} \in \mathbf{R} ^{3×3}\\)   
     - Stress tensor \\(\mathbf{S} \in \mathbf{R} ^{3×3}\\)   
-    - Forces \\(\mathbf{F}_i \in \mathbf{R} ^{3×3}\\)    
+    - Forces \\(\mathbf{F}_i \in \mathbf{R} ^3\\)    
 
 
 
@@ -169,7 +169,7 @@ First, let’s consider traction **t**: the internal force per unit length (area
 Total interface force:    
 
 $$
-f\mathbf{} =∮_L \mathbf{t} dl
+f\mathbf{} =\oint _L \mathbf{t} dl
 $$
 
 Stress tensor \\(\mathbf{σ} \\) (interface normal -> traction):
@@ -181,7 +181,7 @@ $$
 So,    
 
 $$
-\mathbf{f} =∮_L \mathbf{σn} dl
+\mathbf{f} =\oint_{L}  \mathbf{σn} dl
 $$
 
 
@@ -196,22 +196,25 @@ FVM considers force calculation in an integration perspective, not a differentia
 Force contributed by an element:    
 
 $$
-\mathbf{f}_0 =∮_L \mathbf{σn} dl
+\mathbf{f}_0 =\oint _L \mathbf{σn} dl
 $$
 
 Since \\(\mathbf{σ}\\) is constant within the element,     
 
 $$
-∮_L \mathbf{σn} dl + ∮_{L_{20}} \mathbf{σn} dl+∮_{L_{10}} \mathbf{σn} dl=0
+\oint_L \mathbf{σn} dl + \oint_{L_{20}} \mathbf{σn} dl+\oint_{L_{10}}\mathbf{σn} dl=0
 $$
 
 (Divergence Theorem)   
 
 We know the force is:   
 
+
+
 $$
-\mathbf{f} _0=−∮_{L_{20}} \mathbf{σn} _{20}dl−∮_{L_{10}}\mathbf{σn} _{10}dl=−\mathbf{σ} (\frac{||\mathbf{x} _{20}||}{2} \mathbf{n} _{20}+\frac{||\mathbf{x} _{10}||}{2}\mathbf{n} _{10})
+\mathbf{f}_0 = - \oint _ {L _{20}} \mathbf{σn} _ {20} dl -  \oint _ {L _{10}} \mathbf{σn} _ {10} dl = - \mathbf{σ}(\frac{||\mathbf{X} _ {20}||}{2}\mathbf{n} _ {20}+ \frac{||\mathbf{X} _ {20}||}{2}\mathbf{n} _ {10})
 $$
+
 
 
 
@@ -226,21 +229,13 @@ In 3D, FVM works in the same way.
 
 Force:
 
-$$ 
-\begin{cases}
- \mathbf{f} _0=−∮_Ω \mathbf{σn} dA=−\mathbf{σ} (\frac{A_{012}}{3}\mathbf{n} _{012}+\frac{A_{023}}{3}\mathbf{n} _{023}+\frac{A_{031}}{3}\mathbf{n} _{031})\\\\
- =−\frac{σ}{3}(\frac{||\mathbf{x}_{10}×\mathbf{x}_{20}||}{2} \frac{\mathbf{x} _{10}×\mathbf{x} _{20}}{||\mathbf{x}_{10}×\mathbf{x}_{20}||} +\frac{||\mathbf{x}_{20}×\mathbf{x}_{30}||}{2}\frac{\mathbf{x}_{20}×\mathbf{x}_{30}}{||\mathbf{x}_{20}×\mathbf{x}_{30}||}
-+\frac{||\mathbf{x} _{30}×\mathbf{x}_{10}||}{2}\frac{\mathbf{x}_{30}×\mathbf{x}_{10}}{||\mathbf{x}_{30}×\mathbf{x}_{10}||})\\\\
-=−\frac{\mathbf{σ}}{6} (\mathbf{x} _{10}×\mathbf{x} _{20}+\mathbf{x} _{20}×\mathbf{x} _{30}+\mathbf{x} _{30}×\mathbf{x} _{10})
-\end{cases}
-$$
 
 $$
 \begin{array}{l} 
- \mathbf{f} _0=−∮_Ω \mathbf{σn} dA=−\mathbf{σ} (\frac{A_{012}}{3}\mathbf{n} _{012}+\frac{A_{023}}{3}\mathbf{n} _{023}+\frac{A_{031}}{3}\mathbf{n} _{031})\\\\
- =−\frac{\mathbf{σ} }{3}(\frac{||\mathbf{x}_{10}×\mathbf{x}_{20}||}{2} \frac{\mathbf{x} _{10}×\mathbf{x} _{20}}{||\mathbf{x}_{10}×\mathbf{x}_{20}||} +\frac{||\mathbf{x}_{20}×\mathbf{x}_{30}||}{2}\frac{\mathbf{x}_{20}×\mathbf{x}_{30}}{||\mathbf{x}_{20}×\mathbf{x}_{30}||}
-+\frac{||\mathbf{x} _{30}×\mathbf{x}_{10}||}{2}\frac{\mathbf{x}_{30}×\mathbf{x}_{10}}{||\mathbf{x}_{30}×\mathbf{x}_{10}||})\\\\
-=−\frac{\mathbf{σ}}{6} (\mathbf{x} _{10}×\mathbf{x} _{20}+\mathbf{x} _{20}×\mathbf{x} _{30}+\mathbf{x} _{30}×\mathbf{x} _{10})
+ \mathbf{f} _ 0 = −\oint _ Ω \mathbf{σn} dA=−\mathbf{σ} (\frac{A _ {012}}{3}\mathbf{n} _ {012} + \frac{A _ {023}}{3}\mathbf{n} _ {023} + \frac{A _ {031}}{3}\mathbf{n} _ {031})\\\\
+ =−\frac{σ}{3}(\frac{||\mathbf{x} _ {10} \times \mathbf{x} _ {20}||}{2} \frac{\mathbf{x} _ {10} × \mathbf{x} _ {20}}{||\mathbf{x} _ {10} × \mathbf{x} _ {20}||} + \frac{||\mathbf{x} _ {20} × \mathbf{x} _ {30}||}{2}\frac{\mathbf{x} _ {20} × \mathbf{x} _ {30}}{||\mathbf{x} _ {20} × \mathbf{x} _ {30}||}
++\frac{||\mathbf{x} _ {30} × \mathbf{x} _ {10}||}{2}\frac{\mathbf{x} _ {30} × \mathbf{x} _ {10}}{||\mathbf{x} _ {30} × \mathbf{x} _ {10}||})\\\\
+=−\frac{\mathbf{σ}}{6} (\mathbf{x} _ {10} × \mathbf{x} _ {20} + \mathbf{x} _ {20} × \mathbf{x} _ {30} + \mathbf{x} _ {30} × \mathbf{x} _ {10})
 \end{array}
 $$
 
