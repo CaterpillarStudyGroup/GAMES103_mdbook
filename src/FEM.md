@@ -268,30 +268,31 @@ P19
 Now let’s figure out the relationship between \\(A^{\mathrm{ref} }\mathbf{N}\\) and \\(A\mathbf{n}\\), the two area weighted normals.    
 
 $$
-2A^{\mathrm{ref} }\mathbf{N} =\mathbf{X} _{a0}×\mathbf{X} _{b0}
+2A^{\mathrm{ref} }\mathbf{N} =\mathbf{X} _ {a0}×\mathbf{X} _ {b0}
 $$
 
 $$
 \begin{array}{l} 
- 2A\mathbf{n} =\mathbf{x} _{a0}×\mathbf{x} _{b0}=\mathbf{FX} _{a0}×\mathbf{FX} _{b0}=(\mathbf{UDV^TX} _{a0})×(\mathbf{UDV^TX} _{b0}) \\\\
-\quad\quad=\mathbf{U} ((\mathbf{DV^TX} _{a0})×(\mathbf{DV^TX} _{b0})) \\\\
+ 2A\mathbf{n} =\mathbf{x} _ {a0}×\mathbf{x} _ {b0}=\mathbf{FX} _{a0} × \mathbf{FX} _ {b0} = (\mathbf{UDV^TX} _ {a0}) × (\mathbf{UDV^TX} _ {b0}) \\\\
+\quad\quad=\mathbf{U} ((\mathbf{DV^TX} _ {a0}) × (\mathbf{DV^TX} _ {b0})) \\\\
 \quad\quad=\mathbf{U} \begin{bmatrix}
   d_1d_2& \Box  & \Box \\\\
  \Box  & d_0d_2 & \Box \\\\
   \Box & \Box  &d_0d_1
-\end{bmatrix} ((\mathbf{V^TX}_{a0})×(\mathbf{V^TX} _{b0}))\\\\
+\end{bmatrix} ((\mathbf{V^TX} _ {a0})×(\mathbf{V^TX} _ {b0}))\\\\
 \quad\quad=\mathbf{U} \begin{bmatrix}
   d_1d_2& \Box  & \Box \\\\
  \Box  & d_0d_2 & \Box \\\\
   \Box & \Box  &d_0d_1
-\end{bmatrix} \mathbf{V^T} (\mathbf{X} _{a0}×\mathbf{X} _{b0})\quad=d_0d_1d_2\mathbf{U} \begin{bmatrix}
-  1/d_0& \Box  & \Box \\\\
- \Box  & 1/d_1 & \Box \\\\
+\end{bmatrix} \mathbf{V^T} (\mathbf{X} _ {a0} × \mathbf{X} _ {b0})\quad=d_0d_1d_2\mathbf{U} \begin{bmatrix}
+  1/d_0& \Box  & \Box  \\\\
+ \Box  & 1/d_1 & \Box  \\\\
   \Box & \Box  &1/d_2
-\end{bmatrix} \mathbf{V^T} (\mathbf{X} _{a0}×\mathbf{X} _{b0})\\\\
-\quad\quad=\mathrm{det} (\mathbf{F} )\mathbf{F} ^{−\mathbf{T}}(\mathbf{X} _{a0}×\mathbf{X} _{b0})=\mathrm{det} (\mathbf{F} )\mathbf{F} ^{−\mathbf{T}}(2A^\mathrm{det}\mathbf{N})
+\end{bmatrix} \mathbf{V^T} (\mathbf{X} _ {a0}×\mathbf{X} _ {b0}) \\\\
+\quad\quad=\mathrm{det} (\mathbf{F} )\mathbf{F} ^{−\mathbf{T}}(\mathbf{X} _ {a0}×\mathbf{X} _ {b0})=\mathrm{det} (\mathbf{F} )\mathbf{F} ^{−\mathbf{T}}(2A^\mathrm{det}\mathbf{N})
 \end{array}
 $$
+
 
 
 
@@ -299,7 +300,7 @@ $$
 P20   
 ## Different Stresses    
 
-Now we know: \\(A\mathbf{n} =\mathrm{det} (\mathbf{F})\mathbf{F^{−T}} (A^{\mathrm{det}}\mathbf{N} )\\).     
+Now we know: \\(A\mathbf{n} =\mathrm{det} (\mathbf{F})\mathbf{F^{−T}} (A^{\mathrm{ref}}\mathbf{N} )\\).     
 
 
 We also know the force can be calculated using two different stresses:    
@@ -340,7 +341,7 @@ The previous analysis suggests we can use reference normals instead.
 
 ![](./assets/07-18.png)  
 
-Second Piola–Kirchhoff stress:
+Second Piola–Kirchhoff stress:    
 \\(\mathbf{S} =\frac{∂W}{∂\mathbf{G}}\\), as in previous FEM formulation    
 
 
@@ -548,8 +549,8 @@ Anyway, we still use the principal stretches for computation:
 
 $$
 \mathbf{P} (λ_0,λ_1,λ_2)=\begin{bmatrix}
- \frac{∂W}{∂λ_0}  & \Box  &\Box  \\
- \Box  & \frac{∂W}{∂λ_1}  & \Box \\
+ \frac{∂W}{∂λ_0}  & \Box  &\Box  \\\\
+ \Box  & \frac{∂W}{∂λ_1}  & \Box \\\\
  \Box  & \Box  &\frac{∂W}{∂λ_2} 
 \end{bmatrix}
 $$
@@ -590,7 +591,11 @@ P39
 
 
  - FEM uses the **derivates** of the strain energy function to obtain the force.    
+
  - FVM uses the **integral** of the interface traction to obtain the force.    
+
  - The two approaches lead to the **identical outcome**, in **different formulations**   
+
  - Hyperelastic models define the strain energy function by principal stretches, i.e., the singular values of the deformation gradient.    
+ 
 - For isotropic materials, we can calculate the stress through diagonalization.   
