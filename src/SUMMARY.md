@@ -9,3 +9,4 @@
 - [Lecture 04](rigidcontact.md)
 - [Lecture 05](cloth.md)
 - [Lecture 06](constraints.md)
+- [Lecture 07](FEM.md)
