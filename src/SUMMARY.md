@@ -10,3 +10,4 @@
 - [Lecture 05](cloth.md)
 - [Lecture 06](constraints.md)
 - [Lecture 07](FEM.md)
+- [Lecture 08](FEM2.md)
