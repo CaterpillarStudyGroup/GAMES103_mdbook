@@ -190,14 +190,14 @@ Eventually, we get: \\(\mathbf{A=U^T} \frac{∂\mathbf{U} }{∂\mathbf{F} _{kl}}
 P11    
 ## A Quick Summary   
 
-Step 1: By SVD derivatives, we get: \\(\frac{∂\mathbf{U} }{∂\mathbf{F} _{kl}},\frac{∂λ_d}{∂\mathbf{F} _{kl}},\frac{∂\mathbf{V^T} }{∂\mathbf{F} _{kl}}\\).    
+ - Step 1: By SVD derivatives, we get: \\(\frac{∂\mathbf{U} }{∂\mathbf{F} _{kl}},\frac{∂λ_d}{∂\mathbf{F} _{kl}},\frac{∂\mathbf{V^T} }{∂\mathbf{F} _{kl}}\\).    
 
 
 ![](./assets/08-4.png)   
 
 
 
-Step 3: Finally, we reach our goal in Hessian matrix:    
+ - Step 3: Finally, we reach our goal in Hessian matrix:    
 
 $$
 \frac{∂\mathbf{f} _i}{∂\mathbf{x} _j}=\sum _ {k,l}\frac{∂\mathbf{f} _i}{∂\mathbf{F} _{kl}} \frac{∂\mathbf{F} _{kl}}{∂\mathbf{x} _j}=\sum _ {k,l}
