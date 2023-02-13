@@ -155,7 +155,7 @@ P20
 P21   
 ## Discrete Collision Detection (DCD)    
 
-DCD tests if any intersection exists in each state at discrete time instant: \\(\mathbf{x}^{[1]}\\), \\(\mathbf{x}^{[1]}\\), …
+DCD tests if any intersection exists in each state at discrete time instant: \\(\mathbf{x}^{[0]}\\), \\(\mathbf{x}^{[1]}\\), …
 
 To a triangle mesh, the basic test is <u>edge-triangle intersection</u> test.     
 
