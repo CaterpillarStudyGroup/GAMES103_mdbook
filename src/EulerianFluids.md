@@ -1,3 +1,9 @@
 
-Eulerian grid representation, we store physical quantities over a grid. The most
-< Eulerian grid representation, we store physical quantities over a grid. The most![](./assets/06-1.png)Eulerian grid representation, . The most>
+ ![](./assets/11-1.png)    - Scalars   
+    - Density/color   
+    - Pressure   
+    - Temperature   
+    - …
+ - Vectors  
+    - Velocities  
+ - The grid can be viewed as a scalar/vector function, also known as a scalar/vector field.    
