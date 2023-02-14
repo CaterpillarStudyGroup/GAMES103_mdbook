@@ -119,9 +119,7 @@ P12
 
 The idea of finite differencing is to use the difference to approximate the derivative.    
 
-|![](./assets/10-11.png)||  
-|---|---|
-|| $$f(t_0+∆t)=f(t_0)+∆t\frac{df(t_0)}{dt}+\frac{∆t^2}{2}\frac{d^2f(t_0)}{dt^2} +… \\\\\quad\\\\ f(t_0-∆t)=f(t_0)+∆t\frac{df(t_0)}{dt}+\frac{∆t^2}{2}\frac{d^2f(t_0)}{dt^2} +…$$  |
+![](./assets/10-111.png)
 
 
 Central differencing (second-order)   
