@@ -12,3 +12,4 @@
 - [Lecture 07](FEM.md)
 - [Lecture 08](FEM2.md)
 - [Lecture 09](collision.md)
+- [Lecture 10](wave.md)
