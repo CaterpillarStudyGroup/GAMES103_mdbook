@@ -39,7 +39,7 @@ P5
 
 $$
 \begin{matrix}
- A_i^{\text{smooth}}=\frac{1}{n}\sum _jA_j & \text{ For } ||x_i−x_j||<R
+ A_i^{\mathbf{smooth}}=\frac{1}{n}\sum _jA_j & \text{ For } ||\mathbf{x}_i−\mathbf{x}_j||<R
 \end{matrix}
 $$
 
@@ -52,7 +52,7 @@ P6
 ## Problem with the Simple Model 
 
 $$
-A_i^{\text{smooth}}=\frac{1}{n}\sum _jA_j
+A_i^{\mathbf{smooth}}=\frac{1}{n}\sum _jA_j
 $$
 
 ![](./assets/12-3.png)   
@@ -100,16 +100,17 @@ P9
 
 
  - Final solution:   
-
+ 
 $$
- \begin{matrix}
- A_i^{\mathbf{smooth} }=\sum _j V_jA_jW_{ij}  & \text{  For }  ||\mathbf{x} _i−\mathbf{x} _j||< R
- \end{matrix}
- $$
+\begin{matrix}
+ A_i^{\mathbf{smooth}}=\sum _ j V_jA_jW_{ij}  & \text {  For } ||\mathbf{x} _ i− \mathbf{x} _j||< R
+\end{matrix}
+$$
+
 
  - \\(W_{ij}\\) is called smoothing kernel.   
- - When \\(||\mathbf{x}_i−\mathbf{x}_j||\\) is large, \\(W_{ij}\\) is small.    
- - When \\(||mathbf{x}_i−\mathbf{x}_j||\\) is small, \\(W_{ij}\\) is large.   
+ - When \\(||\mathbf{x} _ i − \mathbf{x} _ j||\\) is large, \\(W_{ij}\\) is small.    
+ - When \\(||\mathbf{x} _ i−\mathbf{x} _ j||\\) is small, \\(W_{ij}\\) is large.   
 
 
 ![](./assets/12-6.png)   
@@ -125,7 +126,7 @@ V_i=\frac{m_i}{ρ_i}
 $$
 
 $$
-ρ_i^\mathbf{smooth} =\sum _jV_jρ_jW_{ij}=\sum _jm_jW_{ij}
+ρ_i^ \mathbf{smooth} =\sum _ j V_ j ρ_ j W _ {ij}= \sum _ jm_jW_{ij}
 $$
 
 |  $$V_i=\frac{m_i}{ρ_i^\mathbf{smooth} }=\frac{m_i}{∑_jm_jW_{ij}}$$ |  
@@ -154,19 +155,19 @@ P12
  - We can easily compute its derivatives:
     - Gradient  
 
-$$
-\begin{matrix}
- A_i^\mathbf{smooth} = \sum _jV_jA_jW_{ij} \quad & ∇A_i\mathbf{^smooth} =\sum_jV_jA_j∇W_{ij}
-\end{matrix}
-$$
+    $$ \begin{matrix}
+     A_i^ \mathbf{smooth} = \sum _ jV_jA_ jW_ {ij} \quad & ∇A_i ^\mathbf{smooth} = \sum_jV_jA_j∇W_ {ij}
+     \end{matrix}
+    $$
+
 
     - Laplacian    
 
-$$
-\begin{matrix}
- A_i^\mathbf{smooth} = \sum _jV_jA_jW_{ij} \quad & ∇A_i\mathbf{^smooth} =\sum_jV_jA_j∇W_{ij}
-\end{matrix}
-$$
+    $$
+    \begin{matrix}
+    A_i^ \mathbf{smooth} = \sum _ j V_ j A_ jW_ {ij} \quad & ∇A_i^\mathbf{smooth} = \sum_ jV_ jA_ j∇W_ {ij}
+    \end{matrix}
+    $$
 
 
 
@@ -189,7 +190,7 @@ q=\frac{||\mathbf{x} _i-\mathbf{x} _j||}{h}
 $$
 
 
-h is called smoothing length    
+\\(h\\) is called smoothing length    
 
 
 
@@ -200,11 +201,11 @@ P14
  - Gradient at particle i (a vector)     
 
 $$
-\nabla_i W_{ij}=\begin{bmatrix}
- \frac{\partial W_{ij}}{\partial x_i} \\\\
- \frac{\partial W_{ij}}{\partial y _i} \\\\
-\frac{\partial W_{ij}}{\partial z _i} 
-\end{bmatrix}=\frac{\partial W_{ij}}{\partial q}\nabla _iq=\frac{\partial W_{ij}}{\partial q}\frac{\mathbf{x} _i-\mathbf{x} _j}{||\mathbf{x} _i-\mathbf{x} _j||h} 
+\nabla _ i W _ {ij} = \begin{bmatrix}
+ \frac{\partial W _ {ij}}{\partial x _ i} \\\\
+ \frac{\partial W _ {ij}}{\partial y _ i} \\\\
+\frac{\partial W _ {ij}}{\partial z _ i} 
+\end{bmatrix} = \frac{\partial W_ {ij}}{\partial q} \nabla _ iq= \frac{\partial W _ {ij}}{\partial q} \frac{\mathbf{x} _ i-\mathbf{x} _ j}{|| \mathbf{x} _ i - \mathbf{x} _ j||h} 
 $$
 
 $$
@@ -223,7 +224,7 @@ $$
 $$
 \frac{\partial W_{ij}}{\partial q} =\frac{3}{2\pi h^3} 
 \begin{cases}
--2q+\frac{2}{3}q^2  \quad &  (0\le q<1) \\\\
+-2q+\frac{3}{2}q^2  \quad &  (0\le q<1) \\\\
  -\frac{1}{2}(2-q)^2  \quad& (1\le q<2) \\\\
 0 \quad & (2\le q)
 \end{cases}
@@ -234,7 +235,7 @@ $$
 P15   
 
 
-| $$\triangle _i W_{ij}=\frac{\partial^2 W_{ij}}{\partial x_i^2}+\frac{\partial^2 W_{ij}}{\partial y_i^2} +\frac{\partial^2 W_{ij}}{\partial z_i^2}=\frac{\partial^2 W_{ij}}{\partial q^2}\frac{1}{h^2} +\frac{\partial W_{ij}}{\partial q}\frac{2}{h} $$ |
+| $$\Delta _i W _ {ij}= \frac{\partial^2 W _ {ij}}{\partial x_i^2}+ \frac{\partial^2 W _ {ij}}{\partial y_i^2} + \frac{\partial^2 W _ {ij}}{\partial z_i^2}= \frac{\partial^2 W _ {ij}}{\partial q^2}\frac{1}{h^2} + \frac{\partial W _ {ij}}{\partial q} \frac{2}{h} $$ |
 |----|
 
 
@@ -283,7 +284,7 @@ P18
  - Gravity Force is:
 
 $$
-\mathbf{F} _i^\mathbf{gravity}  = m _i\mathbf{g} 
+\mathbf{F} _ i^ \mathbf{gravity}  = m _i \mathbf{g} 
 $$
 
 
@@ -296,7 +297,7 @@ P19
     - First compute the density of Particle i:
 
     $$
-    \rho _i=\sum _jm_jW_{ij}
+    \rho _ i = \sum _ j m _ j W _ {ij}
     $$
 
     - Convert it into pressure (some empirical function):   
@@ -337,7 +338,7 @@ P21
  - So:   
 
  $$
- \mathbf{F} _i^{pressure} =-V_i\sum_ jV_jP_j \nabla _iW_{ij}
+ \mathbf{F} _ i^{pressure} = - V _ i \sum _ j V _ j P _ j \nabla _ i W _ {ij}
  $$
 
 
@@ -370,7 +371,7 @@ P23
  - To compute this Laplacian, we assume that the velocity is also smoothly represented:  
 
  $$
- \mathbf{V} _i^{smooth}=\sum_jV_j\mathbf{v} _jW_{ij}
+ \mathbf{V} _i^{smooth}= \sum_jV_j \mathbf{v} _ j W _ {ij}
  $$ 
 
 
@@ -396,7 +397,7 @@ P24
  - Update \\(x_i = x_i + t * v_i\\);   
 
 
-|  $${\color{Red}\text{ What is the bottleneck of the performance here?} }$$  |
+|  $$ \color{Red}{ \text{ What is the bottleneck of the performance here?}} $$  |
 |---|
 
 
