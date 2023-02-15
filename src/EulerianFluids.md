@@ -2,11 +2,11 @@
 P1   
 ## GAMES103: Intro to Physics-Based Animation
 
-Eulerian Fluids
+#### Eulerian Fluids
 
-Huamin Wang
+#### Huamin Wang
 
-Dec 2021
+##### Dec 2021
 
 
 P2  
@@ -72,7 +72,7 @@ $$
 $$
 
 $$
-\frac{∂^2f_{i,j}}{∂y^2}≈\frac{\frac{∂f_{i,j+0.5}}{∂y}−\frac{∂f_i,j−0.5}{∂y}}{ℎ} ≈\frac{f_{i,j−1}+f_{i,j+1}−2f_{i,j}}{ℎ^2} 
+\frac{∂^2f_{i,j}}{∂y^2}≈\frac{\frac{∂f_{i,j+0.5}}{∂y}−\frac{∂f_{i,j−0.5}}{∂y}}{ℎ} ≈\frac{f_{i,j−1}+f_{i,j+1}−2f_{i,j}}{ℎ^2} 
 $$
 
 |  $$∆f_{i,j}=\frac{∂^2f_{i,j}}{∂x^2}+\frac{∂^2f_{i,j}}{∂y^2}≈\frac{f_{i−1,j}+f_{i+1,j}+f_{i,j−1}+f_{i,j+1−4}f_{i,j}}{ℎ^2} $$  |
@@ -82,7 +82,7 @@ $$
 P9   
 ## Boundary Conditions    
 
-The boundary condition specifies f_i−1,j if it’s outside.
+The boundary condition specifies \\(f_{i−1,j}\\) if it’s outside.
 
 ![](./assets/11-5.png)   
 
@@ -94,7 +94,7 @@ A Dirichlet boundary: \\(f_{i−1,j}=C\\)
 
 A Neumann boundary: \\(f_{i−1,j}=f_{i,j}\\)  
 
-|  $$∆f_{i,j}≈\frac{f_{i+1,j}+f_{i,j−1}+f_{i,j+1}−3f_{i,j}}{ℎ^2} |
+|  $$∆f_ {i,j} ≈ \frac{f_ {i+1,j}+f_ {i,j−1}+f_ {i,j+1}−3f_{i,j}}{ℎ^2}$$ |
 |----|
 
 
@@ -115,7 +115,7 @@ Central differencing gives the derivative in the middle.
 
  - The cell doesn’t exist at (i+0.5, j).   
 
- - To get \\(\frac{∂f_{i,j}{∂x} \\), we need \\(f_{i−1,j}\\) and f_i+1,j.  But this is weird, because \\(f_{i,j}\\) is unused.    
+ - To get \\( \frac{∂f_ {i,j}}{∂x} \\), we need \\(f_{i−1,j}\\) and \\(f_{i+1,j}\\).  But this is weird, because \\(f_{i,j}\\) is unused.    
 
 
 
@@ -167,7 +167,7 @@ P19
  - Step 1: Update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=\mathbf{g}\\)   
  - Step 2: Update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=−(\mathbf{u}∙∇)\mathbf{u}\\)  
  - Step 3: Update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=υ∆\mathbf{u}\\)  
- - Step 4: Update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=−∇p\\)   
+ - Step 4: Update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=−∇\mathbf{p}\\)   
  
 
 
@@ -207,10 +207,10 @@ The solution is to trace a virtual particle backward over time.
 ![](./assets/11-12.png)   
 
  - Define \\(\mathbf{x}_0←(i−0.5, j)\\)   
- - Compute \\(\mathbf{u}(\\(\mathbf{x}_0)\\)   
+ - Compute \\(\mathbf{u}(\mathbf{x}_0)\\)   
  - \\(\mathbf{x}_1←\mathbf{x}_0−∆t \mathbf{u}(\mathbf{x}_0)\\)   
  - Compute \\(\mathbf{u}(\mathbf{x}_1)\\)
- - \\(u_i,j^{new}←u(\mathbf{x}_1)\\)   
+ - \\(u_{i,j}^{new}←u(\mathbf{x}_1)\\)   
 
 
 Note that if the velocities are staggered, we need to do staggered bilinear interpolation.   
@@ -228,8 +228,8 @@ The solution is to trace a virtual particle backward over time.
  - Define \\(\mathbf{x}_0←(i, j−0.5)\\)    
  - Compute \\(\mathbf{u}(\mathbf{x}_0)\\)   
  - \\(\mathbf{x}_1←\mathbf{x}_0−∆t \mathbf{u}(\mathbf{x}_0)\\)   
- - Compute \\(\mathbf{u(\mathbf{x}_1)\\)   
- - v_{i,j}^{new}←v(\mathbf{x}_1)\\)   
+ - Compute \\(\mathbf{u}(\mathbf{x}_1)\\)   
+ - \\(v_{i,j}^{new}←v(\mathbf{x}_1)\\)   
 
 
 P24   
@@ -243,15 +243,16 @@ We could also subdivided the time step for better tracing.
 P25   
 ## Step 3: Diffusion  
 
+Next we need to update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=\upsilon ∆\mathbf{u}\\).   
 
 ![](./assets/11-15.png)   
 
 $$
-u_{i,j}^{new}←u_{i,j}+υ∆t\frac{u_{i−1,j}+u_{i+1,j}+u_{i,j−1}+u_{i,j+1}−4u_{i,j}}{ℎ^2} 
+u_{i,j}^{new}←u_{i,j}+ \upsilon ∆t\frac{u_{i−1,j}+u_{i+1,j}+u_{i,j−1}+u_{i,j+1}−4u_{i,j}}{ℎ^2} 
 $$
 
 $$
-v_{i,j}^{new}←v_{i,j}+υ∆t\frac{v_{i−1,j}+v_{i+1,j}+v_{i,j−1}+v_{i,j+1}−4v_{i,j}}{ℎ^2}
+v_{i,j}^{new}←v_{i,j}+ \upsilon ∆t\frac{v_{i−1,j}+v_{i+1,j}+v_{i,j−1}+v_{i,j+1}−4v_{i,j}}{ℎ^2}
 $$
 
 If \\(υ∆t\\) is large, the above formulae can be **unstable**.      
@@ -259,7 +260,7 @@ If \\(υ∆t\\) is large, the above formulae can be **unstable**.
 
 
 P26   
-## Step 3: Diffusion
+
 
 We could also use even smaller sub-steps…   
 
@@ -268,7 +269,7 @@ We could also use even smaller sub-steps…
 P27  
 ## Step 4: Pressure Projection    
 
-Finally, we need to update u by solving ∂u∕∂t=−∇p. 
+Finally, we need to update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=−∇\mathbf{p}\\). 
 
 ![](./assets/11-16.png)   
 
@@ -308,8 +309,8 @@ $$
 
 >$$ 
 \begin{matrix}
-u_{i+1,j}−(\frac{p_{i+1,j}−p_{i,j})}{ℎ}+v_{i,j+1}−\frac{(p_{i,j+1}−p_{i,j})}{ℎ} \\\\
-−u_{i,j}−\frac{(p_{i,j}−p_{i−1,j})}{ℎ} −v_{i,j}−\frac{(p_{i,j}−p_{i,j−1})}{ℎ}=0
+u_{i+1,j}−\frac{(p_{i+1,j} − p_{i,j})}{ℎ}+v_{i,j+1}−\frac{(p_{i,j+1}−p_{i,j})}{ℎ} \\\\
+−u_{i,j}−\frac{(p_{i,j} − p_{i−1,j})}{ℎ} −v_{i,j}−\frac{(p_{i,j}−p_{i,j−1})}{ℎ}=0
 \end{matrix}$$
 
 
@@ -335,7 +336,7 @@ with boundary conditions:
 $$ \text{Dirichlet boundary (open) } p_{i−1,j}=P \\\\
 \text{Neumann boundary (close) } p_{i−1,j}=p_{i,j}$$
 
-Once we solve \\(\mathbf{p}\\), we update u and done.   
+Once we solve \\(\mathbf{p}\\), we update \\(\mathbf{u}\\) and done.   
 
 
 
@@ -371,7 +372,8 @@ P33
 
  - Two representations   
     - Volume-of-fluid (as the name suggests…)   
-    - A signed distance function defined over the grid.    
+    - A signed distance function defined over the grid.   
+
  - How to advect?    
     - Semi-Lagrangian (volume loss)   
     - Level set method (volume loss)   
@@ -412,7 +414,7 @@ Level Set Methods and Dynamic Implicit Surfaces.
 P36   
 ## A Summary For the Day   
 
- - The **Eulerian** grid presentation is very friendly with finite **differencing**. This makes calculus a lot easier.    
+ - The **Eulerian grid** presentation is very friendly with finite **differencing**. This makes calculus a lot easier.    
  - For **velocity** fields, we can use **staggered grid**.    
 
  - For low-speed, incompressible, viscous flow, we need to solve the Navier-Stokes equations.    
