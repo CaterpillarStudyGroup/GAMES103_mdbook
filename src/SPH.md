@@ -284,7 +284,7 @@ P18
  - Gravity Force is:
 
 $$
-\mathbf{F} _ i^ \mathbf{gravity}  = m _i \mathbf{g} 
+\mathbf{F} _ \mathbf{i}^ \mathbf{gravity}  = m _i \mathbf{g} 
 $$
 
 
