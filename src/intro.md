@@ -152,7 +152,7 @@ P23
 
 ![](./assets/01-7.png)   
 
-> Non-Pho \\(\dots\\)：非真实感渲染，Pho \\(\dots\\)：真实感渲染   
+> Non-Photorealistic：非真实感渲染，Photorealistic：真实感渲染   
 后者更主流，又分为基于光线追踪和基于传统渲染管线。见 Games 101   
 
 P27
