@@ -184,7 +184,7 @@ The Update of \\(\mathbf{u}\\) by \\(∂\mathbf{u}∕∂t=\mathbf{g}\\) is stra
 P21  
 ## Step 2: Advection   
 
-Next we need to update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=−(\mathbf{u}∙∇)\mathbf{u}\\).   
+Next we need to update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=−(\mathbf{u}\cdot ∇)\mathbf{u}\\).   
 
 ![](./assets/11-11.png)   
 
