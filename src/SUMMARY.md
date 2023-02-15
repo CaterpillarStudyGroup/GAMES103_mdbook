@@ -14,3 +14,4 @@
 - [Lecture 09](collision.md)
 - [Lecture 10](wave.md)
 - [Lecture 11](EulerianFluids.md)
+- [Lecture 12](SPH.md)
