@@ -27,7 +27,7 @@ $$
 
 The vector **p** is defined with respect to the origin **o**.
 
-![](./assets/02-2.png)     
+![](./assets/02-02.png)     
 
 
 > 用黑来区分，矢量：黑体小写，标量：斜体 矩阵：黑体大写 
