@@ -34,7 +34,7 @@ A torque is the rotational equivalent of a force. It describes the rotational <u
 
 
 
-> &#x1F50E; 力矩的方向为造成旋转的旋转轴方向。   
+> &#x2705; 力矩的方向为造成旋转的旋转轴方向。   
 
 
 P6   
@@ -54,7 +54,7 @@ Similar to mass, an inertia tensor describes the resistance to rotational tenden
 Which side receives greater resistance?     
 
 
-> &#x1F50E; 两图的力矩大小相同，但产生的旋转不同   
+> &#x2705; 两图的力矩大小相同，但产生的旋转不同   
 inertia 看作是对运动的抵抗，其效果与力矩的方向有关，因此不是常数  
 
 
@@ -92,7 +92,7 @@ What about the current inertia?
 \\(\quad=\mathbf{RI_{ref}R^T}\\)    
 
 
-> &#x1F50E; inertia 也与自身的状态相当，但不需要每次都根据当前状态计算，而是基于一个已经算好的ref状态的 inertia快速得出。  
+> &#x2705; inertia 也与自身的状态相关，但不需要每次都根据当前状态计算，而是基于一个已经算好的ref状态的 inertia快速得出。  
 
 
    
@@ -119,7 +119,7 @@ P12
 ![](./assets/04-07.png)     
 
 
-> &#x1F50E; 圆柱SD=基于勾股定理，\\(\sqrt{.}\\)内第一项为斜边长，
+> &#x2705; 圆柱SD=基于勾股定理，\\(\sqrt{\cdot }\\) 内第一项为斜边长，
 第二项为底边长，得出点到中轴的距离。  
 
 
@@ -146,7 +146,7 @@ P14
 Intuitively, we can consider collision detection with the union of two objects as **collision detection with two separate objects**.     
 
 
-> &#x1F50E; 有时候此公式不成立，例如图中X点  
+> &#x2705; 有时候此公式不成立，例如图中\\(\mathbf{x}\\) 点  
 
 
 
@@ -162,8 +162,7 @@ A penalty method applies a penalty force in the next update. When the penalty po
 ![](./assets/04-10.png)     
 
 
-> &#x1F50E; 存在的问题：只有x进入 mesh 内部了，才会有力，但此
-时穿透的 artifacts 已经产生了。解决方法：使用buffor  
+> &#x2705; 存在的问题：只有\\(\mathbf{x}\\) 进入 mesh 内部了，才会有力，但此时穿透的 artifacts 已经产生了。解决方法：使用buffor  
 
 
 
@@ -178,9 +177,9 @@ A buffer helps lessen the penetration issue. But it cannot strictly prevent pene
 
 
 
-> &#x1F50E; 如果 k 太小，快速的碰撞仍会产生 artifacts   
-如果 k 太大，碰撞的反弹过于强烈(overshooting)  
-解决方法：不用常数 k ，而是 k 与距离相关  
+> &#x2705; 如果 \\(k\\) 太小，快速的碰撞仍会产生 artifacts   
+如果 \\(k\\) 太大，碰撞的反弹过于强烈(overshooting)  
+解决方法：不用常数 \\(k\\) ，而是 \\(k\\) 与距离相关  
 
 
 
@@ -196,10 +195,10 @@ A log-barrier penalty potential ensures that the force can be large enough. But 
 ![](./assets/04-15.png)     
 
 
-> &#x1F50E; 1. 当x靠近物体表面时，仍然会 overshooting
-2. x穿透表面后，会越陷越深。  
-3. 本算法要求保证穿透永远不会发生，因此要仔细
-调节 \\(\Delta t\\).  
+> &#x2705; 1.当\\(\mathbf{x}\\) 靠近物体表面时，仍然会 overshooting   
+ 2.\\(\mathbf{x}\\) 穿透表面后，会越陷越深。  
+ 3.本算法要求保证穿透永远不会发生，因此要仔细
+ 调节 \\(\Delta t\\).  
 
 
 
@@ -220,7 +219,7 @@ P18
  
 
 
-> &#x1F50E; Penalty 方式难以模拟摩擦    
+> &#x2705; Penalty 方式难以模拟摩擦    
 好处：易实现  
 隐式积分比显式积分好，因为显式不稳定。  
 
@@ -238,7 +237,7 @@ An impulse method assumes that collision changes the position and the velocity a
 ![](./assets/04-17.png)    
 
 
-> &#x1F50E; Penalty 方法先碰撞再惩罚，效果滞后。   
+> &#x2705; Penalty 方法先碰撞再惩罚，效果滞后。   
 Impulse方法碰撞时立即更新速度和位置   
 
 
@@ -250,15 +249,13 @@ Changing the position is not enough, we must change the velocity as well.
 ![](./assets/04-18.png)    
 
 
-> &#x1F50E; \\(v\cdot N\ge 0\\)：当前速度要想要让物体越陷越深, 这种情况下才需要更新速度   
-把v分解加\\(V_T\\)和\\(V_N)\\).  
-\\(V_T\\)方向速度反弹， \\(\mu _N\\) 为反弹系数，[0.]
-\\(V_N)\\)方向不变或由于摩擦再衰减
-
-
+> &#x2705; \\(\mathbf{v}\cdot \mathbf{N}\ge 0\\)：当前速度想要让物体越陷越深, 这种情况下才需要更新速度   
+把\\(\mathbf{v}\\)分解为\\(\mathbf{V_T}\\)和\\(\mathbf{V_N})\\).  
+\\(\mathbf{V_T}\\)方向速度反弹， \\(\mu _\mathbf{N}\\) 为反弹系数，[0.]   
+\\(\mathbf{V_N}\\)方向不变或由于摩擦再衰减  
 [?]库仑定律的物理意义是什么？  
 优点：可以精确控制摩擦力和反弹位置，但计算比 Penalty 复杂   
-刚体常见于 Impulse 弹性体常见于Pealty.   
+刚体常见于 Impulse； 弹性体常见于Pealty.   
 
 
 
@@ -282,7 +279,7 @@ $$
 No a perfect solution, but acceptable (will come back to this weeks later…)     
 
 
-> &#x1F50E; 遍历 mesh 上的每个点，依次做碰撞检测。  
+> &#x2705; 遍历 mesh 上的每个点，依次做碰撞检测。  
 
 
 
@@ -304,9 +301,8 @@ Problem: **we cannot directly modif**y \\(\mathbf{x}_i\\) or \\(\mathbf{v}_i\\) 
 Solution: we will find a way to modify \\(\mathbf{v}\\) and \\(\mathbf{\omega}\\).     
 
    
-> &#x1F50E; \\(x_i\\)和\\(V_i\\)都是根据中间量算出来的无法直接
-修改   
-通过修改V和W实现   
+> &#x2705; \\(\mathbf{x}_i\\)和\\(\mathbf{v}_i\\)都是根据中间量算出来的，无法直接修改   
+通过修改\\(\mathbf{v}\\)和\\(\mathbf{\omega}\\)实现    
 
 
 
@@ -317,9 +313,9 @@ What happens to \\(\mathbf{V}_i\\) when an impulse \\(\mathbf{j}\\) is appliedat
 ![](./assets/04-22.png)    
 
 
-> &#x1F50E; j 是一个未知的冲量。
-[?] 什么是冲量？和力什么区别？
-\\(V_i\\) 是点速度、\\(V\\)是线速度   
+> &#x2705; \\(\mathbf{j}\\) 是一个未知的冲量。  
+[?] 什么是冲量？和力什么区别？   
+\\(\mathbf{v}_i\\) 是点速度、\\(\mathbf{v}\\)是线速度     
 
 
 
@@ -346,20 +342,20 @@ $$
 > 
 
 
-> &#x1F50E; 已知 V_i^{new},V_i,K,求 j  
-冲量=时间.力  
+> &#x2705; 已知 \\(\mathbf{v}_i^{new},\mathbf{v}_i,\mathbf{K}\\),求 \\(\mathbf{j}\\)     
+冲量=时间 \\(\cdot\\)力  
 
 
 
 P26   
 ## Cross Product as a Matrix Product    
 
-We can convert the cross product \\(\mathbf{r}x\\) into a matrix product \\(\mathbf{r}^*\\).    
+We can convert the cross product \\(\mathbf{r}\times\\) into a matrix product \\(\mathbf{r}^*\\).    
 
 ![](./assets/04-23.png)    
 
 
-> &#x1F50E; r^* 是 r 的 cross matrix.
+> &#x2705; \\(\mathbf{r}^*\\) 是 \\(\mathbf{r}\\) 的 cross matrix.   
 目的：用矩阵形式代替叉乘形式，方便公式化简   
 
 
@@ -370,8 +366,8 @@ P28
 ![](./assets/04-24.png)    
 
 
-> &#x1F50E; [?] 如果有多个顶点发生碰撞呢？
-回答在？29   
+> &#x2753; 如果有多个顶点发生碰撞呢？  
+回答在 ？29   
 
 
 
@@ -390,9 +386,9 @@ P29
 
 
 
-> &#x1F50E; Oscillation 问题。
-原因：重力让它往下，冲量让它往上
-解决方法：接近静止时衰减 \\(V_i\\)   
+> &#x2705; Oscillation 问题  
+原因：重力让它往下，冲量让它往上   
+解决方法：接近静止时衰减 \\(\mathbf{\mu_N} \\)      
 
 
 
@@ -476,7 +472,7 @@ Second, enforce the **rigidity** constraint to become a rigid body again.
 
 
 
-> &#x1F50E; 第二步是 Shape Matching 的关键   
+> &#x2705; 第二步是 Shape Matching 的关键   
 
 
 
@@ -489,7 +485,7 @@ Now \\(\mathbf{c}\\) and \\(\mathbf{R}\\) are unknowns we want to find out from
 
 
 
-> &#x1F50E; C 代表质心，即前面的 X
+> &#x2705; \\(\mathbf{c}\\) 代表质心，即前面的 \\(\mathbf{x}\\)    
 约束前后质心位置不变   
 
 
@@ -502,7 +498,7 @@ P35
 ![](./assets/04-28.png)    
 
 
-> &#x1F50E; 先假设 R 是德矩阵 A,再从中提取旋转成分   
+> &#x2705; 先假设 \\(\mathbf{R}\\) 是任意矩阵 \\(\mathbf{A}\\),再从中提取旋转成分   
 
 
 
@@ -520,8 +516,8 @@ We can rotate the object back before the final rotation: \\(\mathbf{A}  = (\math
 
 
 
-> &#x1F50E; A = （ UV^T）(VDV^T) = RS   
-R 代表全局旋转，S代表本地形变   
+> &#x2705; \\(\mathbf{A} = （\mathbf{UV}^T）(\mathbf{VDV}^T) =\mathbf{RS}\\)   
+\\(\mathbf{R}\\) 代表全局旋转，\\(\mathbf{S}\\)代表本地形变    
 
 
 
