@@ -30,7 +30,10 @@ The vector **p** is defined with respect to the origin **o**.
 ![](./assets/02-02.png)     
 
 
-> 用黑来区分，矢量：黑体小写，标量：斜体 矩阵：黑体大写 
+> &#x1F50E; 用黑来区分    
+矢量：黑体小写   
+标量：斜体    
+矩阵：黑体大写   
 
 
 
@@ -44,7 +47,7 @@ The choice of a right-hand or left-hand system is largely due to:
 
 ![](./assets/02-3.png)    
 
-> 左手坐标系，E轴正方向朝屏幕内，好处是物体坐标 x、y、z 都是正直。右手系统的物体都E轴负方向。   
+> &#x1F50E; 左手坐标系，E轴正方向朝屏幕内，好处是物体坐标 x、y、z 都是正直。右手系统的物体都在E轴负方向。   
 
 
 
@@ -100,9 +103,8 @@ A (geometric) vector can represent a position, a velocity, a force, or a line/ra
 
 ![](./assets/02-7-2.png)    
 
-> 右图。同一个公式，对t做不同的约束，可以定义不同的东西。
-
-P(t)是P和9的 blend 
+> &#x1F50E; 右图。同一个公式，对\\(t\\)做不同的约束，可以定义不同的东西。    
+\\(P(t)\\) 是 \\(P\\) 和 \\(q\\) 的 blend 
 
 
 
@@ -114,8 +116,7 @@ A vector norm measures the magnitude of a vector: its length.
 
 ![](./assets/02-8.png)
 
-> LI-Norm 又称为曼哈顿的距离   
-没写下标一般默认L-Norm   
+> &#x1F50E; LI-Norm 又称为曼哈顿的距离。没写下标一般默认L-Norm   
 
 
 
@@ -151,7 +152,7 @@ $$
 |----|
 
 
-> 假设P点在三角形所在平面上  
+> &#x1F50E; 假设P点在三角形所在平面上  
 
 
 
@@ -299,7 +300,7 @@ P18
 Otherwise, outside.   
 
 
-> 三个点的顺序很重要，不能搞反。
+> &#x1F50E; 三个点的顺序很重要，不能搞反。
 
 
 
@@ -360,11 +361,11 @@ $$
 $$
 
 
-> 当P在三角形外面时，面积为负，但面积总和不变
+> &#x1F50E; 当P在三角形外面时，面积为负，但面积总和不变
 \\(b_0,b_1,b_2\\) 为P在三角形重心坐标系下的坐标 
 
 
-> P在三角形外部、重心坐标同样适用，不过权重有负数。  
+> &#x1F50E; P在三角形外部、重心坐标同样适用，不过权重有负数。  
 
 
 
@@ -382,11 +383,8 @@ P20
  - It is no longer popular.     
  
 
-> 由于硬件能力提升，已经可以做到逐像素   
-shading,不再需要此方法   
-
-通常也不是逐像素计算重心坐标，而是扫描线算法
-例如要计算某一行，可以 ：  
+> &#x1F50E; 由于硬件能力提升，已经可以做到逐像素。shading,不再需要此方法   
+通常也不是逐像素计算重心坐标，而是扫描线算法例如要计算某一行，可以 ：  
 (1)插值出行起点像素；  
 (2)插值出行终点像素；
 (3)起点与终点间批量插值；
@@ -433,7 +431,7 @@ $$
 
 
 
-> 四面体 
+> &#x1F50E; 四面体    
 h是\\(X_{30}\\)在 normal 上的投影行列式是上面叉乘的另一种可马法。
 
 
@@ -449,7 +447,7 @@ Note that the volume \\(V =\frac{1}{3}h\mathit{A} =\frac{1}{6} \mathbf{x} _ {30}
 ![](./assets/02-25.png)
 
 
-> \\(X_3\\）的后面法线的同方向上，也正四面体，反之为负四面体，四点共面为零体积。
+> &#x1F50E; \\(X_3\\）的后面法线的同方向上，也正四面体，反之为负四面体，四点共面为零体积。
 
 
 
@@ -520,7 +518,7 @@ P24
     - See Example 6.    
 
 
-> 代入体积公式，体积为0时发生碰撞
+> &#x1F50E; 代入体积公式，体积为0时发生碰撞
 
 
 
@@ -614,7 +612,7 @@ A rotation can be represented by an orthogonal matrix.
 ![](./assets/02-30.png)
 
 
-> x、y、z 是世界坐标系、 u、v、w 是局部坐标系，旋转矩阵是局部坐标系在世界坐标系中的状态的描述。 
+> &#x1F50E; x、y、z 是世界坐标系、 u、v、w 是局部坐标系，旋转矩阵是局部坐标系在世界坐标系中的状态的描述。 
 
 
 
@@ -642,7 +640,7 @@ Any **linear deformation** can be decomposed into three steps: rotation, scaling
 
 
 
-> rotation \\(\longrightarrow\\) scaling \\(\longrightarrow\\) rotation 分别对应 \\(V_2^T,D, U\\).   
+> &#x1F50E; rotation \\(\longrightarrow\\) scaling \\(\longrightarrow\\) rotation 分别对应 \\(V_2^T,D, U\\).   
 注意顺序！！！
 所有 A 都能做 SVD   
 
@@ -684,7 +682,7 @@ $$
 We can apply eigenvalue decomposition to <u>asymmetric</u> matrices too, if we allow eigenvalues and eigenvectors to be **complex**. **Not considered here**.
 
 
-> ED 看作是SVD的特例，仅应用于对称矩阵，此时 U=V  
+> &#x1F50E; ED 看作是SVD的特例，仅应用于对称矩阵，此时 U=V  
 U 是正交矩阵，因此也可写成 \\(A = UVU^T\\)  
 complex.复数    
 图形学不考虑虚数，因此也不考虑非对称矩阵的 ED 
@@ -723,7 +721,7 @@ P33
 
 
 
-> 一堆大于零的实数组成一个对角矩阵。公式1的扩展
+> &#x1F50E; 一堆大于零的实数组成一个对角矩阵。公式1的扩展
 公式3是公式2的扩展  
 
 
@@ -763,7 +761,7 @@ $$
  $$.
 
 
-> 实际上不会通过 ED 来判断矩阵的正定性。
+> &#x1F50E; 实际上不会通过 ED 来判断矩阵的正定性。
 对角占优矩阵必定正定，正定不一定对角占优
 计算矩阵的有限元或 Hession 时会用到正定性
 
@@ -835,7 +833,7 @@ There are two popular linear solver approaches: direct and iterative.
 
 
 
-> 当 A 是稀疏时. \\(A^{-1}\\)通常不是稀疏。 如果 A 很大，
+> &#x1F50E; 当 A 是稀疏时. \\(A^{-1}\\)通常不是稀疏。 如果 A 很大，
 \\(A^{-1}\\)会占用大量空间  
 
 
@@ -869,7 +867,7 @@ $$
 ![](./assets/02-34-1.png)
 
 
-> LU 可用于非对称矩阵。  
+> &#x1F50E; LU 可用于非对称矩阵。  
 Cholesky 和 \\( UVU^T\\) 仅用于对称矩阵，但内存消耗更少。  
 这里不介绍如何做LU分解   
 
@@ -885,7 +883,7 @@ P38
  - Cannot be easily parallelized:Intel MKL PARDISO     
 
 
-> L、U 和稀疏性与行列顺序有关，因此通常在LU分解之前做 permutation,使得到比较好的顺序。
+> &#x1F50E; L、U 和稀疏性与行列顺序有关，因此通常在LU分解之前做 permutation,使得到比较好的顺序。
 LU 分解是计算量的大头，只做一次 LU 分解，能省去大量计算。 
 
 
@@ -923,7 +921,7 @@ So,
 
 
 
-> 不会真的去算 \\(\rho\\) 因为求特征值的代价比较大,而是调\\(\partial \\),试错   
+> &#x1F50E; 不会真的去算 \\(\rho\\) 因为求特征值的代价比较大,而是调\\(\partial \\),试错   
 
 
  
@@ -1001,7 +999,7 @@ h(\mathbf{x} )
 ![](./assets/02-43.png)
 
 
-> 变量是矢量，值也是矢量
+> &#x1F50E; 变量是矢量，值也是矢量
 Divergence:散度，也是J(x)的 trace
 怎么理解 curl?把微分算子\\(\nabla \\)看作是个向量，
 让它与 f 做叉乘、在流体模拟中常用。 
@@ -1031,7 +1029,7 @@ $$
 当**H**正定时, \\(f(x)\\)满足一些特殊的性质    
 
 
-> 求导顺序不影响求导结果，因此 H 是对称的   
+> &#x1F50E; 求导顺序不影响求导结果，因此 H 是对称的   
 
 
 
@@ -1052,7 +1050,7 @@ $$
 |----|   
 
 
-> 向量梯度的物理意义，：向量沿什么方向变化能最快地少、大/短。答：沿它自己的当前方向。  
+> &#x1F50E; 向量梯度的物理意义，：向量沿什么方向变化能最快地少、大/短。答：沿它自己的当前方向。  
 
 
 
@@ -1067,7 +1065,7 @@ P46
 Choi and Ko. 2002. Stable But Responive Cloth. TOG (SIGGRAPH)    
 
 
-> Eenergy：物理上的弹性势能
+> &#x1F50E; Eenergy：物理上的弹性势能
 Force：物璭上的力，是 Eneryy 的 gradient 的反方向;
 公式后面有个 T,来源于前面的\\(\nabla \\)，
 直观解释，前面是力的大小，后面是力的方向，推荐论文为以上公式推导的详细过程 
@@ -1083,4 +1081,4 @@ P47
 ![](./assets/02-47-1.png)
 
 
-> \\(\nabla\\)To 代表对\\(x_0\\)的求导    
+> &#x1F50E; \\(\nabla\\)To 代表对\\(x_0\\)的求导    
