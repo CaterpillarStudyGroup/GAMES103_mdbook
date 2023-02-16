@@ -7,7 +7,7 @@ P3
 
 Our living environment is stuffed with rigid objects.
 
-
+> &#x1F50E; rigid:物体很硬，因此不考虑形变。
 
 P6  
 ## Rigid Body Simulation   
@@ -68,12 +68,26 @@ By definition, the integral \\(\mathbf{x} (t) = \int \mathbf{v}  (t) dt\\) is th
 ![](./assets/03-5.png) 
 
 
+> &#x1F50E; 也可以用\\(\dot{X} \\)表示速度V  
+速度是加速度的积分，因此\\( \Delta t=\int a=\int \frac{F}{M} =M^{-1}\int F\\).   
+位置是速度的积分
+本质上是解积分
+
+假设X和V都是一维的速度的积分就是阴影区域的面积。 
+
+
+
 P12   
 ## Integration Methods Explained    
 
 ![](./assets/03-6.png) 
 
 ![](./assets/03-7.png) 
+
+> &#x1F50E; 使用 \\(t_0\\) 时刻的速度：显式积分  
+使用 \\(t_1\\) 时刻的速度：隐式积分  
+两种方法都只能一阶近似   
+
 
 
 P13  
@@ -122,6 +136,9 @@ $$
 $$
 
 
+> &#x1F50E; 在当前应用场景中，使用前面方法的混合   
+
+
 
 P16 
 ## Leapfrog Integration    
@@ -136,6 +153,8 @@ It has a funnier name: the *leapfrog method*.
 
 ![](./assets/03-12.png)    
 
+> &#x1F50E; 速度和位置是错开的  
+
 
 
 P17  
@@ -143,6 +162,10 @@ P17
 
 
 ![](./assets/03-13.png)    
+
+
+> &#x1F50E; 在做模拟时，如果不要求能量守衡，出于问题简化的目的，直接对速度做衰减，代替引入阻力  
+
 
 
 P18  
@@ -154,6 +177,10 @@ P18
 ![](./assets/03-15.png)    
 
 The mass \\(M\\) and the time step \\(\Delta t\\) are user-specified variables.     
+
+
+> &#x1F50E; 实际应用中，\\(\Delta t\\)要跟帧率匹配
+质量 M 可以是个对角矩阵或实数    
 
 
 
@@ -240,6 +267,10 @@ Let \\(\mathbf{q}  = \begin{bmatrix}
 
 
 
+> &#x1F50E; 在有些库里面写作： \\(q-\begin{bmatrix}
+ w & x & y &z
+\end{bmatrix}\\)，w为实数部分  
+
 
 
 
@@ -290,6 +321,12 @@ P28
 ![](./assets/03-22.png)     
 
 
+> &#x1F50E; Torque：力矩   
+[?] 为计么力矩由叉差乘得到？力矩与为垂直？
+用于旋转的质量不再是实数，而是矩阵，称为 Inertia 矩阵，用I来标记 Inertia 矩阵，其中\\(I_{ref}\\)为参考状态，I为当前状态，I是\\(3\times 3\\)矩阵。 
+
+
+
 P29   
 ## Translational and Rotational Motion   
 
@@ -302,7 +339,12 @@ P29
 
 
 
-
+> &#x1F50E; 平移： a = \frac{力}{质量}   
+旋转： a =\frac{力矩}{Inertia}   
+q是四元数，代表物体的旋转状态   
+\\(q_1\times q_2\\)不是叉乘，而是四元数普通乘法
+[.]是有一个四元数，0为实部，后面为虚部
+算完\\(q^{[1]}\\)的之后要对它 Normalize   
 
 
 
