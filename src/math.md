@@ -103,7 +103,7 @@ A (geometric) vector can represent a position, a velocity, a force, or a line/ra
 
 ![](./assets/02-7-2.png)    
 
-> &#x1F50E; 右图。同一个公式，对\\(t\\)做不同的约束，可以定义不同的东西。    
+> &#x1F50E; 图2。同一个公式，对\\(t\\)做不同的约束，可以定义不同的东西。    
 \\(P(t)\\) 是 \\(P\\) 和 \\(q\\) 的 blend 
 
 
@@ -385,9 +385,9 @@ P20
 
 > &#x1F50E; 由于硬件能力提升，已经可以做到逐像素。shading,不再需要此方法   
 通常也不是逐像素计算重心坐标，而是扫描线算法例如要计算某一行，可以 ：  
-(1)插值出行起点像素；  
-(2)插值出行终点像素；
-(3)起点与终点间批量插值；
+(1) 插值出行起点像素；  
+(2) 插值出行终点像素；   
+(3) 起点与终点间批量插值； 
 
 
 
@@ -432,7 +432,7 @@ $$
 
 
 > &#x1F50E; 四面体    
-h是\\(X_{30}\\)在 normal 上的投影行列式是上面叉乘的另一种可马法。
+\\(h\\)是\\(\mathbf{x}_{30}\\)在 normal 上的投影行列式是上面叉乘的另一种可马法。
 
 
 
@@ -447,7 +447,7 @@ Note that the volume \\(V =\frac{1}{3}h\mathit{A} =\frac{1}{6} \mathbf{x} _ {30}
 ![](./assets/02-25.png)
 
 
-> &#x1F50E; \\(X_3\\）的后面法线的同方向上，也正四面体，反之为负四面体，四点共面为零体积。
+> &#x1F50E; \\(\mathbf{x}_{3}\\)的后面法线的同方向上，也正四面体，反之为负四面体，四点共面为零体积。
 
 
 
@@ -640,9 +640,9 @@ Any **linear deformation** can be decomposed into three steps: rotation, scaling
 
 
 
-> &#x1F50E; rotation \\(\longrightarrow\\) scaling \\(\longrightarrow\\) rotation 分别对应 \\(V_2^T,D, U\\).   
-注意顺序！！！
-所有 A 都能做 SVD   
+> &#x1F50E; rotation \\(\longrightarrow\\) scaling \\(\longrightarrow\\) rotation 分别对应 \\(\mathbf{V}_2^\mathbf{T},\mathbf{D}, \mathbf{U}\\).   
+注意顺序！！！   
+所有 \\(\mathbf{A}\\) 都能做 \\(\mathbf{SVD} \\)   
 
 
 
@@ -682,10 +682,10 @@ $$
 We can apply eigenvalue decomposition to <u>asymmetric</u> matrices too, if we allow eigenvalues and eigenvectors to be **complex**. **Not considered here**.
 
 
-> &#x1F50E; ED 看作是SVD的特例，仅应用于对称矩阵，此时 U=V  
-U 是正交矩阵，因此也可写成 \\(A = UVU^T\\)  
+> &#x1F50E; \\(\mathbf{ED}\\) 看作是\\(\mathbf{SVD}\\)的特例，仅应用于对称矩阵，此时 \\(\mathbf{U=V}\\)    
+\\(\mathbf{U}\\) 是正交矩阵，因此也可写成 \\(\mathbf{A = UVU^T}\\)  
 complex.复数    
-图形学不考虑虚数，因此也不考虑非对称矩阵的 ED 
+图形学不考虑虚数，因此也不考虑非对称矩阵的 \\(\mathbf{ED}\\)  
 
 
 
@@ -721,7 +721,7 @@ P33
 
 
 
-> &#x1F50E; 一堆大于零的实数组成一个对角矩阵。公式1的扩展
+> &#x1F50E; 一堆大于零的实数组成一个对角矩阵, 公式1的扩展   
 公式3是公式2的扩展  
 
 
@@ -761,7 +761,7 @@ $$
  $$.
 
 
-> &#x1F50E; 实际上不会通过 ED 来判断矩阵的正定性。
+> &#x1F50E; 实际上不会通过 \\(\mathbf{ED}\\) 来判断矩阵的正定性。
 对角占优矩阵必定正定，正定不一定对角占优
 计算矩阵的有限元或 Hession 时会用到正定性
 
@@ -833,8 +833,8 @@ There are two popular linear solver approaches: direct and iterative.
 
 
 
-> &#x1F50E; 当 A 是稀疏时. \\(A^{-1}\\)通常不是稀疏。 如果 A 很大，
-\\(A^{-1}\\)会占用大量空间  
+> &#x1F50E; 当 \\(\mathbf{A}\\) 是稀疏时. \\(\mathbf{A}^{-1}\\)通常不是稀疏。 如果 \\(\mathbf{A}\\) 很大，
+\\(\mathbf{A}^{-1}\\)会占用大量空间  
 
 
 
@@ -867,9 +867,9 @@ $$
 ![](./assets/02-34-1.png)
 
 
-> &#x1F50E; LU 可用于非对称矩阵。  
-Cholesky 和 \\( UVU^T\\) 仅用于对称矩阵，但内存消耗更少。  
-这里不介绍如何做LU分解   
+> &#x1F50E; \\(\mathbf{LU}\\) 可用于非对称矩阵。  
+Cholesky 和 \\( \mathbf{LDL^\top}\\) 仅用于对称矩阵，但内存消耗更少。  
+这里不介绍如何做\\(\mathbf{LU}\\)分解   
 
 
 
@@ -883,8 +883,8 @@ P38
  - Cannot be easily parallelized:Intel MKL PARDISO     
 
 
-> &#x1F50E; L、U 和稀疏性与行列顺序有关，因此通常在LU分解之前做 permutation,使得到比较好的顺序。
-LU 分解是计算量的大头，只做一次 LU 分解，能省去大量计算。 
+> &#x1F50E; \\(\mathbf{L}、\mathbf{U}\\) 和稀疏性与行列顺序有关，因此通常在LU分解之前做 permutation,使得到比较好的顺序。
+\\(\mathbf{LU}\\) 分解是计算量的大头，只做一次 \\(\mathbf{LU}\\) 分解，能省去大量计算。 
 
 
 
@@ -999,10 +999,9 @@ h(\mathbf{x} )
 ![](./assets/02-43.png)
 
 
-> &#x1F50E; 变量是矢量，值也是矢量
-Divergence:散度，也是J(x)的 trace
-怎么理解 curl?把微分算子\\(\nabla \\)看作是个向量，
-让它与 f 做叉乘、在流体模拟中常用。 
+> &#x1F50E; 变量是矢量，值也是矢量   
+Divergence:散度，也是\\(\mathbf{J}(\mathbf{x})\\)的 trace   
+怎么理解 curl?把微分算子\\(\nabla \\)看作是个向量，让它与 \\(\mathbf{f}\\) 做叉乘、在流体模拟中常用。 
 
 
 
@@ -1026,10 +1025,10 @@ $$
 f(x)=f(x_0)+\rhd {f}' (x_0)\cdot (x-x_0)+\frac{1}{2}(x-x_0)^TH(x-x_0)+\cdots 
 $$
 
-当**H**正定时, \\(f(x)\\)满足一些特殊的性质    
+当\\(\mathbf{H}\\)正定时, \\(f(\mathbf{x})\\)满足一些特殊的性质    
 
 
-> &#x1F50E; 求导顺序不影响求导结果，因此 H 是对称的   
+> &#x1F50E; 求导顺序不影响求导结果，因此 \\(\mathbf{H}\\) 是对称的   
 
 
 
@@ -1050,7 +1049,7 @@ $$
 |----|   
 
 
-> &#x1F50E; 向量梯度的物理意义，：向量沿什么方向变化能最快地少、大/短。答：沿它自己的当前方向。  
+> &#x1F50E; 向量梯度的物理意义：向量沿什么方向变化能最快地少、大/短。答：沿它自己的当前方向。  
 
 
 
@@ -1066,7 +1065,7 @@ Choi and Ko. 2002. Stable But Responive Cloth. TOG (SIGGRAPH)
 
 
 > &#x1F50E; Eenergy：物理上的弹性势能
-Force：物璭上的力，是 Eneryy 的 gradient 的反方向;
+Force：物理上的力，是 Energy 的 gradient 的反方向;
 公式后面有个 T,来源于前面的\\(\nabla \\)，
 直观解释，前面是力的大小，后面是力的方向，推荐论文为以上公式推导的详细过程 
 
@@ -1081,4 +1080,4 @@ P47
 ![](./assets/02-47-1.png)
 
 
-> &#x1F50E; \\(\nabla\\)To 代表对\\(x_0\\)的求导    
+> &#x1F50E; \\(\nabla_0\\) 代表对\\(\mathbf{x}_0\\)的求导    
