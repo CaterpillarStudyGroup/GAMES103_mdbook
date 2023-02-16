@@ -83,6 +83,11 @@ Triangle list: {1, 2, 3, 0, 1, 3, 0, 3, 4}    (index triples)
 |----|   
 
 
+> &#x2705; 已知边的信息，需找出内部边，例如\\(X_0X_3\\)，因此要基于此构造边\\(l,X_4\\)   
+
+
+
+
 P9   
 ## Topological Construction   
 
@@ -96,10 +101,20 @@ Each triple contains: edge vertex index 0, edge vertex index 1 and triangle inde
 ![](./assets/05-8.png)    
 
 
+> &#x2705; 排序：基于边排序后，排序后相同边会靠在一起
+
+
+
 P11   
 ## Explicit Integration of A Mass-Spring System   
 
 ![](./assets/05-9.png)    
+
+
+> &#x2705; 整体流程跟刚体运动很像，只是力变得复杂，每个弹簧端点上受到的力都要考虑，但没有了旋转。  
+E [e][0]：e代表弹簧 ID:0或1代表弹簧两个端点
+图画得不对，先提前把所有的力都算出来，再遍历所有顶
+点
 
 
 
@@ -111,6 +126,12 @@ Explicit integration suffers from **numerical instability** caused by <u>oversho
 A naive solution is to use a small \\(∆t\\) . But that slows down the simulation.    
 
 ![](./assets/05-10.png)    
+
+
+> &#x2705; 解决方法：减小\\(\Delta t\\)  
+这个方法不解决本质问题，且会降低整个模拟系统的
+效率   
+
 
 
 P13  
@@ -130,7 +151,10 @@ $$
 $$
 
 
-
+> &#x2705; holonomic：只跟位置有关，跟速度无关。例如重力，
+弹力。
+那么 f[1]可以写成关于位置的函数\\(f(x)\\)，但\\(\int (x)\\)不一定是线性的。  
+因此最后转化为解非线性方程的问题    
 
 
 
@@ -144,6 +168,15 @@ $$
 
 
 Note that this is applicable to every system, not just a mass-spring system.    
+
+
+> &#x2705; 非线性方程问题为转化为优化问题。
+其中：M对角矩阵，描述质量。
+X为3Nxi矢量,描述顶点信息\\(3N\times 3N\\)    
+E 为所有的力的能量   
+只有保守力能用能量描述、非保守力（例如摩擦力)则
+不行。  
+
 
 
 
