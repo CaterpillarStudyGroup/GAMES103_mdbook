@@ -7,7 +7,7 @@ P3
 
 Our living environment is stuffed with rigid objects.
 
-> &#x1F50E; rigid:物体很硬，因此不考虑形变。
+> &#x1F50E; rigid：物体很硬，因此不考虑形变。
 
 P6  
 ## Rigid Body Simulation   
@@ -68,12 +68,13 @@ By definition, the integral \\(\mathbf{x} (t) = \int \mathbf{v}  (t) dt\\) is th
 ![](./assets/03-5.png) 
 
 
-> &#x1F50E; 也可以用\\(\dot{X} \\)表示速度V  
+> &#x1F50E; 也可以用\\(\mathbf{\dot{x}} \\)表示速度\\(\mathbf{v} \\)    
 速度是加速度的积分，因此\\( \Delta t=\int a=\int \frac{F}{M} =M^{-1}\int F\\).   
-位置是速度的积分
-本质上是解积分
+位置是速度的积分   
+本质上是解积分   
 
-假设X和V都是一维的速度的积分就是阴影区域的面积。 
+
+> &#x1F50E; 假设\\(\mathbf{x} \\)和\\(\mathbf{v} \\)都是一维的速度的积分就是阴影区域的面积。 
 
 
 
@@ -179,7 +180,7 @@ P18
 The mass \\(M\\) and the time step \\(\Delta t\\) are user-specified variables.     
 
 
-> &#x1F50E; 实际应用中，\\(\Delta t\\)要跟帧率匹配
+> &#x1F50E; 实际应用中，\\(\Delta t\\)要跟帧率匹配   
 质量 M 可以是个对角矩阵或实数    
 
 
@@ -322,8 +323,8 @@ P28
 
 
 > &#x1F50E; Torque：力矩   
-[?] 为计么力矩由叉差乘得到？力矩与为垂直？
-用于旋转的质量不再是实数，而是矩阵，称为 Inertia 矩阵，用I来标记 Inertia 矩阵，其中\\(I_{ref}\\)为参考状态，I为当前状态，I是\\(3\times 3\\)矩阵。 
+[?] 为计么力矩由叉差乘得到？力矩与为垂直？  
+用于旋转的质量不再是实数，而是矩阵，称为 Inertia 矩阵，用 \\(\mathbf{I}\\) 来标记    Inertia 矩阵，其中 \\(\mathbf{I}_{ref}\\)为参考状态，\\(\mathbf{I}\\) 为当前状态，\\(\mathbf{I}\\) 是 \\(3\times 3\\) 矩阵。 
 
 
 
@@ -339,12 +340,12 @@ P29
 
 
 
-> &#x1F50E; 平移： a = \frac{力}{质量}   
-旋转： a =\frac{力矩}{Inertia}   
-q是四元数，代表物体的旋转状态   
-\\(q_1\times q_2\\)不是叉乘，而是四元数普通乘法
-[.]是有一个四元数，0为实部，后面为虚部
-算完\\(q^{[1]}\\)的之后要对它 Normalize   
+> &#x1F50E;  平移： \\(a = \frac{力}{质量}\\)     
+旋转： \\(a =\frac{力矩}{\text{Inertia}}\\)   
+\\(q\\)是四元数，代表物体的旋转状态   
+\\(q_1\times q_2\\)不是叉乘，而是四元数普通乘法   
+[ \\(\cdot\\) ]是有一个四元数，0为实部，后面为虚部   
+算完\\(q^{[1]}\\)的之后要对它 Normalize     
 
 
 
