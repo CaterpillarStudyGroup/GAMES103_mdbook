@@ -1067,7 +1067,7 @@ Choi and Ko. 2002. Stable But Responive Cloth. TOG (SIGGRAPH)
 > &#x1F50E; Eenergy：物理上的弹性势能
 Force：物理上的力，是 Energy 的 gradient 的反方向;
 公式后面有个 T,来源于前面的\\(\nabla \\)，
-直观解释，前面是力的大小，后面是力的方向，推荐论文为以上公式推导的详细过程 
+直观解释，前面是力的大小，后面是力的方向，推荐论文为以\\(\bot\\)公式推导的详细过程 
 
 
 
