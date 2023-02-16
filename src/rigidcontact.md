@@ -322,10 +322,6 @@ What happens to \\(\mathbf{V}_i\\) when an impulse \\(\mathbf{j}\\) is appliedat
 \\(V_i\\) 是点速度、\\(V\\)是线速度   
 
 
-P26   
-
-> &#x1F50E; r^* 是 r 的 cross matrix.
-目的：用矩阵形式代替叉乘形式，方便公式化简   
 
 
 
@@ -349,6 +345,12 @@ $$
 >$$
 > 
 
+
+> &#x1F50E; 已知 V_i^{new},V_i,K,求 j  
+冲量=时间.力  
+
+
+
 P26   
 ## Cross Product as a Matrix Product    
 
@@ -357,11 +359,20 @@ We can convert the cross product \\(\mathbf{r}x\\) into a matrix product \\(\mat
 ![](./assets/04-23.png)    
 
 
+> &#x1F50E; r^* 是 r 的 cross matrix.
+目的：用矩阵形式代替叉乘形式，方便公式化简   
+
+
 
 P28  
 ## Rigid Body Collision Response by Impulse    
 
 ![](./assets/04-24.png)    
+
+
+> &#x1F50E; [?] 如果有多个顶点发生碰撞呢？
+回答在？29   
+
 
 
 P29  
@@ -377,6 +388,11 @@ P29
     - Because the problem is nonlinear.     
     - We will come back to this later when we talk about constraints.      
 
+
+
+> &#x1F50E; Oscillation 问题。
+原因：重力让它往下，冲量让它往上
+解决方法：接近静止时衰减 \\(V_i\\)   
 
 
 
@@ -460,6 +476,10 @@ Second, enforce the **rigidity** constraint to become a rigid body again.
 
 
 
+> &#x1F50E; 第二步是 Shape Matching 的关键   
+
+
+
 P34  
 ## Mathematical Formulation    
 
@@ -469,11 +489,21 @@ Now \\(\mathbf{c}\\) and \\(\mathbf{R}\\) are unknowns we want to find out from
 
 
 
+> &#x1F50E; C 代表质心，即前面的 X
+约束前后质心位置不变   
+
+
+
+
 P35  
 ## Mathematical Formulation   
 
 
 ![](./assets/04-28.png)    
+
+
+> &#x1F50E; 先假设 R 是德矩阵 A,再从中提取旋转成分   
+
 
 
 P36   
@@ -487,6 +517,13 @@ Singular value decomposition says any matrix can be decomposed into: rotation,sc
 We can rotate the object back before the final rotation: \\(\mathbf{A}  = (\mathbf{UV} ^T)(\mathbf{VDV} ^T)\\).    
 
 ![](./assets/04-30.png)    
+
+
+
+> &#x1F50E; A = （ UV^T）(VDV^T) = RS   
+R 代表全局旋转，S代表本地形变   
+
+
 
 
 P37   
