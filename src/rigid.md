@@ -7,7 +7,7 @@ P3
 
 Our living environment is stuffed with rigid objects.
 
-> &#x1F50E; rigid：物体很硬，因此不考虑形变。
+> &#x2705; rigid：物体很硬，因此不考虑形变。
 
 P6  
 ## Rigid Body Simulation   
@@ -68,13 +68,13 @@ By definition, the integral \\(\mathbf{x} (t) = \int \mathbf{v}  (t) dt\\) is th
 ![](./assets/03-5.png) 
 
 
-> &#x1F50E; 也可以用\\(\mathbf{\dot{x}} \\)表示速度\\(\mathbf{v} \\)    
+> &#x2705; 也可以用\\(\mathbf{\dot{x}} \\)表示速度\\(\mathbf{v} \\)    
 速度是加速度的积分，因此\\( \Delta t=\int a=\int \frac{F}{M} =M^{-1}\int F\\).   
 位置是速度的积分   
 本质上是解积分   
 
 
-> &#x1F50E; 假设\\(\mathbf{x} \\)和\\(\mathbf{v} \\)都是一维的速度的积分就是阴影区域的面积。 
+> &#x2705; 假设\\(\mathbf{x} \\)和\\(\mathbf{v} \\)都是一维的速度的积分就是阴影区域的面积。 
 
 
 
@@ -85,7 +85,7 @@ P12
 
 ![](./assets/03-7.png) 
 
-> &#x1F50E; 使用 \\(t_0\\) 时刻的速度：显式积分  
+> &#x2705; 使用 \\(t_0\\) 时刻的速度：显式积分  
 使用 \\(t_1\\) 时刻的速度：隐式积分  
 两种方法都只能一阶近似   
 
@@ -137,7 +137,7 @@ $$
 $$
 
 
-> &#x1F50E; 在当前应用场景中，使用前面方法的混合   
+> &#x2705; 在当前应用场景中，使用前面方法的混合   
 
 
 
@@ -154,7 +154,7 @@ It has a funnier name: the *leapfrog method*.
 
 ![](./assets/03-12.png)    
 
-> &#x1F50E; 速度和位置是错开的  
+> &#x2705; 速度和位置是错开的  
 
 
 
@@ -165,7 +165,7 @@ P17
 ![](./assets/03-13.png)    
 
 
-> &#x1F50E; 在做模拟时，如果不要求能量守衡，出于问题简化的目的，直接对速度做衰减，代替引入阻力  
+> &#x2705; 在做模拟时，如果不要求能量守衡，出于问题简化的目的，直接对速度做衰减，代替引入阻力  
 
 
 
@@ -180,7 +180,7 @@ P18
 The mass \\(M\\) and the time step \\(\Delta t\\) are user-specified variables.     
 
 
-> &#x1F50E; 实际应用中，\\(\Delta t\\)要跟帧率匹配   
+> &#x2705; 实际应用中，\\(\Delta t\\)要跟帧率匹配   
 质量 M 可以是个对角矩阵或实数    
 
 
@@ -268,7 +268,7 @@ Let \\(\mathbf{q}  = \begin{bmatrix}
 
 
 
-> &#x1F50E; 在有些库里面写作： \\(q-\begin{bmatrix}
+> &#x2705; 在有些库里面写作： \\(q-\begin{bmatrix}
  w & x & y &z
 \end{bmatrix}\\)，w为实数部分  
 
@@ -322,7 +322,7 @@ P28
 ![](./assets/03-22.png)     
 
 
-> &#x1F50E; Torque：力矩   
+> &#x2705; Torque：力矩   
 [?] 为计么力矩由叉差乘得到？力矩与为垂直？  
 用于旋转的质量不再是实数，而是矩阵，称为 Inertia 矩阵，用 \\(\mathbf{I}\\) 来标记    Inertia 矩阵，其中 \\(\mathbf{I}_{ref}\\)为参考状态，\\(\mathbf{I}\\) 为当前状态，\\(\mathbf{I}\\) 是 \\(3\times 3\\) 矩阵。 
 
@@ -340,7 +340,7 @@ P29
 
 
 
-> &#x1F50E;  平移： \\(a = \frac{力}{质量}\\)     
+> &#x2705;  平移： \\(a = \frac{力}{质量}\\)     
 旋转： \\(a =\frac{力矩}{\text{Inertia}}\\)   
 \\(q\\)是四元数，代表物体的旋转状态   
 \\(q_1\times q_2\\)不是叉乘，而是四元数普通乘法   
