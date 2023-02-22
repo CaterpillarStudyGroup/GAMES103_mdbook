@@ -193,6 +193,11 @@ $$
 
 
 
+> &#x2705; 原理：\\(a = \min F(x)⇒ F'(a)= 0\\)   
+Overshooting 的本质：误差会积累和放大 
+
+
+
 P16    
 Newton’s method finds an extremum, but it can be a minimum or maximum.    
 
@@ -201,6 +206,11 @@ Newton’s method finds an extremum, but it can be a minimum or maximum.
  - At a minimum \\(x^∗, {F}'' (x^∗)>0\\).     
  - At a maximum \\(x^∗, {F}''(x^∗)<0\\). 
  - If \\({F}''(x)>0\\) is everywhere, \\(F(x)\\) has no maximum.  \\(=> F(x)\\) has only one minimum.     
+
+
+
+> &#x2705; \\(F'(a)= 0,a\\)  有可能是最大值或最小值，因此要判定解是否合理。判定方法： \\({F}''(x)\\)  
+
 
 
 
@@ -216,6 +226,12 @@ $$
 $$
 
 ![](./assets/05-16.png)    
+
+
+
+> &#x2705; 按照 \\(\Delta x\\) 的更新公式，只需要用到\\(F'(x)\\) 和 \\(F"(x)\\)， 不需要知道 \\(F(x)\\).   
+此处\\(x\\)是向量，因此\\(F'(x)\\)是向量，\\({F}''(x)\\)是 Hession 矩阵  
+
 
 
 
@@ -247,6 +263,11 @@ $$
 
 
 
+> &#x2753; 每一个 step 都包含一次迭代优化、能做到实时？ 本节课所讲的套路：分析力 → 隐式积分 → 优化问题 → 更新，对弹簧系统、有限元、弹性体等各种物理模拟同样适用   
+
+
+
+
 P19  
 ## SolveSpring Hessian
 
@@ -271,6 +292,14 @@ $$
 
 
 
+> &#x2705; \\(H(x)\\) 是\\(3 N \times 3N\\) 的矩阵、 N 是弹簧数每个He是一个\\(3 \times 3\\)矩阵   
+最后一个公式分子满足柯西不等式   
+\\(||x_{ij}||< Le\\). 代表弹簧处于压缩状态。此时 He 有可能非正定，但拉伸时一定正定。  
+He 正定则\\(H(x)\\)半正定，此时弹簧系统有唯一解。  
+
+
+
+
 P20   
 When a spring is stretched, \\(\mathbf{H} _e\\) is s.p.d.; but when it’s compressed, \\(\mathbf{H} _e\\) may not be s.p.d.     
 
@@ -279,6 +308,12 @@ As a result, \\(\mathbf{H}(\mathbf{x})\\) may not be s.p.d. (Lecture 2, Page 36
 \\(\mathbf{A}\\) may not be s.p.d. either.    
 
 ![](./assets/05-18.png)    
+
+
+> &#x2705; \\(\Delta t\\)越少，A越容易正定、弹簧系统越稳定。   
+但是A不正定，不代表没有唯一解。   
+不正定最大的问题不是解不唯一，因为解出任意一个解都能让模拟系统进行下去。
+
 
 P22 
 
@@ -306,6 +341,10 @@ P23
 
  - Other solutions exist. For example,     
     - Choi and Ko. 2002. Stable But Responive Cloth. TOG (SIGGRAPH)      
+
+
+
+> &#x2705; 非正定的主要问题，是数学计算上的不稳定，可能导致解不出来；简单粗爆的解决方法就是把后面这项删掉。  
 
 
 
@@ -368,6 +407,18 @@ last_\\(∆\mathbf{x} \longleftarrow \\) old_\\(∆\mathbf{x}\\)
 \\(\rho  (\rho <1)\\) is the estimated spectral radius of the iterative matrix.    
 
 
+> &#x2705; 这一页老师没讲   
+课后答疑：质点的质量可以不同吗？   
+答：可以不同。先根据三角形的面积计算三角的质量，再把质量分配到各个顶点上。   
+问题二：怎么加速？  
+答：用 Jacobian 可以在 GPU 上加速、直接法比迭代法慢。  
+P19.   \\( \mathbf{x}_ {ij}\\) 代表顶点\\( \mathbf{x}_ {i}\\)和顶点\\( \mathbf{x}_ {j}\\)的位置的差。   
+问题三：共轭梯度    
+共轭梯度的效率很大程度上取决于 precondition,但在GPU上能使用的precondition 比较受限、 CPU 上一般选择 Incomplete LU 分解。   
+问题四：支持的维度    
+直接法比较占内存，因此支持的维度不如迭代法大。  
+
+
 P27   
 ## After-Class Reading   
 
@@ -406,11 +457,19 @@ A dihedral angle model defines bending forces as a function of \\(\theta : \math
 
 
 
+> &#x2705; Dihedarl Angel:二面角     
+\\(x_1, x_2, x_3, x_4都会受到 bending force力的大小相同但方向不同。   
+
+
+
 
 P31    
 Conclusion:
 
 ![](./assets/05-24.png)    
+
+
+> &#x2705; N是未归一化的 normal. N 的方向与 normal 相同。大小为三角形的面积。   
 
 
 
@@ -429,6 +488,12 @@ Non-planar case:
 
 
 
+> &#x2705; Non-planar case：不是指弯曲时的力，而是指静止状态(reference state)为非平面的场景下，窜弯曲为0时 的力。0。表示 reference state. 
+
+> &#x2705; 老师没解释公式怎么来的   
+
+
+
 P33    
 ## After-Class Reading    
 
@@ -436,6 +501,9 @@ Bridson et al. 2003. *Simulation of Clothing with Folds and Wrinkles*. SCA.
 
 Explicit integration.     
 Derivative is difficult to compute.    
+
+
+> &#x2705; 由于完全基于力而不考虑能量，适合用显式积分、此论文适合读完。  
 
 
 
@@ -472,6 +540,14 @@ $$
 \\(\mathbf{I}\\) is 3-by-3 identity.    
 
 It’s not hard to see that: \\(E (\mathbf{x} )=\frac{3||\mathbf{q} ^\mathbf{T}\mathbf{x} ||^2}{2(A_0+A_1)}\\).  Also, \\(E (\mathbf{x} )=0\\) when the triangles are flat.    
+
+
+> &#x2705; \\(q^Tx\\)在估算两个三角形的拉普拉斯，即两个三角的 曲率、当两个三角形共面时， \\(E(x)=0\\)   
+\\(E(x)=0\\) 来自数学上曲率的推导，而不是来自物理意义的推导。  
+问题：能量的思想能用在刚体上呢？    
+答：这里的能量是弹性能量、刚体无弹性，因此也无所谓能量。   
+
+
 
 
 P35  
@@ -518,6 +594,9 @@ Is it true? Think about a zero bending case. Can a simulator fold cloth freely?
 
 
 
+> &#x2705; 书上例子举得不好、考虑纸这种无弹性的面料，会把它的弹性系数调得很大，导致它法弯折。    
+
+
 
 P38    
 
@@ -526,9 +605,17 @@ For a <u>manifold</u> mesh, Euler’s formula says:#edges=3#vertices-3-#boundary
 So if edges are all hard constraints, the DoFs are only: 3+ #boundary_edges.    
 
 
+> &#x2705; 实操套路：1.弹簧压缩时让k比较小；2.假设弹簧在一定长度范围内可自由活动，不受力，以上方法都不解决根本问题；3.把自由度定义在边上不­是顶点上，但把问题搞得更复杂了。   
+
+在K很大或网格分辨率低时， licking issue 会特别明显。   
+
+> &#x2705; 自由度 = 变量数 - 约束数，每个顶点有3个自由度、每条边是一个约束   
+单纯加点不会改善，但让点变密可以改善     
 
 P39   
 ## Shape Matching    
+
+> &#x2705; Shape Matching 跳过了。   
 
 
 P40   
