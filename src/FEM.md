@@ -15,6 +15,12 @@ $$
 $$
 
 
+> &#x2705; reference triangle：三角形处于没有发生形变的静止的状态。   
+
+假设：三角形的形变是均匀的    
+\\(\chi\\)和\\(x\\)可以分别是 reference 和 deformed 三角形的顶点或内部 点，公式都同样适用。  
+
+
 P5   
 ## Deformation Gradient    
 
@@ -26,6 +32,7 @@ Therefore, we can calculate the deformation gradient by edge vectors.
 **Problem:** \\(\mathbf{F}\\) **is related to deformation, but it contains rotation**.     
 
 
+> &#x2705; 期望\\(F\\)只包含形变量、不包含平移和旋转、因为刚体运动不应该有形变，所以要把形变提取出来。    
 
 
 P6  
@@ -46,6 +53,14 @@ So we get rid of \\(\mathbf{U}\\) as: \\(\mathbf{G} =\frac{1}{2} (\mathbf{F^TF�
  - \\(\mathbf{G}\\) is <u>rotation invariant</u>: if additional rotation \\(\mathbf{R}\\), then deformation gradient is \\(\mathbf{RF}\\) but green strain is the same: \\(\mathbf{G} =\frac{1}{2} (\mathbf{F^TR^TRF−I} )=\frac{1}{2} (\mathbf{VD} ^2\mathbf{V} ^\mathbf{T} −\mathbf{I} )\\).    
 
 
+
+> &#x2705; \\(V^\top\\) 看上去是旋转、实际上是为了确定形变的方向、 U 才是真正的旋转     
+目的：把\\(F\\)中的\\(U\\)去掉、可以先做 \\(SVD\\) 分解再把\\(U\\)去掉。但本文使用了更简单的方法     
+\\(G\\) 是一个描述物体形变的有无和大小矩阵，且与关旋转     
+
+
+
+
 P7   
 ## Strain Energy Density Function    
 
@@ -59,11 +74,20 @@ Let \\(\mathbf{G}\\) be the the green strain describing deformation. We conside
 ![](./assets/07-6.png)    
 
 
+> &#x2705;  \\(A^{rof}\\) 为 reference status 下三角形的面积     
+\\(S_tVk\\) 在力学中不常用，但在图形学中很常用、原因是简单    
+S 是一个类似于力的物理量。   
+
+
+
 P8  
 ## Forces   
 
 Given everything we have, we can now calculate the forces.    
 ![](./assets/07-7.png)    
+
+
+> &#x2705; 绿色部分是上一页S中的内容、灰色部分将在下一页推导。  
 
 
 
@@ -110,6 +134,7 @@ P10
 ![](./assets/07-9.png)    
 
 
+> &#x2705; 把 P9 代入 P8 得到 P10       
 
 
 P11     
@@ -137,6 +162,7 @@ $$
 $$
 
 
+> &#x2705; \\(f_0=f_1-f_2\\)   
 
 
 P12   
@@ -185,6 +211,12 @@ $$
 $$
 
 
+两个弹性体被界面L分开、求L上的力、   
+\\(t_1,L\\) 上的单位面积/长度上的力、   
+\\(0_1\\) 一个矩阵    
+
+
+
 P15   
 ## The Finite Volume Method   
 
@@ -216,6 +248,14 @@ $$
 $$
 
 
+> &#x2705;  \\(x_0\\)是顶点\\(x\\)附近邻域面积上的力。    
+\\(X_0\\)上的力是邻域面边界\\(L\\)上的力的积分、不考虑边界内部的力，因为认为内力为0。   
+
+仅看其中一个三角形、假设曲线经过 \\(x_0x_1\\)和 \\(x_0x_2\\)的中点。因为三角形的力对三个顶点是平均的。    
+对于封闭曲线， \\(\int _n=0\\)，因此 \\(\sigma \int _n=0\\)    
+三维场景是对四面体的四个面积分。
+一个三角形的 stress 都不同、同一个三角形内部 stress 是常数。  
+
 
 
 P16   
@@ -240,6 +280,10 @@ $$
 $$
 
 
+> &#x2705;  遗留问题， stress 如何计算？  
+
+
+
 P17     
 ## This stress is not that stress    
 
@@ -251,6 +295,10 @@ Although the use of stress tensor is the same: **mapping from the interface norm
 |  In FEM, we define the energy density \\(W\\) in the **reference** state.  Therefore, this stress \\(\mathbf{S}\\)  is a mapping from the normal \\(\mathbf{N}\\) to the traction \\(\mathbf{T}\\), both in the **reference** state.   | In FVM, we need \\(\mathbf{σ}\\) to convert the normal into \\(\mathbf{t}\\) for force calculation. Therefore, this stress assumes the normal \\(\mathbf{n}\\) and the traction \\(\mathbf{t}\\) are in the **deformed** state.    |  
 
 
+> &#x2705;  在 reference 状态下有 normal. traction 和 stress 在形变状态下也有 normal traction 和 stress.    
+FEM 使用的是 reference:空间下的量。    
+
+
 
 P18   
 ## Different Stresses   
@@ -258,7 +306,13 @@ P18
 
 We can now have different stresses, serving the same purpose but in different forms.     
 
-![](./assets/07-15.png)  
+![](./assets/07-15.png)   
+
+
+> &#x2705;  需要的是 Cauchy Stress.（\\(\sigma \\)）、上节课讲了(S)的 计算方法，需要根据(S)求(\\(\sigma \\)).    
+\\(P → 0\\) 的过程没有展开讲，结论在P21     
+
+
 
 P19  
 ## Area Weighted Normals   
@@ -345,6 +399,13 @@ Second Piola–Kirchhoff stress:
 \\(\mathbf{S} =\frac{∂W}{∂\mathbf{G}}\\), as in previous FEM formulation    
 
 
+> &#x2705; 第一行公式：用 deformed position 计算 deformed position. 第二行公式：用 ref position 计算 deformed position,因此直接把\\(\sigma \\)换成 \\(\mathbf{P} \\) 就可以。   
+好处：ref position 是常数，可卜人做预计算、并存储为\\(b_1\\).   
+F：deformation gradient.见P5     
+公式用三用不同定义的 stress 来算力、目的是得到计­算最友好的公式    
+此处内容涉及材料力学、    
+
+
 
 P23   
 ## The Finite Volume Method   
@@ -384,6 +445,9 @@ $$
 \quad\quad=\mathbf{X} _{30}^\mathbf{T} (\mathbf{X} _{21}×\mathbf{X} _{30}+\mathbf{X} _{10}×\mathbf{X} _{30})=0
 \end{array}
 $$
+
+
+> &#x2705; [？]\\(x_{20}^T b_1\\)的计算公式中、绿色的\\(x_{01}\times 2\\)怎么变成了\\(x_{20}\times x_{10}\\)？下面的\\(x_{30}^?* b_1\\),也一样。   
 
 
 
@@ -455,6 +519,10 @@ Teran et al. 2003. *Finite Volume Methods for the
 Simulation of Skeleton Muscles*. SCA.     
 
 
+> &#x2705; 这篇论文重点推荐，但论文中的公式与 PPT 中的不完全一样. PPT 上的又进一步简化。    
+
+
+
 P27   
 ## After-Class Reading (Optional)   
 
@@ -466,6 +534,13 @@ Stiffness for Accurate Cloth Simulation*. TOG.
 
 P28   
 ## Hyperelastic Models   
+
+
+> &#x2705; 前面的内容，都假设使用 StVk 材料、优点是简单；缺点是无法处理反转。因力在材料力学中不常用。  
+Hyperplasia 利用能量密度(W)、提供一个从 Strain （G) 到 Stress (S）的映射   
+
+P 29-P30   没讲， 
+
 
 
 P29   
@@ -533,12 +608,19 @@ $$
 
 \\(\mathbf{C=U^TU}\\) is the right Cauchy-Green deformation tensor.    
 
+> &#x2705; 符号解释：P：First… Stress、 F：Deformation Gradient、公式认为：P 是关于 F 的函数、对F做 SVD 分解可得到 \\(UDV^T\\)，其中D是对角矩阵、其对角元素描述了三个方向的拉伸的量、把公式中的旋转分量剔除掉、 P 只与 Principal stretches 有关。    
+Ic、 IIc. IIIc 的定义是基于材料学、数学的先验知识     
+
 
 
 P33   
 ## Isotropic Models    
 
 ![](./assets/07-25.png)   
+
+
+> &#x2705; 材料力学中更常用 neo-Hookean    
+
 
 
 P34   
@@ -579,12 +661,17 @@ P36
 Irving et al. 2004. *Invertible Finite Elements For Robust Simulation of Large Deformation*. SCA    
 
 
+> &#x2705; 纵轴是力、横轴长度为弹簧长度、参考长度是1， 因此横轴为1时纵轴为0. 横轴 > 1 代表拉伸、拉伸越大代表力越大。但压缩时， \\(S_tIR\\) 表现出的力不对，且当弹簧（四面体）反转以后，力也会反转，这种表现也不对，因为最后会停在横轴-1的状态上。    
+
+
+
 P37  
 
 ![](./assets/07-28.png)   
 
 
-
+> &#x2705; Poison Effect： 弹性体往上拉时两边会凹进     
+去，本质原因是保体积。   
 
 P39   
 ## A Summary For the Day    
@@ -599,3 +686,7 @@ P39
  - Hyperelastic models define the strain energy function by principal stretches, i.e., the singular values of the deformation gradient.    
 
 - For isotropic materials, we can calculate the stress through diagonalization.   
+
+
+> &#x2705; Level：1、了解，会用；2、理解、举一反三；3、跳出 图形学；   
+图形学关注的不是数学模型，而是快。   
