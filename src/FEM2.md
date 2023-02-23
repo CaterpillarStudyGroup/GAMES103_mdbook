@@ -16,7 +16,11 @@ P3
 
  - Nonlinear optimization.    
  
- 
+
+> &#x2705; 隐式积分不讲了。推荐P12页的论文    
+直接跳到 P18、非线性优化。   
+
+
 
 P4    
 ## Hessian of Elastic Energy
@@ -445,6 +449,12 @@ P25
 ## Descent Methods    
 
 ![](./assets/08-12.png)   
+
+
+> &#x2705; 图形学中更关注 Total Cost.让P更加接近H，可以 减少迭代数，让P更容易得到，减少腿代成本。   
+Traction：物体表面上的力的密度，有点像压强   
+模拟的公式通常都固定，很难有突破、瓶颈在于计算量、随着分辨率的提升，模拟的计算量几乎是无止境的。   
+
 
 
 P27   
