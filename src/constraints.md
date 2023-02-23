@@ -651,7 +651,7 @@ Compliant matrix
 
 > &#x2705; 此算法用于处理 very very stiff 的场景即约束必须严格满足，而前面算法需要做很多次迭代才能产生这种效果（计算量大）。   
 此算法常用于衣服、刚体、人体。 <br>  \\(E(X)=\sum _ {e} \frac{1}{2}k( \phi _ e(x))^2  \quad\quad\\)
-\\( \phi {m} = \begin{bmatrix} \phi _ 0\\\\ \phi _ 1 \\\\ \phi_ 2 \\\\ \phi _ E  \end{bmatrix}\\)    
+\\( \phi {m} = \begin{bmatrix} \phi _ 0\\\\ \phi _ 1 \\\\ \vdots  \\\\ \phi _ E  \end{bmatrix}\\)    
 C称为软度矩阵、 stiffness:挺度   \\(\quad\quad\\) compliant:软度  
 [？]为什么\\(f(x)\\)公式里有个转置？   
 \\(\lambda \\) 是人为引入的变量，称为拉格朗日算子。   
