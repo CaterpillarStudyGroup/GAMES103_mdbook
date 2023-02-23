@@ -29,6 +29,9 @@ Constraint
 ![](./assets/06-2.png)    
 
 
+> &#x2705; projection function.投影函数、会移动端点使弹簧满足约束。   
+
+
 
 P6   
 ## A Single Spring    
@@ -41,6 +44,10 @@ If a spring is infinitely stiff, we can treat the length as a constraint and def
 {\\(\mathbf{x} _i^{\mathbf{new}},\mathbf{x} _j^{\mathbf{new} }\\)}= argmin \\( \frac{1}{2}\\){\\(m_i||\mathbf{x} _i^{\mathbf{new} }−\mathbf{x} _i||^2+m_j||\mathbf{x} _j^{\mathbf{new}} −\mathbf{x} _j||^2\\)}    
 
 such that  \\(\mathbf{ϕ} (\mathbf{x} )=0\\)
+
+
+> &#x2705; 把\\(x_i\\)和\\(x_j\\)拼成6维空间中的点\\(x\\)，满足约束的\\(x\\)构成6D空间中的一块区域；投影函数的目标：(1)把\\(x\\)移到区域内。 (2)移动距离最短，因此构成优化问题。    
+
 
 
 
@@ -68,6 +75,9 @@ $$
 
 
 By default, \\(m_i=m_j\\), but we can also set \\(m_i=\infty\\) for stationary nodes.   
+
+
+> &#x2705; 对推导结果的合理性解释：(1) 移到前后质心不变。(2) 移到方向为沿着或远离质心。(3) 移到距离与自身重量有关。   
 
 
 
@@ -157,6 +167,8 @@ $$
 
 
 
+> &#x2705; 基于每条边计算\\(x\\)的更新但不真的更新、每个点会得到多种更新方案，最后取更新方案的均值。   
+
 
 
 P11   
@@ -202,6 +214,14 @@ $$
 > ___________
 
 
+
+> &#x2705; 第一步：不考虑约束，基于粒子运动方法更新 \\(V\\) 和 \\(X\\)；第二步：基于约束和投影函数更新 \\(V\\) 和 \\(t\\).
+问：PBD 非物理方法，怎么体现出弹性效果？  
+答：迭代数多则弹性差、网格顶点少则弹性差。   
+
+
+
+
 P12   
 ## Pros and Cons of PBD 
 
@@ -216,7 +236,12 @@ P12
        - Hierarchical approaches (can cause oscillation and other issues…)     
        - Acceleration approaches, like Chebyshev    
        
-       
+
+
+
+> &#x2705; 弹性表现受网格数量影响(难以控制)、没有所谓的精确解，哪怕迭代数足够多、迭代数过多会导致locking issue.   
+
+PBD 适用于低分辨率场景、常见的低精度实时模拟的套路。 
 
 
 P13   
@@ -233,6 +258,16 @@ P14
 Strain limiting aims at using the projection function for **correction** only. 
 
 ![](./assets/06-5.png)    
+
+
+
+> &#x2705; 投影函数作为模拟过程的后处理，防止模拟后产生大的形变，使模拟结果更稳定。  
+
+| | PBD | Strain Limiting | 
+|----|----|----|
+| 第一步  | 只考虑粒子运动，不考虑约束|模拟粒子运动、同时考虑约束|
+| 第二步  |使粒子状态满足约来 | 校正，但约束较宽 |  
+
 
 
 P15   
@@ -252,6 +287,9 @@ Constraint
 
  
 
+> &#x2705; 这一页以弹簧为例子说明 Strain Limit   
+Strain：物理上描述形变的量，即本页的\\(\sigma \\)   
+Strain Limit 的应用场景：(1) 模拟布料：“拉伸到一定范围后变得非常 stiff” 的效果 (2) 防出“形变大发生数值不稳定”。    
 
 
 
@@ -332,6 +370,9 @@ $$
 > ____________________
 
 
+> &#x2705; C为质心，要求缩放前后质心不变。数学上、质心不变，点的移动最少；物理上，质心变了代表物体运动了，scale 不应该导致物理运动。   
+
+
 
 P19   
 ## Strain Limiting in Simulation   
@@ -372,6 +413,17 @@ $$
 \mathbf{f} _i=−\nabla_iE(\mathbf{x} )=−{\textstyle \sum _{e:i\in e}}(\mathbf{x} _i−\mathbf{x} _j)−(\mathbf{x} _{e,i}^{\mathrm{new}} −\mathbf{x} _{e,j}^{\mathbf{new} })
 $$
 
+
+> &#x2705; PBD:基于约束直接修改顶点位置    
+本文①基于约束定义能量、得到的结果与基于力的能量相同。   
+$$ E(X)=\sum _{E=(i,j)}\frac{k}{2}(||x_i-x_j||-Le)^2 $$  
+② 基于能量期望\\(x_i\\)和 \\(x_j\\)应该在的位置，但不真的移出\\(x_i\\)和 \\(x_j\\),论为\\(x_i^{new}\\)和 \\(x_j^{new}\\)    
+③ 基于 \\(E(X)、x_i^{new} x_j^{new}\\) 计算力，此时假设\\(x_i^{new}\\)和 \\(x_j^{new}\\)都是定值，\\(x_i\\)和 \\(x_j\\)是变量。   
+所得的力与基于弹簧力算出的力相同   
+既然 \\(E\\) 和 \\(F\\) 是一样的，何必多次一举? 答：不同。   
+
+
+
 P23   
 ## Projective Dynamics – Explained   
 
@@ -382,6 +434,10 @@ Instead of blending projections in a Jacobi or Gauss-Seidel fashion as in PBD, <
 ![](./assets/06-11.png)    
 
 ![](./assets/06-12.png)    
+
+
+
+> &#x2705; 为什么能简化\\(H\\)的计算？答：在计算某一个端点时，假设另一个端点不动（常量），那么能量就是只关于这个端点的二次函数     
 
 
 
@@ -442,6 +498,14 @@ If \\(||∆\mathbf{x}||\\) is small	\\(\quad\\) then break
 >________________
 
 
+> &#x2705; Recaculate projection 这一步实际上不需要，因为直接用弹簧系统的公式算力，得到的\\(f\\)是一样的。   
+如果是做 shape matching,还是需要这一步，用手算\\(f\\)    
+同一个顶点在三个不同边上的投影是不同的。   
+模拟真正的时间开销不在计算（虽然有很多计算公式) 而是在内存的访问上。   
+PBD的优点是内存访问少、因为它没有太多物理变量。    
+因此，对追求效率的场景，主要优化内存访问而不是计算。   
+
+
 P26  
 ## Preconditioned Steepest Descent
 
@@ -456,6 +520,10 @@ $$
 
 The performance depends on how well \\(\mathbf{{\color{Orange} H} }\\) approximates the real Hessian.     
 
+
+> &#x2705; Fast on CPU,因为它只作一次\\(\mathbf{LU}\\)分解。   
+Slow on GPU，因为\\(\mathbf{LU}\\)分解不适用于 \\(\mathbf{GPU}\\)   
+constraint changes: 网格关系改变导至弹簧结构改变，原来的\\(\mathbf{H}\\)将不再适用。   
 
 
 P27  
@@ -538,6 +606,31 @@ Compliant matrix
 
 
 
+> &#x2705; 此算法用于处理 very very stiff 的场景即约束必须严格满足，而前面算法需要做很多次迭代才能产生这种效果（计算量大）。   
+此算法常用于衣服、刚体、人体。     
+$$ 
+\begin{matrix}
+ E(X)=\sum _{e}\frac{1}{2}k(\phi _e(x))^2  & \phim _ \begin{bmatrix}
+ \phim _ 0\\\\
+\phim _ 1 \\\\
+\phim _ 2 \\\\
+\phim _ E
+\end{bmatrix}
+\end{matrix} 
+$$
+
+
+
+
+
+C称为软度矩阵、 stiffness:摊度    compliant:软度  
+[？]为什么\\(f(x)\\)公式里有个转置？   
+\\(\lambda \\)是人为引入的变量，称为拉格朗日算子。   
+\\(E\\) 和 \\(f\\) 变成了关于两个变量\\((x、\lambda )\\)的函数。   
+
+
+
+
 P31  
 
 By implicit integration, we get:   
@@ -565,6 +658,11 @@ $$
 $$
 
 
+
+> &#x2705; 动量守衡公式：\\(m\nu '- mu \nu = Ft = \\)冲量   
+此处新 \\(\lambda^{New} 来计算 F. 说明是 Implicit    
+对\\(\phi ^{new}\\) 的泰勒展开    
+最后的矩阵公式由上面两个公式整理合并得到。   
 
 
 P32    
@@ -599,6 +697,12 @@ $$
 
  -Infinite stiffness? \\(\mathbf{C \longrightarrow 0}\\).    
 
+
+
+> &#x2705; 用哪种方法取决于应用场景    
+注意：Method 1 中的矩阵有可能不正定、因此很多数学方法用不了。    
+Method 2 的消元过程不容易构造、尤其是当矩阵比较复杂时，   
+此方法将软硬度量解耦出来，并用矩阵C来表示，使得可以方便控制软硬度，例如何\\(c=0\\)来表示 infinite stiffness.   
 
 
 
@@ -668,6 +772,9 @@ P36
 ![](./assets/06-21.png)    
 
 Tournier et al. 2015. *Stable Constrained Dynamics. TOG (SIGGRAPH)*.    
+
+
+> &#x2705; Method 2 Gauss 消元，如果把\\(\lambda\\)消掉，会得到一个基本上与隐式积分相似的公式，唯一的区别是\\(H\\)上略有不同 —— 隐式积分多了一项。如果把用这一项加回去，会使constrain dynamic 变得稳定。   
 
 
 
