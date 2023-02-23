@@ -458,7 +458,7 @@ A dihedral angle model defines bending forces as a function of \\(\theta : \math
 
 
 > &#x2705; Dihedarl Angel:二面角     
-\\(x_1, x_2, x_3, x_4都会受到 bending force力的大小相同但方向不同。   
+\\(x_1, x_2, x_3, x_4\\) 都会受到 bending force. 力的大小相同但方向不同。   
 
 
 
@@ -488,7 +488,7 @@ Non-planar case:
 
 
 
-> &#x2705; Non-planar case：不是指弯曲时的力，而是指静止状态(reference state)为非平面的场景下，窜弯曲为0时 的力。0。表示 reference state. 
+> &#x2705; Non-planar case：不是指弯曲时的力，而是指静止状态(reference state)为非平面的场景下，弯曲为\\(\theta\\)时的力。\\(\theta_0\\)表示 reference state. 
 
 > &#x2705; 老师没解释公式怎么来的   
 
@@ -542,9 +542,9 @@ $$
 It’s not hard to see that: \\(E (\mathbf{x} )=\frac{3||\mathbf{q} ^\mathbf{T}\mathbf{x} ||^2}{2(A_0+A_1)}\\).  Also, \\(E (\mathbf{x} )=0\\) when the triangles are flat.    
 
 
-> &#x2705; \\(q^Tx\\)在估算两个三角形的拉普拉斯，即两个三角的 曲率、当两个三角形共面时， \\(E(x)=0\\)   
-\\(E(x)=0\\) 来自数学上曲率的推导，而不是来自物理意义的推导。  
-问题：能量的思想能用在刚体上呢？    
+> &#x2705; \\(\mathbf{q^T}x\\)在估算两个三角形的拉普拉斯，即两个三角的曲率、当两个三角形共面时， \\(E(x)=0\\)   
+\\(E(x)\\) 来自数学上曲率的推导，而不是来自物理意义的推导。  
+问题：能量的思想能用在刚体上吗？    
 答：这里的能量是弹性能量、刚体无弹性，因此也无所谓能量。   
 
 
@@ -605,9 +605,8 @@ For a <u>manifold</u> mesh, Euler’s formula says:#edges=3#vertices-3-#boundary
 So if edges are all hard constraints, the DoFs are only: 3+ #boundary_edges.    
 
 
-> &#x2705; 实操套路：1.弹簧压缩时让k比较小；2.假设弹簧在一定长度范围内可自由活动，不受力，以上方法都不解决根本问题；3.把自由度定义在边上不­是顶点上，但把问题搞得更复杂了。   
-
-在K很大或网格分辨率低时， licking issue 会特别明显。   
+> &#x2705; 实操套路：1. 弹簧压缩时让k比较小；2. 假设弹簧在一定长度范围内可自由活动，不受力，以上方法都不解决根本问题；3. 把自由度定义在边上不­是顶点上，但把问题搞得更复杂了。   
+在K很大或网格分辨率低时， locking issue 会特别明显。   
 
 > &#x2705; 自由度 = 变量数 - 约束数，每个顶点有3个自由度、每条边是一个约束   
 单纯加点不会改善，但让点变密可以改善     
