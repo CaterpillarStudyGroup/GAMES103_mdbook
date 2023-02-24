@@ -38,7 +38,7 @@ P4
 P5  
 ## Central Differencing   
 
-> &#x2705; 见L10.   
+> &#x2705; 见 L10.   
 
 
 P6   
@@ -157,7 +157,7 @@ No volume change is equal to say the fluid is incompressible. This can be formal
 ![](./assets/11-8.png)   
 
 
-> &#x2705; 这一页没听懂、净流入流出为0，水面还怎么动呢？   
+> &#x2753; 这一页没听懂、净流入流出为0，水面还怎么动呢？   
 
 
 
@@ -176,7 +176,7 @@ We use bilinear interpolation to interpolate staggered velocities as well.
 
 > &#x2705; 这是一个描述了速度场的公式，它可以告许你速度如何更新、公式2 diffusion 的目的是粘滞。   
 把偏微分方程分解几个小块，依次轮流优化每一小块。    
-[?]这种方法为什么可行？    
+[?] 这种方法为什么可行？    
 
 
 
@@ -247,7 +247,7 @@ Note that if the velocities are staggered, we need to do staggered bilinear inte
 
 
 
-> &#x2705; 例如要求\\(x_0\\)的速度，倒推哪个粒子会运动到\\(x_0\\)处;因此找到\\(x_1\\)，以\\(x_1\\)的下一刻速度来更新\\(x_0\\)的速度。   
+> &#x2705; 例如要求\\(\mathbf{x}_0\\)的速度，倒推哪个粒子会运动到\\(\mathbf{x}_0\\)处;因此找到\\(\mathbf{x}_1\\)，以\\(\mathbf{x}_1\\)的下一刻速度来更新\\(\mathbf{x}_0\\)的速度。   
 
 
 
@@ -274,8 +274,8 @@ We could also subdivided the time step for better tracing.
 ![](./assets/11-14.png)   
 
 
-> &#x2705; 反推找\\(x_1\\)时 step 细一点，这样能找得准一点    
-怎么计算每个\\(x\\)的u?答：双线性插值方法、   
+> &#x2705; 反推找\\(\mathbf{x}_1\\)时 step 细一点，这样能找得准一点    
+怎么计算每个\\(\mathbf{x}\\)的\\(\mathbf{u}\\)?答：双线性插值方法、   
 做模拟通常更在乎稳定而不是误差，此方法更稳定，但会有模糊的 artifacts.   
 
 
@@ -300,7 +300,7 @@ If \\(υ∆t\\) is large, the above formulae can be **unstable**.
 
 
 
-> &#x2705; 分别对u和 V 做 laplacian.   
+> &#x2705; 分别对\\(u\\)和 \\(v\\) 做 laplacian.   
 
 
 
@@ -332,7 +332,7 @@ But what is \\(\mathbf{p}\\)?
 
 
 
-> &#x2705; 公式写错了，\\(\frac{1}{n}\\)改成\\(△t/h\\).   
+> &#x2705; 公式写错了，\\(\frac{1}{h}\\)改成\\(∆t / h\\).   
 
 
 
@@ -408,7 +408,7 @@ P31
 ## Air and Smoke   
 
 
-> &#x2705; 前面讲的是怎么更新速度：后面讲怎么利用速度做出效果。 
+> &#x2705; 前面讲的是怎么更新速度；后面讲怎么利用速度做出效果。 
 
 
 
