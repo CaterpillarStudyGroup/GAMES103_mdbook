@@ -179,8 +179,8 @@ To a triangle mesh, the basic test is <u>edge-triangle intersection</u> test.
 ![](./assets/09-14.png)   
 
 
-> &#x2705; 则准确来说。DCD检测的不是碰撞，而是相交    
-t 代表相交位置对应 \\(x_a\\) 和\\(x_b\\)的插值量     
+> &#x2705; 准确来说。DCD检测的不是碰撞，而是相交    
+t 代表相交位置对应 \\(\mathbf{x}_a\\) 和\\(\mathbf{x}_b\\)的插值量     
 
 
 
@@ -194,7 +194,7 @@ DCD is simple and robust, but it suffers from the tunneling problem: objects pen
 ![](./assets/09-15.png)   
 
 
-> &#x2705; 相交和碰撞的区别：相交分析的是运动前后的就态、碰撞检测的是运动的过程未相交不一定无碰撞、P20页所谓的 D 还是 C,是以时间角度说的。   
+> &#x2705; 相交和碰撞的区别：相交分析的是运动前后的状态、碰撞检测的是运动的过程未相交不一定无碰撞、P20页所谓的 D 还是 C,是以时间角度说的。   
 tunneling problem：当物体运动特别快时，有可能的穿透另一物体而没有被检测到，常见于细薄物体、例如衣服     
 
 
@@ -211,8 +211,8 @@ To a triangle mesh, there two basic tests: <u>vertex-triangle</u> and <u>edge-ed
 ![](./assets/09-16.png)   
 
 
-当四点共面时，构成的四面体体积为0、利用四面体的体积公式，可求出四点共面的时间 t.**这里的t是时间**    
-假设运动是匀速的，\\(x_{30}(t)、 x_{10}(t)、x_{20}(t)\\)都是关于t的 线性函数，
+> &#x2705; 当四点共面时，构成的四面体体积为0、利用四面体的体积公式，可求出四点共面的时间 t. **这里的t是时间**    
+假设运动是匀速的，\\( \mathbf{x}_ {30}(t)、 \mathbf{x}_ {10}(t)、\mathbf{x}_ {20}(t)\\)都是关于t的 线性函数。   
 一无三次方程有公式解，但用到\\(\sqrt[3]{\cdot}\\)，因此不建议使用,建议用牛顿法。  
 
 
@@ -228,8 +228,8 @@ To a triangle mesh, there two basic tests: <u>vertex-triangle</u> and <u>edge-ed
 ![](./assets/09-19.png)   
 
 
-> &#x2705; 先求四点去面的 t 年  
-解一元三次方程也不建议牛顿法，而是二分法，因为t的范围是[0,1]   
+> &#x2705; 先求四点卡面的 \\(t\\)       
+解一元三次方程也不建议牛顿法，而是二分法，因为\\(t\\)的范围是[0,1]   
 
 
 P25   
@@ -246,7 +246,7 @@ P25
  - Difficulty in implementation.    
  
 
-游戏 GPU 以单精度为主，因此要注意浮点误差问题。     
+> &#x2705; 游戏 GPU 以单精度为主，因此要注意浮点误差问题。     
 
 
 P26   
@@ -272,8 +272,8 @@ Given the calculated next state \\(\mathbf{x} ^{[1]}\\), we want to update it in
 
 
 > &#x2705; 蓝色区域为安全区域     
-内点法：从\\(x^{[0]}\\)出来，朝\\(x^{[1]}\\)走，并永远保证只在安全区域 走，直到不能走为止。    
-Impact Zone 法，从\\(x^{[1]}\\)出发，反复优化结果（投影），直到回到安全区域为止。    
+内点法：从\\(\mathbf{x}^{[0]}\\)出来，朝\\(\mathbf{x}^{[1]}\\)走，并永远保证只在安全区域 走，直到不能走为止。    
+Impact Zone 法，从\\(\mathbf{x}^{[1]}\\)出发，反复优化结果（投影），直到回到安全区域为止。    
 
 
 P29  
@@ -298,8 +298,8 @@ P29
 ![](./assets/09-22.png)   
 
 
-内点：为保证每一步安全，步长不能太大，因此慢、哪怕\\(\dot{x}^{[1]}\\)最终没有到最佳位置，但能保证一定在安全区域，因此一定成功\\(x^{[0]}\\)和\\(x^{[1]}\\)可能比较远，也导致慢。   
-Impact Zone：\\(x^{[1]}\\)通常离安全区域不太远，且优化时只针对 Impact Zone 优化，因此快。  
+> &#x2705; 内点：为保证每一步安全，步长不能太大，因此慢、哪怕\\(\mathbf{\dot{x}}^{[1]}\\)最终没有到最佳位置，但能保证一定在安全区域，因此一定成功\\(\mathbf{x}^{[0]}\\)和\\(\mathbf{x}^{[1]}\\)可能比较远，也导致慢。   
+Impact Zone：\\(\mathbf{x}^{[1]}\\)通常离安全区域不太远，且优化时只针对 Impact Zone 优化，因此快。  
 
 
 
@@ -347,7 +347,7 @@ The step size \\({\color{Red} α}\\) must be adjusted to ensure that no collisio
 ![](./assets/09-24.png)   
 
 
-> &#x2705; 绿色是来自\\(x^{[1]}\\)的引力，黄色是来自边界的斥力、关键是步长\\(\alpha \\)， 每走一小步都需要反复的碰撞检测。   
+> &#x2705; 绿色是来自\\(\mathbf{x}^{[1]}\\)的引力，黄色是来自边界的斥力、关键是步长\\(\alpha \\)， 每走一小步都需要反复的碰撞检测。   
 
 
 
@@ -474,7 +474,7 @@ P39
 ![](./assets/09-30.png)    
 
 
-> &#x2705; 有碰撞，先做 Impact Zone.因为这个快、不能解决再用后面方法、计算量不允许则选择 Rigid Impact.   
+> &#x2705; 有碰撞，先做 Impact Zone. 因为这个快、不能解决再用后面方法、计算量不允许则选择 Rigid Impact.   
 
 
 P40   
@@ -518,11 +518,7 @@ Baraff et al. used flood-fill to segment cloth into regions and decided which re
 Baraff et al. 2003. Untangling Cloth. TOG (SIGGRAPH)   
 
 
-> &#x2705; 两根线没有里面外面之分，因此相发时不知道哪一段是正
-
-
-
-确的。此方法缺点：1、无法处理边界；2、难以在 GPU 上实 现；  
+> &#x2705; 两根线没有里面外面之分，因此相交时不知道哪一段是正确的。此方法缺点：1. 无法处理边界；2. 难以在 GPU 上实 现；  
 
 
 P44  
