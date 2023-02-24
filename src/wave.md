@@ -16,8 +16,8 @@ P3
 | Lagrangian Approach <br>(dynamic particles or mesh)<br> Node movement carries physical quantities (mass, velocity, …). |  Eulerian Approach <br> (static grid or mesh) <br> Grid/Mesh doesn’t move.  Stored physical quantities change.  |
   
 
-> &#x2705; 左：无Grid.物理量附加在粒子上，粒子运动时更新自身物理量。  
-右:固定Grid.物理量固定在Grid上.粒子运动后统一新格子的物理量。   
+> &#x2705; 左：无 Grid. 物理量附加在粒子上，粒子运动时更新自身物理量。  
+右：固定 Grid. 物理量固定在 Grid 上。粒子运动后统一新格子的物理量。   
 
 
 P4   
@@ -30,7 +30,7 @@ P5
 ![](./assets/10-3.png)    
 
 
-> &#x2705; 永流的方向，< 0 则高往低, > 0 则低往高。 
+> &#x2705; 水流的方向， < 0 则高往低， > 0 则低往高。 
 
 
 P6   
@@ -39,9 +39,9 @@ P6
 ![](./assets/10-4.png) 
 
 
-> &#x2705;  \\(h(x)u(x)\\):单位时间内流过x线的水量。     
-\\(d(h(x)u(x))\\)单位时间内区域\\([x,x+dx]\\)的水量变化、    
-\\(d(h(x)u(x))1/x\\)单位时间内区域区 \\([x,x+dx]\\)的水位高度变化    
+> &#x2705;  \\(h(x)u(x)\\): 单位时间内流过x线的水量。     
+\\(d(h(x)u(x))\\) 单位时间内区域 \\([x,x+dx]\\) 的水量变化、    
+\\(d(h(x)u(x))1/x\\) 单位时间内区域区 \\([x,x+dx]\\) 的水位高度变化    
 速度场第一项：当水在流动时，速度应该跟水一起流动，下节课再讲。第三项是外力，当前也不考虑。  
 
 
@@ -84,7 +84,7 @@ We can then eliminate \\(u\\) and formulate the shallow wave equation:
 |----|  
 
 
-> &#x2705;  为什么叫 Shallow Wave,因为该算法假设水波很小，因此 dh/dx 可忽略不计。    
+> &#x2705;  为什么叫 Shallow Wave, 因为该算法假设水波很小，因此 \\(dh / dx\\) 可忽略不计。    
 公式化简的目的：不需要关心速度场、仅关注高度场就可以，但引擎无法直接处理微分程，因此要离散化开求解。   
 
 
@@ -164,7 +164,7 @@ $$
 ![](./assets/10-12.png)   
 
 
-> &#x2705;  先用 central difference 求出两个中点的一阶导数，再基于此计算 to 处的二阶导。这种操作又称为一维Laplace 算子。    
+> &#x2705;  先用 central difference 求出两个中点的一阶导数，再基于此计算 \\(to\\) 处的二阶导。这种操作又称为一维Laplace 算子。    
 
 
 
@@ -204,7 +204,7 @@ We can now discretize the shallow wave equation \\(\frac{d^2ℎ}{dt^2}=\frac{ℎ
 >\\(\Rightarrow ℎ_i(t_0+∆t)=2ℎ_i(t_0)−ℎ_i(t_0−∆t)+\frac{∆t^2ℎ_i}{∆x^2ρ}(P_{i+1}+P_{i−1}−2P_i)\\)
 
 
-> &#x2705;  更新目标：下一个时刻的水柱的高度，即 \\(hi(t_0 + △t)\\)    
+> &#x2705;  更新目标：下一个时刻的水柱的高度，即 \\(hi(t_0 + ∆t)\\)    
 但按此公式模拟可能出现水的体积变多或变少的问题。   
 
 
@@ -234,7 +234,7 @@ P17
 ![](./assets/10-15.png)    
 
 
-> &#x2705;  保证 \\(h_i\\) 和 \\(h_{it}\\)的交换的水量相等、因此保体积   
+> &#x2705;  保证 \\(h_i\\) 和 \\(h_{i+1}\\)的交换的水量相等、因此保体积   
 
 
 
@@ -274,7 +274,7 @@ Like damping, viscosity tries to slow down the waves.
 ![](./assets/10-18-1.png) 
 
 
-> &#x2705;  Viscosity:粘滞，相当于流体的阻尼。   
+> &#x2705;  Viscosity: 粘滞，相当于流体的阻尼。   
 
 
 
@@ -429,7 +429,7 @@ P31
 ![](./assets/10-25.png)    
 
 
-> &#x2705; \\(r\\)的作用：本算法显式积分，不稳定、\\(r\\)会让水波小很多。    
+> &#x2705; \\(\gamma \\) 的作用：本算法显式积分，不稳定、\\(\gamma \\) 会让水波小很多。    
 
 
 
@@ -452,7 +452,7 @@ f_{i,j}=ρg∆A(ℎ_{i,j}−ℎ_{i,j}^{new})
 $$
 
 
-> &#x2705; 阿基采得定律：物体受到的浮力=排出去的水的重量、 同时要考虑旋转和力矩。    
+> &#x2705; 阿基采得定律：物体受到的浮力 = 排出去的水的重量；同时要考虑旋转和力矩。    
 
 
 
