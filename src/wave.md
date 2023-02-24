@@ -16,6 +16,9 @@ P3
 | Lagrangian Approach <br>(dynamic particles or mesh)<br> Node movement carries physical quantities (mass, velocity, …). |  Eulerian Approach <br> (static grid or mesh) <br> Grid/Mesh doesn’t move.  Stored physical quantities change.  |
   
 
+> &#x2705; 左：无Grid.物理量附加在粒子上，粒子运动时更新自身物理量。  
+右:固定Grid.物理量固定在Grid上.粒子运动后统一新格子的物理量。   
+
 
 P4   
 ## A Height Field Model   
@@ -27,6 +30,8 @@ P5
 ![](./assets/10-3.png)    
 
 
+> &#x2705; 永流的方向，< 0 则高往低, > 0 则低往高。 
+
 
 P6   
 ## Height Field   
@@ -34,11 +39,20 @@ P6
 ![](./assets/10-4.png) 
 
 
+> &#x2705;  \\(h(x)u(x)\\):单位时间内流过x线的水量。     
+\\(d(h(x)u(x))\\)单位时间内区域\\([x,x+dx]\\)的水量变化、    
+\\(d(h(x)u(x))1/x\\)单位时间内区域区 \\([x,x+dx]\\)的水位高度变化    
+速度场第一项：当水在流动时，速度应该跟水一起流动，下节课再讲。第三项是外力，当前也不考虑。  
+
+
+
 P7   
 ## Height Field   
 
 ![](./assets/10-5.png)    
 
+
+> &#x2705;  在短时间内、速度变化由左右压强差决定。  
 
 
 P8   
@@ -69,6 +83,9 @@ We can then eliminate \\(u\\) and formulate the shallow wave equation:
 | $$\frac{d^2ℎ}{dt^2} =\frac{ℎ}{ρ} \frac{d^2P}{dx^2} $$ |
 |----|  
 
+
+> &#x2705;  为什么叫 Shallow Wave,因为该算法假设水波很小，因此 dh/dx 可忽略不计。    
+公式化简的目的：不需要关心速度场、仅关注高度场就可以，但引擎无法直接处理微分程，因此要离散化开求解。   
 
 
 
@@ -147,6 +164,8 @@ $$
 ![](./assets/10-12.png)   
 
 
+> &#x2705;  先用 central difference 求出两个中点的一阶导数，再基于此计算 to 处的二阶导。这种操作又称为一维Laplace 算子。    
+
 
 
 P14    
@@ -185,6 +204,8 @@ We can now discretize the shallow wave equation \\(\frac{d^2ℎ}{dt^2}=\frac{ℎ
 >\\(\Rightarrow ℎ_i(t_0+∆t)=2ℎ_i(t_0)−ℎ_i(t_0−∆t)+\frac{∆t^2ℎ_i}{∆x^2ρ}(P_{i+1}+P_{i−1}−2P_i)\\)
 
 
+> &#x2705;  更新目标：下一个时刻的水柱的高度，即 \\(hi(t_0 + △t)\\)    
+但按此公式模拟可能出现水的体积变多或变少的问题。   
 
 
 
@@ -201,11 +222,20 @@ $$
 ![](./assets/10-14.png)   
 
 
+
+> &#x2705;  体积会变大还是变小，取决于桔色项，但很难保证这一项是0.   
+
+
+
 P17    
 ## Volume Preservation – Solution 1    
 
 
 ![](./assets/10-15.png)    
+
+
+> &#x2705;  保证 \\(h_i\\) 和 \\(h_{it}\\)的交换的水量相等、因此保体积   
+
 
 
 P18  
@@ -243,6 +273,8 @@ Like damping, viscosity tries to slow down the waves.
 
 ![](./assets/10-18-1.png) 
 
+
+> &#x2705;  Viscosity:粘滞，相当于流体的阻尼。   
 
 
 
@@ -285,6 +317,10 @@ $$
 $$
 
 
+> &#x2705;  这种方法用于模拟开放的水面，例如大海的区域、假设被模拟的区域外是静止的水面、高度为常数，(Dirichlet)    
+Neuman 用于模拟有边界水域，例如池堂、假设边界上没有水流交换。   
+
+
 
 P24   
 ## Algorithm with Neumann Boundaries
@@ -321,6 +357,11 @@ The coupling between a solid and a liquid should be two-way, i.e., liquid->solid
 ![](./assets/10-20.png)   
 
 
+> &#x2705; 水和水中的物体相互作用，物体可以是刚体、弹性体能各种类型的物体。    
+水→物体：浮力、物体→水，会把这个水柱的水排出去，此处只讲“物体 → 水” 部分   
+
+
+
 P27   
 ## Two-Way Coupling
 
@@ -346,6 +387,9 @@ $$
 $$
 
 ![](./assets/10-22.png)    
+
+
+> &#x2705; 在要排的水柱上面增加一个虚拟的高度，然后正常模拟，关键是求出要加多少虚拟高度，能正好达到排出那么多水的效果。   
 
 
 
@@ -375,11 +419,17 @@ The outcome is Poisson’s equation, with \\(v_i\\) and \\(v_{i+1}\\) being unkn
 ![](./assets/10-24.png)    
 
 
+> &#x2705; 没听懂，似乎是为了让公式统一方便计算   
+
+
 
 P31  
 ## Algorithm with Coupling    
 
 ![](./assets/10-25.png)    
+
+
+> &#x2705; \\(r\\)的作用：本算法显式积分，不稳定、\\(r\\)会让水波小很多。    
 
 
 
@@ -400,6 +450,10 @@ Or in 3D,
 $$
 f_{i,j}=ρg∆A(ℎ_{i,j}−ℎ_{i,j}^{new})
 $$
+
+
+> &#x2705; 阿基采得定律：物体受到的浮力=排出去的水的重量、 同时要考虑旋转和力矩。    
+
 
 
 P33   
