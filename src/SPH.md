@@ -9,6 +9,10 @@ P1
 ##### Jan 2022  
 
 
+> &#x2705; SPA 与弹性体模拟结合，可用于模拟物体破碎， 粒子法与网格法相结合，称为 MPM. 用于模拟雪、沙子。 
+
+
+
 P2   
 ## Topics for the Day  
 
@@ -30,6 +34,11 @@ Consider a (Lagrangian) particle system: each water molecule is a particle with 
 ![](./assets/12-1.png)    
 
 
+
+> &#x2705; 用粒子来表达流体，物理变量附着在粒子上，粒子转化为三角网格再渲染，或直接渲染带透明贴图的粒子(游戏)。   
+
+
+
 P5   
 ## Smoothed Interpolation – A Simple Model   
 
@@ -46,6 +55,8 @@ $$
 ![](./assets/12-2.png)   
 
 
+> &#x2705; 用已有粒子点的值，估计任意一个用位置上的值，这是一个插值问题。
+
 
 
 P6   
@@ -56,6 +67,10 @@ A_i^{\mathbf{smooth}}=\frac{1}{n}\sum _jA_j
 $$
 
 ![](./assets/12-3.png)   
+
+
+
+> &#x2705; 取平均的方式没有考虑粒子的分布。
 
 
 
@@ -75,6 +90,7 @@ $$
 ![](./assets/12-4.png)   
 
 
+公式假设\\(\sum _iV_j=1\\)    
 
 
 P8   
@@ -93,6 +109,8 @@ $$
 ![](./assets/12-5.png)   
 
 
+
+> &#x2705; 微小的移动，圆内多了两个点，导致结果突变。   
 
 
 P9   
@@ -137,6 +155,8 @@ $$
 
 
 
+> &#x2705; 粒子在运动过程中，疏密会有变化，因此体积不是常数，要实时计算。公式中的\\(\rho \\)不是指水的密度，而是粒子分布的密度。   
+
 
 P11   
 ## Smoothed Interpolation – Final Solution   
@@ -171,6 +191,10 @@ P12
 
 
 
+> &#x2705; 为什么认为体积是常数？答：假设一个点的运动不影向周围邻居的体积。 
+
+
+
 P13   
 ## A Smoothing Kernel Example    
 
@@ -191,6 +215,10 @@ $$
 
 
 \\(h\\) is called smoothing length    
+
+
+
+> &#x2705; smooth Kemal 有很多种，这种最常见。   
 
 
 
@@ -308,6 +336,10 @@ P19
 
 
 
+> &#x2705; 怎么计算压强？怎么把压强转化为力？公式2是一个经验公式。    
+
+
+
 P20   
 ## Pressure Low pressure   
 
@@ -343,6 +375,10 @@ P21
 
 
 
+> &#x2705; 体积为粒子在空间中占有的体积，移体积越大受到的压力越大、\\(\bigtriangledown \\)代表压强的差。   
+假设空间是一个压强场、粒子是空间中的采样。   
+
+
 
 P22   
 ## Viscosity Force   
@@ -355,6 +391,7 @@ P22
 ![](./assets/12-11.png)   
 
 
+> &#x2705;  Viscosity (粘滞）类似于 damping (阻尼），但有些区别，后者的目标是篇让粒子的运动停下来，前者的目的是让所有粒子的运动整齐划一，即速度差趋于0. 
 
 
 
@@ -382,6 +419,11 @@ P23
  $$
 
 
+
+> &#x2705; V：粘滞系数， \\(\bigtriangledown V\\)：速度的 laplacian.注意速度是3D矢量。
+
+
+
 P24  
 ## Algorithm   
 
@@ -399,6 +441,10 @@ P24
 
 |  $$ \color{Red}{ \text{ What is the bottleneck of the performance here?}} $$  |
 |---|
+
+
+
+> &#x2705; 性能瓶颈：计算邻居，因为总粒子数为百万级。   
 
 
 
@@ -434,6 +480,10 @@ P27
  - **Solution**: Octree, Binary Spatial Partitioning tree…    
 
 ![](./assets/12-14.png)   
+
+
+
+> &#x2705; 例如水花喷溅的效果，通常靠近水面的粒子小一点，更利于表现细节。  
 
 
 
