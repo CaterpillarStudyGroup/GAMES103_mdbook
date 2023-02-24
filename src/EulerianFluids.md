@@ -32,10 +32,13 @@ P4
 ![](./assets/11-01.png)   
 
 
+> &#x2705; 把场定义在标准格子上的好处：计算导数或利用导数进行微分计算变得容易了。
+
 
 P5  
 ## Central Differencing   
 
+> &#x2705; 见L10.   
 
 
 P6   
@@ -119,6 +122,8 @@ Central differencing gives the derivative in the middle.
 
 
 
+> &#x2705; 前面假设所有物理量定义在格子的中间。但此处算出来的一阶微分量不在格子中间。 
+
 
 
 P14  
@@ -141,6 +146,8 @@ We define some physical quantities on faces, specifically **velocities**.
 |---|  
 
 
+> &#x2705; 把速度定义在墙上的好处量，速度是矢量、可以用不同方向的墙表达不同方向上的速度、直观。  
+
 
 P15  
 ## Divergence-Free Condition
@@ -150,8 +157,28 @@ No volume change is equal to say the fluid is incompressible. This can be formal
 ![](./assets/11-8.png)   
 
 
+> &#x2705; 这一页没听懂、净流入流出为0，水面还怎么动呢？   
+
+
+
 P16   
 ## Bilinear Interpolation   
+
+
+> &#x2705; 双线性插值、 GAMES 101讲过、跳过了    
+
+
+P17   
+## Bilinear Interpolation   
+
+We use bilinear interpolation to interpolate staggered velocities as well.    
+
+
+> &#x2705; 这是一个描述了速度场的公式，它可以告许你速度如何更新、公式2 diffusion 的目的是粘滞。   
+把偏微分方程分解几个小块，依次轮流优化每一小块。    
+[?]这种方法为什么可行？    
+
+
 
 
 P18   
@@ -196,6 +223,9 @@ Solving this in an Eulerian way can be a source of instability.
 To solve this problem, we come to realize that advection means to carry physical quantities by velocity.   
 
 
+> &#x2705;  Advectim,代表流动。即速度会跟着粒子移动，基于欧拉的方法才需要考虑这个问题。   
+基于拉格朗日的方法，变量定义在粒子上，天然满足这个特点。    
+
 
 
 P22  
@@ -217,8 +247,12 @@ Note that if the velocities are staggered, we need to do staggered bilinear inte
 
 
 
+> &#x2705; 例如要求\\(x_0\\)的速度，倒推哪个粒子会运动到\\(x_0\\)处;因此找到\\(x_1\\)，以\\(x_1\\)的下一刻速度来更新\\(x_0\\)的速度。   
 
-fP23  
+
+
+
+P23  
 ## Solution: Semi-Lagrangian Method
 
 The solution is to trace a virtual particle backward over time.    
@@ -240,6 +274,13 @@ We could also subdivided the time step for better tracing.
 ![](./assets/11-14.png)   
 
 
+> &#x2705; 反推找\\(x_1\\)时 step 细一点，这样能找得准一点    
+怎么计算每个\\(x\\)的u?答：双线性插值方法、   
+做模拟通常更在乎稳定而不是误差，此方法更稳定，但会有模糊的 artifacts.   
+
+
+
+
 P25   
 ## Step 3: Diffusion  
 
@@ -256,6 +297,10 @@ v_{i,j}^{new}←v_{i,j}+ \upsilon ∆t\frac{v_{i−1,j}+v_{i+1,j}+v_{i,j−1}+v_
 $$
 
 If \\(υ∆t\\) is large, the above formulae can be **unstable**.      
+
+
+
+> &#x2705; 分别对u和 V 做 laplacian.   
 
 
 
@@ -287,6 +332,11 @@ But what is \\(\mathbf{p}\\)?
 
 
 
+> &#x2705; 公式写错了，\\(\frac{1}{n}\\)改成\\(△t/h\\).   
+
+
+
+
 P28   
 ## Step 3: Pressure Projection
 
@@ -312,6 +362,11 @@ $$
 u_{i+1,j}−\frac{(p_{i+1,j} − p_{i,j})}{ℎ}+v_{i,j+1}−\frac{(p_{i,j+1}−p_{i,j})}{ℎ} \\\\
 −u_{i,j}−\frac{(p_{i,j} − p_{i−1,j})}{ℎ} −v_{i,j}−\frac{(p_{i,j}−p_{i,j−1})}{ℎ}=0
 \end{matrix}$$
+
+
+> &#x2705; 压强的原因：由于流体不可压缩、对于流体的压力会传导到每个点上。   
+每个点都有压强，虽然压强未知，但可以根据不可压条件构造方程组。   
+
 
 
 
@@ -353,6 +408,10 @@ P31
 ## Air and Smoke   
 
 
+> &#x2705; 前面讲的是怎么更新速度：后面讲怎么利用速度做出效果。 
+
+
+
 P32   
 ## Air Simulation   
 
@@ -382,6 +441,11 @@ P33
 ![](./assets/11-20.png)   
 
 But what if there is an air-water boundary???    
+
+
+> &#x2705; 表示1：例如一个格子存储水的体积的百分化。   
+advert 表称2：专用于更新 SDF 的方法。   
+
 
 
 P34   
