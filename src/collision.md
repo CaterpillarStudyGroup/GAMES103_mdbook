@@ -474,6 +474,8 @@ P39
 ![](./assets/09-30.png)    
 
 
+> &#x2705; 有碰撞，先做 Impact Zone.因为这个快、不能解决再用后面方法、计算量不允许则选择 Rigid Impact.   
+
 
 P40   
 ## Untangling Cloth    
@@ -516,6 +518,12 @@ Baraff et al. used flood-fill to segment cloth into regions and decided which re
 Baraff et al. 2003. Untangling Cloth. TOG (SIGGRAPH)   
 
 
+> &#x2705; 两根线没有里面外面之分，因此相发时不知道哪一段是正
+
+
+
+确的。此方法缺点：1、无法处理边界；2、难以在 GPU 上实 现；  
+
 
 P44  
 ## Untangling Cloth    
@@ -533,6 +541,9 @@ intersection contour.
 Their method can handle boundaries, but it doesn’t always work.    
 
 ![](./assets/09-35.png)    
+
+
+> &#x2705; 两个面相交会产生一条曲线，目标是让曲线变短。优点：可以处理边界；缺点：基于局部优化、可用于 GPU。   
 
 
 P46   
@@ -558,3 +569,6 @@ P47
  - For continuous collision responses, we must update the state to become collisionfree state. There are two approaches: *interior point method* and *impact zone optimization*. **Rigid impact zone is also a method, but it’s problematic**.    
 
  - For discrete collision responses, we allow intersections to stay and hope to remove them in long turn. **Cloth-cloth intersections are difficult to handle**.    
+
+
+> &#x2705; 考虑模擦，通常把摩擦做为后处理，但这样结果不精确。如果同时处理摩擦和碰撞、会很复杂。   
