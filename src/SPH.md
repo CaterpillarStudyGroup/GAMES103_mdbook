@@ -420,7 +420,7 @@ P23
 
 
 
-> &#x2705; \\(\mathbf{V}\\)：粘滞系数， \\(\nabla \mathbf{V}\\)：速度的 laplacian.注意速度是3D矢量。
+> &#x2705; \\(V\\)：粘滞系数， \\(\nabla V\\)：速度的 laplacian.注意速度是3D矢量。
 
 
 
