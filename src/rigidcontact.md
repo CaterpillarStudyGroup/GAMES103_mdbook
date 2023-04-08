@@ -197,8 +197,7 @@ A log-barrier penalty potential ensures that the force can be large enough. But 
 
 > &#x2705; 1.当\\(\mathbf{x}\\) 靠近物体表面时，仍然会 overshooting   
  2.\\(\mathbf{x}\\) 穿透表面后，会越陷越深。  
- 3.本算法要求保证穿透永远不会发生，因此要仔细
- 调节 \\(\Delta t\\).  
+ 3.本算法要求保证穿透永远不会发生，因此要仔细调节 \\(\Delta t\\).  
 
 
 
@@ -246,7 +245,7 @@ P20
 Changing the position is not enough, we must change the velocity as well.      
 
 
-![](./assets/04-18.png)    
+![](./assets/04-18-1.png)    
 
 
 > &#x2705; \\(\mathbf{v}\cdot \mathbf{N}\ge 0\\)：当前速度想要让物体越陷越深, 这种情况下才需要更新速度   
@@ -548,7 +547,7 @@ $$
 分解结果:unique   
 
 
-
+P39  
 ## Shape Matching    
 
 
