@@ -53,8 +53,7 @@ $$
 \end{cases}
 $$
 
-| integration |  
-|----|  
+ 
 
 
 
@@ -268,7 +267,7 @@ Let \\(\mathbf{q}  = \begin{bmatrix}
 
 
 
-> &#x2705; 在有些库里面写作： \\(q-\begin{bmatrix}
+> &#x2705; 在有些库里面写作： \\(q = \begin{bmatrix}
  w & x & y &z
 \end{bmatrix}\\)，w为实数部分  
 
@@ -289,7 +288,7 @@ P25
 
 
 $$
-R=\begin{bmatrix}
+\mathbf{R}=\begin{bmatrix}
 s^2+x^2-y^2-z^2  & 2(xy-sz) & 2(xz+sy)\\\\
  2(xy+sz) & s^2-x^2+y^2-z^2 & 2(yz-sx) \\\\
  2(xz-sy) & 2(yz+sx) & s^2-x^2-y^2+z^2  
@@ -308,9 +307,11 @@ Now we choose quaternion \\(\mathbf{q}\\) to represent theorientation, i.e., the
 
 We use a 3D vector \\(\mathbf{\omega}\\) to denote angularvelocity.    
 
- 
-> The direction of \\(\mathbf{\omega}\\) is the axis.     
-The magnitude of \\(\mathbf{\omega}\\) is the speed.    
+$$ 
+\begin{cases} \text{The direction of } \mathbf{\omega} \text{ is the axis.} \\\\    
+\text{The magnitude of }  \mathbf{\omega} \text{ is the speed.}   
+\end{cases}
+$$ 
 
 ![](./assets/03-21.png)     
 
@@ -323,8 +324,8 @@ P28
 
 
 > &#x2705; Torque：力矩   
-[?] 为计么力矩由叉差乘得到？力矩与为垂直？  
-用于旋转的质量不再是实数，而是矩阵，称为 Inertia 矩阵，用 \\(\mathbf{I}\\) 来标记    Inertia 矩阵，其中 \\(\mathbf{I}_{ref}\\)为参考状态，\\(\mathbf{I}\\) 为当前状态，\\(\mathbf{I}\\) 是 \\(3\times 3\\) 矩阵。 
+[?] 为会么力矩由叉差乘得到？力矩与为垂直？   
+用于旋转的质量不再是实数，而是矩阵，称为 Inertia 矩阵，用 \\(\mathbf{I}\\) 来标记 Inertia 矩阵，其中 \\(\mathbf{I}_{ref}\\)为参考状态，\\(\mathbf{I}\\) 为当前状态，\\(\mathbf{I}\\) 是 \\(3\times 3\\) 矩阵。  
 
 
 
@@ -343,7 +344,7 @@ P29
 > &#x2705;  平移： \\(a = \frac{力}{质量}\\)     
 旋转： \\(a =\frac{力矩}{\text{Inertia}}\\)   
 \\(q\\)是四元数，代表物体的旋转状态   
-\\(q_1\times q_2\\)不是叉乘，而是四元数普通乘法   
+\\(q_1\times q_2\\)不是叉乘，而是四元数普通乘法    
 [ \\(\cdot\\) ]是有一个四元数，0为实部，后面为虚部   
 算完\\(q^{[1]}\\)的之后要对它 Normalize     
 
