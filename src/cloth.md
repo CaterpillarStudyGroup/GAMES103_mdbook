@@ -292,7 +292,8 @@ $$
 
 
 
-> &#x2705; \\(H(x)\\) 是\\(3 N \times 3N\\) 的矩阵、 N 是弹簧数每个He是一个\\(3 \times 3\\)矩阵   
+> &#x2705; \\(H(x)\\) 是\\(3 N \times 3N\\) 的矩阵、 N 是弹簧数    
+每个He是一个\\(3 \times 3\\)矩阵   
 最后一个公式分子满足柯西不等式   
 \\(||x_{ij}||< Le\\). 代表弹簧处于压缩状态。此时 He 有可能非正定，但拉伸时一定正定。  
 He 正定则\\(H(x)\\)半正定，此时弹簧系统有唯一解。  
@@ -312,7 +313,7 @@ As a result, \\(\mathbf{H}(\mathbf{x})\\) may not be s.p.d. (Lecture 2, Page 36
 
 > &#x2705; \\(\Delta t\\)越少，A越容易正定、弹簧系统越稳定。   
 但是A不正定，不代表没有唯一解。   
-不正定最大的问题不是解不唯一，因为解出任意一个解都能让模拟系统进行下去。
+
 
 
 P22 
@@ -345,7 +346,9 @@ P23
 
 
 
-> &#x2705; 非正定的主要问题，是数学计算上的不稳定，可能导致解不出来；简单粗爆的解决方法就是把后面这项删掉。  
+> &#x2705; 不正定最大的问题不是解不唯一，因为解出任意一个解都能让模拟系统进行下去。  
+非正定的主要问题，是数学计算上的不稳定，可能导致解不出来；  
+简单粗爆的解决方法就是把后面这项删掉。  
 
 
 
@@ -405,7 +408,8 @@ last_\\(∆\mathbf{x} \longleftarrow \\) old_\\(∆\mathbf{x}\\)
 
 
 
-\\(\rho  (\rho <1)\\) is the estimated spectral radius of the iterative matrix.    
+| \\(\rho  (\rho <1)\\) is the estimated spectral radius of the iterative matrix.    |
+|---|
 
 
 > &#x2705; 这一页老师没讲   
@@ -478,12 +482,12 @@ P32
 
 Planar case:    
 
-> \\(\mathbf{f} _i=k\frac{||\mathbf{E}||^2}{||\mathbf{N}_1||+||\mathbf{N}_2||} \sin(\frac{π−\theta}{2})\mathbf{u} _i\\)    
+\\(\mathbf{f} _i=k\frac{||\mathbf{E}||^2}{||\mathbf{N}_1||+||\mathbf{N}_2||} \sin(\frac{π−\theta}{2})\mathbf{u} _i\\)    
 
 
 Non-planar case:    
 
- >$$
+$$
  \mathbf{f} _i=k\frac{||\mathbf{E} ||^2}{||\mathbf{N} _1||+||\mathbf{N} _2||}(\sin(\frac{π−\theta}{2})-\sin(\frac{π−\theta_0}{2}))\mathbf{u}_i
  $$
 
@@ -519,9 +523,9 @@ $$
 E(\mathbf{x} )=\frac{1}{2} \begin{bmatrix}
  \mathbf{x}_0 & \mathbf{x}_1 & \mathbf{x}_2 & \mathbf{x}_3
 \end{bmatrix}\mathbf{Q} \begin{bmatrix}
-\mathbf{x}_0 \\
-\mathbf{x}_1 \\
- \mathbf{x}_2\\
+\mathbf{x}_0 \\\\
+\mathbf{x}_1 \\\\
+ \mathbf{x}_2\\\\
 \mathbf{x}_3
 \end{bmatrix}
 $$
