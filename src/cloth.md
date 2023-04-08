@@ -683,3 +683,9 @@ P43
 
  - There are a variety of linear solvers (beyond the scope of this class).    
  - Some simulators choose to solve only one Newton iteration, i.e., one linear system per time step.    
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

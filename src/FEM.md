@@ -661,3 +661,9 @@ P39
 
 > &#x2705; Level：1. 了解，会用；2. 理解、举一反三；3. 跳出图形学；   
 图形学关注的不是数学模型，而是快。   
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

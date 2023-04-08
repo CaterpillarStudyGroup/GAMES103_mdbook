@@ -468,3 +468,9 @@ P33
  - The strength of the shallow wave model is its **simplicity** and **efficiency**. It can easily simulate water-solid coupling too.  
  
  - See Lab 4 for more details.    
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

@@ -488,3 +488,9 @@ P36
     - Smoke (density); water (volume-of-fluid, or signed distance  function)    
     - **Volume loss** issue in water (how to fix it?)    
     - If you need to create a mesh from grid for rendering, you need something like <u>marching cube</u>.   
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

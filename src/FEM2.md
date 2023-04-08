@@ -480,3 +480,9 @@ P28
     - Gradient Descent, Newton’s method, and others can all be considered as descent methods.    
     - The key question is the matrix for calculating the search direction.    
     - We need both the per-iteration cost and the number of iterations to be small.   
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

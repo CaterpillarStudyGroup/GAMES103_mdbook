@@ -1082,3 +1082,9 @@ P47
 
 
 > &#x2705; \\(\nabla_0\\) 代表对\\(\mathbf{x}_0\\)的求导    
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

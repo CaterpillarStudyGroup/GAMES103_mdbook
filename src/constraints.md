@@ -825,3 +825,9 @@ P37
     - Focused on very stiff constraints. Introduces dual variables.    
     - Also built upon implicit integration. Two methods: primal-dual, pure dual.    
     - Restrictions on the solvers.    
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

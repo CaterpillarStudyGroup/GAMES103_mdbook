@@ -590,3 +590,9 @@ P40
 
 Muller et al. 2005.    
 *Meshless Deformations Based on Shape Matching*. TOG (SIGGRAPH).     
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/
