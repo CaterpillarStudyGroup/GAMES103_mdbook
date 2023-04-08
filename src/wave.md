@@ -1,5 +1,5 @@
 
-P1   
+P2   
 ## Fluid Effects    
 
 
@@ -164,7 +164,7 @@ $$
 ![](./assets/10-12.png)   
 
 
-> &#x2705;  先用 central difference 求出两个中点的一阶导数，再基于此计算 \\(to\\) 处的二阶导。这种操作又称为一维Laplace 算子。    
+> &#x2705;  先用 central difference 求出两个中点的一阶导数，再基于此计算 \\(t_0\\) 处的二阶导。这种操作又称为一维Laplace 算子。    
 
 
 
@@ -194,17 +194,21 @@ P15
 We can now discretize the shallow wave equation \\(\frac{d^2ℎ}{dt^2}=\frac{ℎ}{ρ}\frac{d^2P}{dx^2}\\).     
 
  
-> \\(\begin{matrix}\\
- \frac{d^2ℎ_i(t_0)}{dt^2}≈\frac{ℎ_i(t_0+∆t)+ℎ_i(t_0−∆t)−2ℎ_i(t_0)}{∆t^2}\quad  &\frac{d^2P_i}{dx^2 }≈\frac{P_{i+1}+P_{i−1}−2P_i}{∆x^2}\\\\
-\end{matrix}\\)
+| \\(\begin{matrix}\\ \frac{d^2ℎ_i(t_0)}{dt^2}≈\frac{ℎ_i(t_0+∆t)+ℎ_i(t_0−∆t)−2ℎ_i(t_0)}{∆t^2}\quad  &\frac{d^2P_i}{dx^2 }≈\frac{P_{i+1}+P_{i−1}−2P_i}{∆x^2}\\\\\end{matrix}\\)  |
+|----|
 
-> \\(\Rightarrow \frac{ℎ_i(t_0+∆t)+ℎ_i(t_0−∆t)−2ℎ_i(t_0)}{∆t^2}=\frac{ℎ_i}{ρ} (\frac{P_{i+1}+P_{i−1}−2P_i}{∆x^2})\\)
+\\(\quad\\)
+
+|  \\(\Rightarrow \frac{ℎ_i(t_0+∆t)+ℎ_i(t_0−∆t)−2ℎ_i(t_0)}{∆t^2}=\frac{ℎ_i}{ρ} (\frac{P_{i+1}+P_{i−1}−2P_i}{∆x^2})\\)  |
+|----|
+
+\\(\quad\\)
+
+|  \\(\Rightarrow ℎ_i(t_0+∆t)=2ℎ_i(t_0)−ℎ_i(t_0−∆t)+\frac{∆t^2ℎ_i}{∆x^2ρ}(P_{i+1}+P_{i−1}−2P_i)\\)  |
+|----|
 
 
->\\(\Rightarrow ℎ_i(t_0+∆t)=2ℎ_i(t_0)−ℎ_i(t_0−∆t)+\frac{∆t^2ℎ_i}{∆x^2ρ}(P_{i+1}+P_{i−1}−2P_i)\\)
-
-
-> &#x2705;  更新目标：下一个时刻的水柱的高度，即 \\(hi(t_0 + ∆t)\\)    
+> &#x2705;  更新目标：下一个时刻的水柱的高度，即 \\(h_i(t_0 + ∆t)\\)    
 但按此公式模拟可能出现水的体积变多或变少的问题。   
 
 
@@ -294,8 +298,6 @@ $$ℎ_i^{old}←ℎ_i\\\\
 
 
 
-
-
 P23  
 ## Boundary Conditions   
 
@@ -358,7 +360,7 @@ The coupling between a solid and a liquid should be two-way, i.e., liquid->solid
 
 
 > &#x2705; 水和水中的物体相互作用，物体可以是刚体、弹性体能各种类型的物体。    
-水→物体：浮力、物体→水，会把这个水柱的水排出去，此处只讲“物体 → 水” 部分   
+水→物体：浮力、物体→水，会把这个水柱的水排出去，此处只讲 “物体 → 水” 部分   
 
 
 
