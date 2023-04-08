@@ -16,7 +16,7 @@ P3
     - Numerical methods (numerical linear algebra, numerical PDEs), finite element analysis, fluid dynamics...     
 
 
-> &#x2705; 建议：说 paper 还不是教材，只读重点不读全又学知识而不是学用 Unity. 多读多写多想  
+> &#x2705; 建议：读 paper 而不是教材，只读重点不读全又学知识而不是学用 Unity. 多读多写多想  
 
 
 
@@ -160,7 +160,7 @@ P27
 
 ![](./assets/01-10.png) 
 
-> &#x2705; 本课程主要是后者，但通堂二者是结合的
+> &#x2705; 本课程主要是后者，但通常二者是结合的。
 
 
 
