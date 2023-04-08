@@ -302,7 +302,7 @@ Constraint
 
 > &#x2705; 这一页以弹簧为例子说明 Strain Limit   
 Strain：物理上描述形变的量，即本页的\\(\sigma \\)   
-Strain Limit 的应用场景：(1) 模拟布料：“拉伸到一定范围后变得非常 stiff” 的效果 (2) 防出“形变大发生数值不稳定”。    
+Strain Limit 的应用场景：(1) 模拟布料：“拉伸到一定范围后变得非常 stiff” 的效果 (2) 防止“形变大发生数值不稳定”。    
 
 
 
@@ -448,12 +448,12 @@ $$
 
 
 > &#x2705; PBD:基于约束直接修改顶点位置    
-本文①基于约束定义能量、得到的结果与基于力的能量相同。   
+本文 ① 基于约束定义能量、得到的结果与基于力的能量相同。   
 $$ E(\mathbf{x})=\sum _{E=(i,j)}\frac{k}{2}(||\mathbf{x}_i-\mathbf{x}_j||-Le)^2 $$  
-② 基于能量期望\\(\mathbf{x}_i\\)和 \\(\mathbf{x}_j\\)应该在的位置，但不真的移出\\(\mathbf{x}_i\\)和 \\(\mathbf{x}_j\\),论为\\(\mathbf{x}_i^{\mathrm{new} }\\)和 \\(\mathbf{x}_j^{\mathrm{new} }\\)    
+② 基于能量期望\\(\mathbf{x}_i\\)和 \\(\mathbf{x}_j\\)应该在的位置，但不真的移动\\(\mathbf{x}_i\\)和 \\(\mathbf{x}_j\\),论为\\(\mathbf{x}_i^{\mathrm{new} }\\)和 \\(\mathbf{x}_j^{\mathrm{new} }\\)    
 ③ 基于 \\(E(\mathbf{x})、\mathbf{x}_i^{\mathrm{new} } 、\mathbf{x}_j^{\mathrm{new} }\\) 计算力，此时假设\\(\mathbf{x}_i^{\mathrm{new} }\\)和 \\(\mathbf{x}_j^{\mathrm{new} }\\)都是定值，\\(\mathbf{x}_i\\)和 \\(\mathbf{x}_j\\)是变量。   
 所得的力与基于弹簧力算出的力相同   
-既然 \\(E\\) 和 \\(F\\) 是一样的，何必多次一举? 答：不同。   
+既然 \\(E\\) 和 \\(F\\) 是一样的，何必多此一举? 答：不同。   
 
 
 
@@ -470,7 +470,7 @@ Instead of blending projections in a Jacobi or Gauss-Seidel fashion as in PBD, <
 
 
 
-> &#x2705; 为什么能简化\\(\mathbf{H}\\)的计算？答：在计算某一个端点时，假设另一个端点不动（常量），那么能量就是只关于这个端点的二次函数     
+> &#x2753; 为什么能简化\\(\mathbf{H}\\)的计算？答：在计算某一个端点时，假设另一个端点不动（常量），那么能量就是只关于这个端点的二次函数     
 
 
 
@@ -689,9 +689,9 @@ $$
 
 
 
-> &#x2705; 动量守衡公式：\\(Mv '- Mv = Ft = \\)冲量   
+> &#x2705; 动量守衡公式：\\(Mv'- Mv = Ft = \\)冲量   
 此处新 \\(\lambda^{\mathrm{new}} \\)来计算 F. 说明是 Implicit    
-对\\(\phi ^{\mathrm{new}}\\) 的泰勒展开    
+对\\(-\phi ^{\mathrm{new}}\\) 的泰勒展开    
 最后的矩阵公式由上面两个公式整理合并得到。   
 
 
