@@ -223,7 +223,7 @@ Solving this in an Eulerian way can be a source of instability.
 To solve this problem, we come to realize that advection means to carry physical quantities by velocity.   
 
 
-> &#x2705;  Advectim,代表流动。即速度会跟着粒子移动，基于欧拉的方法才需要考虑这个问题。   
+> &#x2705;  Advection,代表流动。即速度会跟着粒子移动，基于欧拉的方法才需要考虑这个问题。   
 基于拉格朗日的方法，变量定义在粒子上，天然满足这个特点。    
 
 
@@ -247,7 +247,7 @@ Note that if the velocities are staggered, we need to do staggered bilinear inte
 
 
 
-> &#x2705; 例如要求\\(\mathbf{x}_0\\)的速度，倒推哪个粒子会运动到\\(\mathbf{x}_0\\)处;因此找到\\(\mathbf{x}_1\\)，以\\(\mathbf{x}_1\\)的下一刻速度来更新\\(\mathbf{x}_0\\)的速度。   
+> &#x2705; 例如要求\\(\mathbf{x}_0\\)的速度，倒推哪个粒子会运动到\\(\mathbf{x}_0\\)处;因此找到\\(\mathbf{x}_1\\)，从\\(\mathbf{x}_1\\)的下一刻速度来更新\\(\mathbf{x}_0\\)的速度。   
 
 
 
@@ -444,7 +444,7 @@ But what if there is an air-water boundary???
 
 
 > &#x2705; 表示1：例如一个格子存储水的体积的百分化。   
-advert 表称2：专用于更新 SDF 的方法。   
+advect 表称2：专用于更新 SDF 的方法。   
 
 
 
