@@ -36,7 +36,7 @@ Constraint
 P6   
 ## A Single Spring    
 
-If a spring is infinitely stiff, we can treat the length as a constraint and define a projection function.    
+
 
 ![](./assets/06-3.png)    
 
@@ -496,7 +496,8 @@ $$
 \begin{matrix}
  \mathbf{f} _0=−\nabla_0E(\mathbf{x} )\\\\
 \mathbf{f} _1=−\nabla_1E(\mathbf{x} ) \\\\
-\mathbf{f} _2=−\nabla_2E(\mathbf{x} )
+\mathbf{f} _2=−\nabla_2E(\mathbf{x} )\\\\
+\mathbf{H} =\frac{∂E^2(\mathbf{x} )}{∂x^2} \quad \text{is  a constant !}   
 \end{matrix}
 $$
 
@@ -541,7 +542,7 @@ $$
 > &#x2705; Recaculate projection 这一步实际上不需要，因为直接用弹簧系统的公式算力，得到的\\(f\\)是一样的。   
 如果是做 shape matching, 还是需要这一步，用于算 \\(f\\)    
 同一个顶点在三个不同边上的投影是不同的。   
-模拟真正的时间开销不在计算（虽然有很多计算公式) 而是在内存的访问上。   
+模拟真正的时间开销不在计算 (虽然有很多计算公式) 而是在内存的访问上。   
 PBD 的优点是内存访问少、因为它没有太多物理变量。    
 因此，对追求效率的场景，主要优化内存访问而不是计算。   
 
@@ -724,7 +725,7 @@ $$
 
  
 
- -Infinite stiffness? \\(\mathbf{C \longrightarrow 0}\\).    
+ - Infinite stiffness? \\(\mathbf{C \longrightarrow 0}\\).    
 
 
 
