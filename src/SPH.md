@@ -55,7 +55,7 @@ $$
 ![](./assets/12-2.png)   
 
 
-> &#x2705; 用已有粒子点的值，估计任意一个用位置上的值，这是一个插值问题。
+> &#x2705; 用已有粒子点的值，估计任意一个位置上的值，这是一个插值问题。
 
 
 
@@ -90,7 +90,7 @@ $$
 ![](./assets/12-4.png)   
 
 
-> &#x2705; 公式假设\\(\sum _iV_j=1\\)    
+> &#x2705; 公式假设\\(\sum _jV_j=1\\)    
 
 
 P8   
@@ -218,7 +218,7 @@ $$
 
 
 
-> &#x2705; smooth Kemal 有很多种，这种最常见。   
+> &#x2705; smooth Kernal 有很多种，这种最常见。   
 
 
 
@@ -391,7 +391,7 @@ P22
 ![](./assets/12-11.png)   
 
 
-> &#x2705;  Viscosity (粘滞）类似于 damping (阻尼），但有些区别，后者的目标是让粒子的运动停下来，前者的目的是让所有粒子的运动整齐划一，即速度差趋于0. 
+> &#x2705;  Viscosity (粘滞)类似于 damping (阻尼)，但有些区别，后者的目标是让粒子的运动停下来，前者的目的是让所有粒子的运动整齐划一，即速度差趋于0. 
 
 
 
@@ -420,7 +420,7 @@ P23
 
 
 
-> &#x2705; \\(V\\)：粘滞系数， \\(\nabla V\\)：速度的 laplacian.注意速度是3D矢量。
+> &#x2705; \\(V\\)：粘滞系数， \\(\nabla V\\)：速度的 Laplacian.注意速度是3D矢量。
 
 
 
@@ -508,3 +508,9 @@ P29
  - When simulating water, only use water particles, no air particles. So particles are sparse on the water-air boundary. How to avoid artifacts there?    
  
  - Using AI, not physics, to predict particle movement?    
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/
