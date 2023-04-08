@@ -88,7 +88,11 @@ $$
  0 & ? & ?\\\\
  ? & 0 &? \\\\
  ? & ? &0
-\end{bmatrix} \quad\quad\quad \mathbf{DA} = \begin{bmatrix}
+\end{bmatrix} 
+$$
+
+$$ 
+\mathbf{DA} = \begin{bmatrix}
 d  & 0 & 0\\\\
  0 & e & 0\\\\
  0 & 0 &f
@@ -235,7 +239,7 @@ P14
 Recall that we need implicit integration to avoid numerical instability (Class 5, page 13):   
 
 $$
-=\begin{cases} 
+\begin{cases} 
   \mathbf{v} ^{[1]}=\mathbf{v} ^{[0]}+∆t\mathbf{M} ^{−1}\mathbf{f} ^{[1]} \\\\  
  \mathbf{x} ^{[1]}=\mathbf{x} ^{[0]}+∆t\mathbf{v} ^{[1]} 
   \end{cases}
@@ -244,7 +248,7 @@ $$
 $$\mathrm{or} $$
 
 $$
-=\begin{cases} 
+\begin{cases} 
 \mathbf{x} ^{[1]}=\mathbf{x} ^{[0]}+∆t\mathbf{v} ^{[0]}+∆t^2\mathbf{M} ^{−1}\mathbf{f} ^{[1]}   \\\\  
  \mathbf{v} ^{[1]}=(\mathbf{x} ^{[1]}−\mathbf{x} ^{[0]})/∆t  
   \end{cases} 
@@ -449,7 +453,7 @@ P25
 ![](./assets/08-12.png)   
 
 
-> &#x2705; 图形学中更关注 Total Cost. 让 P 更加接近 H，可以减少迭代数，让 P 更容易得到，减少腿代成本。   
+> &#x2705; 图形学中更关注 Total Cost. 让 P 更加接近 H，可以减少迭代数，让 P 更容易得到，减少迭代成本。   
 Traction：物体表面上的力的密度，有点像压强   
 模拟的公式通常都固定，很难有突破、瓶颈在于计算量、随着分辨率的提升，模拟的计算量几乎是无止境的。   
 
