@@ -247,11 +247,11 @@ $$
 $$
 
 
-> &#x2705;  \\(\mathbf{X}_0\\)是顶点\\(\mathbf{X}\\)附近邻域面积上的力。    
+> &#x2705;  \\(\mathbf{X}_0\\)是顶点\\(\mathbf{X}_1\\)附近邻域面积上的力。    
 \\(\mathbf{X}_0\\)上的力是邻域面边界\\(L\\)上的力的积分、不考虑边界内部的力，因为认为内力为0。   
 仅看其中一个三角形、假设曲线经过 \\(\mathbf{X}_0\mathbf{X}_1\\)和 \\(\mathbf{X}_0\mathbf{X}_2\\)的中点。因为三角形的力对三个顶点是平均的。    
 对于封闭曲线， \\(\int _n=0\\)，因此 \\(\sigma \int _n=0\\)    
-三维场景是对四面体的四个面积分。
+三维场景是对四面体的四个面积分。  
 每个三角形的 stress 都不同、同一个三角形内部 stress 是常数。  
 
 
@@ -288,12 +288,13 @@ P17
 Although the use of stress tensor is the same: **mapping from the interface normal to the traction**, it can be defined by different configurations.      
 
 
-|  ![](./assets/07-13.png)    |  ![](./assets/07-14.png)    |  
+|  ![](./assets/07-13.png)    |   ![](./assets/07-14.png)    |  
 |----|----|
 |  In FEM, we define the energy density \\(W\\) in the **reference** state.  Therefore, this stress \\(\mathbf{S}\\)  is a mapping from the normal \\(\mathbf{N}\\) to the traction \\(\mathbf{T}\\), both in the **reference** state.   | In FVM, we need \\(\mathbf{σ}\\) to convert the normal into \\(\mathbf{t}\\) for force calculation. Therefore, this stress assumes the normal \\(\mathbf{n}\\) and the traction \\(\mathbf{t}\\) are in the **deformed** state.    |  
 
 
-> &#x2705;  在 reference 状态下有 normal. traction 和 stress 在形变状态下也有 normal traction 和 stress.    
+> &#x2705;  在 reference 状态下有 normal. traction 和 stress.  
+在形变状态下也有 normal traction 和 stress.    
 FEM 使用的是 reference 空间下的量。    
 
 
@@ -398,7 +399,7 @@ Second Piola–Kirchhoff stress:
 
 
 > &#x2705; 第一行公式：用 deformed position 计算 deformed position. 第二行公式：用 ref position 计算 deformed position, 因此直接把\\(\sigma \\)换成 \\(\mathbf{P} \\) 就可以。   
-好处：ref position 是常数，可以人做预计算、并存储为\\(b_1\\).   
+好处：ref position 是常数，可以做预计算、并存储为\\(b_1\\).   
 F：deformation gradient.见P5     
 公式用三用不同定义的 stress 来算力、目的是得到计­算最友好的公式    
 此处内容涉及材料力学、    
@@ -413,7 +414,7 @@ P23
 
 
 
-> &#x2753; [?] \\(\mathbf{X}_ {20}^\mathbf{T} b_1\\)的计算公式中、绿色的\\(\mathbf{X}_ {01}×\mathbf{X} _ {21}\\)怎么变成了\\(\mathbf{X}_ {20}\times \mathbf{X}_ {10}\\)？下面的\\(\mathbf{X}_ {30}^\mathbf{T} b_1\\),也一样。   
+> &#x2753;  \\(\mathbf{X}_ {20}^\mathbf{T} b_1\\)的计算公式中、绿色的\\(\mathbf{X}_ {01}×\mathbf{X} _ {21}\\)怎么变成了\\(\mathbf{X}_ {20}\times \mathbf{X}_ {10}\\)？下面的\\(\mathbf{X}_ {30}^\mathbf{T} b_1\\),也一样。   
 
 
 
@@ -504,7 +505,7 @@ P28
 
 > &#x2705; 前面的内容，都假设使用 StVK 材料、优点是简单；缺点是无法处理反转。因力在材料力学中不常用。  
 Hyperplasia 利用能量密度(W)、提供一个从 Strain (G) 到 Stress (S）的映射   
-P 29-P30   没讲， 
+ 
 
 
 
@@ -526,6 +527,9 @@ $$
 ![](./assets/07-21.png)  
 
 
+> &#x2705;   没讲，
+
+
 
 P30  
 ## Rotation-Invariance    
@@ -538,6 +542,9 @@ The stress tensor \\(\mathbf{P}\\) is rotation-invariant to \\(\mathbf{U}\\):
 $$
 \mathbf{P} (\mathbf{UDV^T} )=\mathbf{UP} (\mathbf{DV^T} )
 $$
+
+
+> &#x2705;   没讲，
 
 
 P31  
