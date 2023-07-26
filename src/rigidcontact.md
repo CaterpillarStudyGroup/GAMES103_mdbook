@@ -1,7 +1,7 @@
 
 
 P2  
-## Last week…  
+# Last week…  
 
 
 In practice, we update the same state variable \\(\mathbf{s} =\\){\\(\mathbf{v,x,\omega ,q}\\)} over time.     
@@ -95,14 +95,27 @@ What about the current inertia?
 > &#x2705; inertia 也与自身的状态相关，但不需要每次都根据当前状态计算，而是基于一个已经算好的ref状态的 inertia快速得出。  
 
 
+P9   
+
+## Topics for the Day   
+
+ - Particle Collision Detection and Response   
+    - Penalty methods   
+    - Impulse methods   
+
+ - Rigid Collision Detection and Response by Impulse   
+ - Shape Matching   
+
    
 
 P10  
-## Particle Collision Detection and Response    
+# Particle Collision Detection and Response    
 
 
 P11  
-## Signed Distance Function   
+## Intersection of SDF   
+
+### Signed Distance Function   
 
 
 A <u>signed</u> distance function \\(\phi (\mathbf{x} )\\) defines the distance from \\(\mathbf{x}\\) to a surface with a signThe sign indicates on which side \\(\mathbf{x}\\) is located.     
@@ -113,20 +126,20 @@ A <u>signed</u> distance function \\(\phi (\mathbf{x} )\\) defines the distance 
 
 
 P12   
-## Signed Distance Function Examples    
+### Signed Distance Function Examples    
 
 
 ![](./assets/04-07.png)     
 
 
-> &#x2705; 圆柱SD=基于勾股定理，\\(\sqrt{\cdot }\\) 内第一项为斜边长，
+> &#x2705; 圆柱SDF基于勾股定理，\\(\sqrt{\cdot }\\) 内第一项为斜边长，
 第二项为底边长，得出点到中轴的距离。  
 
 
 
 
 P13   
-## Intersection of Signed Distance Functions    
+### Intersection of Signed Distance Functions    
 
 ![](./assets/04-8.png)     
 
@@ -138,7 +151,7 @@ Else outside
 
 
 P14  
-## Union of Signed Distance Functions   
+### Union of Signed Distance Functions   
 
 
 ![](./assets/04-9.png)     
@@ -151,7 +164,9 @@ Intuitively, we can consider collision detection with the union of two objects a
 
 
 P15   
-## Quadratic Penalty Method    
+## Particle Collision Response ——Penalty Method  
+
+### Quadratic Penalty Method    
 
 
 
@@ -167,7 +182,7 @@ A penalty method applies a penalty force in the next update. When the penalty po
 
 
 P16   
-## Quadratic Penalty Method with a Buffer   
+### Quadratic Penalty Method with a Buffer   
 
 
 A buffer helps lessen the penetration issue. But it cannot strictly prevent penetration, no matter how large \\(k\\) is.      
@@ -185,7 +200,7 @@ A buffer helps lessen the penetration issue. But it cannot strictly prevent pene
 
 
 P17   
-## Log-Barrier Penalty Method     
+### Log-Barrier Penalty Method     
 
 
 A log-barrier penalty potential ensures that the force can be large enough. But it assumes \\(\phi (\mathbf{x} ) < 0\\) will never happen!!! To achieve that, it needs to adjust \\(\Delta t\\).     
@@ -202,7 +217,7 @@ A log-barrier penalty potential ensures that the force can be large enough. But 
 
 
 P18  
-## A Short Summary of Penalty Methods    
+### A Short Summary of Penalty Methods    
 
 
 
@@ -259,7 +274,7 @@ Changing the position is not enough, we must change the velocity as well.
 
 
 P21   
-## Rigid Body Collision Detection and Response   
+# Rigid Body Collision Detection and Response   
 
 
 P23   
@@ -347,7 +362,7 @@ $$
 
 
 P26   
-## Cross Product as a Matrix Product    
+### Cross Product as a Matrix Product    
 
 We can convert the cross product \\(\mathbf{r}\times\\) into a matrix product \\(\mathbf{r}^*\\).    
 
@@ -360,18 +375,18 @@ We can convert the cross product \\(\mathbf{r}\times\\) into a matrix product \\
 
 
 P28  
-## Rigid Body Collision Response by Impulse    
+### Rigid Body Collision Response by Impulse    
 
 ![](./assets/04-24.png)    
 
 
 > &#x2753; 如果有多个顶点发生碰撞呢？  
-回答在 ？29   
+回答在P29   
 
 
 
 P29  
-## Some Implementation Details    
+### Some Implementation Details    
 
 
 
@@ -385,8 +400,8 @@ P29
 
 
 
-> &#x2705; Oscillation 问题  
-原因：重力让它往下，冲量让它往上   
+> &#x2705; Oscillation 抖动  
+原因：重力让它往下，冲量让它往上，导致在地面上反复振荡      
 解决方法：接近静止时衰减 \\(\mathbf{\mu_N} \\)      
 
 
@@ -443,7 +458,7 @@ $$
 
 
 P31  
-## After-Class Reading (Before Collision)    
+### After-Class Reading (Before Collision)    
 
 
 
@@ -456,7 +471,7 @@ P32
 
 
 P33  
-## Basic Idea    
+### Basic Idea    
 
 
 We allow each vertex to have its own velocity, so it can move by itself.     
@@ -476,7 +491,7 @@ Second, enforce the **rigidity** constraint to become a rigid body again.
 
 
 P34  
-## Mathematical Formulation    
+### Mathematical Formulation    
 
 Now \\(\mathbf{c}\\) and \\(\mathbf{R}\\) are unknowns we want to find out from:
 
@@ -491,10 +506,9 @@ Now \\(\mathbf{c}\\) and \\(\mathbf{R}\\) are unknowns we want to find out from
 
 
 P35  
-## Mathematical Formulation   
 
 
-![](./assets/04-28.png)    
+![](./assets/04-28-1.png)    
 
 
 > &#x2705; 先假设 \\(\mathbf{R}\\) 是任意矩阵 \\(\mathbf{A}\\),再从中提取旋转成分   
@@ -502,7 +516,7 @@ P35
 
 
 P36   
-## Remember that…   
+### Remember that…   
 
 
 Singular value decomposition says any matrix can be decomposed into: rotation,scaling and rotation: \\(\mathbf{A = UDV} ^T\\).    
@@ -532,7 +546,7 @@ We can rotate the object back before the final rotation: \\(\mathbf{A}  = (\math
 
 
 P38  
-## Polar Decomposition     
+### Polar Decomposition     
 
 ![](./assets/04-32.png)    
 
@@ -548,24 +562,15 @@ $$
 
 
 P39  
-## Shape Matching    
+### Shape Matching    
 
 
-
-| Independent Update <br> For every vertex <br>\\(\mathbf{f} _i\longleftarrow   \mathbf{Force}  (\mathbf{x} _i, \mathbf{v} _i)\\)<br>\\(\mathbf{v} _i\longleftarrow \mathbf{v} _i + \bigtriangleup tm_i^{-1}\mathbf{f} _i\\)<br>\\(\mathbf{y} _i \longleftarrow  \mathbf{x}_i + \bigtriangleup t\mathbf{v} _i\\)|   
-|----|
+![](./assets/04-33.png) 
 
 
-\\(<br>\\)  
+![](./assets/04-34.png) 
 
-|Rigidify the vertices<br>\\(\mathbf{c} =\frac{1}{N}\sum_i\mathbf{y} _i\\)<br>\\(\mathbf{A} =(∑ _i(\mathbf{y} _i−\mathbf{c} ) \mathbf{r} _i^\mathbf{T} )(∑_i\mathbf{r} _i \mathbf{r} _i^\mathbf{T} )^{−1}\\)<br>\\(\mathbf{R} =\mathrm{Polar} (\mathbf{A} )\\)|   
-|----|
-
-\\(<br>\\) 
-
-|Update \\(\mathbf{v}_i\\) and \\(\mathbf{x}_i\\)<br>For every vertex<br>\\(\mathbf{v}_i\longleftarrow (\mathbf{c} +\mathbf{Rr}_i−\mathbf{x}_i)/∆t\\)<br>\\(\mathbf{x}_i\longleftarrow \mathbf{c} +\mathbf{Rr}_i\\)|
-|---|   
-
+![](./assets/04-35.png) 
 
 
 
@@ -574,7 +579,7 @@ Physical quantities are attached to each vertex, not to the entire body.
 
 
 P40  
-## Shape Matching    
+### Shape Matching    
 
 
  - Easy to implement and compatible with other nodal systems, i.e., cloth, soft bodies and even particle fluids.    
@@ -586,7 +591,7 @@ P40
  
  
  P41   
-## After-Class Reading    
+# After-Class Reading    
 
 Muller et al. 2005.    
 *Meshless Deformations Based on Shape Matching*. TOG (SIGGRAPH).     

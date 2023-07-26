@@ -1,9 +1,10 @@
 
 P2   
-## What is rigid body dynamics?     
+# Rigid body dynamics?     
 
 P3  
-## Rigid Bodies    
+
+Rigid Bodies    
 
 Our living environment is stuffed with rigid objects.
 
@@ -31,12 +32,11 @@ If a rigid body cannot deform, its motion consists of two parts: translation and
 ![](./assets/03-2.png)     
 
 
-P9
-## Translational Motion    
+  
 
 
 P10
-## Translational Motion   
+# Translational Motion   
 
 
 ![](./assets/03-3.png)     
@@ -60,6 +60,9 @@ $$
 P11   
 ## Integration Methods Explained    
 
+### Explicit Euler  
+
+
 By definition, the integral \\(\mathbf{x} (t) = \int \mathbf{v}  (t) dt\\) is the area. Many methods estimate the area as a box.   
 
 ![](./assets/03-4.png) 
@@ -78,7 +81,7 @@ By definition, the integral \\(\mathbf{x} (t) = \int \mathbf{v}  (t) dt\\) is th
 
 
 P12   
-## Integration Methods Explained    
+### Implicit Euler      
 
 ![](./assets/03-6.png) 
 
@@ -91,7 +94,7 @@ P12
 
 
 P13  
-## Integration Methods Explained   
+### Mid-Point     
 
 ![](./assets/03-8.png) 
 
@@ -100,7 +103,8 @@ P13
 
 
 P14
-## Integration Methods Explained   
+### 比较与混合  
+
 
 By definition, the integral \\(\mathbf{x} (t)=∫\mathbf{v} (t) dt\\) is the area.  Many methods estimate the area as a box.    
 
@@ -125,7 +129,7 @@ By definition, the integral \\(\mathbf{x} (t)=∫\mathbf{v} (t) dt\\) is the are
 
 
 P15   
-## Translational Motion    
+    
 
 
 $$
@@ -141,7 +145,7 @@ $$
 
 
 P16 
-## Leapfrog Integration    
+### Leapfrog Integration    
 
 
 ![](./assets/03-11.png)    
@@ -169,7 +173,7 @@ P17
 
 
 P18  
-## igid Body Simulation (Translation Only)    
+## Rigid Body Simulation  Pipeline (Translation Only)    
 
 
 ![](./assets/03-14.png)    
@@ -185,11 +189,13 @@ The mass \\(M\\) and the time step \\(\Delta t\\) are user-specified variables.
 
 
 P19  
-## Rotational Motion
+# Rotational Motion
 
 
 P20   
-## Rotation Represented by Matrix     
+## Rotation Representation   
+
+### Rotation Represented by Matrix     
 
 
  - The matrix representation is widely used for rotational motion.    
@@ -203,7 +209,7 @@ P20
 
 
 P21  
-## Rotation Represented by Euler Angles    
+### Rotation Represented by Euler Angles    
 
 
  - The Euler Angles representation is also popular, often in design and control.    
@@ -218,7 +224,7 @@ P21
 
 
 P22  
-## Gimbal Lock   
+Gimbal Lock   
 
 
 The alignment of two or more axes results in a loss of rotational DoFs.     
@@ -228,7 +234,7 @@ The alignment of two or more axes results in a loss of rotational DoFs.
 
 
 P23  
-## Rotation Represented by Quaternion    
+### Rotation Represented by Quaternion    
 
 ![](./assets/03-17.png)    
 
@@ -239,7 +245,7 @@ In the complex system, two numbers represent a 2D point.
 
 
 P24   
-## Quaternion Arithematic    
+#### Quaternion Arithematic    
 
 
 Let \\(\mathbf{q}  = \begin{bmatrix}
@@ -275,7 +281,7 @@ Let \\(\mathbf{q}  = \begin{bmatrix}
 
 
 P25   
-## Rotation Represented by Quaternion    
+#### Rotation Represented by Quaternion    
 
 
 
@@ -324,13 +330,12 @@ P28
 
 
 > &#x2705; Torque：力矩   
-[?] 为会么力矩由叉差乘得到？力矩与为垂直？   
+[?] 为会么力矩由叉差乘得到？力矩与力垂直？   
 用于旋转的质量不再是实数，而是矩阵，称为 Inertia 矩阵，用 \\(\mathbf{I}\\) 来标记 Inertia 矩阵，其中 \\(\mathbf{I}_{ref}\\)为参考状态，\\(\mathbf{I}\\) 为当前状态，\\(\mathbf{I}\\) 是 \\(3\times 3\\) 矩阵。  
 
 
 
-P29   
-## Translational and Rotational Motion   
+P29     
 
 
 |    |Translational (linear)|Rotational (Angular)|
@@ -351,7 +356,7 @@ P29
 
 
 P30 
-## Rigid Body Simulation    
+## Rigid Body Simulation Piplene     
 
 
 ![](./assets/03-27.png)     
@@ -365,17 +370,19 @@ P30
 
 
 P32   
-## Some More lssues
- - Gravity doesn't cause any torque! lf your simulator does not contain any other force, there is no need to update \\(\mathbf{\omega}\\).    
+## Some More lssues   
+
+
+Gravity doesn't cause any torque! lf your simulator does not contain any other force, there is no need to update \\(\mathbf{\omega}\\).    
 
 
 P33
-## After-Class Reading (Before Collision)
+# After-Class Reading (Before Collision)
 
 
 
 <https://graphics.pixar.com/pbm2001>     
-Rigid Bdy Dyunis    
+Rigid Body Dynamics    
 
 
 ---------------------------------------

@@ -1,4 +1,12 @@
 
+P2   
+## Topics for the Day
+
+ - A Mass-Spring System    
+    - Explicit Integration   
+    - Implicit Integration   
+ - Bending and Locking Issues   
+ - Shape matching   
 
 
 P3  
@@ -7,6 +15,9 @@ P3
 
 
 P4   
+# 弹簧结构   
+
+
 ## An Ideal Spring    
 
 An ideal spring satisfies Hooke’s law: the spring force tries to restore the rest length.    
@@ -50,13 +61,13 @@ $$
 
 
 P6  
-## Structured Spring Networks   
+### Structured Spring Networks   
 
 ![](./assets/05-4.png)    
 
 
 P7  
-## Unstructured Spring Networks   
+### Unstructured Spring Networks   
 
 
 We can also turn an unstructured triangle mesh into a spring network for simulation.    
@@ -89,11 +100,11 @@ Triangle list: {1, 2, 3, 0, 1, 3, 0, 3, 4}    (index triples)
 
 
 P9   
-## Topological Construction   
+### Topological Construction   
 
 The key to topological construction is to sort triangle edge triples.    
 
-![](./assets/05-7.png)    
+   
 
 
 Each triple contains: edge vertex index 0, edge vertex index 1 and triangle index (index 0<index). 
@@ -106,6 +117,8 @@ Each triple contains: edge vertex index 0, edge vertex index 1 and triangle inde
 
 
 P11   
+# 积分系统  
+
 ## Explicit Integration of A Mass-Spring System   
 
 ![](./assets/05-9.png)    
@@ -118,7 +131,7 @@ P11
 
 
 P12   
-## Explicit Integration of A Mass-Spring System   
+   
 
 Explicit integration suffers from **numerical instability** caused by <u>overshooting</U>, when the stiffness \\(k\\) and/or the time step \\(∆t\\) is too large.     
 
@@ -167,16 +180,18 @@ $$
 Note that this is applicable to every system, not just a mass-spring system.    
 
 
-> &#x2705; 非线性方程问题为转化为优化问题。   
+> &#x2705; 非线性方程问题为转化为优化问题，\\(3N \times 3N\\)       
 其中：\\(\mathbf{M}\\)对角矩阵，描述质量。  
-\\(\mathbf{x}\\)为 \\(3N\times 1\\)矢量,描述顶点信息\\(3N \times 3N\\)    
+\\(\mathbf{x}\\)为 \\(3N\times 1\\)矢量,描述顶点信息
 \\(E\\) 为所有的力的能量   
-只有保守力能用能量描述、非保守力（例如摩擦力)则不行。  
+只有保守力能用能量描述、非保守力（例如摩擦力）则不行。  
 
 
 
 
 P15   
+# 优化方法  
+
 ## Newton-Raphson Method   
 
 The Newton-Raphson method, commonly known as Newton’s method, solves the optimization problem: \\(x^{[1]}\\) = argmin \\(F(x)\\).   
@@ -215,7 +230,7 @@ Newton’s method finds an extremum, but it can be a minimum or maximum.
 
 
 P17  
-## Newton-Raphson Method 解隐式积分优化问题    
+### Newton-Raphson Method 解隐式积分优化问题    
 
 
 Now we can apply Newton’s method to: \\(x^{[1]} \\)= argmin \\(F(x)\\).
@@ -229,14 +244,14 @@ $$
 
 
 
-> &#x2705; 按照 \\(\Delta x\\) 的更新公式，只需要用到\\(F'(x)\\) 和 \\(F"(x)\\)， 不需要知道 \\(F(x)\\).   
+> &#x2705; 按照 \\(\Delta x\\) 的更新公式，只需要用到\\(F'(x)\\) 和 \\({F}''(x)\\)， 不需要知道 \\(F(x)\\).   
 此处\\(x\\)是向量，因此\\(F'(x)\\)是向量，\\({F}''(x)\\)是 Hession 矩阵  
 
 
 
 
 P18  
-## Simulation by Newton’s Method    
+### Simulation by Newton’s Method    
 
 
 Specifically to simulation, we have:   
@@ -269,7 +284,7 @@ $$
 
 
 P19  
-## SolveSpring Hessian
+### SolveSpring Hessian
 
 According to Lecture 2, Page 48,      
 
@@ -318,7 +333,7 @@ As a result, \\(\mathbf{H}(\mathbf{x})\\) may not be s.p.d. (Lecture 2, Page 36
 
 P22 
 
-## Positive Definiteness of Hessian    
+### Positive Definiteness of Hessian    
 
 When a spring is compressed, the spring Hessian may not be positive definite. This means there can be multiple local minima (outcomes).    
 
@@ -331,7 +346,7 @@ When a spring is compressed, the spring Hessian may not be positive definite. Th
 
 
 P23   
-## Enforcement of Positive Definiteness   
+### Enforcement of Positive Definiteness   
 
  - Nevertheless, some linear solvers can fail to work if the matrix \\(\mathbf{A}\\) in \\(\mathbf{A}\bigtriangleup \mathbf{x}=\mathbf{b}\\) is not positive definite.    
 
@@ -425,7 +440,7 @@ P19.   \\( \mathbf{x}_ {ij}\\) 代表顶点\\( \mathbf{x}_ {i}\\)和顶点\\( \m
 
 
 P27   
-## After-Class Reading   
+# After-Class Reading   
 
 Baraff and Witkin. 1998. Large Step in Cloth Simulation. SIGGRAPH.    
 
@@ -435,7 +450,7 @@ The paper proposes to **use only one Newton iteration**, i.e., solving only one 
 
 
 P28   
-## Bending and Locking Issues   
+# Bending and Locking Issues   
 
 P29   
 ## The Bending Spring Issue    
@@ -500,7 +515,7 @@ $$
 
 
 P33    
-## After-Class Reading    
+### After-Class Reading    
 
 Bridson et al. 2003. *Simulation of Clothing with Folds and Wrinkles*. SCA.      
 
@@ -556,7 +571,7 @@ It’s not hard to see that: \\(E (\mathbf{x} )=\frac{3||\mathbf{q} ^\mathbf{T}\
 
 
 P35  
-## Pros and Cons of The Quadratic Bending Model
+### Pros and Cons of The Quadratic Bending Model
 
  - Easy to implement:   
 
@@ -584,7 +599,7 @@ P35
  
 
 P36   
-## A Quadratic Bending
+### A Quadratic Bending
  
 Bergou et al. 2006. *A Quadratic Bending Model for Inextensible Surfaces*. SCA.    
 
@@ -617,7 +632,7 @@ So if edges are all hard constraints, the DoFs are only: 3+ #boundary_edges.
 单纯加点不会改善，但让点变密可以改善     
 
 P39   
-## Shape Matching    
+# Shape Matching    
 
 > &#x2705; Shape Matching 跳过了。   
 
@@ -665,7 +680,7 @@ $$
 
 
 P43   
-## A Summary For the Day    
+# A Summary For the Day    
 
  - A mass-spring system          
      - Planar springs against stretching/compression	\\(\quad\\)- replaceable by co-rotational model
