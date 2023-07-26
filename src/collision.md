@@ -1,15 +1,25 @@
+P2 
+
+## Topics for the Day  
+
+ - Collision Detection    
+ - Interior Point Methods    
+ - Impact Zone Optimization   
+ - Untangling Cloth    
+
+
 P3
 ## Collision Detection   
 
 P4  
-## Collision Detection Pipeline    
+# Collision Detection Pipeline    
 
 ![](./assets/09-1.png)    
 
 
 
 P5    
-## Spatial Partitioning    
+# Spatial Partitioning    
 
 
 Spatial partitioning divides the space by a grid and stores objects into grid cells.     
@@ -72,7 +82,7 @@ Chapter 32. Broad-Phase Collision Detectionwith CUDA
 
 
 P14   
-## Bounding Volume Hierarchy
+# Bounding Volume Hierarchy
 
 Bounding volume hierarchy is built on geometric/topological proximity of objects.     
 
@@ -103,14 +113,7 @@ P17
 
 To process **self collisions** by BVH, we define two procedures.     
 
-|  Process_Node(A) <br> { <br> For every A’s child: B<br>Process_Node(B) <br> For every A’s children pair <B, C> <br> if B and C intersect <br> Process_Pair(B, C) <br> } |  
-|:-----|  
-
-$$\quad$$
-
-
-| Process_Pair(B, C) <br> { <br> For every B’s child: B’<br>For every C’s child: C’ <br> if B’ and C’ intersect <br> Process_Pair(B’, C’)<br>}  |  
-|:-----| 
+![](./assets/09-10-1.png)   
 
 
 ![](./assets/09-10.png)   
@@ -121,16 +124,15 @@ P18
 
 The performance depends on the effectiveness of culling.    
 
+![](./assets/09-11-2.png)   
+⟵ Zheng and James. 2012. *Energy-based Self-Collision Culling for Arbitrary Mesh Deformations*. TOG (SIGGRAPH)
 
-| Process_Node(A) <br> { <br> For every A’s child: B<br>Process_Node(B) <br> For every A’s children pair <B, C><br> if B and C intersect ⟵ Zheng and James. 2012. *Energy-based Self-Collision Culling for Arbitrary Mesh Deformations*. TOG (SIGGRAPH) <br> Process_Pair(B, C)<br>}  |  
-|:-----| 
+![](./assets/09-11-3.png)   
 
-$$\quad$$
-
-| Process_Pair(B C)    <br>    { <br>    For every B’s child: B’ <br> For every C’s child: C’   <br>    if B’ and C’ intersect <br>  Process_Pair(B’, C’) <br>     } |  
-|:-----|    
-
-![](./assets/09-11.png)   
+**Energy-based Self-Collision Culling for Arbitrary Mesh Deformations**   
+Changxi Zheng  \\(\quad \quad \quad\\)  Doug L.James    
+Cornell University   
+![](./assets/09-11-1.png)   
 
 
 > &#x2705; 对每个区域计算能量，根据形变能量的大小来判断有没有可能相交，此方法不适用于衣服，因为在衣服模拟中大形变很常见、不代表有相交。   
@@ -138,7 +140,7 @@ $$\quad$$
 
 
 P19   
-## Comparison between SH and BVH   
+# Comparison between SH and BVH   
 
 
  - Spatial Hashing    
@@ -153,12 +155,12 @@ P19
     
     
 > &#x2705; CUDA 代码. INVIDI 代码通常使用SH    
-GPU 喜欢简单粗爆的数据结构，但相对于GPU过于复杂。   
+GPU 喜欢简单粗爆的数据结构，BVH相对于GPU过于复杂。   
 
 
 
 P20   
-## Collision Detection Pipeline    
+# Collision Detection Pipeline    
 
 ![](./assets/09-12.png)   
 
@@ -168,7 +170,7 @@ P20
 
 
 P21   
-## Discrete Collision Detection (DCD)    
+# Discrete Collision Detection (DCD)    
 
 DCD tests if any intersection exists in each state at discrete time instant: \\(\mathbf{x}^{[0]}\\), \\(\mathbf{x}^{[1]}\\), …
 
@@ -228,7 +230,7 @@ To a triangle mesh, there two basic tests: <u>vertex-triangle</u> and <u>edge-ed
 ![](./assets/09-19.png)   
 
 
-> &#x2705; 先求四点卡面的 \\(t\\)       
+> &#x2705; 先求四点共面的 \\(t\\)       
 解一元三次方程也不建议牛顿法，而是二分法，因为\\(t\\)的范围是[0,1]   
 
 
@@ -277,7 +279,7 @@ Impact Zone 法，从\\(\mathbf{x}^{[1]}\\)出发，反复优化结果（投影�
 
 
 P29  
-## Pros and Cons    
+### Pros and Cons    
 
 
  - Slow.    
@@ -321,12 +323,12 @@ $$
 
 
 > &#x2705; 用 Log 定义能量、前面某一节课讲过，   
-不喜欢互斥力一直存在，因此做了一个截断（IPC）      
+不需要互斥力一直存在，因此做了一个截断（IPC）      
 
 
 
 P31   
-## Interior Point Methods – Implementation      
+### Interior Point Methods – Implementation      
 
 We can then formulate the problem as:   
 
@@ -371,7 +373,7 @@ $$
 ![](./assets/09-25.png)   
 
 
-> &#x2705; 利用 constrain (不是能量）转化成优化问题具体没讲。  
+> &#x2705; 利用 constrain（不是能量）转化成优化问题具体没讲。  
 
 
 

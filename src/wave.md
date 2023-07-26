@@ -30,26 +30,28 @@ P5
 ![](./assets/10-3.png)    
 
 
-> &#x2705; 水流的方向， < 0 则高往低， > 0 则低往高。 
+> &#x2705; 水流的方向， 速度< 0 则右往左， > 0 则左往右。 
 
 
 P6   
 ## Height Field   
 
-![](./assets/10-4.png) 
+![](./assets/10-4-1.png) 
 
 
 > &#x2705;  \\(h(x)u(x)\\): 单位时间内流过x线的水量。     
 \\(d(h(x)u(x))\\) 单位时间内区域 \\([x \quad x+dx]\\) 的水量变化、    
 \\(d(h(x)u(x))1/x\\) 单位时间内区域区 \\([x \quad x+dx]\\) 的水位高度变化    
-速度场第一项：当水在流动时，速度应该跟水一起流动，下节课再讲。第三项是外力，当前也不考虑。  
+ 
 
 
 
 P7   
 ## Height Field   
 
-![](./assets/10-5.png)    
+The velocity is also a function of \\(x:u(x)\\).   
+
+![](./assets/10-5-1.png)    
 
 
 > &#x2705;  在短时间内、速度变化由左右压强差决定。  
@@ -69,6 +71,8 @@ $$
 
 ![](./assets/10-6.png)   
 
+
+> &#x2705;  速度场第一项：当水在流动时，速度应该跟水一起流动，下节课再讲。第三项是外力，当前也不考虑。 
 
 
 P9   
@@ -105,7 +109,7 @@ P11
 
 The idea of finite differencing is to use the difference to approximate the derivative.     
 
-![](./assets/10-9.png)  
+ 
 
 $$
 f(t_0+∆t)=f(t_0)+∆t\frac{df(t_0)}{dt} +\frac{∆t^2}{2} \frac{d^2f(t_0)}{dt^2} +…
@@ -118,8 +122,6 @@ Forward differencing (first-order)
 
 
 
-
-![](./assets/10-10.png)  
 
 $$
 f(t_0−∆t)=f(t_0)−∆t\frac{df(t_0)}{dt}+\frac{∆t^2}{2}\frac{d^2f(t_0)}{dt^2} +…
@@ -136,7 +138,14 @@ P12
 
 The idea of finite differencing is to use the difference to approximate the derivative.    
 
-![](./assets/10-111.png)
+$$
+f(t_0+∆t)=f(t_0)+∆t\frac{df(t_0)}{dt}+\frac{∆t^2}{2}\frac{d^2f(t_0)}{dt^2} +…
+$$
+
+$$
+f(t_0−∆t)=f(t_0)−∆t\frac{df(t_0)}{dt}+\frac{∆t^2}{2}\frac{d^2f(t_0)}{dt^2} +…
+$$
+
 
 
 Central differencing (second-order)   
@@ -409,7 +418,7 @@ $$
 $$
 
 
-![](./assets/10-23.png)    
+   
 
 
 
@@ -418,10 +427,10 @@ P30
 
 The outcome is Poisson’s equation, with \\(v_i\\) and \\(v_{i+1}\\) being unknowns.    
 
-![](./assets/10-24.png)    
+![](./assets/10-24-1.png)    
 
 
-> &#x2705; 没听懂，似乎是为了让公式统一方便计算   
+> &#x2705; 为了让公式统一方便计算   
 
 
 
@@ -454,7 +463,7 @@ f_{i,j}=ρg∆A(ℎ_{i,j}−ℎ_{i,j}^{new})
 $$
 
 
-> &#x2705; 阿基采得定律：物体受到的浮力 = 排出去的水的重量；同时要考虑旋转和力矩。    
+> &#x2705; 阿基米得定律：物体受到的浮力 = 排出去的水的重量；同时要考虑旋转和力矩。    
 
 
 
@@ -467,7 +476,7 @@ P33
  
  - The strength of the shallow wave model is its **simplicity** and **efficiency**. It can easily simulate water-solid coupling too.  
  
- - See Lab 4 for more details.    
+    
 
 
 ---------------------------------------

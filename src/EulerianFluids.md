@@ -1,12 +1,4 @@
 
-P1   
-## GAMES103: Intro to Physics-Based Animation
-
-#### Eulerian Fluids
-
-#### Huamin Wang
-
-##### Dec 2021
 
 
 P2  
@@ -154,7 +146,7 @@ P15
 
 No volume change is equal to say the fluid is incompressible. This can be formally written as a divergence-free velocity field.   
 
-![](./assets/11-8.png)   
+![](./assets/11-8-1.png)   
 
 
 > &#x2753; 这一页没听懂、净流入流出为0，水面还怎么动呢？   
@@ -174,9 +166,7 @@ P17
 We use bilinear interpolation to interpolate staggered velocities as well.    
 
 
-> &#x2705; 这是一个描述了速度场的公式，它可以告许你速度如何更新、公式2 diffusion 的目的是粘滞。   
-把偏微分方程分解几个小块，依次轮流优化每一小块。    
-[?] 这种方法为什么可行？    
+ 
 
 
 
@@ -190,12 +180,17 @@ P19
 
 ![](./assets/11-9.png)   
 
- - Method of Characteristics: solving a long partial differential equation (PDE) in steps
+Method of Characteristics: solving a long partial differential equation (PDE) in steps
  - Step 1: Update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=\mathbf{g}\\)   
  - Step 2: Update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=−(\mathbf{u}\cdot ∇)\mathbf{u}\\)  
  - Step 3: Update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=υ∆\mathbf{u}\\)  
  - Step 4: Update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=−∇\mathbf{p}\\)   
  
+
+
+> &#x2705; 这是一个描述了速度场的公式，它可以告许你速度如何更新、公式2 diffusion 的目的是粘滞。   
+把偏微分方程分解几个小块，依次轮流优化每一小块。    
+> &#x2753; 这种方法为什么可行？   
 
 
 P20   
@@ -286,17 +281,8 @@ P25
 
 Next we need to update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=\upsilon ∆\mathbf{u}\\).   
 
-![](./assets/11-15.png)   
+![](./assets/11-15-1.png)   
 
-$$
-u_{i,j}^{new}←u_{i,j}+ \upsilon ∆t\frac{u_{i−1,j}+u_{i+1,j}+u_{i,j−1}+u_{i,j+1}−4u_{i,j}}{ℎ^2} 
-$$
-
-$$
-v_{i,j}^{new}←v_{i,j}+ \upsilon ∆t\frac{v_{i−1,j}+v_{i+1,j}+v_{i,j−1}+v_{i,j+1}−4v_{i,j}}{ℎ^2}
-$$
-
-If \\(υ∆t\\) is large, the above formulae can be **unstable**.      
 
 
 
@@ -332,17 +318,17 @@ But what is \\(\mathbf{p}\\)?
 
 
 
-> &#x2705; 公式写错了，\\(\frac{1}{h}\\)改成\\(∆t / h\\).   
+
 
 
 
 
 P28   
-## Step 3: Pressure Projection
+## Step 4: Pressure Projection
 
 The pressure is caused by incompressibility.     
 
-![](./assets/11-17.png)   
+ 
 
 In other words, after this update by pressure, we should achieve:   
 
@@ -371,11 +357,11 @@ $$
 
 
 P29  
-## Step 3: Pressure Projection   
+## Step 4: Pressure Projection   
 
 The pressure is caused by incompressibility. Eventually, we get a Poisson equation:  
 
-![](./assets/11-18.png)   
+  
 
 Eventually, we get a Poisson equation:   
 
@@ -421,7 +407,7 @@ P32
  - Typically we use Dirichlet boundaries for an open space (or Neumann boundaries for a container.)   
  - We can use it to simulate underwater as well.   
 
-![](./assets/11-19.png)   
+ 
 
 
 
@@ -438,32 +424,16 @@ P33
     - Level set method (volume loss)   
     - Needs corrections.   
 
-![](./assets/11-20.png)   
-
-But what if there is an air-water boundary???    
+   
+  
 
 
 > &#x2705; 表示1：例如一个格子存储水的体积的百分化。   
-advect 表称2：专用于更新 SDF 的方法。   
+advect 2：专用于更新 SDF 的方法。   
 
 
 
-P34   
-## Water Simulation   
 
- - Two representations   
-    - Volume-of-fluid (as the name suggests…)   
-    - A signed distance function defined over the grid.   
-
- - How to advect?   
-    - Semi-Lagrangian (volume loss)   
-    - Level set method (volume loss)   
-    - Needs corrections.   
-
-
-![](./assets/11-21.png)   
-
-But what if there is an air-water boundary???   
 
 
 P35   
