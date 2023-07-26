@@ -1,6 +1,6 @@
 
 P3    
-## More About Prerequisites
+# More About Prerequisites
 
 
  - The course is designed for    
@@ -21,25 +21,16 @@ P3
 
 
 P10   
-## Issues for Discussion Today      
-
- - What’s computer graphics?    
- - What’s computer graphics used for?    
- - What’s physics-based animation?    
- - What are the topics to be studied in this class?    
+ 
 
 
 P11    
-## Issues for Discussion Today     
 
-
- - What’s computer graphics?    
- - What’s computer graphics used for?    
- - What’s physics-based animation?    
- - What are the topics to be studied in this class?    
  
  
-P14 
+P14    
+# Graphics Pipeline   
+
 ## Real-Time Graphics Pipeline     
 
 
@@ -67,13 +58,19 @@ P17
 
 
 P18
-## Movie
+## Movie  
+
+Geometry: 离线：构造离线的3D也界      
+动画：渲染，实时，需要与3D世界或玩家互动    
+动画：离线，不需要交互，提前录下来,例如游戏中的过场动画     
 
 ![](./assets/01-2.png) 
 
 
 P19
-## Geometry: Three Representations     
+# Geometry: Three Representations     
+
+## Mesh   
 
 
 ![](./assets/01-3.png)   
@@ -97,7 +94,7 @@ Volume Mesh 的处理比普通 Mesh 要难很多
 
 
 P20
-## Geometry: Three Representations    
+  
 
 
 ![](./assets/01-4.png)    
@@ -108,7 +105,7 @@ Unstructured：无规律的
 有些模拟算法或几何算法，可以利用 Structured 做简化或优化。Unstructured 算法通用性更好。    
 
 P21
-## Geometry: Three Representations    
+## Point Cloud       
 
 
 ![](./assets/01-5.png)    
@@ -129,7 +126,7 @@ P21
 
 
 P22
-## Geometry: Three Representations    
+## Volumetric Grid      
 
 
 ![](./assets/01-6.png) 
@@ -148,7 +145,7 @@ P22
 
 P23
 
-## Rendering: Non-Photorealistic vs. Photorealistic
+# Rendering: Non-Photorealistic vs. Photorealistic
 
 ![](./assets/01-7.png)   
 
@@ -156,7 +153,7 @@ P23
 后者更主流，又分为基于光线追踪和基于传统渲染管线。见 Games 101   
 
 P27
-## Character and Physics-Based Animation      
+# Character and Physics-Based Animation      
 
 ![](./assets/01-10.png) 
 
@@ -172,15 +169,7 @@ P36
 ![](./assets/01-11.png)    
 
 
-P37
-## Issues for Discussion Today    
 
-
-
- - What’s computer graphics?    
- - What’s computer graphics used for?    
- - What’s physics-based animation?    
- - What are the topics to be studied in this class?    
  
  
 P38 
@@ -202,7 +191,7 @@ P38
     
     
 P39
-## Physics-Based Animation Topics    
+# Physics-Based Animation Topics    
 
 
 ![](./assets/01-13.png)    
@@ -215,14 +204,11 @@ Fluids：流体，包括液体和气体
 
 
 P54
-## Physics-Based Animation Topics    
-
-
-![](./assets/01-14.png)   
+ 
 
 
 P56
-## Physics-Based Animation Topics
+
 
 ![](./assets/01-15.png)    
 
@@ -237,15 +223,7 @@ Coupling:场景中同时有不同类别的物体。怎样模拟它们的交互�
 
 
 
-P58
-## Issues for Discussion Today     
 
-
-
- - What’s computer graphics?    
- - What’s computer graphics used for?    
- - What’s physics-based animation?    
- - What are the topics to be studied in this class?    
  
  
  

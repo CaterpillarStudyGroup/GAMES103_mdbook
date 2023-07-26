@@ -1,9 +1,12 @@
 
 P2
-## Vectors
+# Vectors
 
 P3
 ## Vector: Definition    
+
+
+### 定义  
 
 
 An (Euclidean) vector: *A geometric entity endowed with magnitude and direction*.
@@ -25,7 +28,10 @@ $$
 \end{bmatrix}
 $$
 
-The vector **p** is defined with respect to the origin **o**.
+The vector **p** is defined with respect to the origin **o**.    
+
+### 坐标系   
+
 
 ![](./assets/02-02.png)     
 
@@ -35,8 +41,7 @@ The vector **p** is defined with respect to the origin **o**.
 
 
 
-P4
-## Vector: Definition  
+P4  
 
 
 The choice of a right-hand or left-hand system is largely due to:    
@@ -50,7 +55,7 @@ The choice of a right-hand or left-hand system is largely due to:
 
 
 P5
-## Vector: Definition  
+### Stacked Vector   
 
 
 Vectors can be stacked up to form a high-dimensional vector, commonly used for describing the state of an object.     
@@ -62,8 +67,11 @@ Vectors can be stacked up to form a high-dimensional vector, commonly used for d
 Not a geometric vector,but a **stacked vector**.    
 
 
-P6
-## Vector Arithematic: Addition and Subtraction     
+P6   
+
+## Vector Arithematic    
+
+### Vector Arithematic: Addition and Subtraction     
 
 
 $$
@@ -89,7 +97,7 @@ $$
 
 
 P7
-## Example 1: Linear Representation     
+#### Example 1: Linear Representation     
 
 
 
@@ -106,7 +114,7 @@ A (geometric) vector can represent a position, a velocity, a force, or a line/ra
 
 
 P8
-## Vector Norm   
+### Vector Norm   
 
 
 A vector norm measures the magnitude of a vector: its length. 
@@ -119,7 +127,7 @@ A vector norm measures the magnitude of a vector: its length.
 
 
 P9
-## Vector Norm: Usage  
+#### Vector Norm: Usage  
 
 
 ![](./assets/02-09.png)   
@@ -155,7 +163,7 @@ $$
 
 
 P10
-## Vector Arithematic: Dot Product     
+### Vector Arithematic: Dot Product     
 
 
 A dot product, also called inner product, is:
@@ -182,7 +190,7 @@ $$
 
 
 P11
-## Example 2: Particle-Line Projection
+#### Example 2: Particle-Line Projection
 
 
 ![](./assets/02-12-2.png)
@@ -190,7 +198,7 @@ P11
 
 
 P12
-## Example 3: Plane Representation     
+#### Example 3: Plane Representation     
 
 ![](./assets/02-13-1.png)
 
@@ -207,7 +215,7 @@ Quiz: How to test if a point is within a box?
 
 
 P13
-## Example 4: Particle-Sphere Collision    
+#### Example 4: Particle-Sphere Collision    
 
 ![](./assets/02-15.png)
 
@@ -236,7 +244,7 @@ $$
 
 
 P14
-## Vector Arithematic: Cross Product
+### Vector Arithematic: Cross Product
 
 
 ![](./assets/02-17.png)
@@ -260,7 +268,7 @@ $$
 
 
 P15
-## Example 5: Triangle Normal and Area   
+#### Example 5: Triangle Normal and Area   
 
 
 ![](./assets/02-18.png)
@@ -276,7 +284,7 @@ Quiz: How to test if three points are on the same line (co-linear)?
 
 
 P17   
-## Example 6: Triangle Inside/Outside Test    
+#### Example 6: Triangle Inside/Outside Test    
 
 
 ![](./assets/02-177.png)
@@ -284,15 +292,11 @@ P17
 
 
 P18
-## Example 6: Triangle Inside/Outside Test
+
 
 ![](./assets/02-21.png)
 
-\\(\left.\begin{matrix}
- \mathbf{(x_0-p)\times (x_1-p)\cdot n> 0}  \\\\ 
- \mathbf{(x_1-p)\times (x_2-p)\cdot n> 0}  \\\\ 
- \mathbf{(x_2-p)\times (x_0-p)\cdot n> 0} 
-\end{matrix}\right\\) Inside of triangle      
+![](./assets/02-211.png)  
 
 Otherwise, outside.   
 
@@ -306,7 +310,7 @@ Otherwise, outside.
 
 
 P19
-## xample 7: Barycentric Coordinates
+#### Example 7: Barycentric Coordinates
 
 ![](./assets/02-22-1.png)     
 
@@ -369,7 +373,7 @@ $$
 
 
 P20
-## Gouraud Shading    
+#### Gouraud Shading    
 
 ![](./assets/02-23.png)
 
@@ -393,7 +397,7 @@ shading,不再需要此方法
 
  
 P21
-## Example 9: Tetrahedral Volume    
+#### Example 9: Tetrahedral Volume    
 
 
 ![](./assets/02-24.png)
@@ -439,7 +443,6 @@ $$
 
 
 P22
-## Example 9: Tetrahedral Volume
 
 
 
@@ -453,7 +456,7 @@ Note that the volume \\(V =\frac{1}{3}h\mathit{A} =\frac{1}{6} \mathbf{x} _ {30}
 
 
 P23
-## Example 10: Barycentric Weights (cont.)
+#### Example 10: Barycentric Weights (cont.)
 
 
 ![](./assets/02-26.png)   
@@ -496,7 +499,7 @@ P23
 
 
 P24
-## Example 11: Particle-triangle Intersection
+#### Example 11: Particle-triangle Intersection
 
 ![](./assets/02-27.png)
 
@@ -524,7 +527,7 @@ P24
 
 
 P25
-## Matrices  
+# Matrices  
 
 
 
@@ -552,7 +555,7 @@ $$
 
 
 P27
-## Matrix: Multiplication    
+### Matrix: Multiplication    
 
 How to do matrix-vector and matrix-matrix multiplication? (Omitted)    
 
@@ -572,7 +575,7 @@ How to do matrix-vector and matrix-matrix multiplication? (Omitted)
 
 
 P28
-## Matrix: Orthogonality
+### Matrix: Orthogonality
 
 
 An orthogonal matrix is a matrix made of orthogonal **unit** vectors. 
@@ -605,7 +608,7 @@ $$
 
 
 P29   
-## Matrix Transformation
+### Matrix Transformation
 
 
 A rotation can be represented by an orthogonal matrix.    
@@ -626,8 +629,11 @@ A scaling can be represented by a diagonal matrix.
 
 
 
-P31    
-## Singular Value Decomposition   
+P31   
+## 矩阵分解   
+
+
+### Singular Value Decomposition   
 
 A matrix can be decomposed into:     
 \\(\mathbf{A=UDV^T} \quad\\)such that \\(\mathbf {D}\\) is diagonal,and \\(\mathbf {U}\\) and \\(\mathbf {V}\\) are orthogonal.     
@@ -648,7 +654,7 @@ Any **linear deformation** can be decomposed into three steps: rotation, scaling
 
 
 P32   
-## Eigenvalue Decomposition
+### Eigenvalue Decomposition
 A **symmetric** matrix can be decomposed into:     
 \\(\mathbf{A=UDV^{-1}}\quad\\)such that \\(\mathbf {D}\\) is diagonal,and \\(\mathbf {U}\\) is orthogonal.     
 \\(\quad \quad \quad  \quad\quad\\) D 的对角线元素是**eigenvalues**    
@@ -693,7 +699,7 @@ complex.复数
 
 
 P33   
-## Symmetric Positive Definiteness (s.p.d.)   
+### Symmetric Positive Definiteness (s.p.d.)   
 
 \\(\mathbf{A}\\)  is s.p.d. if only if: 		\\(\quad\quad\quad\quad\quad\quad\quad\quad	\\)	\\(\mathbf{v^TAv}>0\\), for any \\(\mathbf{v} ≠ 0. \\)
 
@@ -728,7 +734,7 @@ P33
 
 
 P34   
-## Symmetric Positive Definiteness (s.p.d.)
+### Symmetric Positive Definiteness (s.p.d.)
 
 
 
@@ -770,7 +776,7 @@ $$
 
 
 P35
-## Question   
+### Question   
 
 
 Prove that if **A** is s.p.d., then \\(\mathbf{B} =\begin{bmatrix}
@@ -842,7 +848,7 @@ There are two popular linear solver approaches: direct and iterative.
 
 
 P37   
-## Direct Linear Solver    
+### Direct Linear Solver    
 
 
 A direct solver is typically based LU factorization, or its variant: Cholesky, \\(\mathrm{LDL^\top } \\), etc…    
@@ -876,7 +882,7 @@ Cholesky 和 \\( \mathbf{LDL^\top}\\) 仅用于对称矩阵，但内存消耗更
 
 
 P38
-## Direct Linear Solver    
+### Direct Linear Solver    
 
 
  - When \\(\mathbf{A}\\)  is sparse, \\(\mathbf{L}\\) and \\(\mathbf{U}\\) are not so sparse. Their sparsity depends on the permutation.(See matlab)     
@@ -892,7 +898,7 @@ P38
 
 
 P39
-## Iterative Linear Solver    
+### Iterative Linear Solver    
 
 
 An iterative solver has the form:   
@@ -952,7 +958,7 @@ The convergence can be accelerated: Chebyshev, Conjugate Gradient, … (Omitted 
 
 
 P41
-## Tensor Calculus   
+# Tensor Calculus   
 
 P42
 ## Basic Concepts: 1st-Order Derivatives   
@@ -1056,6 +1062,8 @@ $$
 
 
 P46   
+# Example  
+
 ## Example: A Spring    
 
 
