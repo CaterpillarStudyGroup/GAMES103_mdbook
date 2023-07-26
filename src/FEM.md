@@ -1,5 +1,16 @@
+P2   
+
+## Topics for the Day   
+
+ - The linear finite element method (FEM)
+ - The finite volume method (FVM)
+ - Hyperelastic models
+
+
+
+
 P3   
-## Linear Finite Element Method    
+# Linear Finite Element Method    
 
 P4  
 ## The Linear FEM Assumption   
@@ -181,7 +192,7 @@ P12
 
 
 P13   
-## Finite Volume Method    
+# Finite Volume Method    
 
 
 P14   
@@ -257,7 +268,7 @@ $$
 
 
 P16   
-## The Finite Volume Method   
+### The Finite Volume Method   
 
 
 In 3D, FVM works in the same way.    
@@ -300,7 +311,7 @@ FEM 使用的是 reference 空间下的量。
 
 
 P18   
-## Different Stresses   
+### Different Stresses   
 
 
 We can now have different stresses, serving the same purpose but in different forms.     
@@ -314,7 +325,7 @@ We can now have different stresses, serving the same purpose but in different fo
 
 
 P19  
-## Area Weighted Normals   
+### Area Weighted Normals   
 
 ![](./assets/07-16.png)  
 
@@ -351,7 +362,7 @@ $$
 
 
 P20   
-## Different Stresses    
+### Different Stresses    
 
 Now we know: \\(A\mathbf{n} =\mathrm{det} (\mathbf{F})\mathbf{F^{−T}} (A^{\mathrm{ref}}\mathbf{N} )\\).     
 
@@ -376,7 +387,7 @@ $$
 
 
 P21  
-## Different Stresses
+### Different Stresses
 
 We can now have different stresses, serving the same purpose but in different forms.     
 
@@ -387,7 +398,7 @@ We can now have different stresses, serving the same purpose but in different fo
 
 
 P22 
-## The Finite Volume Method   
+### The Finite Volume Method   
 
 The previous analysis suggests we can use reference normals instead.     
 
@@ -407,7 +418,7 @@ F：deformation gradient.见P5
 
 
 P23   
-## The Finite Volume Method   
+### The Finite Volume Method   
 
 
 ![](./assets/07-19-01.png)  
@@ -419,7 +430,7 @@ P23
 
 
 P24   
-## Therefore,   
+### Therefore,   
 
 We get:
 
@@ -500,11 +511,11 @@ Stiffness for Accurate Cloth Simulation*. TOG.
 
 
 P28   
-## Hyperelastic Models   
+# Hyperelastic Models   
 
 
-> &#x2705; 前面的内容，都假设使用 StVK 材料、优点是简单；缺点是无法处理反转。因力在材料力学中不常用。  
-Hyperplasia 利用能量密度(W)、提供一个从 Strain (G) 到 Stress (S）的映射   
+> &#x2705; 前面的内容，都假设使用 StVK 材料、优点是简单；缺点是无法处理反转。因此在材料力学中不常用。  
+Hyperplasia 利用能量密度(W)、提供一个从 Strain (G) 到 Stress (S)的映射   
  
 
 
@@ -560,7 +571,7 @@ $$
 
 
 P32   
-## Isotropic Materials    
+### Isotropic Materials    
 
 ![](./assets/07-24.png)   
 
@@ -580,13 +591,13 @@ $$
 
 \\(\mathbf{C=U^TU}\\) is the right Cauchy-Green deformation tensor.    
 
-> &#x2705; 符号解释：\\(\mathbf{P}\\)：First… Stress、 \\(\mathbf{F}\\)：Deformation Gradient、公式认为：\\(\mathbf{P}\\) 是关于 \\(\mathbf{F}\\) 的函数、对F做 \\(\mathbf{SVD}\\) 分解可得到 \\(\mathbf{UDV^T}\\)，其中\\(D\\)是对角矩阵、其对角元素描述了三个方向的拉伸的量、把公式中的旋转分量剔除掉、 \\(\mathbf{P}\\) 只与 Principal stretches 有关。    
+> &#x2705; 符号解释：\\(\mathbf{P}\\)：First… Stress、 \\(\mathbf{F}\\)：Deformation Gradient、各向同性公式认为：\\(\mathbf{P}\\) 是关于 \\(\mathbf{F}\\) 的函数、对F做 \\(\mathbf{SVD}\\) 分解可得到 \\(\mathbf{UDV^T}\\)，其中\\(D\\)是对角矩阵、其对角元素描述了三个方向的拉伸的量、把公式中的旋转分量剔除掉、 \\(\mathbf{P}\\) 只与 Principal stretches 有关。    
 \\(Ic、 IIc. IIIc\\) 的定义是基于材料学、数学的先验知识     
 
 
 
 P33   
-## Isotropic Models    
+### Isotropic Models    
 
 ![](./assets/07-25.png)   
 
@@ -596,7 +607,7 @@ P33
 
 
 P34   
-## Isotropic Materials   
+### Isotropic Materials   
 
 
 Anyway, we still use the principal stretches for computation:   
@@ -645,7 +656,7 @@ P37
 > &#x2705; Poison Effect： 弹性体往上拉时两边会凹进去，本质原因是保体积。   
 
 P39   
-## A Summary For the Day    
+# A Summary For the Day    
 
 
  - FEM uses the **derivates** of the strain energy function to obtain the force.    

@@ -1,9 +1,19 @@
+P2   
+
+## Topics for the Day
+
+ - Strain Limiting and Position Based Dynamics    
+ - Projective Dynamics   
+ - Constrained Dynamics   
+
+
+
 P3  
 ## Strain Limiting and Position Based Dynamics    
 
 
 P4  
-## The Stiffness Issue    
+# The Stiffness Issue    
 
  - Real-world fabrics resist strongly to stretching, once they stretch beyond certain limits.   
  
@@ -34,7 +44,7 @@ Constraint
 
 
 P6   
-## A Single Spring    
+### A Single Spring    
 
 
 
@@ -52,7 +62,7 @@ such that  \\(\mathbf{ϕ} (\mathbf{x} )=0\\)
 
 
 P7   
-## A Single Spring     
+### A Single Spring     
 
  
 $$
@@ -180,7 +190,7 @@ $$
 
 
 P11   
-## Position Based Dynamics (PBD)   
+# Position Based Dynamics (PBD)   
 
 
 Position based dynamics (PBD) is based on the projection function.    
@@ -265,7 +275,7 @@ Muller. 2008. *Hierarchical Position Based Dynamics*. VRIPHYS.
 
 
 P14  
-## Strain Limiting    
+# Strain Limiting    
 
 
 Strain limiting aims at using the projection function for **correction** only. 
@@ -284,7 +294,7 @@ Strain limiting aims at using the projection function for **correction** only.
 
 
 P15   
-## Spring Strain Limit   
+# Spring Strain Limit   
 
 We can set the spring strain, i.e., the stretching ratio σ, to be within a limit.
 
@@ -415,11 +425,11 @@ P19
 
 
 P21    
-## Projective Dynamics    
+# Projective Dynamics    
 
 
 P22   
-## Projective Dynamics     
+# Projective Dynamics     
 
 Instead of blending projections in a Jacobi or Gauss-Seidel fashion as in PBD, projective dynamics uses <u>projection</u> to define a <u>quadratic</u> energy.      
 
@@ -596,7 +606,7 @@ Bouaziz et al. 2014. *Projective Dynamics: Fusing Constraint Projections for Fas
 
 
 P29   
-## Constrained Dynamics    
+# Constrained Dynamics    
 
 
 P30   
@@ -809,7 +819,7 @@ Tournier et al. 2015. *Stable Constrained Dynamics. TOG (SIGGRAPH)*.
 
 
 P37  
-## A Summary For the Day    
+# A Summary For the Day    
 
  - Position-based dynamics and strain limiting    
     - The key is to build a projection function for every constraint.    

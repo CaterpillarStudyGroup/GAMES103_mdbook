@@ -1,13 +1,13 @@
 
 P2  
-## Last Time…   
+# Last Time…   
 
 
 ![](./assets/08-1.png)  
 
 
 P3  
-## Topics for the Day   
+# Topics for the Day   
 
 
  - Hessian of Elastic Energy    
@@ -23,7 +23,7 @@ P3
 
 
 P4    
-## Hessian of Elastic Energy
+# Hessian of Elastic Energy
 
 
 
@@ -160,7 +160,7 @@ $$
 P10  
 ## SVD Derivative (cont.)   
 
-Since \\(\mathbf{F=UΛV^T}\\) is singular value decomposition \\((\mathbf{Λ}=\mathrm{diag} (λ_0,λ_1,λ_2)\\), we can do:     
+Since \\(\mathbf{F=UΛV^T}\\) is singular value decomposition \\(\mathbf{Λ}=\mathrm{diag} (λ_0,λ_1,λ_2)\\), we can do:     
 
 $$
 \mathbf{U^T} \frac{∂\mathbf{F} }{∂\mathbf{F} _{kl}}\mathbf{V} =\mathbf{AΛ} +\frac{∂\mathbf{Λ} }{∂\mathbf{F} _{kl}}+\mathbf{ΛB} 
@@ -224,7 +224,7 @@ Stretches*. TOG (SIGGRAPH).
 
 Definitely read this paper if you decide to implement it.    
 
-![](./assets/08-5.png)   
+  
 
 
 
@@ -233,7 +233,7 @@ P13
 
 
 P14   
-## Implicit Integration   
+# Implicit Integration   
 
 
 Recall that we need implicit integration to avoid numerical instability (Class 5, page 13):   
@@ -287,7 +287,7 @@ $$
 
 
 P16   
-## Newton-Raphson Method   
+### Newton-Raphson Method   
 
 Now we can apply Newton’s method to: \\(\mathbf{x} ^{[1]}\\)= argmin \\( F (\mathbf{x} )\\).    
 Given a current \\(\mathbf{x}^{(k)}\\), we approximate our goal by:    
@@ -315,7 +315,7 @@ $$
 
 
 P17   
-## Simulation by Newton’s Method    
+### Simulation by Newton’s Method    
 
 
 Specifically to simulation, we have:    
@@ -352,7 +352,7 @@ $$
 >
 
 P18   
-## Nonlinear Optimization   
+# Nonlinear Optimization   
 
 
 
@@ -393,7 +393,7 @@ $$
 
 
 P22    
-## Descent Methods    
+### Descent Methods    
 
 
 With line search, we can use any search direction as long as it’s descending:    
@@ -411,7 +411,7 @@ $$
 
 
 P23   
-## Descent Methods    
+### Descent Methods    
 
  - Gradient descent is a descent method, since:    
 
@@ -435,7 +435,7 @@ $$
 
 
 P24  
-## Descent Methods    
+### Descent Methods    
 
 A unified descent framework     
 
@@ -448,7 +448,7 @@ A unified descent framework
 
 
 P25   
-## Descent Methods    
+### Descent Methods    
 
 ![](./assets/08-12.png)   
 
@@ -460,7 +460,7 @@ Traction：物体表面上的力的密度，有点像压强
 
 
 P27   
-## After-Class Reading    
+### After-Class Reading    
 
 
 Wang. 2016. Descent *Methods for Elastic Body Simulation
@@ -469,7 +469,7 @@ on the GPU*. TOG (SIGGRAPH Asia).
 
 
 P28  
-## A Summary For the Day  
+# A Summary For the Day  
 
 
  - We can calculate the Hessian of the FEM elastic energy based on SVD derivatives.  
