@@ -25,6 +25,9 @@ P4
  - Can we achieve high stiffness, with a low computational cost?    
 
 
+> &#x2705;当弹簧系数大的情况下，仍能保证系统稳定。   
+
+
 P5   
 ## A Single Spring   
 
@@ -92,6 +95,9 @@ By default, \\(m_i=m_j\\), but we can also set \\(m_i=\infty\\) for stationary n
 
 > &#x2705; 对推导结果的合理性解释：(1) 移到前后质心不变。(2) 移到方向为沿着或远离质心。(3) 移到距离与自身重量有关。   
 
+> &#x2705;优化问题，但不是通过选代解决，而是数值求解，直接算出最优的\\(\mathbf{x}_i\\)和\\(\mathbf{x}_j\\).    
+对于固定点，不更新就好了。    
+
 
 
 P8   
@@ -125,6 +131,8 @@ $$
 
  - The order matters. The order can cause bias and affect convergence behavior.     
 
+
+> &#x2705;顺序影响结果的偏向性和收敛速度。   
 
 
 P10  
@@ -244,6 +252,8 @@ $$
 答：迭代数多则弹性差、网格顶点少则弹性差。   
 
 
+> &#x2705;第二步中速度更新很重要，会影响dynamic模拟的效果。\\(\mathbf{v}\\)的更新不是直接覆盖，而是叠加。    
+
 
 
 P12   
@@ -349,6 +359,10 @@ $$
 \\(\mathrm{PBD}: \sigma _0≡1;\quad\quad\\)No limit: \\(\sigma ^{\mathrm{min} }, σ^{\mathrm{max} }\longleftarrow \infty\\)   
 
 
+> &#x2705;
+\\(σ\\)：当前拉伸比，\\(σ_0\\)：期望拉伸比   
+用\\(\sigma _0L\\)代替原长\\(L\\)．   
+
 
 
 P17  
@@ -363,7 +377,7 @@ such that the constraint is satisfied.
 ![](./assets/06-8.png)    
 
 
-
+> &#x2705;这是另一个例子。PBD目标：让顶点移动尽量少。约束：三角形面积变化在一定范围内。    
 
 
 P18   
@@ -424,8 +438,15 @@ P19
 
 
 
+> &#x2705;两个阶段有不同的算法，针对两个阶段的不同特点，可以分别解决两个阶段的问题。    
+
+
+
 P21    
 # Projective Dynamics    
+
+> &#x2705;把projection方法跟物拟模拟结合起来。    
+
 
 
 P22   
@@ -556,6 +577,9 @@ $$
 PBD 的优点是内存访问少、因为它没有太多物理变量。    
 因此，对追求效率的场景，主要优化内存访问而不是计算。   
 
+> &#x2705;\\(\mathrm{H}\\)只与面片的结构有关，变成了常数矩阵，简化了对\\(\mathrm{H}\\)分解的计算量。  
+
+
 
 P26  
 ## Preconditioned Steepest Descent
@@ -572,7 +596,7 @@ $$
 The performance depends on how well \\(\mathbf{{\color{Orange} H} }\\) approximates the real Hessian.     
 
 
-
+> &#x2705;\\(\mathrm{H}\\)不需要很精确，一个近似的正定的矩阵，就能让结果收敛。  
 
 
 P27  
@@ -669,6 +693,15 @@ C称为软度矩阵、 stiffness:挺度   \\(\quad\quad\\) compliant:软度
 \\(E\\) 和 \\(f\\) 变成了关于两个变量\\((x、\lambda )\\)的函数。   
 
 
+> &#x2705;把能量写成约束的形式    
+$$
+E(x)=\frac{1}{2}\phi ^T (x)C^{-1}\lambda 
+\\\\
+f(x)=J^T \lambda  
+$$
+根据\\(E(x)\\)和\\(f(x)\\)做隐式积分    
+
+
 
 
 P31  
@@ -703,6 +736,11 @@ $$
 此处新 \\(\lambda^{\mathrm{new}} \\)来计算 F. 说明是 Implicit    
 对\\(-\phi ^{\mathrm{new}}\\) 的泰勒展开    
 最后的矩阵公式由上面两个公式整理合并得到。   
+
+
+> &#x2705;\\(J\\)是上页中的Jacobian.   
+\\(x ^{\mathrm{new}}-x =\bigtriangleup t\cdot v \\)    
+
 
 
 P32    

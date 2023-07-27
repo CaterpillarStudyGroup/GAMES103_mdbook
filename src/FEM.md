@@ -44,6 +44,9 @@ Therefore, we can calculate the deformation gradient by edge vectors.
 
 > &#x2705; 期望\\(\mathbf{F}\\)只包含形变量、不包含平移和旋转、因为刚体运动不应该有形变，所以要把形变提取出来。    
 
+> &#x2705;平移已经在\\(\mathbf{c}\\)里面了，所以只需考虑旋转。   
+
+
 
 P6  
 ## Green Strain    
@@ -88,6 +91,9 @@ Let \\(\mathbf{G}\\) be the the green strain describing deformation. We conside
 StVK 在力学中不常用，但在图形学中很常用、原因是简单    
 S 是一个类似于力的物理量。   
 
+> &#x2705;用形变程度来定义能量。   
+\\(W\\)代表单位面积上的能量，因此称为能量密度。   
+总能量为单位能量\\(\mathbf{X}\\)面积.    
 
 
 P8  
@@ -135,6 +141,8 @@ $$
 \frac{∂\varepsilon _{uv}}{∂\mathbf{x} _2}=\frac{1}{2} c(b\mathbf{x} _{10}+d\mathbf{x} _{20})^\mathbf{T} +\frac{1}{2}  d(a\mathbf{x} _{10}+c\mathbf{x} _{20})^\mathbf{T} 
 $$
 
+> &#x2705;\\(\mathbf{F}\\)不是力，是deformation gradient．   
+\\(\mathbf{x}\\)为current边的矩阵，\\(\mathbf{r}\\)为reference边的矩阵。这个推导方法从定义出来，过程简单，但很容易出错。    
 
 
 
@@ -145,6 +153,10 @@ P10
 
 
 > &#x2705; 把 P9 代入 P8 得到 P10       
+
+> &#x2705;用矩阵来简化计算   
+力是形变施加到顶点上的力   
+
 
 
 P11     
@@ -193,6 +205,9 @@ P12
 
 P13   
 # Finite Volume Method    
+
+> &#x2705;在线性场景下，FEM和FVM本质上等价的。    
+
 
 
 P14   
@@ -291,6 +306,11 @@ $$
 
 > &#x2753;  遗留问题， stress 如何计算？  
 
+> &#x2705;\\(f_0\\)是\\(\sigma n\\)在绿色体截面上的积分。   
+类似于上一页合力为零的原理，  
+\\( \oint 截面＋\oint 表面=0\\)   
+“面积／3”是因为面上的贡献均匀地分布到三个点上。  
+
 
 
 P17     
@@ -307,6 +327,8 @@ Although the use of stress tensor is the same: **mapping from the interface norm
 > &#x2705;  在 reference 状态下有 normal. traction 和 stress.  
 在形变状态下也有 normal traction 和 stress.    
 FEM 使用的是 reference 空间下的量。    
+
+> &#x2753; FEM是怎么用\\(\sigma \\)的？似乎只是定义了一下，没有使用。   
 
 
 
@@ -427,6 +449,9 @@ P23
 
 > &#x2753;  \\(\mathbf{X}_ {20}^\mathbf{T} b_1\\)的计算公式中、绿色的\\(\mathbf{X}_ {01}×\mathbf{X} _ {21}\\)怎么变成了\\(\mathbf{X}_ {20}\times \mathbf{X}_ {10}\\)？下面的\\(\mathbf{X}_ {30}^\mathbf{T} b_1\\),也一样。   
 
+> &#x2705;因为\\(\mathbf{X}_o，\mathbf{X}_1，\mathbf{X}_2\\)是同一个三角形上的顶点，任意两条边做cross都是一样的，处理好正负就好了。   
+也可以用cross的乘法分配律得出相同的结论    
+
 
 
 P24   
@@ -508,6 +533,7 @@ P27
 Volino et al. 2009. *A Simple Approach to Nonlinear Tensile
 Stiffness for Accurate Cloth Simulation*. TOG.    
 
+> &#x2705;2D有限元   
 
 
 P28   
@@ -603,6 +629,8 @@ P33
 
 
 > &#x2705; 材料力学中更常用 neo-Hookean    
+
+> &#x2705;Fung常用来模拟人体组织。  
 
 
 

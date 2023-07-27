@@ -149,6 +149,14 @@ then inside
 Else outside    
 \\(\phi (\mathbf{x})=?\\)   
 
+> &#x2705;Implicit 与 Explicit的区别：   
+Explicit：当前力 → 当前速度 → 当前位置   
+根据公式\\(FΔt≈mv，vΔt≈Δx\\).    
+如果\\(Δt\\)太大，会导致\\(Δx\\)太大，而导致overshooting   
+本质上是\\(Δt\\)太大导致积分近似的结果与实际积分的结果有很大误差，\\(k\\)太大只是让这个问题更明显，减小\\(k\\)问题仍然存在。   
+Explicit和Implicit都是用某个时刻的力代表整个\\(Δt\\)时间的力，就都会出现上述误差。   
+区别在于，Explicit用当前力，往往使结果变大，产生爆炸，Implicit用未来力，往往使结果变小，产生消失。  
+
 
 P14  
 ### Union of Signed Distance Functions   
@@ -160,6 +168,28 @@ Intuitively, we can consider collision detection with the union of two objects a
 
 
 > &#x2705; 有时候此公式不成立，例如图中\\(\mathbf{x}\\) 点  
+
+
+> &#x2705;把公式处理一下得，  
+$$
+x^{[0]}+Δtv^{[0]}+Δt^2M^{-1}f(x^{[1]})-x^{[1]}=0
+$$
+左右两边同时乘以\\(\frac{M}{Δt^2}\\)得   
+$$
+\frac{1}{Δt^2} M(x^{[1]}-x^{[0]}-Δtv^{[0]})-f(x^{[1]})=0
+$$  
+这里面唯一的未知量是\\(x^{[1]}\\)，定义函数
+$$
+y=\frac{1}{Δt^2} M(x-x^{[0]}-Δtv^{[0]})-f(x)
+$$    
+当\\(x = x^{[1]}\\) 时，\\(y = 0\\), 即 \\(y(x^{[1]}) = 0\\)   
+从另一个角度讲， 
+$$
+\begin{eqnarray}
+x^{[1]} & =  \mathrm{argmin}& F(x)\Rightarrow {F}' (x^{[1]}) & = & 0
+\end{eqnarray}
+$$   
+因此, \\({F}' (x) = y. \quad F(x) = \int ydx \\)    
 
 
 
@@ -178,6 +208,14 @@ A penalty method applies a penalty force in the next update. When the penalty po
 
 
 > &#x2705; 存在的问题：只有\\(\mathbf{x}\\) 进入 mesh 内部了，才会有力，但此时穿透的 artifacts 已经产生了。解决方法：使用buffor  
+
+> &#x2705;对\\({F}'(x)\\) 做一阶泰勒展开   
+\\({F}' (x)\\) 是非线性函数，直接解\\({F}' (x)=0\\) 很难解    
+任意假设一个\\(x^{[k]}\\)，就变成了解线性方程，很容易解出\\(x\\).   
+因为\\({F}'(x)\\) 是一个近似的，\\(x\\) 也是一个近似解。    
+\\(x^{[k]}\\) 越接近真实解，\\(x\\) 也会越接近真实解    
+因此，选代是\\(x^{[k]}\\)和\\(x\\) 都不断逼近真实解的过程普通的梯度下降是把\\({F}' (x)\\) 近似到一阶，牛顿法是近似到二阶，因此下降更快。    
+解非线性方程问题转化为选代优化问题。   
 
 
 
@@ -276,6 +314,8 @@ Changing the position is not enough, we must change the velocity as well.
 P21   
 # Rigid Body Collision Detection and Response   
 
+> &#x2705;为什么要讨论\\(H\\)矩阵是否正定？答：\\(H\\)矩阵相当于二阶导，正定代表开口向上，有唯一最小值。  
+
 
 P23   
 ## Rigid Body Collision Detection   
@@ -358,6 +398,10 @@ $$
 
 > &#x2705; 已知 \\(\mathbf{v}_i^{new},\mathbf{v}_i,\mathbf{K}\\),求 \\(\mathbf{j}\\)     
 冲量=时间 \\(\cdot\\)力  
+
+> &#x2705;这篇论文没有做非线性优化或解非线性方程，而是把非线性方程线性化，等价于做一次牛顿迭代。   
+课后答疑：   
+能量优化的方法很少用于刚体，主要是有限元、弹性体、衣服模拟。   
 
 
 

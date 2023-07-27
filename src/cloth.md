@@ -461,6 +461,9 @@ A **bending** spring offers **little resistance** when cloth is nearly planar, s
 ![](./assets/05-22.png)    
 
 
+> &#x2705;黑线为三角形面片，每条边一根弹簧，并增加一根蓝线弹簧，构成弯曲弹簧，阻止两个面片弯折。   
+存在的问题：小的弯折，弹簧长度几乎不变，抵抗弯曲的力量非常弱。（不适用于类似于纸的弯折效果）。   
+
 
 P30   
 ## A Dihedral Angle Model
@@ -480,7 +483,8 @@ A dihedral angle model defines bending forces as a function of \\(\theta : \math
 > &#x2705; Dihedarl Angel:二面角     
 \\(x_1, x_2, x_3, x_4\\) 都会受到 bending force. 力的大小相同但方向不同。   
 
-
+> &#x2705;\\(u_i\\)：描述力的方向，与\\(\theta\\)大小无关。   
+\\(f(\theta)\\)：描述力的大小，是关于\\(\theta\\)的函数。   
 
 
 P31    
@@ -562,12 +566,14 @@ $$
 It’s not hard to see that: \\(E (\mathbf{x} )=\frac{3||\mathbf{q} ^\mathbf{T}\mathbf{x} ||^2}{2(A_0+A_1)}\\).  Also, \\(E (\mathbf{x} )=0\\) when the triangles are flat.    
 
 
-> &#x2705; \\(\mathbf{q^T}x\\)在估算两个三角形的拉普拉斯，即两个三角的曲率、当两个三角形共面时， \\(E(x)=0\\)   
-\\(E(x)\\) 来自数学上曲率的推导，而不是来自物理意义的推导。  
+> &#x2705; \\(\mathbf{q^T}\mathbf{x}\\)在估算两个三角形的拉普拉斯，即两个三角的曲率、当两个三角形共面时， \\(E(\mathbf{x})=0\\)   
+\\(E(\mathbf{x})\\) 来自数学上曲率的推导，而不是来自物理意义的推导。  
 问题：能量的思想能用在刚体上吗？    
 答：这里的能量是弹性能量、刚体无弹性，因此也无所谓能量。   
 
-
+> &#x2705;二面角方法是纯分析力的方法，比较复杂。此处是解决P29的另一个方法。   
+离散曲面的拉普拉斯，见GAMES102   
+\\(\mathbf{Q}\\)只与\\(\mathbf{\theta}\\)有关，因此是一个定值。\\(E(\mathbf{x})\\)是关于\\(\mathbf{x}\\)的二次函数，很容易计算\\(E(\mathbf{x})\\)的一阶导（力）和二阶导\\(\mathbf{H} \\)   
 
 
 P35  
@@ -597,6 +603,9 @@ P35
      - Projective dynamics model.    
  
  
+> &#x2705;方法假设面料拉伸比较小，当面料拉伸太大，\\(\mathbf{\theta}\\)就会改变，\\(\mathbf{Q}\\)就不准了。  
+
+
 
 P36   
 ### A Quadratic Bending
