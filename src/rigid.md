@@ -2,13 +2,19 @@
 P2   
 # Rigid body dynamics?     
 
+> &#x2705;Force：力，造成物体运动的趋势   
+Torque：力矩，造成物体旋转的趋势  
+
+
 P3  
 
 Rigid Bodies    
 
 Our living environment is stuffed with rigid objects.
 
-> &#x2705; rigid：物体很硬，因此不考虑形变。
+> &#x2705; rigid：物体很硬，因此不考虑形变。  
+
+> &#x2705;Rri：当前状态下质心到作用点的向量   
 
 P6  
 ## Rigid Body Simulation   
@@ -191,6 +197,12 @@ The mass \\(M\\) and the time step \\(\Delta t\\) are user-specified variables.
 P19  
 # Rotational Motion
 
+> &#x2705;Penalty 方法：   
+碰撞 → 力 → 下一时刻的速度和位置    
+lmpulse 省去了力这一步，直接更新刚体状态    
+方法要求已经有一个比较好的\\(\phi (x)\\)   
+
+
 
 P20   
 ## Rotation Representation   
@@ -277,6 +289,9 @@ Let \\(\mathbf{q}  = \begin{bmatrix}
  w & x & y &z
 \end{bmatrix}\\)，w为实数部分  
 
+> &#x2705;\\(x\\)和\\(v\\)分别是刚体质心点的位置和速度,第二项为刚体上的特定点相对于质心点的位置和速度   
+对于粒子，可以直接用Impulse修改\\(x\\)和\\(v\\)   
+对于刚体，impulse只能修改\\(x\\)和\\(v\\)，不能修改\\(x_i\\)和\\(v_i\\)；其中\\(x\\)可以通过直接修改更新，也可以通过修改\\(v\\)来更新，这里选择后者。  
 
 
 
@@ -301,6 +316,12 @@ s^2+x^2-y^2-z^2  & 2(xy-sz) & 2(xz+sy)\\\\
 \end{bmatrix}
 $$
 
+> &#x2705;假设：此时对\\(x_i\\)点施加冲量\\(j\\)．   
+冲量 = \\(Ft\\) = \\(mv\\) \\(\Rightarrow \\) \\(v\\) = 冲量/\\(m\\)   
+\\(Rrxj\\) = 冲量造成的力矩 ＝ 质量矩阵 · \\(W\\)    
+\\(\Rightarrow \\)\\(W\\) ＝ 质量矩阵\\(^{-1}\\) · 力矩   
+> &#x2753; 为什么质量矩阵是单位阵？   
+
 
 
 P27   
@@ -321,6 +342,8 @@ $$
 
 ![](./assets/03-21.png)     
 
+
+> &#x2705;结论，当碰撞点\\(i\\)确定时，冲量\\(j\\)和其造成的速度改变量\\(Δv\\)是确定的，这样，可以通过施加\\(j\\)，精确修改\\(v_i\\)   
 
 
 P28   
@@ -378,6 +401,15 @@ Gravity doesn't cause any torque! lf your simulator does not contain any other f
 
 P33
 # After-Class Reading (Before Collision)
+
+P34   
+> &#x2705;问题简化，\\(R\\)为任意矩阵，不需要满足旋转矩阵的约束。     
+\\(A\\)是常数矩阵\\(\Rightarrow \\) \\(\Sigma\\) \\(Ari\\) = \\(A\\)\\(\Sigma\\)\\(ri\\) = \\(0\\)   
+> &#x2753; 优化之后的刚体可能还是与地面穿透的。   
+
+P35  
+
+> &#x2705;Decomposition：极性分解，把任意矩阵分解旋转部分和形变部分。  
 
 
 

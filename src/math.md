@@ -196,6 +196,13 @@ P11
 ![](./assets/02-12-2.png)
 
 
+ 
+> &#x2705;\\(X\\)为物体中心点的位置，为物体上所有点的整体位移，是前面说的\\(T\\).   
+速度是加速度的积分，表示为\\(V\\)或\\(\dot{X} \\)    
+加速度为\\(F／M\\)，但\\(F\\)比较复杂，与时间、位置、速度都可能有关系   
+位置是速度的积分.  
+
+
 
 P12
 #### Example 3: Plane Representation     
@@ -619,6 +626,12 @@ A rotation can be represented by an orthogonal matrix.
 > &#x2705; \\(\mathbf{x、y、z}\\) 是世界坐标系、 \\(\mathbf{u、v、w}\\) 是局部坐标系，旋转矩阵是局部坐标系在世界坐标系中的状态的描述。 
 
 
+> &#x2705;\\(\begin{bmatrix}
+  0 & \frac{\bigtriangleup t}{2}  & w^{(1)}
+\end{bmatrix}\\)是一个四元数。   
+> &#x2753; 为什么角加速度只包含方向的改变量，没有大小的改变量   
+> &#x2753; 为什么\\(W^{[1]}\\)不直接与\\(q^{[0]}\\)相加，而是先与\\(q^{[0]}\\)相乘？答：见Affer Class Reading（Appendix B）   
+> &#x2753; 四元数相加有什么含义？  
 
 
 P30    
@@ -627,6 +640,7 @@ A scaling can be represented by a diagonal matrix.
 
 ![](./assets/02-31.png)
 
+> &#x2705;整个是一张图    
 
 
 P31   
