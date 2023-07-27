@@ -1,6 +1,6 @@
 
 P2   
-# Rigid body dynamics?     
+# Rigid body dynamics     
 
 > &#x2705;Force：力，造成物体运动的趋势   
 Torque：力矩，造成物体旋转的趋势  
