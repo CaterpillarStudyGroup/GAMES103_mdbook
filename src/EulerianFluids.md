@@ -12,9 +12,14 @@ P2
  - Air and liquid  
  
  
+> &#x2705;Incompressible：粒子不可压缩   
+Viscous：有粘滞   
+
  
 P3  
 ## A Grid Representation and Finite Differencing   
+
+
 
 
 P4  
@@ -25,6 +30,9 @@ P4
 
 
 > &#x2705; 把场定义在标准格子上的好处：计算导数或利用导数进行微分计算变得容易了。
+
+> &#x2705;上节课grid用1D来表示2D，2D表示3D，不是真正的grid方法。   
+
 
 
 P5  
@@ -74,6 +82,9 @@ $$
 |---| 
 
 
+> &#x2705;网格上的Laplace算子。   
+
+
 P9   
 ## Boundary Conditions    
 
@@ -93,12 +104,17 @@ A Neumann boundary: \\(f_{i−1,j}=f_{i,j}\\)
 |----|
 
 
+> &#x2705;至少有一个边界使用Dirithlet．否则会全部收缩为0．   
+Neumann是约束相对关系，没有绝对数值，会有无穷多解。   
+
+
 
 P12   
 ## Diffusion
 
 The process of applying Laplacian smoothing is called **diffusion**.     
 
+> &#x2705;Laplace的本质是与邻居做平均。   
 
 
 P13  
@@ -140,6 +156,10 @@ We define some physical quantities on faces, specifically **velocities**.
 
 > &#x2705; 把速度定义在墙上的好处量，速度是矢量、可以用不同方向的墙表达不同方向上的速度、直观。  
 
+> &#x2705;不规定所有物理量都定义在格子中间，也可以定义在墙上。   
+通过四面墙上的速度计算当前格子的净流出（注意正负号）   
+
+
 
 P15  
 ## Divergence-Free Condition
@@ -150,6 +170,10 @@ No volume change is equal to say the fluid is incompressible. This can be formal
 
 
 > &#x2753; 这一页没听懂、净流入流出为0，水面还怎么动呢？   
+
+> &#x2705;由于格子不可压，每个格子的净流出（入）应该为0．    
+\\(\nabla\\)为散度符号，见前面课程。   
+公式1为直观理解，公式2为数学推导，本质上是一致的。    
 
 
 
@@ -202,6 +226,10 @@ The Update of \\(\mathbf{u}\\) by \\(∂\mathbf{u}∕∂t=\mathbf{g}\\) is stra
 ![](./assets/11-10.png)   
 
 
+> &#x2705;\\(v_{i,j}\\)代表向下的速度，对所有格子更新\\(v_{i,j}\\).    
+其它外部速度同理。   
+
+
 
 P21  
 ## Step 2: Advection   
@@ -220,6 +248,9 @@ To solve this problem, we come to realize that advection means to carry physical
 
 > &#x2705;  Advection,代表流动。即速度会跟着粒子移动，基于欧拉的方法才需要考虑这个问题。   
 基于拉格朗日的方法，变量定义在粒子上，天然满足这个特点。    
+
+> &#x2705;\\(\mathbf{u}^{\mathrm{new} }=\frac{\partial u}{\partial t} ·Δt＋\mathbf{u}\\) 不稳定    
+固定的格子无法描述水的流动。    
 
 
 
@@ -244,7 +275,7 @@ Note that if the velocities are staggered, we need to do staggered bilinear inte
 
 > &#x2705; 例如要求\\(\mathbf{x}_0\\)的速度，倒推哪个粒子会运动到\\(\mathbf{x}_0\\)处;因此找到\\(\mathbf{x}_1\\)，从\\(\mathbf{x}_1\\)的下一刻速度来更新\\(\mathbf{x}_0\\)的速度。   
 
-
+> &#x2705;假设短时间内速度不变，根据当前速度猜测上一帧的位置。   
 
 
 P23  
@@ -259,6 +290,9 @@ The solution is to trace a virtual particle backward over time.
  - \\(\mathbf{x}_1←\mathbf{x}_0−∆t \mathbf{u}(\mathbf{x}_0)\\)   
  - Compute \\(\mathbf{u}(\mathbf{x}_1)\\)   
  - \\(v_{i,j}^{new}←v(\mathbf{x}_1)\\)   
+
+
+> &#x2705;对每个墙上的速度都以相同的方式更新。    
 
 
 P24   
@@ -287,6 +321,8 @@ Next we need to update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=\ups
 
 
 > &#x2705; 分别对\\(u\\)和 \\(v\\) 做 laplacian.   
+
+> &#x2705;注意公式中\\(v\\)和\\(\nu \\)的不同，后者为粘滞系数。   
 
 
 
@@ -317,7 +353,8 @@ $$
 But what is \\(\mathbf{p}\\)?
 
 
-
+> &#x2705;公式第二项离散化后在特定方向上的压强。   
+\\(u\\)和\\(v\\)分别为两个方向上的速度。   
 
 
 
@@ -353,7 +390,7 @@ $$
 > &#x2705; 压强的原因：由于流体不可压缩、对于流体的压力会传导到每个点上。   
 每个点都有压强，虽然压强未知，但可以根据不可压条件构造方程组。   
 
-
+> &#x2705;不可压的表现为有压强，产生的效果是散度为0．   
 
 
 P29  
@@ -432,6 +469,11 @@ P33
 advect 2：专用于更新 SDF 的方法。   
 
 
+> &#x2705;要渲染的不是水，而是水与空气的接触面。   
+但通常只模拟水不模拟空气。    
+表示1：用于早期，表示不精准。    
+advect：更新    
+水变少是常见问题，两种advect都存在。    
 
 
 
@@ -442,6 +484,8 @@ P35
 
 Osher and Fedkiw.    
 Level Set Methods and Dynamic Implicit Surfaces.    
+
+> &#x2705;介绍流体模拟的很好的书。   
 
 
 
@@ -458,6 +502,10 @@ P36
     - Smoke (density); water (volume-of-fluid, or signed distance  function)    
     - **Volume loss** issue in water (how to fix it?)    
     - If you need to create a mesh from grid for rendering, you need something like <u>marching cube</u>.   
+
+
+> &#x2705;用有限元方法也能模拟水，但难以模拟流动性。流动需要对四面体重新构造，成本很高。    
+
 
 
 ---------------------------------------

@@ -55,6 +55,11 @@ Instead of allocating **memories** to cells, we can build an object-cell list an
 
 > &#x2705; 用 hash 链表代替数组    
 
+> &#x2705;3D空间需要划分出大量的小格。   
+有的格子可能包含很多object.    
+大多数格子可能没有object.    
+方法：3D数组转为list表示法。  
+缺点：内存访问不连续。   
 
 
 P9   
@@ -89,6 +94,8 @@ Bounding volume hierarchy is built on geometric/topological proximity of objects
 ![](./assets/09-8.png)    
 
 
+> &#x2705;空间划分→物体划分   
+
 
 P15   
 ## Bounding Volume Hierarchy  
@@ -97,6 +104,7 @@ To find elements potentially in collision with an object, we just traverse the t
 
 ![](./assets/09-9.png)    
 
+> &#x2705;外部物体与身体相交   
 
 
 P16  
@@ -117,6 +125,10 @@ To process **self collisions** by BVH, we define two procedures.
 
 
 ![](./assets/09-10.png)   
+
+
+> &#x2705;自相交    
+
 
 
 P18   
@@ -182,8 +194,9 @@ To a triangle mesh, the basic test is <u>edge-triangle intersection</u> test.
 
 
 > &#x2705; 准确来说。DCD检测的不是碰撞，而是相交    
-t 代表相交位置对应 \\(\mathbf{x}_a\\) 和\\(\mathbf{x}_b\\)的插值量     
+\\(t\\) 代表相交位置对应 \\(\mathbf{x}_a\\) 和\\(\mathbf{x}_b\\)的插值量     
 
+> &#x2705;检测在特定状态下是否相交，每一帧都不相交就认为无碰撞。   
 
 
 P22   
@@ -213,9 +226,11 @@ To a triangle mesh, there two basic tests: <u>vertex-triangle</u> and <u>edge-ed
 ![](./assets/09-16.png)   
 
 
-> &#x2705; 当四点共面时，构成的四面体体积为0、利用四面体的体积公式，可求出四点共面的时间 \\(t\\). **这里的t是时间**    
+> &#x2705; 当四点共面时，构成的四面体体积为0、利用四面体的体积公式，可求出四点共面的时间 \\(t\\) . **这里的t是时间**    
 假设运动是匀速的，\\( \mathbf{x}_ {30}(t)、 \mathbf{x}_ {10}(t)、\mathbf{x}_ {20}(t)\\)都是关于\\(t\\)的线性函数。   
 一元三次方程有公式解，但用到\\(\sqrt[3]{\cdot}\\)，因此不建议使用，建议用牛顿法。  
+
+> &#x2705;因为\\(\sqrt[3]{\cdot }\\) 的误差非常大。    
 
 
 P24   
@@ -232,6 +247,8 @@ To a triangle mesh, there two basic tests: <u>vertex-triangle</u> and <u>edge-ed
 
 > &#x2705; 先求四点共面的 \\(t\\)       
 解一元三次方程也不建议牛顿法，而是二分法，因为\\(t\\)的范围是[0,1]   
+
+> &#x2705;为什么要检测边边相交，因为有可能三角形相交但点面没有相交。   
 
 
 P25   
@@ -277,6 +294,9 @@ Given the calculated next state \\(\mathbf{x} ^{[1]}\\), we want to update it in
 内点法：从\\(\mathbf{x}^{[0]}\\)出来，朝\\(\mathbf{x}^{[1]}\\)走，并永远保证只在安全区域走，直到不能走为止。    
 Impact Zone 法，从\\(\mathbf{x}^{[1]}\\)出发，反复优化结果（投影），直到回到安全区域为止。    
 
+> &#x2705;发现碰撞的pairs后如何处理。   
+
+
 
 P29  
 ### Pros and Cons    
@@ -303,6 +323,7 @@ P29
 > &#x2705; 内点：为保证每一步安全，步长不能太大，因此慢、哪怕\\(\mathbf{\bar{x}}^{[1]}\\)最终没有到最佳位置，但能保证一定在安全区域，因此一定成功。\\(\mathbf{x}^{[0]}\\)和\\(\mathbf{x}^{[1]}\\)可能比较远，也导致慢。   
 Impact Zone：\\(\mathbf{x}^{[1]}\\)通常离安全区域不太远，且优化时只针对 Impact Zone 优化，因此快。  
 
+> &#x2705;内点法慢的原因2没有解释。   
 
 
 P30   
@@ -325,6 +346,7 @@ $$
 > &#x2705; 用 Log 定义能量、前面某一节课讲过，   
 不需要互斥力一直存在，因此做了一个截断（IPC）      
 
+> &#x2705;距离 → 能量 → 斥力    
 
 
 P31   
@@ -350,6 +372,8 @@ The step size \\({\color{Red} α}\\) must be adjusted to ensure that no collisio
 
 
 > &#x2705; 绿色是来自\\(\mathbf{x}^{[1]}\\)的引力，黄色是来自边界的斥力、关键是步长\\(\alpha \\)， 每走一小步都需要反复的碰撞检测。   
+
+> &#x2705;优化目标：点的位置与目标位置（穿模）尽量接近，然后优化。   
 
 
 
@@ -469,6 +493,9 @@ The rigid impact zone method simply freezes vertices in collision from **moving 
 
 ![](./assets/09-29.png)    
 
+> &#x2705;检测到碰撞，则把这个区域退回到上一帧。   
+
+
 
 P39   
 ## A Practical System   
@@ -497,6 +524,9 @@ P41
  ![](./assets/09-31.png)    
 
 
+> &#x2753; 相交解除跟碰撞处理有什么区别？   
+
+
 
 P42   
 ## Intersection Elimination
@@ -522,6 +552,10 @@ Baraff et al. 2003. Untangling Cloth. TOG (SIGGRAPH)
 
 > &#x2705; 两根线没有里面外面之分，因此相交时不知道哪一段是正确的。此方法缺点：1. 无法处理边界；2. 难以在 GPU 上实 现；  
 
+> &#x2705;P42适用于有体积的物体，但布没有封闭体积，没有里外。   
+方法：对布分段，根据分段区域决定谁在上谁在下，以此为依据推动顶点。   
+
+
 
 P44  
 ## Untangling Cloth    
@@ -529,6 +563,9 @@ P44
 ![](./assets/09-34-1.png)    
 
 Baraff et al. 2003. Untangling Cloth. TOG (SIGGRAPH)    
+
+> &#x2705;缺点：1. 难以处理边界；2. 对整个面进行评估，难以用于GPU.   
+
 
 
 P45   
@@ -542,6 +579,8 @@ Their method can handle boundaries, but it doesn’t always work.
 
 
 > &#x2705; 两个面相交会产生一条曲线，目标是让曲线变短。优点：可以处理边界；缺点：基于局部优化、可用于 GPU。   
+
+> &#x2705;可以处理边界情况，缩短边界也能解除相交。   
 
 
 P46   
@@ -570,6 +609,10 @@ P47
 
 
 > &#x2705; 考虑摩擦，通常把摩擦做为后处理，但这样结果不精确。如果同时处理摩擦和碰撞、会很复杂。   
+
+> &#x2705;Impulse方法的碰撞检测通常用SDF．但很多形变体无法使用SDF.    
+Impulse响应方式是离散响应方式，无法处理穿透问题。   
+碰撞开源代码：bullet. physics X   
 
 
 ---------------------------------------
