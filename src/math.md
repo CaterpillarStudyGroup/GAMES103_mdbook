@@ -244,8 +244,8 @@ $$
 
  - Three possiblities:    
     - No root、无碰撞    
-    - One root、擦边 if t > 0   
-    - Two roots:自碰撞 if t > 0    
+    - One root、擦边 if \\(t > 0\\)   
+    - Two roots:自碰撞 if \\(t > 0 \\)   
 
 
 
