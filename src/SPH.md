@@ -1,12 +1,10 @@
 
 P1   
-## GAMES103: Intro to Physics-Based Animation  
+ 
 
 ## Smoothed Particle Hydrodynamics  
 
-##### Huamin Wang  
 
-##### Jan 2022  
 
 
 > &#x2705; SPA 与弹性体模拟结合，可用于模拟物体破碎， 粒子法与网格法相结合，称为 MPM. 用于模拟雪、沙子。 
@@ -131,7 +129,7 @@ $$
  - When \\(||\mathbf{x} _ i−\mathbf{x} _ j||\\) is small, \\(W_{ij}\\) is large.   
 
 
-![](./assets/12-6.png)   
+   
 
 
 
@@ -155,7 +153,8 @@ $$
 
 
 
-> &#x2705; 粒子在运动过程中，疏密会有变化，因此体积不是常数，要实时计算。公式中的\\(\rho \\)不是指水的密度，而是粒子分布的密度。   
+> &#x2705; 粒子在运动过程中，疏密会有变化，因此体积不是常数，要实时计算。    
+公式中的\\(\rho \\)不是指水的密度，而是粒子分布的密度。   
 
 
 P11   
@@ -343,7 +342,7 @@ P19
 P20   
 ## Pressure Low pressure   
 
- - Pressure force depends on the difference of pressure:   
+ - Pressure force depends on the **difference** of pressure:   
 
 
 ![](./assets/12-10.png)   
@@ -455,7 +454,7 @@ P25
  - Search over every particle pair? O(\\(N^2\\))
  - 10M particles means: 100 Trillion pairs…    
 
-![](./assets/12-12.png)   
+
 
 
 
