@@ -371,7 +371,7 @@ P20
 
 ![](./assets/08-8.png)   
 
-simple  Low overhead    
+simple, Low overhead    
 
 
 
