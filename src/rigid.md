@@ -38,7 +38,10 @@ If a rigid body cannot deform, its motion consists of two parts: translation and
 ![](./assets/03-2.png)     
 
 
-  
+> &#x2705;reference：参考状态,无平移,无旋转此时物体中心点在原点上，\\(\mathbf{x}\\) 轴向左，\\(\mathbf{y}\\) 轴用上\\(\mathbf{z}\\) 轴向前。   
+当前状态：旋转为\\(\mathbf{R}\\)，平移为\\(\mathbf{T}\\). 那么物体上任意点的位置为：   
+\\(\mathbf{{x}}' = \mathbf{Rx} + \mathbf{T}\\)    
+刚体模拟：已知当前时刻的状态和受到的力，求下一时刻的状态。     
 
 
 P10
@@ -189,8 +192,8 @@ P18
 The mass \\(M\\) and the time step \\(\Delta t\\) are user-specified variables.     
 
 
-> &#x2705; 实际应用中，\\(\Delta t\\)要跟帧率匹配   
-质量 M 可以是个对角矩阵或实数    
+> &#x2705; 实际应用中，\\(\Delta t\\) 要跟帧率匹配   
+质量 \\(M\\) 可以是个对角矩阵或实数    
 
 
 
@@ -319,7 +322,7 @@ $$
 > &#x2705;假设：此时对\\(x_i\\)点施加冲量\\(j\\)．   
 冲量 = \\(Ft\\) = \\(mv\\) \\(\Rightarrow \\) \\(v\\) = 冲量/\\(m\\)   
 \\(Rrxj\\) = 冲量造成的力矩 ＝ 质量矩阵 · \\(W\\)    
-\\(\Rightarrow \\)\\(W\\) ＝ 质量矩阵\\(^{-1}\\) · 力矩   
+\\(\Rightarrow \\) \\(W\\) ＝ 质量矩阵\\(^{-1}\\) · 力矩   
 > &#x2753; 为什么质量矩阵是单位阵？   
 
 
