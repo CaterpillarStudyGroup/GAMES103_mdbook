@@ -199,8 +199,8 @@ P11
  
 > &#x2705;\\(X\\)为物体中心点的位置，为物体上所有点的整体位移，是前面说的\\(T\\).   
 速度是加速度的积分，表示为\\(V\\)或\\(\dot{X} \\)    
-加速度为\\(F／M\\)，但\\(F\\)比较复杂，与时间、位置、速度都可能有关系   
-位置是速度的积分.  
+加速度为\\(F／M\\)，但\\(F\\)比较复杂，与时间、位置、速度都可能有关系。   
+位置是速度的积分。  
 
 
 
@@ -944,6 +944,8 @@ So,
 
 > &#x2705; 不会真的去算 \\(\rho\\) 因为求特征值的代价比较大,而是调\\(\partial \\),试错   
 
+> &#x2705;\\(\mathbf{b-Ax}^{[k＋1]}\\) 代表下一时的残差，选代要想收敛。   
+\\(\mathbf{b-Ax}^{[k+1]}\\) 应趋于0    
 
  
 P40     
@@ -969,6 +971,9 @@ The convergence can be accelerated: Chebyshev, Conjugate Gradient, … (Omitted 
 缺点：
 
 ![](./assets/02-39.png)
+
+
+> &#x2705;Curl：旋度
 
 
 P41
@@ -1024,7 +1029,7 @@ h(\mathbf{x} )
 Divergence:散度，也是\\(\mathbf{J}(\mathbf{x})\\)的 trace   
 怎么理解 curl?把微分算子\\(\nabla \\)看作是个向量，让它与 \\(\mathbf{f}\\) 做叉乘、在流体模拟中常用。 
 
-
+> &#x2705; \\(\nabla f(x)=(\frac{\partial f}{\partial x} )^T\\), 重要！！！   
 
 P44   
 ## Basic Concepts: 2nd-Order Derivatives    
