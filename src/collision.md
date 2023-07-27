@@ -137,7 +137,7 @@ P18
 The performance depends on the effectiveness of culling.    
 
 ![](./assets/09-11-2.png)   
-⟵ Zheng and James. 2012. *Energy-based Self-Collision Culling for Arbitrary Mesh Deformations*. TOG (SIGGRAPH)
+Zheng and James. 2012. *Energy-based Self-Collision Culling for Arbitrary Mesh Deformations*. TOG (SIGGRAPH)
 
 ![](./assets/09-11-3.png)   
 
@@ -226,7 +226,7 @@ To a triangle mesh, there two basic tests: <u>vertex-triangle</u> and <u>edge-ed
 ![](./assets/09-16.png)   
 
 
-> &#x2705; 当四点共面时，构成的四面体体积为0、利用四面体的体积公式，可求出四点共面的时间 \\(t\\) . **这里的t是时间**    
+> &#x2705; 当四点共面时，构成的四面体体积为0、利用四面体的体积公式，可求出四点共面的时间 \\(t\\) . **这里的**\\(\mathbf{t}\\)**是时间**    
 假设运动是匀速的，\\( \mathbf{x}_ {30}(t)、 \mathbf{x}_ {10}(t)、\mathbf{x}_ {20}(t)\\)都是关于\\(t\\)的线性函数。   
 一元三次方程有公式解，但用到\\(\sqrt[3]{\cdot}\\)，因此不建议使用，建议用牛顿法。  
 
@@ -397,7 +397,7 @@ $$
 ![](./assets/09-25.png)   
 
 
-> &#x2705; 利用 constrain（不是能量）转化成优化问题具体没讲。  
+> &#x2705; 利用 constrain（不是能量）转化成优化问题，具体没讲。  
 
 
 
