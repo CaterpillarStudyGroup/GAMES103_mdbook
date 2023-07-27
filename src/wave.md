@@ -389,7 +389,7 @@ The coupling between a solid and a liquid should be two-way, i.e., liquid->solid
 
 
 > &#x2705; 水和水中的物体相互作用，物体可以是刚体、弹性体能各种类型的物体。    
-水→物体：浮力、物体→水，会把这个水柱的水排出去，此处只讲 “物体 → 水” 部分   
+水 → 物体：浮力。物体 → 水，会把这个水柱的水排出去，此处只讲 “物体 → 水” 部分   
 
 
 
