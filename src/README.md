@@ -1,8 +1,21 @@
-# Introduction
+# GAMES103_mdbook
 
+基于物理的计算机动画入门
 
+[原始课程链接](https://www.bilibili.com/video/BV12Q4y1S73g/?spm_id_from=333.337.search-card.all.click)
+
+如有侵权，请联系删除
+
+*由于加载速度的限制，一个页面的内容太多会导致图片加载不出来，因此把内容分得非常细，每一个页面涉及一个很小的话题。*
+
+# 主要内容
+
+![](./src/assets/1-16.png)   
+
+# 说明
+
+这个是GAMES-Webinar提供的一个课程系列。  
+作者王华民老师的课程是抓大放小风格。不会在公式推导的细节上深究，甚至有时有一句“你们相信我没有把公式抄错吧”就算是完成公式的推导了。但老师在关键问题上一点都含糊。喜欢把算法从大的层面进行分类和归纳。算法讲完后一定少不了关于“用不同套路解决同一问题”的比较。在传授了算法的同时，也言传身教地让听众学会了辩证地思考。  
 
 ---------------------------------------
-> 本文出自CaterpillarStudyGroup，转载请注明出处。
->
-> https://caterpillarstudygroup.github.io/GAMES103_mdbook/
+> 本文出自CaterpillarStudyGroup，转载> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

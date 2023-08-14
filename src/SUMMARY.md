@@ -2,7 +2,7 @@
 
 [GAMES103]()
 
-- [Introduction](../README.md)
+- [Introduction](README.md)
 - [01-intro](intro.md)
 - [02-math](math.md)
 - [03-rigid](rigid.md)
