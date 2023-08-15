@@ -379,7 +379,12 @@ P29
 [ \\(\cdot\\) ]是有一个四元数，0为实部，后面为虚部   
 算完\\(q^{[1]}\\)的之后要对它 Normalize     
 
-
+> &#x2705;\\(\begin{bmatrix}
+  0 & \frac{\bigtriangleup t}{2}  & w^{(1)}
+\end{bmatrix}\\)是一个四元数。   
+> &#x2753; 为什么角加速度只包含方向的改变量，没有大小的改变量   
+> &#x2753; 为什么\\(W^{[1]}\\)不直接与\\(q^{[0]}\\)相加，而是先与\\(q^{[0]}\\)相乘？答：见Affer Class Reading（Appendix B）   
+> &#x2753; 四元数相加有什么含义？  
 
 P30 
 ## Rigid Body Simulation Piplene     
