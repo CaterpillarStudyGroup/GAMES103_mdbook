@@ -292,6 +292,10 @@ An impulse method assumes that collision changes the position and the velocity a
 > &#x2705; Penalty 方法先碰撞再惩罚，效果滞后。   
 Impulse方法碰撞时立即更新速度和位置   
 
+> &#x2705;Penalty 方法：   
+碰撞 → 力 → 下一时刻的速度和位置    
+lmpulse 省去了力这一步，直接更新刚体状态    
+方法要求已经有一个比较好的\\(\phi (x)\\)   
 
 
 P20    

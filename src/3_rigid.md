@@ -36,6 +36,7 @@ If a rigid body cannot deform, its motion consists of two parts: translation and
 P10
 ## Translational Motion   
 
+### 积分
 
 ![](./assets/03-3.png)     
 
@@ -55,10 +56,11 @@ $$
 速度是加速度的积分，因此\\( \Delta t=\int a=\int \frac{F}{M} =M^{-1}\int F\\).   
 位置是速度的积分   
 本质上是解积分   
-> &#x1F4A1; 积分的过程比较独立，单独放在最后，必须破坏整体的结构性
+> &#x1F4A1; 积分的过程比较独立，单独放在最后，避免破坏整体的结构性。最后结论是混合式的积分方法。
+> ![](./assets/03-11.png)    
 
 P17  
-## Types of Forces  
+### Types of Forces  
 
 
 ![](./assets/03-13.png)    
@@ -66,10 +68,8 @@ P17
 
 > &#x2705; 在做模拟时，如果不要求能量守衡，出于问题简化的目的，直接对速度做衰减，代替引入阻力  
 
-
-
 P18  
-## Rigid Body Simulation  Pipeline (Translation Only)    
+### Rigid Body Simulation  Pipeline (Translation Only)    
 
 
 ![](./assets/03-14.png)    
@@ -85,134 +85,9 @@ The mass \\(M\\) and the time step \\(\Delta t\\) are user-specified variables.
 
 
 P19  
-# Rotational Motion
+## Rotational Motion
 
-> &#x2705;Penalty 方法：   
-碰撞 → 力 → 下一时刻的速度和位置    
-lmpulse 省去了力这一步，直接更新刚体状态    
-方法要求已经有一个比较好的\\(\phi (x)\\)   
-
-
-
-P20   
-## Rotation Representation   
-
-### Rotation Represented by Matrix     
-
-
- - The matrix representation is widely used for rotational motion.    
- - It’s friendly for applying rotation to each vertex (by <u>matrix-vector multiplication</u>).    
-
- - But it is not suitable for dynamics:   
-    - It has too much redundancy: 9 elements but only 3 DoFs.    
-    - It is non-intuitive.     
-    - Defining its time derivative (*rotational velocity*) is also difficult.   
-    
-
-
-P21  
-### Rotation Represented by Euler Angles    
-
-
- - The Euler Angles representation is also popular, often in design and control.    
- - It is intuitive. It uses three axial rotations to represent one general rotation. Each axial rotation uses an angle.     
- - In Unity, the order is rotation-by-Z, rotation-by-X, then rotation-by-Y.     
-
- - But it is not suitable for dynamics either:    
-    - It can lose DoFs in certain statuses: gimbal lock.    
-    - Defining its time derivative (rotational velocity) is difficult.    
-    
-
-
-
-P22  
-Gimbal Lock   
-
-
-The alignment of two or more axes results in a loss of rotational DoFs.     
-
-![](./assets/03-16.png)    
-
-
-
-P23  
-### Rotation Represented by Quaternion    
-
-![](./assets/03-17.png)    
-
-In the complex system, two numbers represent a 2D point.   
-
->  What about a “complex” system for 3D point? **Quaternion**! Four numbers represent a 3D point (with multiplication and division).    
-
-
-
-P24   
-#### Quaternion Arithematic    
-
-
-Let \\(\mathbf{q}  = \begin{bmatrix}
-\mathbf{s}   &\mathbf{v} 
-\end{bmatrix} \\) be a quaternion made of two parts: a scalar part \\(s\\) and a 3D vector part \\(\mathbf{v}\\), accounting for \\(\mathbf{ijk}\\).
-
-\\(\quad\\)    
-
-\\(a\mathbf{q} =\begin{bmatrix}
- as  &a\mathbf{v} 
-\end{bmatrix}\quad\\) Scalar-quaternion Multiplication    
-
-\\(\mathbf{q} _1±\mathbf{q} _2 =\begin{bmatrix}
- \mathbf{s}_1±\mathbf{s}_2  & \mathbf{v} _1 ± \mathbf{v} _2
-\end{bmatrix}\quad\quad\\) Addition/Subtraction    
-
-
-\\(\mathbf{q} _1×\mathbf{q} _2= \begin{bmatrix}
- \mathbf{s} _1\mathbf{s} _2−\mathbf{v} _1\cdot \mathbf{v} _2 & \mathbf{s} _1\mathbf{v} _2+\mathbf{s} _2\mathbf{v} _1+\mathbf{v} _1×\mathbf{v} _2
-\end{bmatrix}\quad\quad\\) Multiplication   
-
-\\(||\mathbf{q} ||=\sqrt{\mathbf{s^2+v\cdot v} } \quad\quad\\)Magnitude    
-
-\\(\quad\\)    
-
-
-
-> &#x2705; 在有些库里面写作： \\(q = \begin{bmatrix}
- w & x & y &z
-\end{bmatrix}\\)，w为实数部分  
-
-> &#x2705;\\(x\\)和\\(v\\)分别是刚体质心点的位置和速度,第二项为刚体上的特定点相对于质心点的位置和速度   
-对于粒子，可以直接用Impulse修改\\(x\\)和\\(v\\)   
-对于刚体，impulse只能修改\\(x\\)和\\(v\\)，不能修改\\(x_i\\)和\\(v_i\\)；其中\\(x\\)可以通过直接修改更新，也可以通过修改\\(v\\)来更新，这里选择后者。  
-
-
-
-P25   
-#### Rotation Represented by Quaternion    
-
-
-
- - To represent a rotation around \\(\mathbf{v}\\) by angle \\(0\\), we set the quaternion as:    
-
-   ![](./assets/03-19.png)    
-
- - lt's very intuitive. lt's the built-in representation in Unity.     
- - Convertible to the matrix:   
-
-
-$$
-\mathbf{R}=\begin{bmatrix}
-s^2+x^2-y^2-z^2  & 2(xy-sz) & 2(xz+sy)\\\\
- 2(xy+sz) & s^2-x^2+y^2-z^2 & 2(yz-sx) \\\\
- 2(xz-sy) & 2(yz+sx) & s^2-x^2-y^2+z^2  
-\end{bmatrix}
-$$
-
-> &#x2705;假设：此时对\\(x_i\\)点施加冲量\\(j\\)．   
-冲量 = \\(Ft\\) = \\(mv\\) \\(\Rightarrow \\) \\(v\\) = 冲量/\\(m\\)   
-\\(Rrxj\\) = 冲量造成的力矩 ＝ 质量矩阵 · \\(W\\)    
-\\(\Rightarrow \\) \\(W\\) ＝ 质量矩阵\\(^{-1}\\) · 力矩   
-> &#x2753; 为什么质量矩阵是单位阵？   
-
-
+> &#x1F4A1; 旋转的表示比较独立，单独放在最后，避免破坏整体的结构性。最后结论是混合式的积分方法。
 
 P27   
 ## Rotational Motion    
@@ -317,24 +192,21 @@ Rigid Body Dynamics
 P11   
 # 补充1：Integration Methods Explained    
 
-### Explicit Euler  
+## Explicit Euler  
 
 
 By definition, the integral \\(\mathbf{x} (t) = \int \mathbf{v}  (t) dt\\) is the area. Many methods estimate the area as a box.   
 
 ![](./assets/03-4.png) 
 
+> &#x2705; 假设\\(\mathbf{x} \\)和\\(\mathbf{v} \\)都是一维的。速度的积分就是阴影区域的面积。 
+
 ![](./assets/03-5.png) 
 
-
-
-
-> &#x2705; 假设\\(\mathbf{x} \\)和\\(\mathbf{v} \\)都是一维的速度的积分就是阴影区域的面积。 
-
-
+> &#x2705; 近似到一阶项，因此称为一阶方法。漏掉的高阶项就是误差。  
 
 P12   
-### Implicit Euler      
+## Implicit Euler      
 
 ![](./assets/03-6.png) 
 
@@ -347,7 +219,7 @@ P12
 
 
 P13  
-### Mid-Point     
+## Mid-Point     
 
 ![](./assets/03-8.png) 
 
@@ -356,7 +228,7 @@ P13
 
 
 P14
-### 比较与混合  
+## 比较与混合  
 
 
 By definition, the integral \\(\mathbf{x} (t)=∫\mathbf{v} (t) dt\\) is the area.  Many methods estimate the area as a box.    
@@ -398,11 +270,12 @@ $$
 
 
 P16 
-### Leapfrog Integration    
+## Leapfrog Integration    
 
 
 ![](./assets/03-11.png)    
 
+> &#x2705; 速度和位置是错开的。上下两种写法，在计算上是一样的。  
 
 In some literature, such a approach is called *semi-implicit*.  
 
@@ -410,7 +283,122 @@ It has a funnier name: the *leapfrog method*.
 
 ![](./assets/03-12.png)    
 
-> &#x2705; 速度和位置是错开的  
+P20   
+# 补充2：Rotation Representation   
+
+## Rotation Represented by Matrix     
+
+- The matrix representation is widely used for rotational motion.    
+- It’s friendly for applying rotation to each vertex (by <u>matrix-vector multiplication</u>).    
+
+- But it is not suitable for dynamics:   
+  - It has too much redundancy: 9 elements but only 3 DoFs.    
+  - It is non-intuitive.     
+  - Defining its time derivative (*rotational velocity*) is also difficult.   
+    
+
+
+P21  
+## Rotation Represented by Euler Angles    
+
+
+ - The Euler Angles representation is also popular, often in design and control.    
+ - It is intuitive. It uses three axial rotations to represent one general rotation. Each axial rotation uses an angle.     
+ - In Unity, the order is rotation-by-Z, rotation-by-X, then rotation-by-Y.     
+
+ - But it is not suitable for dynamics either:    
+    - It can lose DoFs in certain statuses: gimbal lock.    
+    - Defining its time derivative (rotational velocity) is difficult.    
+    
+
+P22  
+### Gimbal Lock   
+
+
+The alignment of two or more axes results in a loss of rotational DoFs.     
+
+![](./assets/03-16.png)    
+
+> &#x2705; 在某些特定的情况下，自由度降低了
+
+P23  
+## Rotation Represented by Quaternion    
+
+![](./assets/03-17.png)    
+
+In the complex system, two numbers represent a 2D point.   
+
+>  What about a “complex” system for 3D point? **Quaternion**! Four numbers represent a 3D point (with multiplication and division).    
+
+
+
+P24   
+#### Quaternion Arithematic    
+
+
+Let \\(\mathbf{q}  = \begin{bmatrix}
+\mathbf{s}   &\mathbf{v} 
+\end{bmatrix} \\) be a quaternion made of two parts: a scalar part \\(s\\) and a 3D vector part \\(\mathbf{v}\\), accounting for \\(\mathbf{ijk}\\).
+
+\\(\quad\\)    
+
+\\(a\mathbf{q} =\begin{bmatrix}
+ as  &a\mathbf{v} 
+\end{bmatrix}\quad\\) Scalar-quaternion Multiplication    
+
+\\(\mathbf{q} _1±\mathbf{q} _2 =\begin{bmatrix}
+ \mathbf{s}_1±\mathbf{s}_2  & \mathbf{v} _1 ± \mathbf{v} _2
+\end{bmatrix}\quad\quad\\) Addition/Subtraction    
+
+
+\\(\mathbf{q} _1×\mathbf{q} _2= \begin{bmatrix}
+ \mathbf{s} _1\mathbf{s} _2−\mathbf{v} _1\cdot \mathbf{v} _2 & \mathbf{s} _1\mathbf{v} _2+\mathbf{s} _2\mathbf{v} _1+\mathbf{v} _1×\mathbf{v} _2
+\end{bmatrix}\quad\quad\\) Multiplication   
+
+\\(||\mathbf{q} ||=\sqrt{\mathbf{s^2+v\cdot v} } \quad\quad\\)Magnitude    
+
+\\(\quad\\)    
+
+
+
+> &#x2705; 在有些库里面写作： \\(q = \begin{bmatrix}
+ w & x & y &z
+\end{bmatrix}\\)，w为实数部分  
+
+> &#x2705;\\(x\\)和\\(v\\)分别是刚体质心点的位置和速度,第二项为刚体上的特定点相对于质心点的位置和速度   
+对于粒子，可以直接用Impulse修改\\(x\\)和\\(v\\)   
+对于刚体，impulse只能修改\\(x\\)和\\(v\\)，不能修改\\(x_i\\)和\\(v_i\\)；其中\\(x\\)可以通过直接修改更新，也可以通过修改\\(v\\)来更新，这里选择后者。  
+
+
+
+P25   
+#### Rotation Represented by Quaternion    
+
+
+
+ - To represent a rotation around \\(\mathbf{v}\\) by angle \\(0\\), we set the quaternion as:    
+
+   ![](./assets/03-19.png)    
+
+ - lt's very intuitive. lt's the built-in representation in Unity.     
+ - Convertible to the matrix:   
+
+
+$$
+\mathbf{R}=\begin{bmatrix}
+s^2+x^2-y^2-z^2  & 2(xy-sz) & 2(xz+sy)\\\\
+ 2(xy+sz) & s^2-x^2+y^2-z^2 & 2(yz-sx) \\\\
+ 2(xz-sy) & 2(yz+sx) & s^2-x^2-y^2+z^2  
+\end{bmatrix}
+$$
+
+> &#x2705;假设：此时对\\(x_i\\)点施加冲量\\(j\\)．   
+冲量 = \\(Ft\\) = \\(mv\\) \\(\Rightarrow \\) \\(v\\) = 冲量/\\(m\\)   
+\\(Rrxj\\) = 冲量造成的力矩 ＝ 质量矩阵 · \\(W\\)    
+\\(\Rightarrow \\) \\(W\\) ＝ 质量矩阵\\(^{-1}\\) · 力矩   
+> &#x2753; 为什么质量矩阵是单位阵？   
+
+
 
 
 

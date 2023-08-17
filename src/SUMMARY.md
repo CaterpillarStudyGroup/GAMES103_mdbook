@@ -9,7 +9,7 @@
   - [Matrix](2_math_matrix.md)
   - [Tensor Calculus](2_math_calculus.md)
 - [03-Rigid body dynamics](3_rigid.md)
-- [04-rigidcontact](rigidcontact.md)
+- [04-rigidcontact](4_rigidcontact.md)
 - [05-cloth](cloth.md)
 - [06-constraints](constraints.md)
 - [07-FEM](FEM.md)
