@@ -377,12 +377,11 @@ So,
 
 \\(\mathbf{b−Ax} ^{[k+1]}→0\\), if \\(ρ(\mathbf{I−αAM} ^{−1})<1.\\)    
 
-> &#x2705;\\(\mathbf{b-Ax}^{[k＋1]}\\) 代表下一时的残差，迭代要想收敛。   
-\\(\mathbf{b-Ax}^{[k+1]}\\) 应趋于0    
+> &#x2705;\\(\mathbf{b-Ax}^{[k＋1]}\\) 代表下一时的残差，迭代要想收敛，\\(\mathbf{b-Ax}^{[k+1]}\\) 应趋于0    
 
 \\(\rho\\):矩阵的spectral radius (the largest absolute value of the eigenvalues)     
 
-> &#x2705; 不会真的去算 \\(\rho\\),而是调\\(\partial \\),试错。 因为求特征值的代价比较大   
+> &#x2705; 不会真的去算 \\(\rho\\),而是调\\(α\\),试错。 因为求特征值的代价比较大   
 
 
 
@@ -405,149 +404,19 @@ P40
 The convergence can be accelerated: Chebyshev, Conjugate Gradient, … (Omitted here.)    
 
 优点：
-![](./assets/02-38.png)
+- simple
+- fast for inexact solution
+- paralleable
 
 缺点：
+- convergence condition
+> &#x2705; 例如要求M是正定的或对角占优的
 
-![](./assets/02-39.png)
+- slow for exact solution
 
 
-> &#x2705;Curl：旋度
 
 
-P41
-# Tensor Calculus   
-
-P42
-## Basic Concepts: 1st-Order Derivatives   
-
-
-If  \\(f(\mathbf{x} )\in \mathbf{R} \\), then \\(df=\frac{∂f}{∂x}dx+\frac{∂f}{∂y}dy+\frac{∂f}{∂z}dz=\begin{bmatrix}
- \frac{∂f}{∂x} & \frac{∂f}{∂y} &\frac{∂f}{∂z}
-\end{bmatrix}\begin{bmatrix}
-dx \\\\
- dy\\\\
-dz
-\end{bmatrix}\\).
-
-$$
-\frac{∂f}{∂x}=\begin{bmatrix}
- \frac{∂f}{∂x} & \frac{∂f}{∂y} &\frac{∂f}{∂z}
-\end{bmatrix}  
-$$
-
-$$
-\mathrm{ or  }
-$$
-
-|  \\(\nabla f(\mathbf{x} )=\begin{bmatrix}\frac{∂f}{∂x} \\\\ \frac{∂f}{∂y}\\\\\frac{∂f}{∂z}\end{bmatrix}\\) <br>  gradient  |    
-|----|   
-
-
-
-![](./assets/02-42.png)   
-
-Gradient is the steepest direction for increasing  \\(f\\). It’s perpendicular to the isosurface.
-
-
-
-P43    
-## Basic Concepts: 1st-Order Derivatives    
-
-
-If \\(f(\mathbf{x} )=\begin{bmatrix}
-f(\mathbf{x} ) \\\\
- g(\mathbf{x} )\\\\
-h(\mathbf{x} )
-\end{bmatrix}\in \mathbf{R} ^3\\),then:
-
-![](./assets/02-43.png)
-
-
-> &#x2705; 变量是矢量，值也是矢量   
-Divergence:散度，也是\\(\mathbf{J}(\mathbf{x})\\)的 trace   
-怎么理解 curl?把微分算子\\(\nabla \\)看作是个向量，让它与 \\(\mathbf{f}\\) 做叉乘、在流体模拟中常用。 
-
-> &#x2705; \\(\nabla f(x)=(\frac{\partial f}{\partial x} )^T\\), 重要！！！   
-
-P44   
-## Basic Concepts: 2nd-Order Derivatives    
-
-If \\(f\mathbf{(x)\in R} \\),then:   
-
-![](./assets/02-44.png)
-
-
-秦勒展开    
-①\\(x\in R,f(x)\in R\\)     
-$$
-f(x)=f(x_0)+{f}' (x_0)(x-x_0)+\frac{1}{2} {f}'' (x_0)(x-x_0)^2+\cdots 
-$$
-
-②\\(x\in R^n,f(x)\in R\\)
-
-$$
-f(x)=f(x_0)+\rhd {f}' (x_0)\cdot (x-x_0)+\frac{1}{2}(x-x_0)^TH(x-x_0)+\cdots 
-$$
-
-当\\(\mathbf{H}\\)正定时, \\(f(\mathbf{x})\\)满足一些特殊的性质    
-
-
-> &#x2705; 求导顺序不影响求导结果，因此 \\(\mathbf{H}\\) 是对称的   
-
-
-
-
-
-
-P45   
-## Quiz:     
-
-\\(\frac{∂||\mathbf{x}||}{∂\mathbf{x}} = ?\\)    
-
-$$
-\frac{∂||\mathbf{x}||}{∂\mathbf{x}  } =  \frac{∂(\mathbf{\mathbf{x^Tx} } )^{1/2}}{∂\mathbf{x} }=\frac{1}{2}(\mathbf{x^{T}x} )^{−1/2}
-\frac{∂(\mathbf{x^Tx}  )}{∂\mathbf{x} }=\frac{1}{2||\mathbf{x} ||}2\mathbf{x^T} =\frac{\mathbf{x^T} }{||\mathbf{x} ||}
-$$
-
-| $$\frac{∂(\mathbf{\mathbf{x^Tx} } )}{∂\mathbf{x} }=\frac{∂(x^2+y^2+z^2)}{∂\mathbf{x} }= \begin{bmatrix}2x& 2y &2z \end{bmatrix}= 2\mathbf{x^T}$$|   
-|----|   
-
-
-> &#x2705; 向量梯度的物理意义：向量沿什么方向变化能最快地变短/长。答：沿它自己的当前方向。  
-
-
-
-
-P46   
-# Example  
-
-## Example: A Spring    
-
-
-![](./assets/02-46.png)
-
-
-Choi and Ko. 2002. Stable But Responive Cloth. TOG (SIGGRAPH)    
-
-
-> &#x2705; Energy：物理上的弹性势能    
-Force：物理上的力，是 Energy 的 gradient 的反方向;   
-公式后面有个 T,来源于前面的\\(\nabla \\)，   
-直观解释，前面是力的大小，后面是力的方向，推荐论文为以\\(\bot\\)公式推导的详细过程   
-
-
-
-
-
-P47   
-## Example: A Spring with Two Ends    
-
-
-![](./assets/02-47-1.png)
-
-
-> &#x2705; \\(\nabla_0\\) 代表对\\(\mathbf{x}_0\\)的求导    
 
 
 ---------------------------------------

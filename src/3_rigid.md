@@ -1,25 +1,14 @@
 
-P2   
-# Rigid body dynamics     
+# Basic
 
-> &#x2705;Force：力，造成物体运动的趋势   
-Torque：力矩，造成物体旋转的趋势  
-
-
-P3  
-
-Rigid Bodies    
+## Rigid Bodies    
 
 Our living environment is stuffed with rigid objects.
 
 > &#x2705; rigid：物体很硬，因此不考虑形变。  
 
-> &#x2705;Rri：当前状态下质心到作用点的向量   
-
 P6  
 ## Rigid Body Simulation   
-
-
 
 The goal of simulation is to update the state variable \\(\mathbf{s} ^{[k]}\\) over time.     
 
@@ -29,7 +18,7 @@ The goal of simulation is to update the state variable \\(\mathbf{s} ^{[k]}\\) o
 
 
 P7   
-## Rigid Body Motion  
+# Rigid Body Motion  
 
 
 If a rigid body cannot deform, its motion consists of two parts: translation and rotation.   
@@ -45,7 +34,7 @@ If a rigid body cannot deform, its motion consists of two parts: translation and
 
 
 P10
-# Translational Motion   
+## Translational Motion   
 
 
 ![](./assets/03-3.png)     
@@ -62,113 +51,11 @@ $$
 \end{cases}
 $$
 
- 
-
-
-
-P11   
-## Integration Methods Explained    
-
-### Explicit Euler  
-
-
-By definition, the integral \\(\mathbf{x} (t) = \int \mathbf{v}  (t) dt\\) is the area. Many methods estimate the area as a box.   
-
-![](./assets/03-4.png) 
-
-![](./assets/03-5.png) 
-
-
 > &#x2705; 也可以用\\(\mathbf{\dot{x}} \\)表示速度\\(\mathbf{v} \\)    
 速度是加速度的积分，因此\\( \Delta t=\int a=\int \frac{F}{M} =M^{-1}\int F\\).   
 位置是速度的积分   
 本质上是解积分   
-
-
-> &#x2705; 假设\\(\mathbf{x} \\)和\\(\mathbf{v} \\)都是一维的速度的积分就是阴影区域的面积。 
-
-
-
-P12   
-### Implicit Euler      
-
-![](./assets/03-6.png) 
-
-![](./assets/03-7.png) 
-
-> &#x2705; 使用 \\(t_0\\) 时刻的速度：显式积分  
-使用 \\(t_1\\) 时刻的速度：隐式积分  
-两种方法都只能一阶近似   
-
-
-
-P13  
-### Mid-Point     
-
-![](./assets/03-8.png) 
-
-![](./assets/03-9.png) 
-
-
-
-P14
-### 比较与混合  
-
-
-By definition, the integral \\(\mathbf{x} (t)=∫\mathbf{v} (t) dt\\) is the area.  Many methods estimate the area as a box.    
-
-
-|Explicit Euler (1st-order accurate) sets the height at \\(t^{[0]}\\).<br>  \\(\int_{t^{[0]}}^{t^{[1]}} \mathbf{v} (t)dt≈∆t  \mathbf{v} (t^{[0]})\\)|   
-|---|      
-  
-
-\\(\quad\\)
-
-|  Implicit Euler (1st-order accurate) sets the height at \\(t^{[0]}\\).<br>  \\(\int_{t^{[0]}}^{t^{[1]}} \mathbf{v} (t)dt≈∆t  \mathbf{v} (t^{[1]})\\) |  
-|----|  
-      
-\\(\quad\\)
-
-|  Mid-point (2nd-order accurate) sets the height at \\(t^{[0]}\\).<br>  \\(\int_{t^{[0]}}^{t^{[1]}} \mathbf{v} (t)dt≈∆t  \mathbf{v} (t^{[0.5]})\\) |     
-|----|
-
-
-![](./assets/03-10.png)    
-
-
-
-P15   
-    
-
-
-$$
-\begin{cases}
- \mathbf{v} (t^{[1]})=\mathbf{v} (t^{[0]})+\mathbf{M} ^{−1}\int_{t^{[0]}}^{t^{[1]}} \mathbf{f} (\mathbf{x} (t), \mathbf{v} (t), t)dt\\\\
-\mathbf{x} (t^{[1]})=\mathbf{x} (t^{[0]})+\int_{t^{[0]}}^{t^{[1]}} \mathbf{v} (t)dt
-\end{cases}
-$$
-
-
-> &#x2705; 在当前应用场景中，使用前面方法的混合   
-
-
-
-P16 
-### Leapfrog Integration    
-
-
-![](./assets/03-11.png)    
-
-
-In some literature, such a approach is called *semi-implicit*.  
-
-It has a funnier name: the *leapfrog method*.
-
-![](./assets/03-12.png)    
-
-> &#x2705; 速度和位置是错开的  
-
-
+> &#x1F4A1; 积分的过程比较独立，单独放在最后，必须破坏整体的结构性
 
 P17  
 ## Types of Forces  
@@ -359,7 +246,9 @@ P28
 [?] 为会么力矩由叉差乘得到？力矩与力垂直？   
 用于旋转的质量不再是实数，而是矩阵，称为 Inertia 矩阵，用 \\(\mathbf{I}\\) 来标记 Inertia 矩阵，其中 \\(\mathbf{I}_{ref}\\)为参考状态，\\(\mathbf{I}\\) 为当前状态，\\(\mathbf{I}\\) 是 \\(3\times 3\\) 矩阵。  
 
-
+> &#x2705;Force：力，造成物体运动的趋势   
+Torque：力矩，造成物体旋转的趋势  
+> &#x2705;Rri：当前状态下质心到作用点的向量 
 
 P29     
 
@@ -423,6 +312,106 @@ P35
 
 <https://graphics.pixar.com/pbm2001>     
 Rigid Body Dynamics    
+
+
+P11   
+# 补充1：Integration Methods Explained    
+
+### Explicit Euler  
+
+
+By definition, the integral \\(\mathbf{x} (t) = \int \mathbf{v}  (t) dt\\) is the area. Many methods estimate the area as a box.   
+
+![](./assets/03-4.png) 
+
+![](./assets/03-5.png) 
+
+
+
+
+> &#x2705; 假设\\(\mathbf{x} \\)和\\(\mathbf{v} \\)都是一维的速度的积分就是阴影区域的面积。 
+
+
+
+P12   
+### Implicit Euler      
+
+![](./assets/03-6.png) 
+
+![](./assets/03-7.png) 
+
+> &#x2705; 使用 \\(t_0\\) 时刻的速度：显式积分  
+使用 \\(t_1\\) 时刻的速度：隐式积分  
+两种方法都只能一阶近似   
+
+
+
+P13  
+### Mid-Point     
+
+![](./assets/03-8.png) 
+
+![](./assets/03-9.png) 
+
+
+
+P14
+### 比较与混合  
+
+
+By definition, the integral \\(\mathbf{x} (t)=∫\mathbf{v} (t) dt\\) is the area.  Many methods estimate the area as a box.    
+
+
+|Explicit Euler (1st-order accurate) sets the height at \\(t^{[0]}\\).<br>  \\(\int_{t^{[0]}}^{t^{[1]}} \mathbf{v} (t)dt≈∆t  \mathbf{v} (t^{[0]})\\)|   
+|---|      
+  
+
+\\(\quad\\)
+
+|  Implicit Euler (1st-order accurate) sets the height at \\(t^{[0]}\\).<br>  \\(\int_{t^{[0]}}^{t^{[1]}} \mathbf{v} (t)dt≈∆t  \mathbf{v} (t^{[1]})\\) |  
+|----|  
+      
+\\(\quad\\)
+
+|  Mid-point (2nd-order accurate) sets the height at \\(t^{[0]}\\).<br>  \\(\int_{t^{[0]}}^{t^{[1]}} \mathbf{v} (t)dt≈∆t  \mathbf{v} (t^{[0.5]})\\) |     
+|----|
+
+
+![](./assets/03-10.png)    
+
+
+
+P15   
+    
+
+
+$$
+\begin{cases}
+ \mathbf{v} (t^{[1]})=\mathbf{v} (t^{[0]})+\mathbf{M} ^{−1}\int_{t^{[0]}}^{t^{[1]}} \mathbf{f} (\mathbf{x} (t), \mathbf{v} (t), t)dt\\\\
+\mathbf{x} (t^{[1]})=\mathbf{x} (t^{[0]})+\int_{t^{[0]}}^{t^{[1]}} \mathbf{v} (t)dt
+\end{cases}
+$$
+
+
+> &#x2705; 在当前应用场景中，使用前面方法的混合   
+
+
+
+P16 
+### Leapfrog Integration    
+
+
+![](./assets/03-11.png)    
+
+
+In some literature, such a approach is called *semi-implicit*.  
+
+It has a funnier name: the *leapfrog method*.
+
+![](./assets/03-12.png)    
+
+> &#x2705; 速度和位置是错开的  
+
 
 
 ---------------------------------------
