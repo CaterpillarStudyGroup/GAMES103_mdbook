@@ -90,14 +90,17 @@ P19
 > &#x1F4A1; 旋转的表示比较独立，单独放在最后，避免破坏整体的结构性。最后结论是混合式的积分方法。
 
 P27   
-## Rotational Motion    
+### 符号定义
 
+#### 角度
+
+Now we choose quaternion \\(\mathbf{q}\\) to represent theorientation, i.e., the rotation from the *reference* to the *current*.
 
 ![](./assets/03-20.png)    
 
-Now we choose quaternion \\(\mathbf{q}\\) to represent theorientation, i.e., the rotation from the *reference* to the *current*.    
+#### 角速度
 
-We use a 3D vector \\(\mathbf{\omega}\\) to denote angularvelocity.    
+We use a 3D vector \\(\mathbf{\omega}\\) to denote angular velocity.    
 
 $$ 
 \begin{cases} \text{The direction of } \mathbf{\omega} \text{ is the axis.} \\\\    
@@ -108,24 +111,73 @@ $$
 ![](./assets/03-21.png)     
 
 
-> &#x2705;结论，当碰撞点\\(i\\)确定时，冲量\\(j\\)和其造成的速度改变量\\(Δv\\)是确定的，这样，可以通过施加\\(j\\)，精确修改\\(v_i\\)   
+P3   
+#### 力矩 torque
+
+A torque is the rotational equivalent of a force. It describes the rotational <u>tendency</u> caused by a force.    
+
+> &#x2705; Torque：力矩，造成物体旋转的趋势。类比于Force：力，造成物体运动的趋势。   
+
+![](./assets/04-2.png)     
+
+> &#x2705; \\(\mathbf{Rr} _i\\)：当前状态下质心到作用点的向量 
+
+\\(\mathbf{τ} _i\\) is perpendicular to both vectors: \\(\mathbf{Rr} _i\\) and \\(\mathbf{f} _i\\).    
+
+> &#x2705; 因此力矩的方向决定了旋转轴的方向，因此由叉差乘得到   
+
+\\(\mathbf{τ} _i\\) is porportional to ||\\(\mathbf{Rr} _i\\)|| and ||\\(\mathbf{f} _i\\)||.    
 
 
-P28   
-## Torque and Inertia
+\\(\mathbf{τ} _i\\) is porportional to \\(\sin \theta\\).     
+(\\(\theta\\)  is the angle between two vectors.)
 
-![](./assets/03-22.png)     
+> &#x2705; 力矩的大小决定旋转的快慢。 
+
+|\\(\mathbf{τ} _i\longleftarrow (\mathbf{Rr} _i)\times \mathbf{f} _i\\)|   
+|----|
 
 
-> &#x2705; Torque：力矩   
-[?] 为会么力矩由叉差乘得到？力矩与力垂直？   
-用于旋转的质量不再是实数，而是矩阵，称为 Inertia 矩阵，用 \\(\mathbf{I}\\) 来标记 Inertia 矩阵，其中 \\(\mathbf{I}_{ref}\\)为参考状态，\\(\mathbf{I}\\) 为当前状态，\\(\mathbf{I}\\) 是 \\(3\times 3\\) 矩阵。  
+P6   
 
-> &#x2705;Force：力，造成物体运动的趋势   
-Torque：力矩，造成物体旋转的趋势  
-> &#x2705;Rri：当前状态下质心到作用点的向量 
+#### inertia tensor
+
+Similar to mass, an inertia tensor describes the resistance to rotational tendency caused by torque. But different from mass, it’s not a constant.    
+
+> &#x2705; inertia 也与自身的状态相关
+
+![](./assets/04-3.png)     
+
+
+
+Which side receives greater resistance?     
+
+
+> &#x2705; 两图的力矩大小相同，但产生的旋转不同   
+inertia 看作是对运动的抵抗，其效果与力矩的方向有关，因此不是常数  
+
+
+
+
+P7   
+
+It’s a matrix! The mass inverse is the resistance (just like mass).    
+
+> &#x2705; 用于旋转的质量不再是实数，而是矩阵，称为 Inertia 矩阵，用 \\(\mathbf{I}\\) 来标记 Inertia 矩阵，其中 \\(\mathbf{I}_{ref}\\)为参考状态，\\(\mathbf{I}\\) 为当前状态，\\(\mathbf{I}\\) 是 \\(3\times 3\\) 矩阵。  
+
+|reference state|current state|
+|---|---|
+|![](./assets/04-4.png)| ![](./assets/04-5.png)   |
+|\\(\mathbf{I} _{\mathbf{ref} }=\sum m_i(\mathbf{r} _i^\mathbf{T} \mathbf{r} _i\mathbf{1} −\mathbf{r} _i\mathbf{r} _i^\mathbf{T} )\\)<br>\\(\mathbf{1}\\)  is the 3-by-3 identity.|\\(\mathbf{I} =\sum m_i(\mathbf{r} _i^\mathbf{T}\mathbf{R}  ^\mathbf{T}\mathbf{Rr}  _i\mathbf{1} −\mathbf{Rr} _i\mathbf{r} _i^\mathbf{T} \mathbf{R^T} )\\)  <br> \\(\quad=\sum m_i(\mathbf{Rr} _i^\mathbf{T}\mathbf{r}  _i\mathbf{1R}  ^\mathbf{T} −\mathbf{Rr} _i\mathbf{r} _i^\mathbf{T} \mathbf{R^T} )\\) <br> \\(\quad=\sum m_i\mathbf{R}(\mathbf{r}_i^\mathbf{T}\mathbf{r}_i\mathbf{1}−\mathbf{r}_i\mathbf{r}_i^\mathbf{T} ) \mathbf{R^T}\\)   <br> \\(\quad=\mathbf{RI _{ref}R^T}\\)|
+
+> &#x2705; 不需要每次都根据当前状态计算，而是基于一个已经算好的ref状态的 inertia快速得出。  
+
 
 P29     
+
+### 更新法则
+
+  
 
 
 |    |Translational (linear)|Rotational (Angular)|
@@ -135,58 +187,38 @@ P29
 | Physical Quantities |Mass \\(\mathbf{M}\\) <br> Force \\(\mathbf{f}\\) | Inertia \\(\mathbf{I} \\) <br> Torque \\(\mathbf{τ} \\) |
 
 
-
-> &#x2705;  平移： \\(a = \frac{力}{质量}\\)     
-旋转： \\(a =\frac{力矩}{\text{Inertia}}\\)   
-\\(q\\)是四元数，代表物体的旋转状态   
-\\(q_1\times q_2\\)不是叉乘，而是四元数普通乘法    
-[ \\(\cdot\\) ]是有一个四元数，0为实部，后面为虚部   
-算完\\(q^{[1]}\\)的之后要对它 Normalize     
-
-> &#x2705;\\(\begin{bmatrix}
+> &#x2705;  平移： \\(加速度 = \frac{力}{质量}\\) ，旋转： \\(加速度 =\frac{力矩}{\text{Inertia}}\\)   
+> &#x2705;  \\(q\\)是四元数，代表物体的旋转状态   
+> &#x2705;  \\(q_1\times q_2\\)不是叉乘，而是四元数普通乘法    
+> &#x2705;  \\(\begin{bmatrix}
   0 & \frac{\bigtriangleup t}{2}  & w^{(1)}
-\end{bmatrix}\\)是一个四元数。   
-> &#x2753; 为什么角加速度只包含方向的改变量，没有大小的改变量   
-> &#x2753; 为什么\\(W^{[1]}\\)不直接与\\(q^{[0]}\\)相加，而是先与\\(q^{[0]}\\)相乘？答：见Affer Class Reading（Appendix B）   
+\end{bmatrix}\\)是一个四元数，0为实部，后面为虚部   
+> &#x2757;  算完\\(q^{[1]}\\)的之后要对它 Normalize     
+> &#x1F50E; 由\\(q^{[0]}\\)到\\(q^{[1]}\\)的更新公式的推导过程见Affer Class Reading（Appendix B）   
 > &#x2753; 四元数相加有什么含义？  
 
 P30 
-## Rigid Body Simulation Piplene     
+### Rigid Body Simulation Piplene     
 
+![](./assets/03-22.png) 
 
-![](./assets/03-27.png)     
+In practice, we update the same state variable \\(\mathbf{s} =\\){\\(\mathbf{v,x,\omega ,q}\\)} over time.     
 
-平移：   
-![](./assets/03-25.png)     
+![](./assets/03-27.png)  
+![](./assets/04-1.png)     
 
-旋转：   
-![](./assets/03-26-1.png)     
-
-
-
-P32   
-## Some More lssues   
-
-
-Gravity doesn't cause any torque! lf your simulator does not contain any other force, there is no need to update \\(\mathbf{\omega}\\).    
+> &#x2757; Gravity doesn't cause any torque! lf your simulator does not contain any other force, there is no need to update \\(\mathbf{\omega}\\).    
 
 
 P33
-# After-Class Reading (Before Collision)
+## After-Class Reading (Before Collision)
 
-P34   
-> &#x2705;问题简化，\\(R\\)为任意矩阵，不需要满足旋转矩阵的约束。     
-\\(A\\)是常数矩阵\\(\Rightarrow \\) \\(\Sigma\\) \\(Ari\\) = \\(A\\)\\(\Sigma\\)\\(ri\\) = \\(0\\)   
-> &#x2753; 优化之后的刚体可能还是与地面穿透的。   
 
 P35  
 
-> &#x2705;Decomposition：极性分解，把任意矩阵分解旋转部分和形变部分。  
-
-
-
 <https://graphics.pixar.com/pbm2001>     
-Rigid Body Dynamics    
+
+> &#x2753; 建议读其中的Rigid Body Dynamics部分    
 
 
 P11   
@@ -324,6 +356,8 @@ The alignment of two or more axes results in a loss of rotational DoFs.
 P23  
 ## Rotation Represented by Quaternion    
 
+### Introduction
+
 ![](./assets/03-17.png)    
 
 In the complex system, two numbers represent a 2D point.   
@@ -333,14 +367,16 @@ In the complex system, two numbers represent a 2D point.
 
 
 P24   
-#### Quaternion Arithematic    
+### Quaternion Arithematic    
 
 
 Let \\(\mathbf{q}  = \begin{bmatrix}
 \mathbf{s}   &\mathbf{v} 
 \end{bmatrix} \\) be a quaternion made of two parts: a scalar part \\(s\\) and a 3D vector part \\(\mathbf{v}\\), accounting for \\(\mathbf{ijk}\\).
 
-\\(\quad\\)    
+> &#x2705; 在有些库里面写作： \\(q = \begin{bmatrix}
+ w & x & y &z
+\end{bmatrix}\\)，w为实数部分  
 
 \\(a\mathbf{q} =\begin{bmatrix}
  as  &a\mathbf{v} 
@@ -360,21 +396,8 @@ Let \\(\mathbf{q}  = \begin{bmatrix}
 \\(\quad\\)    
 
 
-
-> &#x2705; 在有些库里面写作： \\(q = \begin{bmatrix}
- w & x & y &z
-\end{bmatrix}\\)，w为实数部分  
-
-> &#x2705;\\(x\\)和\\(v\\)分别是刚体质心点的位置和速度,第二项为刚体上的特定点相对于质心点的位置和速度   
-对于粒子，可以直接用Impulse修改\\(x\\)和\\(v\\)   
-对于刚体，impulse只能修改\\(x\\)和\\(v\\)，不能修改\\(x_i\\)和\\(v_i\\)；其中\\(x\\)可以通过直接修改更新，也可以通过修改\\(v\\)来更新，这里选择后者。  
-
-
-
 P25   
-#### Rotation Represented by Quaternion    
-
-
+### Rotation Represented by Quaternion    
 
  - To represent a rotation around \\(\mathbf{v}\\) by angle \\(0\\), we set the quaternion as:    
 
@@ -391,12 +414,6 @@ s^2+x^2-y^2-z^2  & 2(xy-sz) & 2(xz+sy)\\\\
  2(xz-sy) & 2(yz+sx) & s^2-x^2-y^2+z^2  
 \end{bmatrix}
 $$
-
-> &#x2705;假设：此时对\\(x_i\\)点施加冲量\\(j\\)．   
-冲量 = \\(Ft\\) = \\(mv\\) \\(\Rightarrow \\) \\(v\\) = 冲量/\\(m\\)   
-\\(Rrxj\\) = 冲量造成的力矩 ＝ 质量矩阵 · \\(W\\)    
-\\(\Rightarrow \\) \\(W\\) ＝ 质量矩阵\\(^{-1}\\) · 力矩   
-> &#x2753; 为什么质量矩阵是单位阵？   
 
 
 

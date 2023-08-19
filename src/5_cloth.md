@@ -1,6 +1,6 @@
 
 P2   
-## Topics for the Day
+# Topics for the Day
 
  - A Mass-Spring System    
     - Explicit Integration   
@@ -10,15 +10,15 @@ P2
 
 
 P3  
-## A Mass Spring System   
+# A Mass Spring System   
 
 
 
 P4   
-# 弹簧结构   
+## 弹簧结构   
 
 
-## An Ideal Spring    
+### An Ideal Spring    
 
 An ideal spring satisfies Hooke’s law: the spring force tries to restore the rest length.    
 
@@ -166,7 +166,13 @@ $$
 那么 \\(f\\)可以写成关于位置的函数\\(f(x)\\)，但\\(f(x)\\)不一定是线性的。  
 因此最后转化为解非线性方程的问题    
 
-
+> &#x2705;Implicit 与 Explicit的区别：   
+Explicit：当前力 → 当前速度 → 当前位置   
+根据公式\\(FΔt≈mv，vΔt≈Δx\\).    
+如果\\(Δt\\)太大，会导致\\(Δx\\)太大，而导致overshooting   
+本质上是\\(Δt\\)太大导致积分近似的结果与实际积分的结果有很大误差，\\(k\\)太大只是让这个问题更明显，减小\\(k\\)问题仍然存在。   
+Explicit和Implicit都是用某个时刻的力代表整个\\(Δt\\)时间的力，就都会出现上述误差。   
+区别在于，Explicit用当前力，往往使结果变大，产生爆炸，Implicit用未来力，往往使结果变小，产生消失。  
 
 P14   
 
@@ -186,6 +192,26 @@ Note that this is applicable to every system, not just a mass-spring system.
 \\(E\\) 为所有的力的能量   
 只有保守力能用能量描述、非保守力（例如摩擦力）则不行。  
 
+> &#x2705;把公式处理一下得，  
+$$
+x^{[0]}+Δtv^{[0]}+Δt^2M^{-1}f(x^{[1]})-x^{[1]}=0
+$$
+左右两边同时乘以\\(\frac{M}{Δt^2}\\)得   
+$$
+\frac{1}{Δt^2} M(x^{[1]}-x^{[0]}-Δtv^{[0]})-f(x^{[1]})=0
+$$  
+这里面唯一的未知量是\\(x^{[1]}\\)，定义函数
+$$
+y=\frac{1}{Δt^2} M(x-x^{[0]}-Δtv^{[0]})-f(x)
+$$    
+当\\(x = x^{[1]}\\) 时，\\(y = 0\\), 即 \\(y(x^{[1]}) = 0\\)   
+从另一个角度讲， 
+$$
+\begin{eqnarray}
+x^{[1]} & =  \mathrm{argmin}& F(x)\Rightarrow {F}' (x^{[1]}) & = & 0
+\end{eqnarray}
+$$   
+因此, \\({F}' (x) = y. \quad F(x) = \int ydx \\)    
 
 
 
@@ -211,6 +237,14 @@ $$
 > &#x2705; 原理：\\(a = \min F(x)⇒ F'(a)= 0\\)   
 Overshooting 的本质：误差会积累和放大 
 
+
+> &#x2705;对\\({F}'(x)\\) 做一阶泰勒展开   
+\\({F}' (x)\\) 是非线性函数，直接解\\({F}' (x)=0\\) 很难解    
+任意假设一个\\(x^{[k]}\\)，就变成了解线性方程，很容易解出\\(x\\).   
+因为\\({F}'(x)\\) 是一个近似的，\\(x\\) 也是一个近似解。    
+\\(x^{[k]}\\) 越接近真实解，\\(x\\) 也会越接近真实解    
+因此，选代是\\(x^{[k]}\\)和\\(x\\) 都不断逼近真实解的过程普通的梯度下降是把\\({F}' (x)\\) 近似到一阶，牛顿法是近似到二阶，因此下降更快。    
+解非线性方程问题转化为选代优化问题。   
 
 
 P16    
@@ -281,8 +315,6 @@ $$
 > &#x2753; 每一个 step 都包含一次迭代优化、能做到实时？ 本节课所讲的套路：分析力 → 隐式积分 → 优化问题 → 更新，对弹簧系统、有限元、弹性体等各种物理模拟同样适用   
 
 
-
-
 P19  
 ### SolveSpring Hessian
 
@@ -329,6 +361,10 @@ As a result, \\(\mathbf{H}(\mathbf{x})\\) may not be s.p.d. (Lecture 2, Page 36
 > &#x2705; \\(\Delta t\\)越少，A越容易正定、弹簧系统越稳定。   
 但是A不正定，不代表没有唯一解。   
 
+
+P21
+
+> &#x2705;为什么要讨论\\(H\\)矩阵是否正定？答：\\(H\\)矩阵相当于二阶导，正定代表开口向上，有唯一最小值。  
 
 
 P22 
@@ -448,6 +484,9 @@ One of the first papers using implicit integration.
 
 The paper proposes to **use only one Newton iteration**, i.e., solving only one linear system. This practice is fast, but can fail to converge.    
 
+> &#x2705;这篇论文没有做非线性优化或解非线性方程，而是把非线性方程线性化，等价于做一次牛顿迭代。   
+课后答疑：   
+能量优化的方法很少用于刚体，主要是有限元、弹性体、衣服模拟。   
 
 P28   
 # Bending and Locking Issues   
