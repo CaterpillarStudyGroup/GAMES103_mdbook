@@ -599,6 +599,7 @@ The performance depends on how well \\(\mathbf{{\color{Orange} H} }\\) approxima
 > &#x2705;\\(\mathrm{H}\\)不需要很精确，一个近似的正定的矩阵，就能让结果收敛。  
 
 
+
 P27  
 ## Pros and Cons of Projective Dynamics 
 
@@ -619,6 +620,8 @@ P27
 Slow on GPU，因为\\(\mathbf{LU}\\)分解不适用于 \\(\mathbf{GPU}\\)   
 constraint changes: 网格关系改变导至弹簧结构改变，原来的\\(\mathbf{H}\\)将不再适用。   
 
+课后答疑：   
+能量优化的方法很少用于刚体，主要是有限元、弹性体、衣服模拟。   
 
 
 P28   
