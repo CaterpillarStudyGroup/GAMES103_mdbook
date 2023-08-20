@@ -1,12 +1,10 @@
 P2   
 
-## Topics for the Day
+# Topics for the Day
 
  - Strain Limiting and Position Based Dynamics    
  - Projective Dynamics   
  - Constrained Dynamics   
-
-
 
 P3  
 ## Strain Limiting and Position Based Dynamics    
