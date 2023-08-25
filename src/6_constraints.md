@@ -6,10 +6,6 @@ P2
  - Projective Dynamics   
  - Constrained Dynamics   
 
-P3  
-## Strain Limiting and Position Based Dynamics    
-
-
 P4  
 # The Stiffness Issue    
 
@@ -25,6 +21,7 @@ P4
 
 > &#x2705;当弹簧系数大的情况下，仍能保证系统稳定。   
 
+# 投影函数 Projection Function
 
 P5   
 ## A Single Spring   
@@ -35,35 +32,27 @@ If a spring is infinitely stiff, we can treat the length as a constraint and def
 ![](./assets/06-1.png)    
 
 \\(\mathbf{ϕ} (\mathbf{x} )=||\mathbf{x} _i− \mathbf{x} _j||−L=0\\)      
-Constraint     
+> &#x2705; projection function.投影函数、会移动端点使弹簧满足约束。   
+  
 
 ![](./assets/06-2.png)    
 
-
-> &#x2705; projection function.投影函数、会移动端点使弹簧满足约束。   
-
-
-
 P6   
-### A Single Spring    
-
 
 
 ![](./assets/06-3.png)    
 
+> &#x2705; 把\\(\mathbf{x}_ i\\)和\\(\mathbf{x}_ j\\)拼成6维空间中的点\\(\mathbf{x}\\)，满足约束的\\(\mathbf{x}\\)构成6D空间中的一块区域；  
 
 {\\(\mathbf{x} _i^{\mathbf{new}},\mathbf{x} _j^{\mathbf{new} }\\)}= argmin \\( \frac{1}{2}\\){\\(m_i||\mathbf{x} _i^{\mathbf{new} }−\mathbf{x} _i||^2+m_j||\mathbf{x} _j^{\mathbf{new}} −\mathbf{x} _j||^2\\)}    
 
 such that  \\(\mathbf{ϕ} (\mathbf{x} )=0\\)
 
-
-> &#x2705; 把\\(\mathbf{x}_ i\\)和\\(\mathbf{x}_ j\\)拼成6维空间中的点\\(\mathbf{x}\\)，满足约束的\\(\mathbf{x}\\)构成6D空间中的一块区域；投影函数的目标：(1)把\\(\mathbf{x}\\)移到区域内。 (2)移动距离最短，因此构成优化问题。    
-
-
+> &#x2705; 投影函数的目标：(1)把\\(\mathbf{x}\\)移到区域内。 (2)移动距离最短，因此构成优化问题。    
+> &#x2705;优化问题，但不是通过选代解决，而是数值求解，直接算出最优的\\(\mathbf{x}_i\\)和\\(\mathbf{x}_j\\).    
 
 
 P7   
-### A Single Spring     
 
  
 $$
@@ -87,16 +76,12 @@ $$
 \mathbf{ϕ} (\mathbf{x} ^{\mathbf{new} })=||\mathbf{x} _i^{\mathbf{new} }− \mathbf{x} _j^{\mathrm{new} }||−L=||\mathbf{x} _i−\mathbf{x} _j−\mathbf{x} _i+\mathbf{x} _j+L||−L=0
 $$
 
+> &#x2705; 对推导结果的合理性解释：(1) 移到前后质心不变。(2) 移到方向为沿着或远离质心。(3) 移到距离与自身重量有关。   
+
 
 By default, \\(m_i=m_j\\), but we can also set \\(m_i=\infty\\) for stationary nodes.   
 
-
-> &#x2705; 对推导结果的合理性解释：(1) 移到前后质心不变。(2) 移到方向为沿着或远离质心。(3) 移到距离与自身重量有关。   
-
-> &#x2705;优化问题，但不是通过选代解决，而是数值求解，直接算出最优的\\(\mathbf{x}_i\\)和\\(\mathbf{x}_j\\).    
-对于固定点，不更新就好了。    
-
-
+> &#x2705; 对于固定点，不更新就好了。    
 
 P8   
 ## Multiple Springs – A Gauss-Seidel Approach    
@@ -107,21 +92,9 @@ What about multiple springs? The Gauss-Seidel approach **projects each spring se
 ![](./assets/06-4.png)    
 
 
-
-
-
 P9   
 
-> Projection (by Gauss-Seidel)     
-\\(\quad\quad\\) For \\(k=0…K\\)    
-For every edge \\(e\\) = {\\(i,j\\)}    
-$$
-\mathbf{x} _i\longleftarrow \mathbf{x} _i−\frac{1}{2} (||\mathbf{x} _i−\mathbf{x} _j||−L_e)\frac{\mathbf{x} _i−\mathbf{x}_j}{||\mathbf{x} _i−\mathbf{x} _j||}   
-$$
-$$
-\mathbf{x} _j\longleftarrow \mathbf{x} _j+\frac{1}{2} (||\mathbf{x} _i−\mathbf{x} _j||−L_e)\frac{\mathbf{x} _i−\mathbf{x}_j}{||\mathbf{x} _i−\mathbf{x} _j||} 
-$$
-
+![](./assets/06-22.png)  
 
  - We cannot ensure the satisfaction of every constraint. But the more iterations we use, the better those constraints are satisfied.    
 
@@ -144,53 +117,7 @@ P10
  - Again, the more iterations it uses, the better the constraints are enforced.    
 
 
-$$
-\quad
-$$
-
-Projection (by Jacobi)    
-For \\(k = 0…K\\)    
-For every vertex \\(i\\)    
-
-$$
-\mathbf{x} ^{\mathbf{new} }_i\longleftarrow 0
-$$
-
-$$
-n _i\longleftarrow 0
-$$
-
-For every edge \\(e\\) = {\\(i,j\\)}     
-
-$$
-\mathbf{x}^{\mathbf{new} } _i\longleftarrow \mathbf{x}^{\mathbf{new} } _i+\mathbf{x}_i−\frac{1}{2} (||\mathbf{x} _i−\mathbf{x} _j||−L_e)\frac{\mathbf{x} _i−\mathbf{x}_j}{||\mathbf{x} _i−\mathbf{x} _j||}    
-$$
-
-
-$$
-\mathbf{x}^{\mathbf{new} } _j\longleftarrow \mathbf{x}^{\mathbf{new} } _j+\mathbf{x}_j+\frac{1}{2} (||\mathbf{x} _i−\mathbf{x} _j||−L_e)\frac{\mathbf{x} _i−\mathbf{x}_j}{||\mathbf{x} _i−\mathbf{x} _j||}    
-$$
-
-$$
-n _i\longleftarrow n_i+1
-$$
-
-$$
-n _j\longleftarrow n_j+1
-$$
-
-For every vertex \\(i\\)     
-
-$$
-\mathbf{x} _i⟵(\mathbf{x} _i^{\mathbf{new} }+α\mathbf{x} _i)/(n_i+α)
-$$
-
-$$
-\quad
-$$
-
-
-
+   ![](./assets/06-23.png)  
 > &#x2705; 基于每条边计算\\(\mathbf{x}\\)的更新但不真的更新、每个点会得到多种更新方案，最后取更新方案的均值。   
 
 
@@ -198,6 +125,7 @@ $$
 P11   
 # Position Based Dynamics (PBD)   
 
+## 算法过程
 
 Position based dynamics (PBD) is based on the projection function.    
 
@@ -211,10 +139,6 @@ Position based dynamics (PBD) is based on the projection function.
 projection functions.    
 
 
-$$
-\quad
-$$
-
 A PBD Simulator     
 //Do Simulation, update \\(\mathbf{x}\\) and \\(\mathbf{v}\\)     
 $$
@@ -224,6 +148,9 @@ $$
 $$
 \mathbf{x}\longleftarrow\dots   
 $$   
+
+> &#x2705; 第一步：不考虑约束，基于粒子运动方法更新 \\(\mathbf{v}\\) 和 \\(\mathbf{x}\\)；  
+
 
 //Now PBD starts.    
 
@@ -239,20 +166,9 @@ $$
 \mathbf{x}\longleftarrow \mathbf{x} ^{\mathbf{new}}
 $$
 
-$$
-\quad
-$$
-
-
-
-> &#x2705; 第一步：不考虑约束，基于粒子运动方法更新 \\(\mathbf{v}\\) 和 \\(\mathbf{x}\\)；第二步：基于约束和投影函数更新 \\(\mathbf{v}\\) 和 \\(t\\).    
-问：PBD 非物理方法，怎么体现出弹性效果？  
-答：迭代数多则弹性差、网格顶点少则弹性差。   
-
-
-> &#x2705;第二步中速度更新很重要，会影响dynamic模拟的效果。\\(\mathbf{v}\\)的更新不是直接覆盖，而是叠加。    
-
-
+> &#x2705; 第二步：基于约束和投影函数更新 \\(\mathbf{v}\\) 和 \\(t\\).    
+> &#x2705;第二步中速度更新很重要，会影响dynamic模拟的效果。  
+> &#x2705;\\(\mathbf{v}\\)的更新不是直接覆盖，而是叠加。    
 
 P12   
 ## Pros and Cons of PBD 
@@ -261,18 +177,19 @@ P12
     - Parallelable on GPUs (PhysX)    
     - Easy to implement    
     - Fast in low resolutions    
-    - Generic, can handle other coupling and constraints, including fluids    
+    - Generic, can handle other coupling and constraints, including fluids  
+> &#x2705; 一般来说，少于1000个点时能实时，多于1000个点时效率明显下降  
+> &#x2705; PBD 适用于低分辨率场景、常见的低精度实时模拟的套路。  
  - Cons    
      - Not physically correct    
      - Low performance in high resolutions    
        - Hierarchical approaches (can cause oscillation and other issues…)     
        - Acceleration approaches, like Chebyshev    
        
-
-
-
+> &#x2705; 问：PBD 非物理方法，怎么体现出弹性效果？  
+答：迭代数多则弹性差、网格顶点少则弹性差。   
 > &#x2705; 弹性表现受网格数量影响(难以控制)、没有所谓的精确解，哪怕迭代数足够多、迭代数过多会导致locking issue.   
-PBD 适用于低分辨率场景、常见的低精度实时模拟的套路。 
+
 
 
 P13   
@@ -280,7 +197,7 @@ P13
 
 Muller. 2008. *Hierarchical Position Based Dynamics*. VRIPHYS.
 
-
+> &#x2705; NVIDIA的很多物理引擎都是基于PBD的  
 
 P14  
 # Strain Limiting    
