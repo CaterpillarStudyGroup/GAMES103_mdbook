@@ -37,6 +37,7 @@
 - [09-collision](9_collision.md)
   - [Collision Detection - Broad Phase](9_collision_detect.md)
   - [Collision Detection - Narrow Phase](9_collision_detect_narrow.md)
+  - [Collision Response](9_collision_response.md)
 - [10-wave](wave.md)
 - [11-EulerianFluids](EulerianFluids.md)
 - [12-SPH](SPH.md)

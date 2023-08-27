@@ -84,20 +84,20 @@ P25
     - Buffering epsilons, but that causes **false positives**.     
     - Gaming GPUs often use single floating-point precision.   
 
+> &#x2705; 游戏 GPU 以单精度为主，因此要注意浮点误差问题。     
+
  - Computational costs: more expensive than DCD.   
     - Some argue that broad-phase collision culling is the bottleneck.   
 
  - Difficulty in implementation.    
  
 
-> &#x2705; 游戏 GPU 以单精度为主，因此要注意浮点误差问题。     
 
 
 P26   
 ## After-Class Reading    
 
 
-Bridson et al. 2002. *Robust Treatment of Collisions, Contact
-and Friction for Cloth Animation. TOG (SIGGRAPH)*.    
+Bridson et al. 2002. *Robust Treatment of Collisions, Contact and Friction for Cloth Animation. TOG (SIGGRAPH)*.    
 
 Relative simple explicit integration of cloth dynamics    
