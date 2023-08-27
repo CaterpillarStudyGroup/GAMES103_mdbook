@@ -1,227 +1,29 @@
-P2   
-
-## Topics for the Day   
-
- - The linear finite element method (FEM)
- - The finite volume method (FVM)
- - Hyperelastic models
-
-
-
-
-P3   
-# Linear Finite Element Method    
-
-P4  
-## The Linear FEM Assumption   
-
-In a nutshell, linear FEM assumes that for any point \\(\mathbf{X}\\) in the reference triangle, its deformed correspondence is: \\(\mathbf{x=FX+c}\\).    
-
-![](./assets/07-1.png)    
-
-
-For any vector between two points, we can use F to convert it from reference to deformed:    
-$$
-\mathbf{x} _{ba}=\mathbf{x} _b−\mathbf{x} _a=\mathbf{FX} _b+\mathbf{c} −\mathbf{FX} _a−\mathbf{c} =\mathbf{FX} _{ba}.
-$$
-
-
-> &#x2705; reference triangle：三角形处于没有发生形变的静止的状态。   
-假设：三角形的形变是均匀的    
-\\(\mathbf{X}\\)和\\(\mathbf{x}\\)可以分别是 reference 和 deformed 三角形的顶点或内部点，公式都同样适用。  
-
-
-P5   
-## Deformation Gradient    
-
-Therefore, we can calculate the deformation gradient by edge vectors.      
-
-![](./assets/07-2.png)    
-
-
-**Problem:** \\(\mathbf{F}\\) **is related to deformation, but it contains rotation**.     
-
-
-> &#x2705; 期望\\(\mathbf{F}\\)只包含形变量、不包含平移和旋转、因为刚体运动不应该有形变，所以要把形变提取出来。    
-
-> &#x2705;平移已经在\\(\mathbf{c}\\)里面了，所以只需考虑旋转。   
-
-
-
-P6  
-## Green Strain    
-
-Ideally, we need a tensor to describe shape deformation only.  Recall that SVD gives \\(\mathbf{F=UDV^T}\\), where only \\(\mathbf{V^T}\\) and \\(\mathbf{D}\\) are relevant to deformation.     
-
-![](./assets/07-3.png)    
-
-So we get rid of \\(\mathbf{U}\\) as: \\(\mathbf{G} =\frac{1}{2} (\mathbf{F^TF−I} )=\frac{1}{2} (\mathbf{VD} ^2\mathbf{V} ^\mathbf{T} −\mathbf{I} )=\begin{bmatrix}
- \varepsilon _{uu} & \varepsilon _{uv}\\\\
-\varepsilon _{uv} & \varepsilon _{vv}
-\end{bmatrix}\\), *Green strain*.
-
-
- - If no deformation, \\(\mathbf{G=0}\\); if deformation increases,  ||\\(\mathbf{G}\\)|| increases.    
- - Three deformation modes: \\(\varepsilon _{uu}\\), \\(\varepsilon _{vv}\\) and \\(\varepsilon _{uv}\\).
- - \\(\mathbf{G}\\) is <u>rotation invariant</u>: if additional rotation \\(\mathbf{R}\\), then deformation gradient is \\(\mathbf{RF}\\) but green strain is the same: \\(\mathbf{G} =\frac{1}{2} (\mathbf{F^TR^TRF−I} )=\frac{1}{2} (\mathbf{VD} ^2\mathbf{V} ^\mathbf{T} −\mathbf{I} )\\).    
-
-
-
-> &#x2705; \\(\mathbf{V^T}\\) 看上去是旋转、实际上是为了确定形变的方向、 \\(\mathbf{U}\\) 才是真正的旋转     
-目的：把\\(\mathbf{F}\\)中的\\(\mathbf{U}\\)去掉、可以先做 \\(\mathbf{SVD}\\) 分解再把\\(\mathbf{U}\\)去掉。但本文使用了更简单的方法     
-\\(\mathbf{G}\\) 是一个描述物体形变的有无和大小矩阵，且与关旋转     
-
-
-
-
-P7   
-## Strain Energy Density Function    
-
-
-Let \\(\mathbf{G}\\) be the the green strain describing deformation. We consider the **energy density** per reference area as: \\(W (\mathbf{G})\\).    
-
-![](./assets/07-4.png)    
-
-![](./assets/07-5.png)    
-
-![](./assets/07-6.png)    
-
-
-> &#x2705;  \\(A^{ref}\\) 为 reference status 下三角形的面积     
-StVK 在力学中不常用，但在图形学中很常用、原因是简单    
-S 是一个类似于力的物理量。   
-
-> &#x2705;用形变程度来定义能量。   
-\\(W\\)代表单位面积上的能量，因此称为能量密度。   
-总能量为单位能量\\(\mathbf{X}\\)面积.    
-
-
-P8  
-## Forces   
-
-Given everything we have, we can now calculate the forces.    
-![](./assets/07-7.png)    
-
-
-> &#x2705; 绿色部分是上一页S中的内容、灰色部分将在下一页推导。  
-
-
-
-P9   
-## Forces 
-
-Recall that,    
-
-![](./assets/07-8.png)    
-
-
-By definition,    
-$$
-\mathbf{G} =\frac{1}{2} (\mathbf{F^TF−I} )=\begin{bmatrix}
- \frac{1}{2}(a\mathbf{x} _{10}+c\mathbf{x} _{20})^\mathbf{T} (a\mathbf{x} _{10}+c\mathbf{x} _{20})−\frac{1}{2}  & \frac{1}{2}(a\mathbf{x} _{10}+c\mathbf{x} _{20})^\mathbf{T} (b\mathbf{x} _{10}+d\mathbf{x} _{20})\\\\
- \frac{1}{2}(a\mathbf{x} _{10}+c\mathbf{x} _{20})^\mathbf{T} (b\mathbf{x} _{10}+d\mathbf{x} _{20})  & \frac{1}{2}(b\mathbf{x} _{10}+d\mathbf{x} _{20})^\mathbf{T} (b\mathbf{x} _{10}+d\mathbf{x} _{20})−\frac{1}{2}
-\end{bmatrix}
-$$
-
-So:
-
-$$
-\frac{∂\varepsilon _{uu}}{∂\mathbf{x} _1}=a(a\mathbf{x} _{10}+c\mathbf{x} _{20})^\mathbf{T} 
-\quad\quad
-\frac{∂\varepsilon _{vv}}{∂\mathbf{x} _1}=b(b\mathbf{x} _{10}+d\mathbf{x} _{20})^\mathbf{T} 
-\quad\quad
-\frac{∂\varepsilon _{uv}}{∂\mathbf{x} _1}=\frac{1}{2} a(b\mathbf{x} _{10}+d\mathbf{x} _{20})^\mathbf{T} +\frac{1}{2}  b(a\mathbf{x} _{10}+c\mathbf{x} _{20})^\mathbf{T} 
-$$
-
-$$
-\frac{∂\varepsilon _{uu}}{∂\mathbf{x} _2}=c(a\mathbf{x} _{10}+c\mathbf{x} _{20})^\mathbf{T} 
-\quad\quad
-\frac{∂\varepsilon _{vv}}{∂\mathbf{x} _2}=d(b\mathbf{x} _{10}+d\mathbf{x} _{20})^\mathbf{T} 
-\quad\quad
-\frac{∂\varepsilon _{uv}}{∂\mathbf{x} _2}=\frac{1}{2} c(b\mathbf{x} _{10}+d\mathbf{x} _{20})^\mathbf{T} +\frac{1}{2}  d(a\mathbf{x} _{10}+c\mathbf{x} _{20})^\mathbf{T} 
-$$
-
-> &#x2705;\\(\mathbf{F}\\)不是力，是deformation gradient．   
-\\(\mathbf{x}\\)为current边的矩阵，\\(\mathbf{r}\\)为reference边的矩阵。这个推导方法从定义出来，过程简单，但很容易出错。    
-
-
-
-P10     
-## Forces 
-
-![](./assets/07-9.png)    
-
-
-> &#x2705; 把 P9 代入 P8 得到 P10       
-
-> &#x2705;用矩阵来简化计算   
-力是形变施加到顶点上的力   
-
-
-
-P11     
-## Forces 
-
-
-In conclusion, we have:   
-
-$$
-\mathbf{f} _1=−A^{\mathrm{ref} }\mathbf{FS} \begin{bmatrix}
- a\\\\
-b
-\end{bmatrix}  \quad\quad \mathbf{f} _2=−A^{\mathrm{ref} }\mathbf{FS} \begin{bmatrix}
- c\\\\
-d
-\end{bmatrix}
-$$
-
-$$
-\begin{bmatrix}
- \mathbf{f} _1 &\mathbf{f} _2
-\end{bmatrix}= − A ^{\mathrm{ref} }\mathbf{FS} \begin{bmatrix}
- \mathbf{X} _{10} & \mathbf{X} _{20}
-\end{bmatrix}^\mathbf{−T} 
-$$
-
-
-> &#x2705; \\(f_0=-f_1-f_2\\)   
-
-
-P12   
-## Implementations   
-
- - More details?
-    - Volino et al. 2009. *A simple approach to nonlinear tensile stiffness for accurate cloth simulation*. TOG    
-    - Only talks about cloth (2D reference -> 3D deformation)    
-
- - What about tetrahedron (3D reference -> 3D deformation)?   
-    - Same idea, but everything is now in 3D.   
-    - Deformation gradient \\(\mathbf{F} \in \mathbf{R} ^{3×3}\\)   
-    - Green strain \\(\mathbf{G} \in \mathbf{R} ^{3×3}\\)   
-    - Stress tensor \\(\mathbf{S} \in \mathbf{R} ^{3×3}\\)   
-    - Forces \\(\mathbf{F}_i \in \mathbf{R} ^3\\)    
-
-
-
 P13   
 # Finite Volume Method    
 
-> &#x2705;在线性场景下，FEM和FVM本质上等价的。    
+> &#x2705; FEM求导，FVM积分。在线性场景下，FEM和FVM本质上等价的。    
+> &#x2705; FVM基于力从何而来的思想。  
 
-
+## 符号定义
 
 P14   
-## Traction and Stress    
+### Traction    
 
 First, let’s consider traction **t**: the internal force per unit length (area).
 
 ![](./assets/07-10.png)    
+
+> &#x2705; 两个弹性体被界面 \\(L\\) 分开、求 \\(L\\) 上的力、   
 
 Total interface force:    
 
 $$
 f\mathbf{} =\oint _L \mathbf{t} dl
 $$
+
+> &#x2705; \\(\mathbf{t}\\)是\\(L\\) 上的单位面积/长度上的力。那么总的力是t的积分。     
+
+### Stress    
 
 Stress tensor \\(\mathbf{σ} \\) (interface normal -> traction):
 
@@ -236,19 +38,22 @@ $$
 $$
 
 
-> &#x2705; 两个弹性体被界面 \\(L\\) 分开、求 \\(L\\) 上的力、   
-\\(\mathbf{t}\\)是\\(L\\) 上的单位面积/长度上的力、   
-\\(\mathbf{σ}\\) 一个矩阵    
+
+> &#x2705; \\(\mathbf{σ}\\) 一个矩阵    
 
 
 
 P15   
-## The Finite Volume Method   
+## 计算FVM中的力   
 
+### 2D
 
 FVM considers force calculation in an integration perspective, not a differentiation perspective.     
 
 ![](./assets/07-11.png)    
+
+> &#x2705;  \\(\mathbf{X}_0\\)是顶点\\(\mathbf{X}_0\\)附近邻域面积上的力。  
+
 
 Force contributed by an element:    
 
@@ -256,11 +61,16 @@ $$
 \mathbf{f}_0 =\oint _L \mathbf{σn} dl
 $$
 
+> &#x2705;  \\(\mathbf{X}_0\\)上的力是邻域面边界\\(L\\)上的力的积分、不考虑边界内部的力，因为认为内力为0。   
+> &#x2705;  仅看其中一个三角形、假设曲线经过 \\(\mathbf{X}_0\mathbf{X}_1\\)和 \\(\mathbf{X}_0\mathbf{X}_2\\)的中点。因为三角形的力对三个顶点是平均的。    
+
 Since \\(\mathbf{σ}\\) is constant within the element,     
 
 $$
 \oint_L \mathbf{σn} dl + \oint_{L_{20}} \mathbf{σn} dl+\oint_{L_{10}}\mathbf{σn} dl=0
 $$
+
+> &#x2705;  对于封闭曲线L+L10+L20做积分，\\(\int _n=0\\)，因此 \\(\sigma \int _n=0\\)    
 
 (Divergence Theorem)   
 
@@ -273,17 +83,13 @@ $$
 $$
 
 
-> &#x2705;  \\(\mathbf{X}_0\\)是顶点\\(\mathbf{X}_1\\)附近邻域面积上的力。    
-\\(\mathbf{X}_0\\)上的力是邻域面边界\\(L\\)上的力的积分、不考虑边界内部的力，因为认为内力为0。   
-仅看其中一个三角形、假设曲线经过 \\(\mathbf{X}_0\mathbf{X}_1\\)和 \\(\mathbf{X}_0\mathbf{X}_2\\)的中点。因为三角形的力对三个顶点是平均的。    
-对于封闭曲线， \\(\int _n=0\\)，因此 \\(\sigma \int _n=0\\)    
-三维场景是对四面体的四个面积分。  
-每个三角形的 stress 都不同、同一个三角形内部 stress 是常数。  
-
 
 
 P16   
-### The Finite Volume Method   
+### 3D   
+
+> &#x2705;  三维场景是对四面体的四个面积分。  
+> &#x2705;  每个三角形的 stress 都不同、同一个三角形内部 stress 是常数。  
 
 
 In 3D, FVM works in the same way.    
@@ -307,14 +113,13 @@ $$
 > &#x2753;  遗留问题， stress 如何计算？  
 
 > &#x2705;\\(f_0\\)是\\(\sigma n\\)在绿色体截面上的积分。   
-类似于上一页合力为零的原理，  
-\\( \oint 截面＋\oint 表面=0\\)   
-“面积／3”是因为面上的贡献均匀地分布到三个点上。  
+> &#x2705;类似于上一页合力为零的原理，\\( \oint 截面＋\oint 表面=0\\)   
+> &#x2705;“面积／3”是因为面上的贡献均匀地分布到三个点上。  
 
 
 
 P17     
-## This stress is not that stress    
+## 计算FVM中的stress    
 
 Although the use of stress tensor is the same: **mapping from the interface normal to the traction**, it can be defined by different configurations.      
 
@@ -324,12 +129,7 @@ Although the use of stress tensor is the same: **mapping from the interface norm
 |  In FEM, we define the energy density \\(W\\) in the **reference** state.  Therefore, this stress \\(\mathbf{S}\\)  is a mapping from the normal \\(\mathbf{N}\\) to the traction \\(\mathbf{T}\\), both in the **reference** state.   | In FVM, we need \\(\mathbf{σ}\\) to convert the normal into \\(\mathbf{t}\\) for force calculation. Therefore, this stress assumes the normal \\(\mathbf{n}\\) and the traction \\(\mathbf{t}\\) are in the **deformed** state.    |  
 
 
-> &#x2705;  在 reference 状态下有 normal. traction 和 stress.  
-在形变状态下也有 normal traction 和 stress.    
-FEM 使用的是 reference 空间下的量。    
-
-> &#x2753; FEM是怎么用\\(\sigma \\)的？似乎只是定义了一下，没有使用。   
-
+> &#x2705;  在 reference 状态下有 normal. traction 和 stress.在形变状态下也有 normal traction 和 stress.FEM 使用的是 reference 空间下的量。    
 
 
 P18   
@@ -347,7 +147,7 @@ We can now have different stresses, serving the same purpose but in different fo
 
 
 P19  
-### Area Weighted Normals   
+### P与\\(\sigma \\)的关系：Area Weighted Normals   
 
 ![](./assets/07-16.png)  
 
@@ -384,7 +184,6 @@ $$
 
 
 P20   
-### Different Stresses    
 
 Now we know: \\(A\mathbf{n} =\mathrm{det} (\mathbf{F})\mathbf{F^{−T}} (A^{\mathrm{ref}}\mathbf{N} )\\).     
 
@@ -409,7 +208,7 @@ $$
 
 
 P21  
-### Different Stresses
+### 结论
 
 We can now have different stresses, serving the same purpose but in different forms.     
 
@@ -420,7 +219,7 @@ We can now have different stresses, serving the same purpose but in different fo
 
 
 P22 
-### The Finite Volume Method   
+## 根据stress算出力   
 
 The previous analysis suggests we can use reference normals instead.     
 
@@ -432,10 +231,10 @@ Second Piola–Kirchhoff stress:
 
 
 > &#x2705; 第一行公式：用 deformed position 计算 deformed position. 第二行公式：用 ref position 计算 deformed position, 因此直接把\\(\sigma \\)换成 \\(\mathbf{P} \\) 就可以。   
-好处：ref position 是常数，可以做预计算、并存储为\\(b_1\\).   
-F：deformation gradient.见P5     
-公式用三用不同定义的 stress 来算力、目的是得到计­算最友好的公式    
-此处内容涉及材料力学、    
+> &#x2705; 好处：ref position 是常数，可以做预计算、并存储为\\(b_1\\).   
+> &#x2705; F：deformation gradient.见P5     
+> &#x2705; 用三种不同定义的 stress 来算力、目的是得到计­算最友好的公式    
+> &#x2705; 此处内容涉及材料力学、    
 
 
 
