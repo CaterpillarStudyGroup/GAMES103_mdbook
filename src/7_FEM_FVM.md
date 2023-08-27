@@ -239,24 +239,21 @@ Second Piola–Kirchhoff stress:
 
 
 P23   
-### The Finite Volume Method   
+## 关于b1
 
 
 ![](./assets/07-19-01.png)  
 
 
 
-> &#x2753;  \\(\mathbf{X}_ {20}^\mathbf{T} b_1\\)的计算公式中、绿色的\\(\mathbf{X}_ {01}×\mathbf{X} _ {21}\\)怎么变成了\\(\mathbf{X}_ {20}\times \mathbf{X}_ {10}\\)？下面的\\(\mathbf{X}_ {30}^\mathbf{T} b_1\\),也一样。   
-
-> &#x2705;因为\\(\mathbf{X}_o，\mathbf{X}_1，\mathbf{X}_2\\)是同一个三角形上的顶点，任意两条边做cross都是一样的，处理好正负就好了。   
+> &#x2705; 问：  \\(\mathbf{X}_ {20}^\mathbf{T} b_1\\)的计算公式中、绿色的\\(\mathbf{X}_ {01}×\mathbf{X} _ {21}\\)怎么变成了\\(\mathbf{X}_ {20}\times \mathbf{X}_ {10}\\)？下面的\\(\mathbf{X}_ {30}^\mathbf{T} b_1\\),也一样。   
+> 答：因为\\(\mathbf{X}_o，\mathbf{X}_1，\mathbf{X}_2\\)是同一个三角形上的顶点，任意两条边做cross都是一样的，处理好正负就好了。   
 也可以用cross的乘法分配律得出相同的结论    
 
 
 
 P24   
-### Therefore,   
-
-We get:
+Therefore, We get:
 
 $$
 \begin{bmatrix}
@@ -312,21 +309,19 @@ P25
 
 ![](./assets/07-20.png)  
 
+> &#x2705;reference 状态下，\\(F＝I,G=0,P=0,f=0\\)   
 
 P26   
 ## After-Class Reading   
 
-重点推荐：   
+### 重点推荐：   
 Teran et al. 2003. *Finite Volume Methods for the
 Simulation of Skeleton Muscles*. SCA.     
 
 
 > &#x2705; 这篇论文重点推荐，但论文中的公式与 PPT 中的不完全一样. PPT 上的又进一步简化。    
 
-
-
-P27   
-## After-Class Reading (Optional)   
+### Optional   
 
 
 Volino et al. 2009. *A Simple Approach to Nonlinear Tensile
@@ -335,173 +330,3 @@ Stiffness for Accurate Cloth Simulation*. TOG.
 > &#x2705;2D有限元   
 
 
-P28   
-# Hyperelastic Models   
-
-
-> &#x2705; 前面的内容，都假设使用 StVK 材料、优点是简单；缺点是无法处理反转。因此在材料力学中不常用。  
-Hyperplasia 利用能量密度(W)、提供一个从 Strain (G) 到 Stress (S)的映射   
- 
-
-
-
-P29   
-## First Piola–Kirchhoff stress    
-
-We treat the first Piola–Kirchhoff stress tensor \\(\mathbf{P}\\) as a function of deformation gradient \\(\mathbf{F}\\):     
-
-$$
-\mathbf{f} _0= −\frac{\mathbf{P} (\mathbf{F} )}{6}(\mathbf{X} _{10}×\mathbf{X} _{20}+\mathbf{X} _{20}×\mathbf{X} _{30}+\mathbf{X} _{30}×\mathbf{X} _{10})
-$$
-
-It converts an interface normal \\(\mathbf{N}\\) in the reference state to a traction \\(\mathbf{t}\\) in the deformed state. 
-
-$$
-\mathbf{t}=\mathbf{P} (\mathbf{UDV^T} )\mathbf{N} 
-$$
-
-![](./assets/07-21.png)  
-
-
-> &#x2705;   没讲，
-
-
-
-P30  
-## Rotation-Invariance    
-
-The stress tensor \\(\mathbf{P}\\) is rotation-invariant to \\(\mathbf{U}\\):    
-
-![](./assets/07-22.png)  
-
-
-$$
-\mathbf{P} (\mathbf{UDV^T} )=\mathbf{UP} (\mathbf{DV^T} )
-$$
-
-
-> &#x2705;   没讲，
-
-
-P31  
-## Isotropic Materials     
-
-The stress tensor \\(\mathbf{P}\\) is rotation-invariant to \\(\mathbf{U}\\):    
-
-![](./assets/07-23.png)  
-
-$$
-\mathbf{P} (\mathbf{DV^T} )=\mathbf{P} \mathbf{(D)V^T} 
-$$
-
-
-P32   
-### Isotropic Materials    
-
-![](./assets/07-24.png)   
-
-In many literatures, people parameterize \\(\mathbf{P} (I_\mathbf{C},II_\mathbf{C},III_\mathbf{C} )\\) by principal invariants, for:    
-
-$$
-I_\mathbf{C} =\mathrm{trace} (\mathbf{C} )=λ_0^2+λ_1^2+λ_2^2
-$$
-
-$$
-III_\mathbf{C} =\mathrm{det} (\mathbf{C} ^2)=λ_0^4+λ_1^4+λ_2^4
-$$
-
-$$
-II_\mathbf{C} =\frac{1}{2} (\mathrm{trace} ^2(\mathbf{C} )−\mathrm{trace} (\mathbf{C} ^2))=λ_0^2λ_1^2+λ_0^2λ_2^2+λ_1^2λ_2^2
-$$
-
-\\(\mathbf{C=U^TU}\\) is the right Cauchy-Green deformation tensor.    
-
-> &#x2705; 符号解释：\\(\mathbf{P}\\)：First… Stress、 \\(\mathbf{F}\\)：Deformation Gradient、各向同性公式认为：\\(\mathbf{P}\\) 是关于 \\(\mathbf{F}\\) 的函数、对F做 \\(\mathbf{SVD}\\) 分解可得到 \\(\mathbf{UDV^T}\\)，其中\\(D\\)是对角矩阵、其对角元素描述了三个方向的拉伸的量、把公式中的旋转分量剔除掉、 \\(\mathbf{P}\\) 只与 Principal stretches 有关。    
-\\(Ic、 IIc. IIIc\\) 的定义是基于材料学、数学的先验知识     
-
-
-
-P33   
-### Isotropic Models    
-
-![](./assets/07-25.png)   
-
-
-> &#x2705; 材料力学中更常用 neo-Hookean    
-
-> &#x2705;Fung常用来模拟人体组织。  
-
-
-
-P34   
-### Isotropic Materials   
-
-
-Anyway, we still use the principal stretches for computation:   
-
-$$
-\mathbf{P} (λ_0,λ_1,λ_2)=\begin{bmatrix}
- \frac{∂W}{∂λ_0}  & \Box  &\Box  \\\\
- \Box  & \frac{∂W}{∂λ_1}  & \Box \\\\
- \Box  & \Box  &\frac{∂W}{∂λ_2} 
-\end{bmatrix}
-$$
-
-
-And we compute the first Piola-Kirchhoff stress as:   
-
-$$
-\mathbf{P} = \mathbf{UP} (λ_0,λ_1,λ_2)\mathbf{V} ^\mathbf{T} 
-$$
-
-
-P35   
-## A Quick Summary (cont.)   
-
-![](./assets/07-26.png)   
-
-
-
-
-P36    
-## The Limitation of StVK    
-
-![](./assets/07-27.png)   
-
-Irving et al. 2004. *Invertible Finite Elements For Robust Simulation of Large Deformation*. SCA    
-
-
-> &#x2705; 纵轴是力、横轴长度为弹簧长度、参考长度是1， 因此横轴为1时纵轴为0. 横轴 > 1 代表拉伸、拉伸越大代表力越大。但压缩时， \\(StVK\\) 表现出的力不对，且当弹簧（四面体）反转以后，力也会反转，这种表现也不对，因为最后会停在横轴-1的状态上。    
-
-
-
-P37  
-
-![](./assets/07-28.png)   
-
-
-> &#x2705; Poison Effect： 弹性体往上拉时两边会凹进去，本质原因是保体积。   
-
-P39   
-# A Summary For the Day    
-
-
- - FEM uses the **derivates** of the strain energy function to obtain the force.    
-
- - FVM uses the **integral** of the interface traction to obtain the force.    
-
- - The two approaches lead to the **identical outcome**, in **different formulations**   
-
- - Hyperelastic models define the strain energy function by principal stretches, i.e., the singular values of the deformation gradient.    
-
-- For isotropic materials, we can calculate the stress through diagonalization.   
-
-
-> &#x2705; Level：1. 了解，会用；2. 理解、举一反三；3. 跳出图形学；   
-图形学关注的不是数学模型，而是快。   
-
-
----------------------------------------
-> 本文出自CaterpillarStudyGroup，转载请注明出处。
->
-> https://caterpillarstudygroup.github.io/GAMES103_mdbook/
