@@ -25,7 +25,7 @@ To a triangle mesh, the basic test is <u>edge-triangle intersection</u> test.
 
 > \\(t\\) 代表相交位置对应 \\(\mathbf{x}_a\\) 和\\(\mathbf{x}_b\\)的插值量     
 
-> &#x2705;检测在特定状态下是否相交，每一帧都不相交就认为无碰撞。   
+> &#x2705; 检测在特定状态下是否相交，每一帧都不相交就认为无碰撞。   
 > &#x2705; 相交和碰撞的区别：相交分析的是运动前后的状态、碰撞检测的是运动的过程、未相交不一定无碰撞、
 
 P22   
@@ -64,7 +64,7 @@ To a triangle mesh, there two basic tests: <u>vertex-triangle</u> and <u>edge-ed
 P24   
 ## edge-edge tests.       
 
-> &#x2705;为什么要检测边边相交，因为有可能三角形相交但点面没有相交。   
+> &#x2705; 为什么要检测边边相交，因为有可能三角形相交但点面没有相交。   
 
 ![](./assets/09-18.png)   
 
