@@ -30,8 +30,7 @@ P4
 
 
 > &#x2705; 把场定义在标准格子上的好处：计算导数或利用导数进行微分计算变得容易了。
-
-> &#x2705;上节课grid用1D来表示2D，2D表示3D，不是真正的grid方法。   
+> &#x2705; 上节课grid用1D来表示2D，2D表示3D，不是真正的grid方法。   
 
 
 
@@ -82,7 +81,7 @@ $$
 |---| 
 
 
-> &#x2705;网格上的Laplace算子。   
+> &#x2705; 网格上的Laplace算子。   
 
 
 P9   
@@ -104,8 +103,8 @@ A Neumann boundary: \\(f_{i−1,j}=f_{i,j}\\)
 |----|
 
 
-> &#x2705;至少有一个边界使用Dirithlet．否则会全部收缩为0．   
-> &#x2705;Neumann是约束相对关系，没有绝对数值，会有无穷多解。   
+> &#x2705; 至少有一个边界使用Dirithlet．否则会全部收缩为0．   
+> &#x2705; Neumann是约束相对关系，没有绝对数值，会有无穷多解。   
 
 
 
@@ -114,7 +113,7 @@ P12
 
 The process of applying Laplacian smoothing is called **diffusion**.     
 
-> &#x2705;Laplace的本质是与邻居做平均。   
+> &#x2705; Laplace的本质是与邻居做平均。   
 
 
 P13  
@@ -245,9 +244,9 @@ To solve this problem, we come to realize that advection means to carry physical
 
 
 > &#x2705;  Advection,代表流动。即速度会跟着粒子移动，基于欧拉的方法才需要考虑这个问题。   
-> &#x2705;基于拉格朗日的方法，变量定义在粒子上，天然满足这个特点。    
-> &#x2705;\\(\mathbf{u}^{\mathrm{new} }=\frac{\partial u}{\partial t} ·Δt＋\mathbf{u}\\) 不稳定    
-> &#x2705;固定的格子无法描述水的流动。    
+> &#x2705; 基于拉格朗日的方法，变量定义在粒子上，天然满足这个特点。    
+> &#x2705; \\(\mathbf{u}^{\mathrm{new} }=\frac{\partial u}{\partial t} ·Δt＋\mathbf{u}\\) 不稳定    
+> &#x2705; 固定的格子无法描述水的流动。    
 
 
 
@@ -270,8 +269,9 @@ Note that if the velocities are staggered, we need to do staggered bilinear inte
 
 
 
-> &#x2705; 例如要求\\(\mathbf{x}_0\\)的速度，倒推哪个粒子会运动到\\(\mathbf{x}_0\\)处;因此找到\\> &#x2705; (\mathbf{x}_1\\)，从\\(\mathbf{x}_1\\)的下一刻速度来更新\\(\mathbf{x}_0\\)的速度。   
-> &#x2705;假设短时间内速度不变，根据当前速度猜测上一帧的位置。   
+> &#x2705; 例如要求\\(\mathbf{x}_0\\)的速度，倒推哪个粒子会运动到\\(\mathbf{x}_0\\)处;因此找到   
+> &#x2705; \\(\mathbf{x}_1\\)，从\\(\mathbf{x}_1\\)的下一刻速度来更新\\(\mathbf{x}_0\\)的速度。   
+> &#x2705; 假设短时间内速度不变，根据当前速度猜测上一帧的位置。   
 
 
 P23  
