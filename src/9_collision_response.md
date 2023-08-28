@@ -46,7 +46,7 @@ P29
 
 > &#x2705; 内点：为保证每一步安全，步长不能太大，因此慢、哪怕\\(\mathbf{\bar{x}}^{[1]}\\)最终没有到最佳位置，但能保证一定在安全区域，因此一定成功。\\(\mathbf{x}^{[0]}\\)和\\(\mathbf{x}^{[1]}\\)可能比较远，也导致慢。   
 > &#x2705; Impact Zone：\\(\mathbf{x}^{[1]}\\)通常离安全区域不太远，且优化时只针对 Impact Zone 优化，因此快。  
-> &#x2705;内点法慢的原因2没有解释。   
+> &#x2705; 内点法慢的原因2没有解释。   
 
 
 P30   
@@ -62,6 +62,7 @@ For simplicity, let’s consider the Log-barrier repulsion between two vertices.
 \mathbf{f} _i(\mathbf{x} )=−∇_iE=ρ\frac{\mathbf{x} _ {ij}}{||\mathbf{x} _ {ij}||^2} \\\\
 \mathbf{f} _j(\mathbf{x} )=−∇_jE=−ρ\frac{\mathbf{x} _ {ij}}{||\mathbf{x} _{ij}||^2}
 $$
+
 
 ![](./assets/09-23.png)   
 
