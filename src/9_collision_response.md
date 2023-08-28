@@ -1,7 +1,7 @@
 P27   
 # Interior Point Methods and Impact Zone Optimization    
 
-> &#x2705;发现碰撞的pairs后如何处理。   
+> &#x2705; 发现碰撞的pairs后如何处理。   
 
 
 P28   
@@ -95,7 +95,7 @@ The step size \\({\color{Red} α}\\) must be adjusted to ensure that no collisio
 
 
 > &#x2705; 绿色是来自\\(\mathbf{x}^{[1]}\\)的引力，黄色是来自边界的斥力、关键是步长\\(\alpha \\)， 每走一小步都需要反复的碰撞检测。   
-> &#x2705;优化目标：点的位置与目标位置（穿模）尽量接近，然后优化。   
+> &#x2705; 优化目标：点的位置与目标位置（穿模）尽量接近，然后优化。   
 
 
 
@@ -215,7 +215,7 @@ The rigid impact zone method simply freezes vertices in collision from **moving 
 
 ![](./assets/09-29.png)    
 
-> &#x2705;检测到碰撞，则把这个区域退回到上一帧。   
+> &#x2705; 检测到碰撞，则把这个区域退回到上一帧。   
 
 
 
