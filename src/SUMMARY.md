@@ -38,6 +38,8 @@
   - [Collision Detection - Broad Phase](9_collision_detect.md)
   - [Collision Detection - Narrow Phase](9_collision_detect_narrow.md)
   - [Collision Response](9_collision_response.md)
+  - [Untangling Cloth](9_collision_untangling.md)
+  - [Summary](./9_collision_summary.md)
 - [10-wave](wave.md)
 - [11-EulerianFluids](EulerianFluids.md)
 - [12-SPH](SPH.md)

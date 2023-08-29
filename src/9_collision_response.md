@@ -7,79 +7,55 @@ P27
 P28   
 ## Two Continuous Collision Response Approaches    
 
+> &#x2705; 这是两个大的套路，不是具体的方法。
+
 Given the calculated next state \\(\mathbf{x} ^{[1]}\\), we want to update it into \\(\bar{\mathbf{x} } ^{[1]}\\), such that the path from \\(\mathbf{x} ^{[0]}\\) to \\(\bar{\mathbf{x} } ^{[1]}\\) is intersection-free.    
 
 ![](./assets/09-20.png)   
 
 
      
-内点法：    
-：    
+内点法：     
 
 ||内点法|Impact Zone 法||
 |---|---|---|---|
 ||![](./assets/09-21.png)|![](./assets/09-22.png)|&#x2705; 蓝色区域为安全区域|
 ||&#x2705; 从\\(\mathbf{x}^{[0]}\\)出来，朝\\(\mathbf{x}^{[1]}\\)走，并永远保证只在安全区域走，直到不能走为止。|&#x2705; 从\\(\mathbf{x}^{[1]}\\)出发，反复优化结果（投影），直到回到安全区域为止。|
-||
-
-P29  
-### Pros and Cons    
-
-
- - Slow.    
-    - Far from solution.    
-    - All of the vertices.    
-    - Cautiously by small step sizes.    
- - Always succeed.   
-
-
-   
-
- - Fast. 
-    - Close to solution. 
-    - Only vertices in collision (impact zones). 
-    - Can take large step sizes. 
- - May not succeed.
-
-![](./assets/09-22.png)   
-
-
-> &#x2705; 内点：为保证每一步安全，步长不能太大，因此慢、哪怕\\(\mathbf{\bar{x}}^{[1]}\\)最终没有到最佳位置，但能保证一定在安全区域，因此一定成功。\\(\mathbf{x}^{[0]}\\)和\\(\mathbf{x}^{[1]}\\)可能比较远，也导致慢。   
-> &#x2705; Impact Zone：\\(\mathbf{x}^{[1]}\\)通常离安全区域不太远，且优化时只针对 Impact Zone 优化，因此快。  
-> &#x2705; 内点法慢的原因2没有解释。   
+|优点|Always succeed|Fast. <br> 1. Close to solution. <br> 2. Only vertices in collision (impact zones). <br> 3. Can take large step sizes. | &#x2705; Impact Zone：\\(\mathbf{x}^{[1]}\\)通常离安全区域不太远，且优化时只针对 Impact Zone 优化，因此快。
+|局限性|Slow.  <br> 1. Far from solution. <br> 2. All of the vertices.  <br> 3. Cautiously by small step sizes.| May not succeed.| &#x2705; 内点：为保证每一步安全，步长不能太大，因此慢、哪怕\\(\mathbf{\bar{x}}^{[1]}\\)最终没有到最佳位置，但能保证一定在安全区域，因此一定成功。\\(\mathbf{x}^{[0]}\\)和\\(\mathbf{x}^{[1]}\\)可能比较远，也导致慢。 <br> &#x2705; 内点法慢的原因2没有解释。   
 
 
 P30   
 ## Log-Barrier Interior Point Methods   
 
+### 算法过程
+
 For simplicity, let’s consider the Log-barrier repulsion between two vertices.     
 
-> $$E(\mathbf{x} )=−\rho \text{ log} ||\mathbf{x} _{ij}||$$    
+$$E(\mathbf{x} )=−\rho \text{ log} ||\mathbf{x} _{ij}||$$    
 
-
-
-> $$
+$$
 \mathbf{f} _i(\mathbf{x} )=−∇_iE=ρ\frac{\mathbf{x} _ {ij}}{||\mathbf{x} _ {ij}||^2} \\\\
 \mathbf{f} _j(\mathbf{x} )=−∇_jE=−ρ\frac{\mathbf{x} _ {ij}}{||\mathbf{x} _{ij}||^2}
 $$
 
+> &#x2705; 用 Log 定义能量、前面某一节课讲过。距离 → 能量 → 斥力    
 
 ![](./assets/09-23.png)   
 
-
-> &#x2705; 用 Log 定义能量、前面某一节课讲过，   
 > &#x2705; 不需要互斥力一直存在，因此做了一个截断（IPC）      
-> &#x2705; 距离 → 能量 → 斥力    
 
 
 P31   
-### Interior Point Methods – Implementation      
+### 算法实现      
 
 We can then formulate the problem as:   
 
 $$
 \bar{\mathbf{x} }^ {[1]}\longleftarrow \mathrm{argmin} _\mathbf{x} (\frac{1}{2} ||\mathbf{x} −\mathbf{x} ^{[1]}||^2−ρ\sum \mathrm{log} ||\mathbf{x} _{ij}||)
 $$
+
+> &#x2705; 优化目标：点的位置与目标位置（穿模）尽量接近，然后优化。   
 
 Gradient Descent:    
 
@@ -95,7 +71,6 @@ The step size \\({\color{Red} α}\\) must be adjusted to ensure that no collisio
 
 
 > &#x2705; 绿色是来自\\(\mathbf{x}^{[1]}\\)的引力，黄色是来自边界的斥力、关键是步长\\(\alpha \\)， 每走一小步都需要反复的碰撞检测。   
-> &#x2705; 优化目标：点的位置与目标位置（穿模）尽量接近，然后优化。   
 
 
 
@@ -124,7 +99,7 @@ $$
 
 
 P33   
-## Geometric Impulse   
+### Geometric Impulse   
 
 The goal of impact zone optimization is to optimize \\(\mathbf{x}^{[1]}\\) until it becomes intersection-free. (This potentially suffers from the tunneling issue, but it’s uncommon.)     
 
@@ -136,7 +111,7 @@ Every pair gives new positions to the involved vertices.  We can combine them to
 
 
 P34    
-## After-Class Reading (Cont.)   
+### After-Class Reading (Cont.)   
 
 
 Bridson et al. 2002. *Robust Treatment of Collisions, Contact
@@ -147,7 +122,7 @@ Relative simple explicit integration of cloth dynamics
 
 
 P35   
-## Augmented Lagrangian     
+### Augmented Lagrangian     
 
 $$
 \bar{\mathbf{x} }^{[1]}\longleftarrow \text{argmin} _\mathbf{x}  \frac{1}{2} ||{\mathbf{x} }-\mathbf{x}^{[1]}||^2
@@ -166,7 +141,7 @@ $$
 
 
 P36   
-## Augmented Lagrangian    
+### Augmented Lagrangian    
 
 
 We can then convert it into an unconstrained form:   
@@ -193,7 +168,7 @@ Tang et al. 2018. I-Cloth: *Incremental Collision Handling for GPU-Based Interac
 
 
 P37   
-## About Impact Zone Optimization   
+### About Impact Zone Optimization   
 
  - Fast per iteration    
     - Only have to deal with vertices in collision.    
@@ -220,7 +195,7 @@ The rigid impact zone method simply freezes vertices in collision from **moving 
 
 
 P39   
-## A Practical System   
+# A Practical System   
 
 ![](./assets/09-30.png)    
 
