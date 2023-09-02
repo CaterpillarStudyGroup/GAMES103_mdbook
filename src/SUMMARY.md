@@ -52,4 +52,7 @@
   - [Incompressible, Viscous  Navier-Stokes Equations](11_EulerianFluids_Incompressible.md)
   - [Air and Smoke](11_EulerianFluids_Air_Smoke.md)
   - [Summary](./11_EulerianFluids_Summary.md)
-- [12-SPH](SPH.md)
+- [12-SPH](12_SPH.md)
+  - [A SPH Model](12_SPH_SPH.md)
+  - [SPH-Based Fluids](12_SPH_Fluids.md)
+  - [Fluid Display](12_SPH_Display.md)
