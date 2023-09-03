@@ -78,11 +78,10 @@ $$
 P24  
 ## A unified descent framework     
 
+A unified descent framework
 
-| Descent Methods   <br>  Initialize \\(x^{(0)}\\)    <br>   \\(\mathbf{x} ^{(k+1)}\longleftarrow \mathbf{x} ^{(k)}−α^{(k)}(\mathbf{P} ^{(k)})^{−1}∇F(\mathbf{x} ^{(k)})\\)     <br>  \\(\mathbf{x} ^∗\longleftarrow \mathbf{x} ^{(k+1)}\\)  |   
-|----|  
+![](./assets/08-11-1.png)   
 
-[@] 以上内容截图
 
 ![](./assets/08-11.png)   
 

@@ -113,7 +113,7 @@ Therefore, \\(\mathbf{A=U^T}\frac{∂\mathbf{U} }{∂\mathbf{F} _{kl}}\\) is ske
 P9   
 ## SVD Derivative (cont.)    
 
-Since \\(\mathbf{F=UΛV^T}\\) is singular value decomposition \\(\mathbf{Λ} =\mathrm{diag} (λ_0,λ_1,λ_2))\\), we can do:     
+Since \\(\mathbf{F=UΛV^T}\\) is singular value decomposition \\(\mathbf{Λ} =\mathrm{diag} (λ_0,λ_1,λ_2)\\), we can do:     
 
 $$
 \mathbf{U^T} \frac{∂\mathbf{F} }{∂\mathbf{F} _{kl}}\mathbf{V} = \mathbf{AΛ} +\frac{∂\mathbf{Λ} }{∂\mathbf{F} _{kl}}+\mathbf{ΛB} 
@@ -338,7 +338,7 @@ $$
 \mathbf{x} ^{[1]}\longleftarrow \mathbf{x} ^{(k+1)}
 $$
 $$
-\mathbf{v} ^{[1]}←(\mathbf{x} ^{[1]}−\mathbf{x} ^{[0])})/ ∆t
+\mathbf{v} ^{[1]}←(\mathbf{x} ^{[1]}−\mathbf{x} ^{[0]})/ ∆t
 $$
 >
 

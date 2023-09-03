@@ -21,13 +21,8 @@ P25
 
 Extending the simulator to 3D is also straightforward.   
 
-> $$\text{A Shallow Wave Simulator}$$      
-For every cell \\(i, j\\)    
-$$ℎ_{i,j}^{new}←ℎ_{i,j}+β(ℎ_{i,j}−ℎ_{i,j}^{old})\\\\\text{If } ℎ_{i−1,j} \text{ exists, then  } ℎ_{i,j}^{new}←ℎ_{i,j}^{new}+α(ℎ_{i−1,j}−ℎ_{i,j})\\\\ \text{If } ℎ_{i+1,j} \text{ exists, then  } ℎ_{i,j}^{new}←ℎ_{i,j}^{new}+α(ℎ_{i+1,j}−ℎ_{i,j})\\\\  \text{If } ℎ_{i,j−1} \text{ exists, then  } ℎ_{i,j}^{new} ←ℎ_{i,j}^{new}+α(ℎ_{i,j−1}−ℎ_{i,j})\\\\ \text{If } ℎ_{i,j+1} \text{ exists, then  } ℎ_{i,j}^{new}←ℎ_{i,j}^{new}+α(ℎ_{i,j+1}−ℎ_{i,j})$$
-For every cell \\(i, j\\)    
-$$ℎ_{i,j}^{old}←ℎ_{i,j}\\\\ℎ_{i,j}←ℎ_{i,j}^{new}$$
 
-[@]P25内容换成截图
+![](./assets/10-19-3.png) 
 
 
 
@@ -45,13 +40,8 @@ $$
 
 P24   
 
-> $$\text{A Shallow Wave Simulator}$$    
-For every cell \\(i\\)   
-$$ℎ_i^{new}←ℎ_i+β(ℎ_i−ℎ_i^{old})\\\\\text{If } ℎ_{i−1}\text{ exists, then  }ℎ_i^{new}←ℎ_i^{new}+α(ℎ_{i−1}−ℎ_i)\\\\ \text{If } ℎ_{i+1} \text{ exists,  then } ℎ_i^{new}←ℎ_i^{new}+α(ℎ_{i+1}−ℎ_i)$$
-For every cell \\(i\\)    
-$$ℎ_i^{old}←ℎ_i\\\\ℎ_i←ℎ_i^{new}  $$
 
-[@]P24内容换成截图
+![](./assets/10-19-4.png) 
 
 
 ---------------------------------------
