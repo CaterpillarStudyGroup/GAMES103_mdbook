@@ -43,8 +43,8 @@ Instead of blending projections in a Jacobi or Gauss-Seidel fashion as in PBD, <
 ![](./assets/06-12.png)    
 
 
-> &#x2705; 同一个顶点在三个不同边上的投影是不同的。 
-> &#x2705; **可以直接根据Mesh的拓扑关系构造H矩阵。**  
+> &#x2705; 同一个顶点在三个不同边上的投影是不同的。   
+> &#x2705; **可以直接根据Mesh的拓扑关系构造H矩阵。**     
 > &#x2705; 为什么能简化\\(\mathbf{H}\\)的计算？答：在计算某一个端点时，假设另一个端点不动（常量），那么能量就是只关于这个端点的二次函数     
 
 
