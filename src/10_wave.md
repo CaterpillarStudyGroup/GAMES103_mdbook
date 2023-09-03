@@ -15,3 +15,9 @@ P3
 |---|----|
 | Lagrangian Approach <br>(dynamic particles or mesh)<br> Node movement carries physical quantities (mass, velocity, …). |  Eulerian Approach <br> (static grid or mesh) <br> Grid/Mesh doesn’t move.  Stored physical quantities change.  |
 | &#x2705; 左：无 Grid. 物理量附加在粒子上，粒子运动时更新自身物理量。 | &#x2705; 右：固定 Grid. 物理量固定在 Grid 上。粒子运动后统一新格子的物理量。   |
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

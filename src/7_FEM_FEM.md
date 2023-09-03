@@ -191,3 +191,7 @@ Only talks about cloth (2D reference -> 3D deformation)
     - Forces \\(\mathbf{F}_i \in \mathbf{R} ^3\\)    
 
 
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

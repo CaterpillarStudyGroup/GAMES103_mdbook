@@ -206,4 +206,7 @@ We can now discretize the shallow wave equation \\(\frac{d^2ℎ}{dt^2}=\frac{ℎ
 > &#x2705; 更新目标：下一个时刻的水柱的高度，即 \\(h_i(t_0 + ∆t)\\)    
 > &#x2705; 但按此公式模拟可能出现水的体积变多或变少的问题。   
 
-
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

@@ -203,3 +203,9 @@ P30
 Jos Stam. 1999. *Stable Fluids. TOG (SIGGRAPH)*.   
 
 > &#x2705; 这篇论文主要讨论了step2，但也包含了全部过程
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

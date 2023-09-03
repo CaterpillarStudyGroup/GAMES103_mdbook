@@ -104,3 +104,7 @@ $$
 > &#x2705; 同时要考虑旋转和力矩。但目前旋转的效果不太好，可以考虑改进为隐式积分。      
 > &#x2705; 流体对方块的效果。   
 
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

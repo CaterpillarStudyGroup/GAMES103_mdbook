@@ -46,3 +46,7 @@ Level Set Methods and Dynamic Implicit Surfaces.
 
 > &#x2705; 介绍流体模拟的很好的书。   
 
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

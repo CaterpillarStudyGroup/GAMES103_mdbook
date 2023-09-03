@@ -161,3 +161,7 @@ P19
 > &#x2705;两个阶段有不同的算法，针对两个阶段的不同特点，可以分别解决两个阶段的问题。    
 
 
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

@@ -152,3 +152,8 @@ P37
 
 > &#x2705; Poison Effect： 弹性体往上拉时两边会凹进去，本质原因是保体积。   
 
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

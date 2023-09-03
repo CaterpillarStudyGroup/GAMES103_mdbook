@@ -101,3 +101,9 @@ P26
 Bridson et al. 2002. *Robust Treatment of Collisions, Contact and Friction for Cloth Animation. TOG (SIGGRAPH)*.    
 
 Relative simple explicit integration of cloth dynamics    
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

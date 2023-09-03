@@ -330,3 +330,7 @@ Stiffness for Accurate Cloth Simulation*. TOG.
 > &#x2705;2D有限元   
 
 
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

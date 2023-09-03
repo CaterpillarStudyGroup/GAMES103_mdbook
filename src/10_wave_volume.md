@@ -80,3 +80,9 @@ $$ℎ_i^{new}←ℎ_i+β(ℎ_i−ℎ_i^{old})\\\\
 For every cell \\(i\\)
 $$ℎ_i^{old}←ℎ_i\\\\    
 ℎ_i←ℎ_i^{new}$$
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/
