@@ -234,7 +234,7 @@ $$
 - Finally, a s.p.d.matrix must be invertible:   
 $$
  \mathbf{A^{-1} =(U^T)^{-1}D^{-1}U^{-1} = UD^{-1}U^T}.
-$$.
+$$
 
 P35
 ### 例子
