@@ -41,17 +41,16 @@ P17
 
 
 > &#x2705; 由于实时比较难，可以把不需要交互的动画，例如过场动画做成离线    
-同理，不需要交互的场景。 
+> &#x2705; 同理，不需要交互的场景。 
 
 
 
 P18
 ## Movie  
 
-> &#x2705; 
-Geometry: 离线：构造离线的3D也界      
-动画：渲染，实时，需要与3D世界或玩家互动    
-电影：离线，不需要交互，提前录下来，例如游戏中的过场动画     
+> &#x2705; Geometry: 离线：构造离线的3D也界      
+> &#x2705; 动画：渲染，实时，需要与3D世界或玩家互动    
+> &#x2705; 电影：离线，不需要交互，提前录下来，例如游戏中的过场动画     
 
 ![](./assets/01-2.png) 
 
@@ -78,8 +77,8 @@ P19
     - Volume mesh    
 
 >  &#x2705; 关于Mesh部分可以参考[GAMES101](https://caterpillarstudygroup.github.io/GAMES101_mdbook/Geometry/Mesh.html)  
-> [?] 什么是 flows?   
-Volume Mesh 的处理比普通 Mesh 要难很多    
+> &#x2753; 什么是 flows?   
+> &#x2705; Volume Mesh 的处理比普通 Mesh 要难很多    
 
 
 P20
@@ -132,7 +131,7 @@ P23
 ![](./assets/01-7.png)   
 
 > &#x2705; Non-Photorealistic：非真实感渲染，Photorealistic：真实感渲染   
-后者更主流，又分为基于光线追踪和基于传统渲染管线。见 Games 101   
+> &#x2705; 后者更主流，又分为基于光线追踪和基于传统渲染管线。见 Games 101   
 
 P27
 # Animation
@@ -171,8 +170,8 @@ P39
 ![](./assets/01-13.png)    
 
 > &#x2705; Cloth and Hair：细的窄的一类物体   
-Soft Bodys：包括软体，弹性体   
-Fluids：流体，包括液体和气体   
+> &#x2705; Soft Bodys：包括软体，弹性体   
+> &#x2705; Fluids：流体，包括液体和气体   
 
 P56
 
