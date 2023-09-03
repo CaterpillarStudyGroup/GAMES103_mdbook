@@ -1,0 +1,528 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Mass Spring System - GAMES103</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The note of GAMES103">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/pagetoc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><div>GAMES103</div></li><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="1_intro.html"><strong aria-hidden="true">2.</strong> 01-intro</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 02-math</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="2_math_vector.html"><strong aria-hidden="true">3.1.</strong> Vector</a></li><li class="chapter-item expanded "><a href="2_math_matrix.html"><strong aria-hidden="true">3.2.</strong> Matrix</a></li><li class="chapter-item expanded "><a href="2_math_calculus.html"><strong aria-hidden="true">3.3.</strong> Tensor Calculus</a></li></ol></li><li class="chapter-item expanded "><a href="3_rigid.html"><strong aria-hidden="true">4.</strong> 03-Rigid body dynamics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="3_rigid_Translational_Motion.html"><strong aria-hidden="true">4.1.</strong> 平移运动</a></li><li class="chapter-item expanded "><a href="3_rigid_Rotational_Motion.html"><strong aria-hidden="true">4.2.</strong> 旋转运动</a></li><li class="chapter-item expanded "><a href="3_rigid_supplementary.html"><strong aria-hidden="true">4.3.</strong> 补充</a></li></ol></li><li class="chapter-item expanded "><a href="4_rigidcontact.html"><strong aria-hidden="true">5.</strong> 04-rigidcontact</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="4_rigidcontact_Particle.html"><strong aria-hidden="true">5.1.</strong> Particle Collision Detection and Response</a></li><li class="chapter-item expanded "><a href="4_rigidcontact_Rigid.html"><strong aria-hidden="true">5.2.</strong> Rigid Body Collision Detection and Response</a></li><li class="chapter-item expanded "><a href="4_rigidcontact_supplementary.html"><strong aria-hidden="true">5.3.</strong> 补充</a></li></ol></li><li class="chapter-item expanded "><a href="5_cloth.html"><strong aria-hidden="true">6.</strong> 05-cloth</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="5_cloth_spring.html" class="active"><strong aria-hidden="true">6.1.</strong> Mass Spring System</a></li><li class="chapter-item expanded "><a href="5_cloth_bending_blcoking.html"><strong aria-hidden="true">6.2.</strong> Bending and Locking Issues</a></li><li class="chapter-item expanded "><a href="5_cloth_shape_matching.html"><strong aria-hidden="true">6.3.</strong> Shape Matching</a></li></ol></li><li class="chapter-item expanded "><a href="6_constraints.html"><strong aria-hidden="true">7.</strong> 06-constraints</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="6_constraints_Projection.html"><strong aria-hidden="true">7.1.</strong> 投影函数 Projection Function</a></li><li class="chapter-item expanded "><a href="6_constraints_PBD.html"><strong aria-hidden="true">7.2.</strong> PBD</a></li><li class="chapter-item expanded "><a href="6_constraints_strain.html"><strong aria-hidden="true">7.3.</strong> Strain Limiting</a></li><li class="chapter-item expanded "><a href="6_constraints_Projective_Dynamics.html"><strong aria-hidden="true">7.4.</strong> Projective Dynamics</a></li><li class="chapter-item expanded "><a href="6_constraints_Contrained_Dynamics.html"><strong aria-hidden="true">7.5.</strong> Contrained Dynamics</a></li><li class="chapter-item expanded "><a href="6_constraints_summary.html"><strong aria-hidden="true">7.6.</strong> 总结</a></li></ol></li><li class="chapter-item expanded "><a href="7_FEM.html"><strong aria-hidden="true">8.</strong> 07-FEM</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="7_FEM_FEM.html"><strong aria-hidden="true">8.1.</strong> Linear Finite Element Method</a></li><li class="chapter-item expanded "><a href="7_FEM_FVM.html"><strong aria-hidden="true">8.2.</strong> Finite Volume Method</a></li><li class="chapter-item expanded "><a href="7_FEM_Hyperelastic.html"><strong aria-hidden="true">8.3.</strong> Hyperelastic Models</a></li><li class="chapter-item expanded "><a href="7_FEM_summary.html"><strong aria-hidden="true">8.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="8_FEM2.html"><strong aria-hidden="true">9.</strong> 08-FEM2</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="8_FEM2_Nonlinear_optimization.html"><strong aria-hidden="true">9.1.</strong> Nonlinear optimization</a></li></ol></li><li class="chapter-item expanded "><a href="9_collision.html"><strong aria-hidden="true">10.</strong> 09-collision</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="9_collision_detect.html"><strong aria-hidden="true">10.1.</strong> Collision Detection - Broad Phase</a></li><li class="chapter-item expanded "><a href="9_collision_detect_narrow.html"><strong aria-hidden="true">10.2.</strong> Collision Detection - Narrow Phase</a></li><li class="chapter-item expanded "><a href="9_collision_response.html"><strong aria-hidden="true">10.3.</strong> Collision Response</a></li><li class="chapter-item expanded "><a href="9_collision_untangling.html"><strong aria-hidden="true">10.4.</strong> Untangling Cloth</a></li><li class="chapter-item expanded "><a href="9_collision_summary.html"><strong aria-hidden="true">10.5.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="10_wave.html"><strong aria-hidden="true">11.</strong> 10-wave</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="10_wave_height_feild.html"><strong aria-hidden="true">11.1.</strong> A Height Field Model</a></li><li class="chapter-item expanded "><a href="10_wave_volume.html"><strong aria-hidden="true">11.2.</strong> Volume Preservation</a></li><li class="chapter-item expanded "><a href="10_wave_boundary.html"><strong aria-hidden="true">11.3.</strong> Boundary Conditions</a></li><li class="chapter-item expanded "><a href="10_wave_coupling.html"><strong aria-hidden="true">11.4.</strong> Two-Way Coupling</a></li><li class="chapter-item expanded "><a href="10_wave_summary.html"><strong aria-hidden="true">11.5.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="11_EulerianFluids.html"><strong aria-hidden="true">12.</strong> 11-EulerianFluids</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="11_EulerianFluids_Grid.html"><strong aria-hidden="true">12.1.</strong> A Grid Representation and Finite Differencing</a></li><li class="chapter-item expanded "><a href="11_EulerianFluids_Staggered.html"><strong aria-hidden="true">12.2.</strong> Staggered Grid</a></li><li class="chapter-item expanded "><a href="11_EulerianFluids_Incompressible.html"><strong aria-hidden="true">12.3.</strong> Incompressible, Viscous  Navier-Stokes Equations</a></li><li class="chapter-item expanded "><a href="11_EulerianFluids_Air_Smoke.html"><strong aria-hidden="true">12.4.</strong> Air and Smoke</a></li><li class="chapter-item expanded "><a href="11_EulerianFluids_Summary.html"><strong aria-hidden="true">12.5.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="12_SPH.html"><strong aria-hidden="true">13.</strong> 12-SPH</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="12_SPH_SPH.html"><strong aria-hidden="true">13.1.</strong> A SPH Model</a></li><li class="chapter-item expanded "><a href="12_SPH_Fluids.html"><strong aria-hidden="true">13.2.</strong> SPH-Based Fluids</a></li><li class="chapter-item expanded "><a href="12_SPH_Display.html"><strong aria-hidden="true">13.3.</strong> Fluid Display</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">GAMES103</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/CaterpillarStudyGroup/GAMES103_mdbook" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <p>P4</p>
+<h1 id="弹簧结构"><a class="header" href="#弹簧结构">弹簧结构</a></h1>
+<h2 id="an-ideal-spring"><a class="header" href="#an-ideal-spring">An Ideal Spring</a></h2>
+<p>An ideal spring satisfies Hooke’s law: the spring force tries to restore the rest length.</p>
+<p><img src="./assets/05-1.png" alt="" /> </p>
+<p><img src="./assets/05-2.png" alt="" /></p>
+<p>\(E(\mathbf{x})=\frac{1}{2}k (||\mathbf{x}_i −\mathbf{x}_j||−\mathbf{L} )^2\)</p>
+<p>\(\mathbf{f} _i(\mathbf{x} )=−∇_i\mathbf{E} =−k(||\mathbf{x}_i −\mathbf{x}_j||−L)\frac{\mathbf{x}_i −\mathbf{x}_j}{||\mathbf{x}_i −\mathbf{x}_j ||}\)</p>
+<p>\(\mathbf{f} _j(\mathbf{x})=−∇_jE=−k (||\mathbf{x}_j −\mathbf{x}_i ||−L)\frac {\mathbf{x}_j −\mathbf{x}_i}{||\mathbf{x}_j −\mathbf{x}_i||}\)</p>
+<p>P5</p>
+<h2 id="multiple-springs"><a class="header" href="#multiple-springs">Multiple Springs</a></h2>
+<p>When there are many springs, the energies and the forces can be simply summed up.</p>
+<p><img src="./assets/05-3.png" alt="" /></p>
+<p>$$
+E= {\textstyle \sum_{e=0}^{3}}E_e= {\textstyle \sum_{e=0}^{3}} (\frac{1}{2} k(||\mathbf{x} _i −\mathbf{x}_e ||−L_e)^2)
+$$</p>
+<p>$$
+f_i=−\nabla_iE = \textstyle \sum_{e=0}^{3}(−k(||\mathbf{x}_i−\mathbf{x}_e||−L_e)\frac{\mathbf{x}_i−\mathbf{x}_e}{||\mathbf{x}_i−\mathbf{x}_e||})
+$$</p>
+<blockquote>
+<p>✅ 能量和力都是可以叠加的</p>
+</blockquote>
+<p>P6</p>
+<h2 id="structured-spring-networks"><a class="header" href="#structured-spring-networks">Structured Spring Networks</a></h2>
+<p><img src="./assets/05-4.png" alt="" /></p>
+<blockquote>
+<p>✅ 绿线：防止斜方向的拉伸。蓝线：防止翻折。</p>
+</blockquote>
+<p>P7</p>
+<h2 id="unstructured-spring-networks"><a class="header" href="#unstructured-spring-networks">Unstructured Spring Networks</a></h2>
+<p>We can also turn an unstructured triangle mesh into a spring network for simulation.</p>
+<p><img src="./assets/05-5.png" alt="" /></p>
+<blockquote>
+<p>✅ 蓝线：抵抗弯曲。对每条内部边，加这样一根弹簧。</p>
+</blockquote>
+<p>P8</p>
+<h3 id="怎样基于三角形mesh增加蓝线弹簧"><a class="header" href="#怎样基于三角形mesh增加蓝线弹簧">怎样基于三角形Mesh增加蓝线弹簧</a></h3>
+<p>The basic representation of a triangle mesh uses vertex and triangle lists. </p>
+<p><img src="./assets/05-6.png" alt="" /></p>
+<blockquote>
+<p>✅ 已知边的信息，需找出内部边，例如\(\mathbf{x}_0\mathbf{x}_3\)，因此要基于此构造边：\(\mathbf{x}_1x 4\)<br />
+✅ Each triangle has three edges. But there are repeated ones. Repeated edges就是内部边。<br />
+✅ 1. 找出内部边。2. 找出内部边所属于的两个三角形。3.  找出两个三角形上不在这条内部边上的点。4. 连续一根弹簧。</p>
+</blockquote>
+<p>Vertex list: {\(\mathbf{x} _0, \mathbf{x}_1, \mathbf{x}_2, \mathbf{x}_3, \mathbf{x}_4\)}    (3D vectors)</p>
+<p>Triangle list: {1, 2, 3, 0, 1, 3, 0, 3, 4}    (index triples)</p>
+<p>The key to topological construction is to sort triangle edge triples.</p>
+<p>Each triple contains: edge vertex index 0, edge vertex index 1 and triangle index (index 0&lt;index). </p>
+<p><img src="./assets/05-8.png" alt="" /></p>
+<blockquote>
+<p>✅ 排序：基于边排序，排序后相同边会靠在一起</p>
+</blockquote>
+<p>P11</p>
+<h1 id="积分系统"><a class="header" href="#积分系统">积分系统</a></h1>
+<h2 id="explicit-integration-of-a-mass-spring-system"><a class="header" href="#explicit-integration-of-a-mass-spring-system">Explicit Integration of A Mass-Spring System</a></h2>
+<p><img src="./assets/05-9.png" alt="" /></p>
+<blockquote>
+<p>✅ 整体流程跟刚体运动很像，只是力变得复杂，每个弹簧端点上受到的力都要考虑，但没有了旋转。<br />
+✅ \( E [e] [0] ：e\)代表弹簧 ID:0或1代表弹簧两个端点<br />
+❗ 图画得不对，先提前把所有的力都算出来，再遍历所有顶点</p>
+</blockquote>
+<p>P12</p>
+<p>Explicit integration suffers from <strong>numerical instability</strong> caused by <u>overshooting</U>, when the stiffness \(k\) and/or the time step \(∆t\) is too large.</p>
+<blockquote>
+<p>✅ Explicit：当前力 → 当前速度 → 当前位置<br />
+根据公式\(FΔt≈mv，vΔt≈Δx\)，如果\(Δt\)太大，会导致\(Δx\)太大，而导致overshooting。</p>
+</blockquote>
+<p><img src="./assets/05-10.png" alt="" /></p>
+<p>A naive solution is to use a small \(∆t\) . But that slows down the simulation.</p>
+<blockquote>
+<p>✅ 解决方法：减小\(\Delta t\)。但这个方法不解决本质问题，且会降低整个模拟系统的效率<br />
+✅ 本质上是\(Δt\)太大导致积分近似的结果与实际积分的结果有很大误差，\(k\)太大或\(Δt\)只是让这个问题更明显，减小\(k\)或\(Δt\)问题仍然存在。</p>
+</blockquote>
+<p>P13</p>
+<h2 id="implicit-integration"><a class="header" href="#implicit-integration">Implicit Integration</a></h2>
+<p>Implicit integration is a better solution to numerical instability.  The idea is to integrate both <strong>x</strong> and <strong>v</strong> implicitly.</p>
+<blockquote>
+<p>✅Explicit和Implicit都是用某个时刻的力代表整个\(Δt\)时间的力，就都会出现上述误差。<br />
+区别在于，Explicit用当前力，往往使结果变大，产生爆炸，Implicit用未来力，往往使结果变小，产生消失。<br />
+✅ 消失只是结果不对。但爆炸会让结果崩溃，这对是最不可接受的问题。因此用隐式代替显式。</p>
+</blockquote>
+<p><img src="./assets/05-11.png" alt="" /></p>
+<p>消元得：<br />
+<img src="./assets/05-12.png" alt="" /></p>
+<blockquote>
+<p>✅ 下面公式1通过把上面公式1代入公式2得到。下面公式2通过把上面公式写反推得到。</p>
+</blockquote>
+<p>Assuming that \(\mathbf{f}\) is <em>holonomic</em>, i.e., depending on \(\mathbf{x}\) only, our question is how to solve:<br />
+$$
+\mathbf{x} ^{[1]}=\mathbf{x}^{[0]}+∆t\mathbf{v} ^{[0]}+∆t^2\mathbf{M} ^{−1}\mathbf{f} (\mathbf{x}^{[1]})
+$$</p>
+<blockquote>
+<p>✅ holonomic：力的大小和方向只跟位置有关，跟速度无关。例如重力，弹力。那么 \(f\)可以写成关于位置的函数\(f(x)\)。<br />
+✅ 但\(f(x)\)不一定是线性的。因此最后转化为解非线性方程的问题。未知量为\({x} ^{[1]}\)</p>
+</blockquote>
+<p>P14</p>
+<p>\(\mathbf{x} ^{[1]} =\) argmin \(F(\mathbf{x})\quad\)  for   \(\quad F(\mathbf{x}) = \frac{1}{2∆t^2}||\mathbf{x} −\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]}||_M^2+E(\mathbf{x} )\)</p>
+<blockquote>
+<p>✅ 前面方程解\({x} ^{[1]}\)等价于F(x)函数极小点。等价转换的推导在<strong>补充1</strong>。非线性方程问题为转化为优化问题。<br />
+其中：\(\mathbf{M}\)对角矩阵，描述质量，\(3N \times 3N\)。\(\mathbf{x}\)为 \(3N\times 1\)矢量,描述顶点信息。\(E\) 为所有的力的能量。\(\mathbf{||x||_M^2=x^TMx} \)。<br />
+✅ 只有保守力能用能量描述、非保守力（例如摩擦力）则不行。</p>
+</blockquote>
+<p>P15</p>
+<h1 id="优化方法"><a class="header" href="#优化方法">优化方法</a></h1>
+<p>P18</p>
+<h3 id="simulation-by-newtons-method"><a class="header" href="#simulation-by-newtons-method">Simulation by Newton’s Method</a></h3>
+<blockquote>
+<p>🔎 Newton-Raphson Method见补充2. 这里直接开始Newton方向本当前场景的应用。</p>
+</blockquote>
+<p>Specifically to simulation, we have:</p>
+<p>$$
+F (\mathbf{x} )=\frac{1}{2∆t^2}||\mathbf{x} −\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]}||_\mathbf{M} ^2+\mathbf{E} (\mathbf{x} )
+$$</p>
+<p>$$
+∇F(\mathbf{x}^{(k)})=\frac{1}{∆t^2}\mathbf{M} (\mathbf{x} ^{(k)}−\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]})−\mathbf{f}(\mathbf{x}^{(k)})
+$$</p>
+<p>$$
+\frac{∂^2F (\mathbf{x} ^{(k)})}{∂\mathbf{x} ^2} =\frac{1}{∆t^2} \mathbf{M} +\mathbf{H} (x^{(k)})
+$$</p>
+<p><img src="./assets/05-28.png" alt="" /></p>
+<blockquote>
+<p>❓ 每一个 step 都包含一次迭代优化、能做到实时？<br />
+✅ 本节课所讲的套路：分析力 → 隐式积分 → 优化问题 → 更新，对弹簧系统、有限元、弹性体等各种物理模拟同样适用<br />
+✅ 早期的方式不是用优化来做的，而是近似成线性问题后直接解方程组。这种方法相当于每一个Step做了一次牛顿法。</p>
+</blockquote>
+<p>P19</p>
+<h2 id="solve-spring-hessian"><a class="header" href="#solve-spring-hessian">Solve Spring Hessian</a></h2>
+<p>According to Lecture 2, Page 48,</p>
+<blockquote>
+<p>✅ 弹簧系统的H是由所有弹簧的H构成的。</p>
+</blockquote>
+<p><img src="./assets/05-17.png" alt="" /></p>
+<blockquote>
+<p>✅ \(H(x)\)的维度是\(3N \times 3N\)，N 是弹簧数。每个\(H_e\)的维度是\(3 \times 3\)。<br />
+✅ 课后答疑：质点的质量可以不同吗？<br />
+答：可以不同。先根据三角形的面积计算三角的质量，再把质量分配到各个顶点上。</p>
+</blockquote>
+<h2 id="positive-definiteness-of-hessian"><a class="header" href="#positive-definiteness-of-hessian">Positive Definiteness of Hessian</a></h2>
+<blockquote>
+<p>✅ \(H(x)\)的正定性由\(H_e\)的正定性决定。</p>
+</blockquote>
+<p>下面分析\(H_e\)的正定性：<br />
+For any \(\mathbf{x} _{ij}, \mathbf{v} ≠0\),</p>
+<p>$$
+\mathbf{V}^\mathbf{T}\frac{{\mathbf{x} _{ij}\mathbf{x} _{ij}}^\mathbf{T} }{||\mathbf{x} _{ij}||^2}\mathbf{V}=||\frac{{\mathbf{x} _{ij}}^\mathbf{T} \mathbf{v} }{||\mathbf{x} _{ij}||}||^2&gt; 0
+$$</p>
+<p>$$
+\mathbf{V} ^\mathbf{T} (\mathbf{I} -\frac{{\mathbf{x} _{ij}\mathbf{x} _{ij}}^\mathbf{T} }{||\mathbf{x} _{ij}||^2}) \mathbf{V} =\frac{||\mathbf{x} _{ij}||^2||\mathbf{v} ||^2-||{\mathbf{x} _{ij}}^\mathbf{T} \mathbf{v} ||^2}{||\mathbf{x} _{ij}||^2}\ge 0 
+$$</p>
+<blockquote>
+<p>✅  \( \mathbf{x}_ {ij}\) 代表顶点\( \mathbf{x}_ {i}\)和顶点\( \mathbf{x}_ {j}\)的位置的差。<br />
+✅ 最后一个公式分子满足柯西不等式<br />
+✅ 结论：\(||x_{ij}||&lt; Le\). 代表弹簧处于压缩状态。此时 He 有可能非正定，但拉伸时一定正定。<br />
+He 正定则\(H(x)\)半正定，此时弹簧系统有唯一解。</p>
+</blockquote>
+<p>P20<br />
+When a spring is stretched, \(\mathbf{H} _e\) is s.p.d.; but when it’s compressed, \(\mathbf{H} _e\) may not be s.p.d.</p>
+<p>As a result, \(\mathbf{H}(\mathbf{x})\) may not be s.p.d. (Lecture 2, Page 36).</p>
+<p>\(\mathbf{A}\) may not be s.p.d. either.</p>
+<p><img src="./assets/05-18.png" alt="" /></p>
+<blockquote>
+<p>✅ \(\Delta t\)越小，A越容易正定、弹簧系统越稳定。<br />
+✅为什么要讨论\(H\)矩阵是否正定？答：\(H\)矩阵相当于二阶导，正定代表开口向上，有唯一最小值。<br />
+✅ 但是A不正定，不代表没有唯一解。</p>
+</blockquote>
+<p>P22 </p>
+<p>When a spring is compressed, the spring Hessian may not be positive definite. This means there can be multiple local minima (outcomes).</p>
+<p><img src="./assets/05-19.png" alt="" /></p>
+<table><thead><tr><th>Note: This issue occurs only in 2D and 3D. In 1D, \(E(x)=\frac{1}{2} k(x−L)^2\) and \({E}''(x)=k&gt;0\).</th></tr></thead><tbody>
+</tbody></table>
+<p>P23</p>
+<h2 id="enforcement-of-positive-definiteness"><a class="header" href="#enforcement-of-positive-definiteness">Enforcement of Positive Definiteness</a></h2>
+<ul>
+<li>Nevertheless, some linear solvers can fail to work if the matrix \(\mathbf{A}\) in \(\mathbf{A}\Delta \mathbf{x}=\mathbf{b}\) is not positive definite.</li>
+</ul>
+<blockquote>
+<p>✅ 不正定最大的问题不是解不唯一，因为解出任意一个解都能让模拟系统进行下去。<br />
+非正定的主要问题，是数学计算上的不稳定，可能导致解不出来； </p>
+</blockquote>
+<ul>
+<li>One solution is to simply drop the ending term, when \({\color{Orange}{ ||\mathbf{x} _{ij}||&lt;\mathbf{L} _e}}:\)</li>
+</ul>
+<p><img src="./assets/05-20.png" alt="" /></p>
+<blockquote>
+<p>✅ 简单粗爆的解决方法就是把后面这项删掉。</p>
+</blockquote>
+<ul>
+<li>Other solutions exist. For example,</li>
+</ul>
+<blockquote>
+<p>🔎 Choi and Ko. 2002. Stable But Responive Cloth. TOG (SIGGRAPH)</p>
+</blockquote>
+<p>P24</p>
+<h2 id="linear-solvers"><a class="header" href="#linear-solvers">Linear Solvers</a></h2>
+<h3 id="the-jacobi-method"><a class="header" href="#the-jacobi-method">The Jacobi Method</a></h3>
+<p>We can use the Jacobi method to solve \(\mathbf{A}∆\mathbf{x}  = \mathbf{b} \).</p>
+<p><img src="./assets/05-21.png" alt="" /></p>
+<p>The vanilla Jacobi method (\(α\) = 1) has a tight convergence requirement on \(\mathbf{A}\), i.e., being diagonal dominant.</p>
+<p>The use of \(α\) allows the method to converget even when \(\mathbf{A}\) is positive definite only.</p>
+<p>P25</p>
+<h3 id="an-incomplete-summary"><a class="header" href="#an-incomplete-summary">An Incomplete Summary</a></h3>
+<ul>
+<li>Direct Solvers (LU, LDLT, Cholesky, …)
+<ul>
+<li>One shot, expensive but worthy if you need exact solutions.</li>
+<li>Little restriction on \(\mathbf{A}\)</li>
+<li>Mostly suitable on CPUs</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>🔎  Intel MKL PARDISO</p>
+</blockquote>
+<ul>
+<li>Iterative Solvers
+<ul>
+<li>Expensive to solve exactly, but controllable</li>
+<li>Convergence restriction on \(\mathbf{A}\), typically positive definiteness</li>
+<li>Suitable on both CPUs and GPUs</li>
+<li>Easy to implement</li>
+<li>Accelerable: Chebyshev, Nesterov, <u>Conjugate Gradient</u>…</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>✅ 课后答疑<br />
+问题二：怎么加速？<br />
+答：用 Jacobian 可以在 GPU 上加速、直接法比迭代法慢。<br />
+问题三：共轭梯度<br />
+共轭梯度的效率很大程度上取决于 precondition,但在GPU上能使用的precondition 比较受限、 CPU 上一般选择 Incomplete LU 分解。<br />
+问题四：支持的维度<br />
+直接法比较占内存，因此支持的维度不如迭代法大。</p>
+</blockquote>
+<p>P26</p>
+<h3 id="the-jacobi-method-with-chebyshev-acceleration"><a class="header" href="#the-jacobi-method-with-chebyshev-acceleration">The Jacobi Method with Chebyshev Acceleration</a></h3>
+<p>We can use the accelerated Jacobi method to solve \(\mathbf{A}∆\mathbf{x} =\mathbf{b} \).</p>
+<blockquote>
+<p>The Accelerated Jacobi Method<br />
+\(∆\mathbf{x}  \longleftarrow \mathbf{0} \)<br />
+last_\(∆\mathbf{x}  \longleftarrow \mathbf{0}\)<br />
+For \(k=0\dots \mathbf{K}\)<br />
+\(\mathbf{r}  \longleftarrow \mathbf{b} −\mathbf{A} ∆\mathbf{x}\)<br />
+If \(||\mathbf{r} ||&lt;\omega \quad\)	break<br />
+If  \(k=0	\quad\quad\quad \omega =1\)<br />
+Else If \( k=1 \quad \quad\quad\omega =2/(2-\rho^2)\)<br />
+Else \(\quad\quad\quad\omega =4/(4-\rho ^2\omega )\)<br />
+old_\(∆ \mathbf{x} \longleftarrow ∆ \mathbf{x}\)<br />
+\(∆\mathbf{x} ⟵∆\mathbf{x} +\mathbf{αD} ^{−1}\mathbf{r}\)<br />
+\(∆\mathbf{x} \longleftarrow \omega ∆ \mathbf{x} +(1−\omega)\)last_∆\(\mathbf{x} <br>\)<br />
+last_\(∆\mathbf{x} \longleftarrow \) old_\(∆\mathbf{x}\)</p>
+</blockquote>
+<table><thead><tr><th>\(\rho  (\rho &lt;1)\) is the estimated spectral radius of the iterative matrix.</th></tr></thead><tbody>
+</tbody></table>
+<blockquote>
+<p>✅ 这一页老师没讲</p>
+</blockquote>
+<p>P27</p>
+<h1 id="after-class-reading"><a class="header" href="#after-class-reading">After-Class Reading</a></h1>
+<p>Baraff and Witkin. 1998. Large Step in Cloth Simulation. SIGGRAPH.</p>
+<p>One of the first papers using implicit integration.</p>
+<p>The paper proposes to <strong>use only one Newton iteration</strong>, i.e., solving only one linear system. This practice is fast, but can fail to converge.</p>
+<blockquote>
+<p>✅这篇论文是衣服模拟的经典论文，第一个用隐式积分做衣服模型的论文。<br />
+论文没有用弹簧系统，而是另一套模型。<br />
+没有做非线性优化或解非线性方程，而是把非线性方程线性化，等价于做一次牛顿迭代。</p>
+</blockquote>
+<h1 id="补充1非线性方程求解"><a class="header" href="#补充1非线性方程求解">补充1：非线性方程求解</a></h1>
+<p>求解的非线性方程如下，其中\({x} ^{[1]}\)是未知量。<br />
+$$
+\mathbf{x} ^{[1]}=\mathbf{x}^{[0]}+∆t\mathbf{v} ^{[0]}+∆t^2\mathbf{M} ^{−1}\mathbf{f} (\mathbf{x}^{[1]})
+$$</p>
+<p>P14</p>
+<p>$$
+\mathbf{||x||_M^2=x^TMx} 
+$$</p>
+<blockquote>
+<p>✅ Note that this is applicable to every system, not just a mass-spring system.</p>
+</blockquote>
+<p>把公式处理一下得，<br />
+$$
+x^{[0]}+Δtv^{[0]}+Δt^2M^{-1}f(x^{[1]})-x^{[1]}=0
+$$
+左右两边同时乘以\(\frac{M}{Δt^2}\)得<br />
+$$
+\frac{1}{Δt^2} M(x^{[1]}-x^{[0]}-Δtv^{[0]})-f(x^{[1]})=0
+$$<br />
+这里面唯一的未知量是\(x^{[1]}\)，定义函数
+$$
+y=\frac{1}{Δt^2} M(x-x^{[0]}-Δtv^{[0]})-f(x)
+$$<br />
+当\(x = x^{[1]}\) 时，\(y = 0\), 即 \(y(x^{[1]}) = 0\)<br />
+从另一个角度讲， 
+$$
+\begin{eqnarray}
+x^{[1]} &amp; =  \mathrm{argmin}&amp; F(x)\Rightarrow {F}' (x^{[1]}) &amp; = &amp; 0
+\end{eqnarray}
+$$<br />
+因此, \({F}' (x) = y. \quad F(x) = \int ydx \)</p>
+<h1 id="补充2newton-raphson-method"><a class="header" href="#补充2newton-raphson-method">补充2：Newton-Raphson Method</a></h1>
+<h2 id="x是值的fx函数"><a class="header" href="#x是值的fx函数">x是值的F(x)函数</a></h2>
+<p>The Newton-Raphson method, commonly known as Newton’s method, solves the optimization problem: \(x^{[1]}\) = argmin \(F(x)\).</p>
+<p><img src="./assets/05-13.png" alt="" /></p>
+<p>Given a current \(x^{(k)}\), we approximate our goal by: </p>
+<p>$$
+0={F}' (x)≈{F}'(x^{(k)})+{F}'' (x^{(k)})(x−x^{(k)})
+$$</p>
+<blockquote>
+<p>✅ \(a = \min F(x)⇒ F'(a)= 0\)，\({F}' (x)\) 是非线性函数，直接解\({F}' (x)=0\) 很难解<br />
+✅ 对\({F}'(x)\) 做一阶泰勒展开，保留到二阶项。<br />
+假设\(x^{[k]}\)为任意已知值，就变成了解线性方程，很容易解出\(x\).<br />
+因为\({F}'(x)\) 是一个近似的，\(x\) 也是一个近似解。但\(x^{[k]}\) 越接近真实解，\(x\) 也会越接近真实解。因此，选代是\(x^{[k]}\)和\(x\) 都不断逼近真实解的过程。<br />
+✅ 普通的梯度下降是把\({F}' (x)\) 近似到一阶，牛顿法是近似到二阶，因此下降更快。</p>
+</blockquote>
+<p><img src="./assets/05-14.png" alt="" /></p>
+<blockquote>
+<p>✅ Overshooting 的本质：误差会积累和放大</p>
+</blockquote>
+<p>P16<br />
+Newton’s method finds an extremum, but it can be a minimum or maximum.</p>
+<p><img src="./assets/05-15.png" alt="" /></p>
+<ul>
+<li>At a minimum \(x^∗, {F}'' (x^∗)&gt;0\).</li>
+<li>At a maximum \(x^∗, {F}''(x^∗)&lt;0\). </li>
+<li>If \({F}''(x)&gt;0\) is everywhere, \(F(x)\) has no maximum.  \(=&gt; F(x)\) has only one minimum.</li>
+</ul>
+<blockquote>
+<p>✅ \(F'(a)= 0,a\)  有可能是最大值或最小值，因此要判定解是否合理。判定方法： \({F}''(x)\)</p>
+</blockquote>
+<p>P17</p>
+<h2 id="x是向量的fx函数"><a class="header" href="#x是向量的fx函数">x是向量的F(x)函数</a></h2>
+<p>Now we can apply Newton’s method to: \(x^{[1]} \)= argmin \(F(x)\).
+Given a current \(x^{(k)}\), we approximate our goal by: </p>
+<p>$$
+0=\nabla F( \mathbf{x}) ≈\nabla F (\mathbf{x} ^{(k)})+\frac{∂F ^2(\mathbf{x} ^{(k)})}{∂\mathbf{x} ^2} (\mathbf{x−x} ^{(k)}) 
+$$</p>
+<p><img src="./assets/05-16.png" alt="" /></p>
+<blockquote>
+<p>✅ 按照 \(\Delta x\) 的更新公式，只需要用到\(F'(x)\) 和 \({F}''(x)\)， 不需要知道 \(F(x)\).<br />
+✅ 此处\(x\)是向量，因此\(F'(x)\)是向量，\({F}''(x)\)是 Hession 矩阵</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>本文出自CaterpillarStudyGroup，转载请注明出处。</p>
+<p>https://caterpillarstudygroup.github.io/GAMES103_mdbook/</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="5_cloth.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="5_cloth_bending_blcoking.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="5_cloth.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="5_cloth_bending_blcoking.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/pagetoc.js"></script>
+    </body>
+</html>
