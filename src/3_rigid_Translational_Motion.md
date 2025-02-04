@@ -3,7 +3,7 @@
 ![](./assets/03-3.png)     
 
 
-For translational motion, the state variablecontains the position \\(\mathbf{x}\\) and the velocity \\(\mathbf{v}\\).     
+For translational motion, the state variable contains the position \\(\mathbf{x}\\) and the velocity \\(\mathbf{v}\\).     
 
  
 
