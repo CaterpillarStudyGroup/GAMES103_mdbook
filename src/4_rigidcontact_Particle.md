@@ -1,5 +1,5 @@
 P11  
-# Particle Collision Detection --- SDF   
+# 粒子碰撞检测 --- SDF 
 
 ## Signed Distance Function   
 
@@ -48,7 +48,7 @@ P14
 Intuitively, we can consider collision detection with the union of two objects as **collision detection with two separate objects**.    
 
 P15   
-# Particle Collision Response ——Penalty Method  
+# 粒子碰撞响应 —— Penalty Method  
 
 ## Quadratic Penalty Method    
 
@@ -100,8 +100,6 @@ A log-barrier penalty potential ensures that the force can be large enough. But 
 P18  
 ## A Short Summary of Penalty Methods    
 
-
-
  - The use of step size adjustment is a must.     
     - To avoid overshooting.    
     - To avoid penetration in log-barrier methods.    
@@ -125,30 +123,35 @@ P19
 An impulse method assumes that collision changes the position and the velocity all of sudden.      
 
 > &#x2705; Penalty 方法是碰撞 → 力 → 下一时刻的速度和位置，效果滞后。   
-Impulse方法碰撞时立即更新速度和位置   
+> &#x2705; Impulse方法碰撞时立即更新速度和位置   
 
 ![](./assets/04-16.png)    
 
+> &#x2705; lmpulse 省去了力这一步，直接更新刚体状态。方法要求已经有一个比较好的\\(\phi (x)\\)   
+
+## 更新位置
+
 ![](./assets/04-17.png)    
 
-
-
-> &#x2705; lmpulse 省去了力这一步，直接更新刚体状态。方法要求已经有一个比较好的\\(\phi (x)\\)   
 > &#x2705; 更新方法：N方向。更新距离：穿入的距离。
+
+## 更新速度
 
 P20    
 Changing the position is not enough, we must change the velocity as well.      
 
+> &#x2705; \\(\mathbf{v}\cdot \mathbf{N}\ge 0\\)：当前速度想要让物体越陷越深, 这种情况下才需要更新速度   
 
 ![](./assets/04-18-1.png)    
 
-
-> &#x2705; \\(\mathbf{v}\cdot \mathbf{N}\ge 0\\)：当前速度想要让物体越陷越深, 这种情况下才需要更新速度   
-把\\(\mathbf{v}\\)分解为\\(\mathbf{v_T}\\)（切线方向的速度）和\\(\mathbf{v_N})\\)（法线方向的速度）.  
+> &#x2705; 把\\(\mathbf{v}\\)分解为\\(\mathbf{v_T}\\)（切线方向的速度）和\\(\mathbf{v_N})\\)（法线方向的速度）.  
 > &#x2705; \\(\mathbf{v_T}\\)方向速度反弹， \\(\mu _\mathbf{N}\\) 为反弹系数。\\(\mathbf{v_N}\\)方向不变或由于摩擦再衰减  
 > &#x2705; a的约束：（1）越小越好，尽量把速度衰减掉（2）满足库仑定律（切方向的速度改变不应大于法线方向的速度改变）（3）切方向速度不能反转，即a不能为负   
+
+## Impulse方法总结
+
 > &#x2705; 优点：可以精确控制摩擦力和反弹位置。缺点：计算比 Penalty 复杂   
-> &#x2705; 刚体常见于 Impulse； 弹性体常见于Pealty.   
+> &#x2705; 刚体常见于 Impulse； 弹性体常见于Penalty.   
 
 P21   
 

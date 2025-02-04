@@ -12,18 +12,18 @@
 
 # 刚性体
 
-- [03-Rigid body dynamics](3_rigid.md)
+- [刚体动力学](3_rigid.md)
   - [平移运动](3_rigid_Translational_Motion.md)
   - [旋转运动](3_rigid_Rotational_Motion.md)
   - [补充](3_rigid_supplementary.md)
-- [04-rigidcontact](4_rigidcontact.md)
-  - [Particle Collision Detection and Response](4_rigidcontact_Particle.md)
+- [刚体碰撞](4_rigidcontact.md)
+  - [粒子的碰撞检测与响应](4_rigidcontact_Particle.md)
   - [Rigid Body Collision Detection and Response](4_rigidcontact_Rigid.md)
   - [补充](./4_rigidcontact_supplementary.md)
 
 # 弹性体
 
-- [05-cloth](5_cloth.md)
+- [弹簧系统](5_cloth.md)
   - [Mass Spring System](5_cloth_spring.md)
   - [Bending and Locking Issues](5_cloth_bending_blcoking.md)
   - [Shape Matching](5_cloth_shape_matching.md)
