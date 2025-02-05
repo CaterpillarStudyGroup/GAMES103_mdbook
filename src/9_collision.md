@@ -4,8 +4,7 @@ P2
 
  - Collision Detection    
  - Interior Point Methods    
- - Impact Zone Optimization   
- - Untangling Cloth    
+ - Impact Zone Optimization    
 
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。
