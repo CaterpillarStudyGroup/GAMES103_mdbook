@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>10-wave - GAMES103</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The note of GAMES103">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/pagetoc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="1_intro.html"><strong aria-hidden="true">2.</strong> 01-intro</a></li><li class="chapter-item expanded affix "><li class="part-title">BackGround</li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 02-math</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="2_math_vector.html"><strong aria-hidden="true">3.1.</strong> Vector</a></li><li class="chapter-item expanded "><a href="2_math_matrix.html"><strong aria-hidden="true">3.2.</strong> Matrix</a></li><li class="chapter-item expanded "><a href="2_math_calculus.html"><strong aria-hidden="true">3.3.</strong> Tensor Calculus</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">刚性体</li><li class="chapter-item expanded "><a href="3_rigid.html"><strong aria-hidden="true">4.</strong> 刚体动力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="3_rigid_Translational_Motion.html"><strong aria-hidden="true">4.1.</strong> 平移运动</a></li><li class="chapter-item expanded "><a href="3_rigid_Rotational_Motion.html"><strong aria-hidden="true">4.2.</strong> 旋转运动</a></li><li class="chapter-item expanded "><a href="3_rigid_supplementary.html"><strong aria-hidden="true">4.3.</strong> 补充</a></li></ol></li><li class="chapter-item expanded "><a href="4_rigidcontact.html"><strong aria-hidden="true">5.</strong> 刚体碰撞</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="4_rigidcontact_Particle.html"><strong aria-hidden="true">5.1.</strong> 粒子的碰撞检测与响应</a></li><li class="chapter-item expanded "><a href="4_rigidcontact_Rigid.html"><strong aria-hidden="true">5.2.</strong> Rigid Body Collision Detection and Response</a></li><li class="chapter-item expanded "><a href="9_collision.html"><strong aria-hidden="true">5.3.</strong> 09-collision</a></li><li class="chapter-item expanded "><a href="9_collision_detect.html"><strong aria-hidden="true">5.4.</strong> Collision Detection - Broad Phase</a></li><li class="chapter-item expanded "><a href="9_collision_detect_narrow.html"><strong aria-hidden="true">5.5.</strong> Collision Detection - Narrow Phase</a></li><li class="chapter-item expanded "><a href="9_collision_response.html"><strong aria-hidden="true">5.6.</strong> Collision Response</a></li><li class="chapter-item expanded "><a href="4_rigidcontact_supplementary.html"><strong aria-hidden="true">5.7.</strong> 补充</a></li><li class="chapter-item expanded "><a href="9_collision_summary.html"><strong aria-hidden="true">5.8.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">弹性体</li><li class="chapter-item expanded "><a href="5_cloth.html"><strong aria-hidden="true">6.</strong> 布料</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="5_cloth_spring.html"><strong aria-hidden="true">6.1.</strong> Mass Spring System</a></li><li class="chapter-item expanded "><a href="5_cloth_bending_blcoking.html"><strong aria-hidden="true">6.2.</strong> Bending and Locking Issues</a></li></ol></li><li class="chapter-item expanded "><a href="5_cloth_shape_matching.html"><strong aria-hidden="true">7.</strong> Shape Matching</a></li><li class="chapter-item expanded "><a href="6_constraints.html"><strong aria-hidden="true">8.</strong> 约束方法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="6_constraints_Projection.html"><strong aria-hidden="true">8.1.</strong> 投影函数 Projection Function</a></li><li class="chapter-item expanded "><a href="6_constraints_PBD.html"><strong aria-hidden="true">8.2.</strong> PBD</a></li><li class="chapter-item expanded "><a href="6_constraints_strain.html"><strong aria-hidden="true">8.3.</strong> Strain Limiting</a></li><li class="chapter-item expanded "><a href="6_constraints_Projective_Dynamics.html"><strong aria-hidden="true">8.4.</strong> Projective Dynamics</a></li><li class="chapter-item expanded "><a href="6_constraints_Contrained_Dynamics.html"><strong aria-hidden="true">8.5.</strong> Contrained Dynamics</a></li><li class="chapter-item expanded "><a href="6_constraints_summary.html"><strong aria-hidden="true">8.6.</strong> 总结</a></li></ol></li><li class="chapter-item expanded "><a href="7_FEM.html"><strong aria-hidden="true">9.</strong> 07-FEM</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="7_FEM_FEM.html"><strong aria-hidden="true">9.1.</strong> Linear Finite Element Method</a></li><li class="chapter-item expanded "><a href="7_FEM_FVM.html"><strong aria-hidden="true">9.2.</strong> Finite Volume Method</a></li><li class="chapter-item expanded "><a href="7_FEM_Hyperelastic.html"><strong aria-hidden="true">9.3.</strong> Hyperelastic Models</a></li><li class="chapter-item expanded "><a href="7_FEM_summary.html"><strong aria-hidden="true">9.4.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="8_FEM2.html"><strong aria-hidden="true">10.</strong> 08-FEM2</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="8_FEM2_Nonlinear_optimization.html"><strong aria-hidden="true">10.1.</strong> Nonlinear optimization</a></li></ol></li><li class="chapter-item expanded "><a href="9_collision_untangling.html"><strong aria-hidden="true">11.</strong> Untangling Cloth</a></li><li class="chapter-item expanded affix "><li class="part-title">水</li><li class="chapter-item expanded "><a href="10_wave.html" class="active"><strong aria-hidden="true">12.</strong> 10-wave</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.</strong> 高度场模型</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="10_wave_height_feild.html"><strong aria-hidden="true">13.1.</strong> 高度场模型</a></li><li class="chapter-item expanded "><a href="10_wave_volume.html"><strong aria-hidden="true">13.2.</strong> Volume Preservation</a></li><li class="chapter-item expanded "><a href="10_wave_boundary.html"><strong aria-hidden="true">13.3.</strong> Boundary Conditions</a></li><li class="chapter-item expanded "><a href="10_wave_coupling.html"><strong aria-hidden="true">13.4.</strong> Two-Way Coupling</a></li><li class="chapter-item expanded "><a href="10_wave_summary.html"><strong aria-hidden="true">13.5.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="11_EulerianFluids.html"><strong aria-hidden="true">14.</strong> 欧拉模型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="11_EulerianFluids_Grid.html"><strong aria-hidden="true">14.1.</strong> A Grid Representation and Finite Differencing</a></li><li class="chapter-item expanded "><a href="11_EulerianFluids_Staggered.html"><strong aria-hidden="true">14.2.</strong> Staggered Grid</a></li><li class="chapter-item expanded "><a href="11_EulerianFluids_Incompressible.html"><strong aria-hidden="true">14.3.</strong> Incompressible, Viscous  Navier-Stokes Equations</a></li><li class="chapter-item expanded "><a href="11_EulerianFluids_Air_Smoke.html"><strong aria-hidden="true">14.4.</strong> Air and Smoke</a></li><li class="chapter-item expanded "><a href="11_EulerianFluids_Summary.html"><strong aria-hidden="true">14.5.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><a href="12_SPH.html"><strong aria-hidden="true">15.</strong> SPH模型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="12_SPH_SPH.html"><strong aria-hidden="true">15.1.</strong> A SPH Model</a></li><li class="chapter-item expanded "><a href="12_SPH_Fluids.html"><strong aria-hidden="true">15.2.</strong> SPH-Based Fluids</a></li><li class="chapter-item expanded "><a href="12_SPH_Display.html"><strong aria-hidden="true">15.3.</strong> Fluid Display</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">GAMES103</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/CaterpillarStudyGroup/GAMES103_mdbook" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <p>P2</p>
+<h1 id="fluid-effects"><a class="header" href="#fluid-effects">Fluid Effects</a></h1>
+<p>Unlike other bodies, Fluids exhibit highly volatile behaviors. As a result, it’s difficult to come up with a single, efficient way for simulating all of fluid effects.</p>
+<blockquote>
+<p>✅ 流体的形态很多，例如水滴、水花、水浪，对应的模拟方法也不同。难以用通用的方法高效地模拟所有场景。</p>
+</blockquote>
+<p>P3</p>
+<h1 id="two-types-of-simulation-approaches"><a class="header" href="#two-types-of-simulation-approaches">Two Types of Simulation Approaches</a></h1>
+<table><thead><tr><th><img src="./assets/10-1.png" alt="" /></th><th><img src="./assets/10-2.png" alt="" /></th></tr></thead><tbody>
+<tr><td>Lagrangian Approach <br>(dynamic particles or mesh)<br> Node movement carries physical quantities (mass, velocity, …).</td><td>Eulerian Approach <br> (static grid or mesh) <br> Grid/Mesh doesn’t move.  Stored physical quantities change.</td></tr>
+<tr><td>✅ 左：无 Grid. 物理量附加在粒子上，粒子运动时更新自身物理量。</td><td>✅ 右：固定 Grid. 物理量固定在 Grid 上。粒子运动后统一新格子的物理量。</td></tr>
+</tbody></table>
+<hr />
+<blockquote>
+<p>本文出自CaterpillarStudyGroup，转载请注明出处。</p>
+<p>https://caterpillarstudygroup.github.io/GAMES103_mdbook/</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="9_collision_untangling.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="10_wave_height_feild.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="9_collision_untangling.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="10_wave_height_feild.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/pagetoc.js"></script>
+    </body>
+</html>
