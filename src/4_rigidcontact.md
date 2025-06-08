@@ -2,12 +2,17 @@ P9
 
 # Topics for the Day   
 
- - Particle Collision Detection and Response   
-    - Penalty methods   
-    - Impulse methods   
-
- - Rigid Collision Detection and Response by Impulse   
- - Shape Matching   
+- Particle Collision Detection and Response   
+   - Penalty methods   
+   - Impulse methods   
+- Collision Detection    
+   - Broad Phase
+   - Narrow Phase
+- Collision Response  
+   - Rigid Collision Response by Impulse   
+- Interior Point Methods    
+- Impact Zone Optimization    
+- Shape Matching   
 
 
 ---------------------------------------

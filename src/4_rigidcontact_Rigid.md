@@ -1,12 +1,3 @@
-P23   
-# Rigid Body Collision Detection   
-
-When the body is made of many vertices, we can detect its collision by testing each vertex
-
-> &#x2705; 遍历 mesh 上的每个点，依次做碰撞检测。  
-
-No a perfect solution, but acceptable (will come back to this weeks later…)     
-
 P24   
 # Rigid Body Collision Response
 

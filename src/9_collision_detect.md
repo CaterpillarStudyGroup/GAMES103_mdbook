@@ -113,12 +113,11 @@ P18
 ## Bounding Volume Hierarchy   
 
 The performance depends on the effectiveness of culling.    
- 
-Zheng and James. 2012. *Energy-based Self-Collision Culling for Arbitrary Mesh Deformations*. TOG (SIGGRAPH)
 
-> &#x2705; 对每个区域计算能量，根据形变能量的大小来判断有没有可能相交，此方法不适用于衣服，因为在衣服模拟中大形变很常见、不代表有相交。   
+|ID|Year|Name|Note|Tags|Link|
+|---|---|---|---|---|---|
+||2012|Energy-based Self-Collision Culling for Arbitrary Mesh Deformations|> &#x2705; 对每个区域计算能量，根据形变能量的大小来判断有没有可能相交，此方法不适用于衣服，因为在衣服模拟中大形变很常见、不代表有相交。|
 
-Changxi Zheng, Doug L.James, Cornell University   
 
 P19   
 # Comparison between SH and BVH   
