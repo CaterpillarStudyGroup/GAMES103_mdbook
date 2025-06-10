@@ -1,4 +1,3 @@
-> &#x1F4A1; 旋转的表示比较独立，单独放在最后[link](./3_rigid_supplementary.md)，避免破坏整体的结构性。最后结论是混合式的积分方法。
 
 P27   
 # 符号定义
@@ -6,6 +5,9 @@ P27
 ## 角度
 
 Now we choose quaternion \\(\mathbf{q}\\) to represent theorientation, i.e., the rotation from the *reference* to the *current*.
+
+> &#x1F4A1; 旋转的表示比较独立，单独放在最后[link](./3_rigid_supplementary.md)，避免破坏整体的结构性。最后结论是四元数表示方法。
+
 
 ![](./assets/03-20.png)    
 
@@ -23,7 +25,7 @@ $$
 
 
 P3   
-## 力矩 torque
+## 力矩 torque \\(\mathbf{τ} \\) 
 
 A torque is the rotational equivalent of a force. It describes the rotational <u>tendency</u> caused by a force.    
 
@@ -35,7 +37,7 @@ A torque is the rotational equivalent of a force. It describes the rotational <u
 
 \\(\mathbf{τ} _i\\) is perpendicular to both vectors: \\(\mathbf{Rr} _i\\) and \\(\mathbf{f} _i\\).    
 
-> &#x2705; 因此力矩的方向决定了旋转轴的方向，因此由叉差乘得到   
+> &#x2705; 力矩的方向决定了旋转轴的方向，由叉差乘得到   
 
 \\(\mathbf{τ} _i\\) is porportional to ||\\(\mathbf{Rr} _i\\)|| and ||\\(\mathbf{f} _i\\)||.    
 
@@ -129,7 +131,7 @@ P35
 
 <https://graphics.pixar.com/pbm2001>     
 
-> &#x2753; 建议读其中的Rigid Body Dynamics部分    
+> &#x2705; 建议读其中的Rigid Body Dynamics部分    
 
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。
