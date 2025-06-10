@@ -15,7 +15,7 @@ $$
 $$
 
 > &#x2705; 也可以用\\(\mathbf{\dot{x}} \\)表示速度\\(\mathbf{v} \\)    
-速度是加速度的积分，因此\\( \Delta t=\int a=\int \frac{F}{M} =M^{-1}\int F\\).   
+速度是加速度的积分，因此\\( \Delta 0=\int a=\int \frac{F}{M} =M^{-1}\int F\\).   
 位置是速度的积分   
 本质上是解积分   
 > &#x1F4A1; 积分的过程比较独立，单独放在最后[link](./3_rigid_supplementary.md)，避免破坏整体的结构性。最后结论是混合式的积分方法。
@@ -24,11 +24,13 @@ $$
 P17  
 # Types of Forces  
 
+- 重力：    
 
-![](./assets/03-13.png)    
-
+![](./assets/03-13-1.png)    
 
 > &#x2705; 在做模拟时，如果不要求能量守衡，出于问题简化的目的，直接对速度做衰减，代替引入阻力  
+
+![](./assets/03-13-2.png)  
 
 P18  
 # Rigid Body Simulation  Pipeline (Translation Only)    
