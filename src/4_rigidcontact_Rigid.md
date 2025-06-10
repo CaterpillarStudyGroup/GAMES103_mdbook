@@ -1,6 +1,8 @@
 P24   
 # Rigid Body Collision Response
 
+碰撞 → 粒子响应 → 粒子速度 → 刚体冲重 → 刚体状态    
+
 ## 刚体碰撞响应与粒子碰撞响应的区别
 
 
@@ -30,7 +32,7 @@ What happens to \\(\mathbf{v}_i\\) when an impulse \\(\mathbf{j}\\) is appliedat
 > &#x2705; \\(\mathbf{j}\\) 是一个未知的冲量。\\(\mathbf{v}_i\\) 是点速度、\\(\mathbf{v}\\)是线速度     
 > &#x2705;假设：此时对\\(x_i\\)点施加冲量\\(j\\)，会发生什么？   
 
-![](./assets/04-22.png)    
+![](./assets/04-22-1.png)    
 
 > &#x2705; 冲量 = \\(Ft\\) = \\(m\Delta v \Rightarrow \Delta v\\) = 冲量/\\(m\\)，由此得到\\(v^{new}\\)  
 > &#x2705; 冲量=时间 \\(\cdot\\)力  = 质量矩阵 * 时间 = 力矩 * t，省略公式中的时间，可得：
@@ -38,17 +40,20 @@ What happens to \\(\mathbf{v}_i\\) when an impulse \\(\mathbf{j}\\) is appliedat
 > &#x2753; 为什么质量矩阵是单位阵？   
 > &#x2705; 由线速度\\(v^{new}\\)得到点速度\\(\mathbf{v}_i^{new}\\)  
 
+![](./assets/04-22-2.png)    
+
 P27    
 
 $$
 \mathbf{v_i^{new}} = \mathbf{v} _i+\frac{1}{M}\mathbf{j} −(\mathbf{Rr} _i)×(\mathbf{I} ^{−1}(\mathbf{Rr} _\mathbf{i}\times \mathbf{j} ))
 $$
 
+> &#x2705; 向量之间的点乘可以转化为矩阵与向量的乘法，方便化简。具体内容见页面最后的**补充1**
+
 $$
 \mathbf{v_i^{new}} = \mathbf{v} _i+\frac{1}{M} \mathbf{j} −(\mathbf{Rr} _i)^∗\mathbf{I} ^{−1} (\mathbf{Rr} _i)^∗\mathbf{j} 
 $$
 
-> &#x2705; 向量之间的点乘可以转化为矩阵与向量的乘法，方便化简。具体内容见页面最后的**补充1**
 
 化简得：  
 

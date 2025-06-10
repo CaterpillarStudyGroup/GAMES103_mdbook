@@ -12,7 +12,7 @@ A <u>signed</u> distance function \\(\phi (\mathbf{x} )\\) defines the distance 
 
 
 P12   
-## Signed Distance Function Examples    
+### Signed Distance Function Examples    
 
 
 ![](./assets/04-07.png)     
@@ -39,7 +39,7 @@ Else outside
 
 
 P14  
-## Union of Signed Distance Functions   
+### Union of Signed Distance Functions   
 
 ![](./assets/04-9.png)     
 
@@ -58,8 +58,9 @@ A penalty method applies a penalty force in the next update. When the penalty po
 
 ![](./assets/04-10.png)     
 
+当粒子进入物体内部后，就会产生一个向外的推力。     
 > &#x2705; 力的大小与距离有关，方向为normal  
-> &#x2705; 存在的问题：只有\\(\mathbf{x}\\) 进入 mesh 内部了，才会有力，但此时穿透的 artifacts 已经产生了。解决方法：使用buffor  
+> &#x2705; 存在的问题：只有\\(\mathbf{x}\\) 进入 mesh 内部了，才会有力，但此时穿透的 artifacts 已经产生了。解决方法：使用buffer  
 
 
 P16   
@@ -93,7 +94,7 @@ A log-barrier penalty potential ensures that the force can be large enough. But 
 > &#x2705; 存在的问题：  
 > 1.当\\(\mathbf{x}\\) 靠近物体表面时，仍然会 overshooting   
  2.\\(\mathbf{x}\\) 穿透表面后，会越陷越深。  
- 3.本算法要求保证穿透永远不会发生，因此要仔细调节 \\(\Delta t\\).  
+ 3.本算法如果要求保证穿透永远不会发生，因此要仔细调节 \\(\Delta t\\).  
 
 
 
@@ -110,15 +111,13 @@ P18
 
  - Frictional contacts are difficult to handle.    
  
-> &#x2705; 缺点：（1）难以模拟摩擦。（2）碰撞->施加力->调整，因此效果是滞后的。 优点：易实现  
-> &#x2705; 隐式积分比显式积分好，因为显式不稳定。  
-
-
+> &#x2705; 缺点：
+(1) 难以模拟摩擦。   
+(2) 碰撞->施加力->调整，因此效果是滞后的。    
+优点：易实现  
  
 P19   
 # Particle Collision Response —— Impulse Method    
-
-
 
 An impulse method assumes that collision changes the position and the velocity all of sudden.      
 
@@ -128,12 +127,13 @@ An impulse method assumes that collision changes the position and the velocity a
 ![](./assets/04-16.png)    
 
 > &#x2705; lmpulse 省去了力这一步，直接更新刚体状态。方法要求已经有一个比较好的\\(\phi (x)\\)   
+> &#x2705; 关键区别不在于是否使用力,而是位置是怎样计算出来的,前者的位置由力和速度,这个计算出来的(不管是作为下一时刻还是这一时刻)的位置，都不能保证一定能以物体内部推出来，但后者直接求出当前置对应的表面位置的点，并更新上去，因此能立即生效。    
 
 ## 更新位置
 
 ![](./assets/04-17.png)    
 
-> &#x2705; 更新方法：N方向。更新距离：穿入的距离。
+> &#x2705; 更新方向：N方向。更新距离：穿入的距离。
 
 ## 更新速度
 
@@ -144,7 +144,7 @@ Changing the position is not enough, we must change the velocity as well.
 
 ![](./assets/04-18-1.png)    
 
-> &#x2705; 把\\(\mathbf{v}\\)分解为\\(\mathbf{v_T}\\)（切线方向的速度）和\\(\mathbf{v_N})\\)（法线方向的速度）.  
+> &#x2705; 把\\(\mathbf{v}\\)分解为\\(\mathbf{v_T}\\)（切线方向的速度）和\\(\mathbf{v_N}\\)（法线方向的速度）.  
 > &#x2705; \\(\mathbf{v_T}\\)方向速度反弹， \\(\mu _\mathbf{N}\\) 为反弹系数。\\(\mathbf{v_N}\\)方向不变或由于摩擦再衰减  
 > &#x2705; a的约束：（1）越小越好，尽量把速度衰减掉（2）满足库仑定律（切方向的速度改变不应大于法线方向的速度改变）（3）切方向速度不能反转，即a不能为负   
 
