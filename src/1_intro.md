@@ -4,21 +4,19 @@ P3
 
  - The course is designed for    
     - Undergraduates in the 3rd or 4th year, or fresh graduates.     
- - Linear Algebra    
-    - You Should know basic linear algebra concepts, such as vectors, matrices, linear systems, SVD...
- - Calculus     
-    - You should know how to calculate basic derivatives and integrals; you should understand chain rules, gradients, etc.    
- - Programming Skills     
-    - C, or C++, or C#, or Javascript    
- - Ready to <u>learn by yourself</u>    
- - The life will be much easier if you took    
-    - Numerical methods (numerical linear algebra, numerical PDEs), finite element analysis, fluid dynamics...     
 
 
 > &#x2705; 建议：读 paper 而不是教材，只读重点不读全文学知识而不是学用 Unity. 多读多写多想  
 
 P14    
+
+[数学基础] (\\(\quad \\))          
+
 # Graphics Pipeline   
+
+[Animation] (\\(\quad \\))     
+[Geometry] (\\(\quad \\))       
+[Rendering] (\\(\quad \\))          
 
 ## Real-Time Graphics Pipeline     
 
@@ -52,86 +50,8 @@ P18
 > &#x2705; 动画：渲染，实时，需要与3D世界或玩家互动    
 > &#x2705; 电影：离线，不需要交互，提前录下来，例如游戏中的过场动画     
 
-![](./assets/01-2.png) 
+![](./assets/01-2.png)
 
-
-P19
-# Geometry: Three Representations     
-
-## Mesh   
-
-![](./assets/01-3.png)   
-
- - A mesh contains:    
-    - Vertices (nodes)    
-    - Elements (triangles, polygons, tetrahedra…)  
-> &#x2705; polygon 常用于 Maya,四面体常用于软体模拟。  
-  
- - Triangle mesh is the foundation of graphics.   
->  &#x2705; 三角形不只是 Mesh 的基础，也是渲染的基础    
- 
- - Problems:     
-    - Meshing (Delaunay triangulation)    
-    - Simplification/subdivision    
-    - Mesh optimization (smoothing, flows…)     
-    - Volume mesh    
-
->  &#x2705; 关于Mesh部分可以参考[GAMES101](https://caterpillarstudygroup.github.io/GAMES101_mdbook/Geometry/Mesh.html)  
-> &#x2753; 什么是 flows?   
-> &#x2705; Volume Mesh 的处理比普通 Mesh 要难很多    
-
-
-P20
-  
-![](./assets/01-4.png)    
-
-
-> &#x2705; Structured：有规律的。Unstructured：无规律的    
-> &#x2705; 有些模拟算法或几何算法，可以利用 Structured 做简化或优化。但Unstructured 算法通用性更好。    
-
-P21
-## Point Cloud       
-
-![](./assets/01-5.png)    
-
- - A point cloud is simple.    
- - It can be raw data from surface scan.     
- - Problems:    
-    - Mesh reconstruction from cloud    
-    - (Re)-Sampling    
-    - Neighborhood search    
-    - …    
-
-
-> &#x2705; 原始点云可能有疏有密，因些需要重采样。     
-
-
-P22
-## Volumetric Grid      
-
-
-![](./assets/01-6.png) 
-
-
-
- - A grid partitions the space; a cell stores the physical quantities at that spot.    
- - Don’t confuse it with structured mesh.     
- - It’s often acquired from volumetric scan, e.g., CT. 
- - Problems:    
-    - Memory cost (octree?)    
-    - Volumetric rendering?    
-    - …    
-
-
-
-P23
-
-# Rendering: Non-Photorealistic vs. Photorealistic
-
-![](./assets/01-7.png)   
-
-> &#x2705; Non-Photorealistic：非真实感渲染，Photorealistic：真实感渲染   
-> &#x2705; 后者更主流，又分为基于光线追踪和基于传统渲染管线。见 Games 101   
 
 P27
 # Animation
@@ -202,9 +122,7 @@ Mesh 定义在物体上， Grid 定义在场景上
 
 
 P60
-## My Own Expertise    
 
-![](./assets/01-17.png)   
 
 
 ---------------------------------------
