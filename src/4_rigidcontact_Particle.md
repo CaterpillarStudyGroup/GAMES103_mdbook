@@ -111,7 +111,7 @@ P18
 
  - Frictional contacts are difficult to handle.    
  
-> &#x2705; 缺点：
+> &#x2705; 缺点：   
 (1) 难以模拟摩擦。   
 (2) 碰撞->施加力->调整，因此效果是滞后的。    
 优点：易实现  
