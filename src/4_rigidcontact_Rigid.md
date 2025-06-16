@@ -211,11 +211,11 @@ P35
 P36   
 
 结论：   
-A^TA=S^TS=S^2
-
+\\(A^TA=S^TS=S^2\\)    
+\\(R=AS^{-1}\\)  
 
 P39  
-## Shape Matching Pipeline   
+### Shape Matching Pipeline   
 
 
 ![](./assets/04-33.png) 
@@ -239,7 +239,7 @@ P40
 
  - 局限性：Difficult to strictly enforce friction and other goals. The rigidification process will destroy them.    
 
- - 适用场景：More suitable when the friction accuracy is unimportant, i.e., buttons on clothes.    
+ - 适用场景：More suitable when the **friction accuracy is unimportant**, i.e., buttons on clothes.    
  
  
  P41   
