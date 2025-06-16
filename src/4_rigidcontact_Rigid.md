@@ -1,6 +1,8 @@
 P24   
 # Rigid Body Discrete Collision Response
 
+## Rigid Body Collision Response by Impulse
+
 碰撞 → 粒子响应 → 粒子速度 → 刚体冲重 → 刚体状态    
 
 ### 刚体碰撞响应与粒子碰撞响应的区别
@@ -69,11 +71,11 @@ $$
 
 
 P28  
-## Rigid Body Collision Response by Impulse    
+### Pipeline    
 
 ![](./assets/04-24.png)    
 
-> &#x2705; i点发生碰撞 -> 算出i点碰撞后的速度 -> 算出给i点什么样的冲量能让i出现碰撞后的效果 -> 真的施加这样一个冲量 -> 更新刚体状态  
+> &#x2705; \\(i\\)点发生碰撞 → 算出i点碰撞后的速度 → 算出给i点什么样的冲量能让\\(i\\)出现碰撞后的效果 → 真的施加这样一个冲量 → 更新刚体状态  
 
 
 
@@ -155,12 +157,12 @@ Rigid Body Dynamics
 
 
 P32    
-# Shape Matching    
+## Shape Matching    
 
 > &#x2705; 用粒子的方法来解决刚体的问题
 
 P33  
-## Basic Idea    
+### Basic Idea    
 
 
 We allow each vertex to have its own velocity, so it can move by itself.     
@@ -176,7 +178,7 @@ Second, enforce the **rigidity** constraint to become a rigid body again.
 
 > &#x2705; 第二步是 Shape Matching 的关键   
 
-## Rigidity
+Rigidity：包含更新质心的位置和旋转    
 
 P34  
 ### 更新质心位置    
@@ -188,22 +190,23 @@ Now \\(\mathbf{c}\\) and \\(\mathbf{R}\\) are unknowns we want to find out from
 
 
 > &#x2705; \\(\mathbf{c}\\) 代表质心，即前面的 \\(\mathbf{x}\\)    
-> &#x2705; 约束：新的顶点位置与原顶点位置的距离尽量接近。  
-> &#x2705;问题简化：用任意矩阵A代替需要满足旋转矩阵约束的\\(R\\)。因此\\(\sum Ar_i = A \sum r_i = 0\\)      
-> &#x2705;结论：约束前后质心位置不变    
+> &#x2705; 约束1：新的顶点位置与原顶点位置的距离尽量接近。   
+> &#x2705; 约束2：\\(\mathbf{R}\\) 是旋转矩阵。   
+> &#x2705; 很难通过定义目标函数来满足约束2，因此问题简化：用任意矩阵A代替需要满足旋转矩阵约束的\\(R\\)。      
+> &#x2705; \\(\sum Ar_i = A \sum r_i = 0\\)，因此得出结论：约束前后质心位置不变    
 > &#x2753; 优化之后的刚体可能还是与地面穿透的。   
 
 
 
 P35  
 
-### 更新质量速度
+### 更新质心速度s
 
 ![](./assets/04-28-1.png)    
 
 
 > &#x2705; 先假设 \\(\mathbf{R}\\) 是任意矩阵 \\(\mathbf{A}\\),再从中提取旋转成分   
-> &#x2705; Polar Decomposition：极性分解，把任意矩阵分解旋转部分和形变部分。  
+> &#x2705; [Polar Decomposition]([TODO])：极性分解，把任意矩阵分解旋转部分和形变部分。  
 
 
 P36   
