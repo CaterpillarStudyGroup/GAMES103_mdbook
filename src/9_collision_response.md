@@ -39,6 +39,12 @@ $$
 \mathbf{f} _j(\mathbf{x} )=−∇_jE=−ρ\frac{\mathbf{x} _ {ij}}{||\mathbf{x} _{ij}||^2}
 $$
 
+[TODO]
+$$
+\frac{\alpha ||\mathbf{x}|| }{\alpha \mathbf{x}} =\frac{\mathbf{x}^\mathbf{T} }{||\mathbf{x}||} 
+$$
+
+
 > &#x2705; 用 Log 定义能量、前面某一节课讲过。距离 → 能量 → 斥力    
 
 ![](./assets/09-23.png)   
