@@ -1,4 +1,4 @@
-# 补充： Cross Product as a Matrix Product    
+# 补充1： Cross Product as a Matrix Product    
 
 We can convert the cross product \\(\mathbf{r}\times\\) into a matrix product \\(\mathbf{r}^*\\).    
 
@@ -8,7 +8,7 @@ We can convert the cross product \\(\mathbf{r}\times\\) into a matrix product \\
 > &#x2705; \\(\mathbf{r}^*\\) 是 \\(\mathbf{r}\\) 的 cross matrix.   
 目的：用矩阵形式代替叉乘形式，方便公式化简   
 
-补充2：极性分解   
+# 补充2：极性分解   
 
 ### 极性分解
 
