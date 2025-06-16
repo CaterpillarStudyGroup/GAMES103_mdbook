@@ -1,11 +1,11 @@
-P27   
-# Interior Point Methods and Impact Zone Optimization    
+P27      
+# Continuous Collision Response    
 
 > &#x2705; 发现碰撞的pairs后如何处理。   
 
 
 P28   
-## Two Continuous Collision Response Approaches    
+## Interior Point Methods and Impact Zone Optimization
 
 > &#x2705; 这是两个大的套路，不是具体的方法。
 
@@ -13,16 +13,16 @@ Given the calculated next state \\(\mathbf{x} ^{[1]}\\), we want to update it in
 
 ![](./assets/09-20.png)   
 
-
-     
-内点法：     
+> &#x2705; 整个图代表刚体的状态空间而不是位置空间。    
+> &#x2705; 每个小圆点代表一个刚体状态，而不是一个粒子。   
+> &#x2705; \\(\mathbf{x} \\) 是刚体状态的表示符，至少包含质心的状态和旋转信息。   
+       
 
 ||内点法|Impact Zone 法||
 |---|---|---|---|
-||![](./assets/09-21.png)|![](./assets/09-22.png)|&#x2705; 蓝色区域为安全区域|
-||&#x2705; 从\\(\mathbf{x}^{[0]}\\)出来，朝\\(\mathbf{x}^{[1]}\\)走，并永远保证只在安全区域走，直到不能走为止。|&#x2705; 从\\(\mathbf{x}^{[1]}\\)出发，反复优化结果（投影），直到回到安全区域为止。|
-|优点|Always succeed|Fast. <br> 1. Close to solution. <br> 2. Only vertices in collision (impact zones). <br> 3. Can take large step sizes. | &#x2705; Impact Zone：\\(\mathbf{x}^{[1]}\\)通常离安全区域不太远，且优化时只针对 Impact Zone 优化，因此快。
-|局限性|Slow.  <br> 1. Far from solution. <br> 2. All of the vertices.  <br> 3. Cautiously by small step sizes.| May not succeed.| &#x2705; 内点：为保证每一步安全，步长不能太大，因此慢、哪怕\\(\mathbf{\bar{x}}^{[1]}\\)最终没有到最佳位置，但能保证一定在安全区域，因此一定成功。\\(\mathbf{x}^{[0]}\\)和\\(\mathbf{x}^{[1]}\\)可能比较远，也导致慢。 <br> &#x2705; 内点法慢的原因2没有解释。   
+||&#x2705; 从\\(\mathbf{x}^{[0]}\\)出来，朝\\(\mathbf{x}^{[1]}\\)走，并永远保证只在安全区域走，直到不能走为止。|&#x2705; 从\\(\mathbf{x}^{[1]}\\)出发，反复优化结果（投影），直到回到安全区域为止。|&#x2705; 蓝色区域为安全区域|
+|优点|Always succeed|Fast. <br> 1. Close to solution. <br> 2. Only vertices in collision (impact zones). <br> 3. Can take large step sizes. | &#x2705; Impact Zone：1. \\(\mathbf{x}^{[1]}\\)通常离安全区域不太远，且优化时只针对 Impact Zone 优化，因此快。<br> 2. 只有\\(\mathbf{x}\\)不在安全区域时才需要做。 <br>  &#x2705; 内点：哪怕\\(\mathbf{\bar{x}}^{[1]}\\)最终没有到最佳位置，但能保证一定在安全区域，因此一定成功。|
+|局限性|Slow.  <br> 1. Cautiously by small step sizes. <br> 2. Far from solution. <br> 3. All of the vertices.  | May not succeed.| &#x2705; 内点：1. 为保证每一步安全，步长不能太大，因此慢。<br> 2. \\(\mathbf{x}^{[0]}\\)和\\(\mathbf{x}^{[1]}\\)可能比较远，也导致慢。 <br> 3. 每一次都必须要做|   
 
 
 P30   
