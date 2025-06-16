@@ -126,14 +126,16 @@ Implicit integration is a better solution to numerical instability.  The idea is
 
 > &#x2705;Explicit和Implicit都是用某个时刻的力代表整个\\(Δt\\)时间的力，就都会出现上述误差。   
 区别在于，Explicit用当前力，往往使结果变大，产生爆炸，Implicit用未来力，往往使结果变小，产生消失。  
-> &#x2705; 消失只是结果不对。但爆炸会让结果崩溃，这对是最不可接受的问题。因此用隐式代替显式。  
+> &#x2705; 消失只是结果不对。但爆炸会让结果崩溃，这是最不可接受的问题。因此用隐式代替显式。  
+
+#### 积分公式
 
 ![](./assets/05-11.png)    
 
+> &#x2705; 下面公式1通过把上面公式1代入公式2得到。下面公式2通过把上面公式写反推得到。 
+
 消元得：    
 ![](./assets/05-12.png)    
-
-> &#x2705; 下面公式1通过把上面公式1代入公式2得到。下面公式2通过把上面公式写反推得到。  
 
 Assuming that \\(\mathbf{f}\\) is *holonomic*, i.e., depending on \\(\mathbf{x}\\) only, our question is how to solve:    
 $$
@@ -144,10 +146,9 @@ $$
 > &#x2705; holonomic：力的大小和方向只跟位置有关，跟速度无关。例如重力，弹力。那么 \\(f\\)可以写成关于位置的函数\\(f(x)\\)。  
 > &#x2705; 但\\(f(x)\\)不一定是线性的。因此最后转化为解非线性方程的问题。未知量为\\({x} ^{[1]}\\)    
 
+#### 积分求解转为优化问题
 
 P14   
-
-
 
 \\(\mathbf{x} ^{[1]} =\\) argmin \\(F(\mathbf{x})\quad\\)  for   \\(\quad F(\mathbf{x}) = \frac{1}{2∆t^2}||\mathbf{x} −\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]}||_M^2+E(\mathbf{x} )\\)    
 
@@ -155,14 +156,8 @@ P14
 其中：\\(\mathbf{M}\\)对角矩阵，描述质量，\\(3N \times 3N\\)。\\(\mathbf{x}\\)为 \\(3N\times 1\\)矢量,描述顶点信息。\\(E\\) 为所有的力的能量。\\(\mathbf{||x||_M^2=x^TMx} \\)。  
 > &#x2705; 只有保守力能用能量描述、非保守力（例如摩擦力）则不行。       
 
-
-P15   
-# 优化方法  
-
-
-
 P18  
-### Simulation by Newton’s Method    
+#### Simulation by Newton’s Method    
 
 > &#x1F50E; Newton-Raphson Method见补充2. 这里直接开始Newton方向本当前场景的应用。  
 
@@ -188,7 +183,7 @@ $$
 
 
 P19  
-## Solve Spring Hessian
+#### Solve Spring Hessian
 
 According to Lecture 2, Page 48,      
 
