@@ -20,8 +20,8 @@
   - [粒子的碰撞检测与响应](4_rigidcontact_Particle.md)
   - [刚体的碰撞检测 - Broad Phase](9_collision_detect.md)
   - [刚体的碰撞检测 - Narrow Phase](9_collision_detect_narrow.md)
-  - [刚体的碰撞响应](4_rigidcontact_Rigid.md)
-  - [Collision Response](9_collision_response.md)
+  - [Energy Based 刚体碰撞响应](4_rigidcontact_Rigid.md)
+  - [Constrain Based 刚体碰撞响应](9_collision_response.md)
   - [补充](./4_rigidcontact_supplementary.md)
   - [Summary](./9_collision_summary.md)
 

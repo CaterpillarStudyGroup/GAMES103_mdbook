@@ -10,13 +10,13 @@ P3
 
 P14    
 
-[数学基础] (\\(\quad \\))          
+[数学基础](https://caterpillarstudygroup.github.io/mathematics_basic_for_ML/index.html)          
 
 # Graphics Pipeline   
 
-[Animation] (\\(\quad \\))     
-[Geometry] (\\(\quad \\))       
-[Rendering] (\\(\quad \\))          
+[Animation](https://caterpillarstudygroup.github.io/GAMES105_mdbook/)     
+[Geometry](https://caterpillarstudygroup.github.io/GAMES102_mdbook/)       
+[Rendering](https://caterpillarstudygroup.github.io/GAMES101_mdbook/)          
 
 ## Real-Time Graphics Pipeline     
 
