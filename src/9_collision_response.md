@@ -77,7 +77,7 @@ $$\mathbf{x} ^{(k+1)}\longleftarrow \mathbf{x} ^{(k)}+α(\mathbf{x} ^{[1]}−\ma
 > &#x2705; 关键是步长\\(\alpha \\)     
 The step size \\({\color{Red} α}\\) must be adjusted to ensure that no collision happens on the way.  To find \\({\color{Red} α}\\), **we need collision tests**.    
 
-[&#x2705;] \\( \alpha \\) 不是 learning rate 吗？为什么碰撞检测的结果会影响到\\( \alpha \\) ？
+[&#x2753;] \\( \alpha \\) 不是 learning rate 吗？为什么碰撞检测的结果会影响到\\( \alpha \\) ？
 
 P32    
 ## Impact Zone Optimization    
