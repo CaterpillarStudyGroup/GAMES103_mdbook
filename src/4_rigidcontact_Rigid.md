@@ -200,7 +200,7 @@ Now \\(\mathbf{c}\\) and \\(\mathbf{R}\\) are unknowns we want to find out from
 
 P35  
 
-### 更新质心速度s
+### 更新质心速度
 
 ![](./assets/04-28-1.png)    
 
