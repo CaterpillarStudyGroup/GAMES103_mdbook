@@ -145,7 +145,7 @@ Changing the position is not enough, we must change the velocity as well.
 ![](./assets/04-18-1.png)    
 
 > &#x2705; 把\\(\mathbf{v}\\)分解为\\(\mathbf{v_T}\\)（切线方向的速度）和\\(\mathbf{v_N}\\)（法线方向的速度）.  
-> &#x2705; \\(\mathbf{v_T}\\)方向速度反弹， \\(\mu _\mathbf{N}\\) 为反弹系数。\\(\mathbf{v_N}\\)方向不变或由于摩擦再衰减  
+> &#x2705; \\(\mathbf{v_N}\\)方向速度反弹， \\(\mu _\mathbf{N}\\) 为反弹系数。\\(\mathbf{v_N}\\)方向不变或由于摩擦而衰减  
 > &#x2705; a的约束：（1）越小越好，尽量把速度衰减掉（2）满足库仑定律（切方向的速度改变不应大于法线方向的速度改变）（3）切方向速度不能反转，即a不能为负   
 
 ## Impulse方法总结
@@ -153,7 +153,6 @@ Changing the position is not enough, we must change the velocity as well.
 > &#x2705; 优点：可以精确控制摩擦力和反弹位置。缺点：计算比 Penalty 复杂   
 > &#x2705; 刚体常见于 Impulse； 弹性体常见于Penalty.   
 
-P21   
 
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。
