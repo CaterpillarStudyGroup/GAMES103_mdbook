@@ -107,7 +107,7 @@ The performance depends on the effectiveness of 剪枝。
 
 |ID|Year|Name|Note|Tags|Link|
 |---|---|---|---|---|---|
-||2012|Energy-based Self-Collision Culling for Arbitrary Mesh Deformations|> &#x2705; 对每个区域计算能量，根据形变能量的大小来判断有没有可能相交，此方法不适用于衣服，因为在衣服模拟中大形变很常见、不代表有相交。|
+||2012|Energy-based Self-Collision Culling for Arbitrary Mesh Deformations|&#x2705; 对每个区域计算能量，根据形变能量的大小来判断有没有可能相交，此方法不适用于衣服，因为在衣服模拟中大形变很常见、不代表有相交。|
 
 
 P19   
