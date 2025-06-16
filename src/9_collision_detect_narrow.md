@@ -1,11 +1,3 @@
-P20   
-# Collision Detection Pipeline    
-
-![](./assets/09-12.png)   
-
-> &#x2705; 图画得不对。 DCD 和CCD对输入的需求不同，但SH和 BVH 跟这两种输入不是 一一 对应的关系。   
-> &#x2705; 但DCD和CCD对输入的要求是不一样的。
-> P20页所谓的 D 还是 C,是以时间角度说的。   
 
 P21   
 # Discrete Collision Detection (DCD)    
@@ -62,7 +54,7 @@ To a triangle mesh, there two basic tests: <u>vertex-triangle</u> and <u>edge-ed
 
 
 P24   
-## edge-edge tests.       
+## edge-edge tests        
 
 > &#x2705; 为什么要检测边边相交，因为有可能三角形相交但点面没有相交。   
 
