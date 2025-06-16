@@ -208,36 +208,10 @@ P35
 > &#x2705; 先假设 \\(\mathbf{R}\\) 是任意矩阵 \\(\mathbf{A}\\),再从中提取旋转成分   
 > &#x2705; [Polar Decomposition]([TODO])：极性分解，把任意矩阵分解旋转部分和形变部分。  
 
-
 P36   
-### 极性分解
 
-
-Singular value decomposition says any matrix can be decomposed into: rotation,scaling and rotation: \\(\mathbf{A = UDV} ^T\\).    
-
-![](./assets/04-29.png)    
-
-We can rotate the object back before the final rotation: \\(\mathbf{A}  = (\mathbf{UV} ^T)(\mathbf{VDV} ^T)\\).    
-
-![](./assets/04-31.png)    
-
-
-
-> &#x2705; \\(\mathbf{A} = （\mathbf{UV}^T）(\mathbf{VDV}^T) =\mathbf{RS}\\)   
-\\(\mathbf{R}\\) 代表全局旋转，\\(\mathbf{S}\\)代表本地形变，扔掉S保留R。    
-
-
-![](./assets/04-32.png)    
-
-$$
-\mathbf{A=RS} 
-$$
-
-$$
-\mathbf{A} ^T\mathbf{A}  = \mathbf{S} ^T\mathbf{S}  = \mathbf{S} ^2
-$$
-
-分解结果:unique   
+结论：   
+A^TA=S^TS=S^2
 
 
 P39  
