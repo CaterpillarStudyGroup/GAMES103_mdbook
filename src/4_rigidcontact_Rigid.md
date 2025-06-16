@@ -1,9 +1,9 @@
 P24   
-# Rigid Body Collision Response
+# Rigid Body Discrete Collision Response
 
 碰撞 → 粒子响应 → 粒子速度 → 刚体冲重 → 刚体状态    
 
-## 刚体碰撞响应与粒子碰撞响应的区别
+### 刚体碰撞响应与粒子碰撞响应的区别
 
 
 ![](./assets/04-20.png)    
@@ -17,15 +17,13 @@ P24
 Problem: **we cannot directly modif**y \\(\mathbf{x}_i\\) or \\(\mathbf{v}_i\\) **isince they not state variables**. They areindirectly determined.     
 
 > &#x2705;\\(x\\)和\\(v\\)分别是刚体质心点的位置和速度,第二项为刚体上的特定点相对于质心点的位置和速度   
-对于粒子，可以直接用Impulse修改\\(x\\)和\\(v\\)   
-对于刚体，impulse只能修改\\(x\\)和\\(v\\)，不能修改\\(x_i\\)和\\(v_i\\)；其中\\(x\\)可以通过直接修改更新，也可以通过修改\\(v\\)来更新，这里选择后者。  
-
-Solution: we will find a way to modify \\(\mathbf{v}\\) and \\(\mathbf{\omega}\\).     
-
-> &#x2705; 解决方法：通过修改\\(\mathbf{v}\\)和\\(\mathbf{\omega}\\)实现修改\\(x_i\\)和\\(v_i\\)    
+**对于粒子，可以直接用Impulse修改\\(x\\)和\\(v\\)**   
+**对于刚体，impulse只能修改\\(x\\)和\\(v\\)，不能修改\\(x_i\\)和\\(v_i\\)**；其中\\(x\\)可以通过直接修改更新，也可以通过修改\\(v\\)来更新，这里选择后者。  
+  
+## 解决方法：通过修改\\(\mathbf{v}\\)和\\(\mathbf{\omega}\\)实现修改\\(x_i\\)和\\(v_i\\)    
 
 P25   
-## 反向思考
+### 反向思考
 
 What happens to \\(\mathbf{v}_i\\) when an impulse \\(\mathbf{j}\\) is appliedat vertex \\(i\\)?      
 
@@ -35,10 +33,11 @@ What happens to \\(\mathbf{v}_i\\) when an impulse \\(\mathbf{j}\\) is appliedat
 ![](./assets/04-22-1.png)    
 
 > &#x2705; 冲量 = \\(Ft\\) = \\(m\Delta v \Rightarrow \Delta v\\) = 冲量/\\(m\\)，由此得到\\(v^{new}\\)  
-> &#x2705; 冲量=时间 \\(\cdot\\)力  = 质量矩阵 * 时间 = 力矩 * t，省略公式中的时间，可得：
-\\(Rr_i \times j\\) = 冲量造成的力矩 ＝ 质量矩阵 · \\(\Delta \omega \Rightarrow \Delta \omega\\) ＝ 质量矩阵\\(^{-1}\\) · 力矩 ，由此得到\\(\omega^{new}\\)   
+> &#x2705; 冲量=质量矩阵 * \\( \Delta \omega \\) = 力矩 * \\(t(Rr_i)xfi·t=(Rr_ixj)\\)，可得：
+\\(Rr_i \times j\\) = 冲量造成的力矩 ＝ 质量矩阵 · \\(\Delta \omega \Rightarrow \Delta \omega\\) ＝ 质量矩阵\\(^{-1}\\) · 冲量力矩 ，由此得到\\(\omega^{new}\\)   
 > &#x2753; 为什么质量矩阵是单位阵？   
-> &#x2705; 由线速度\\(v^{new}\\)得到点速度\\(\mathbf{v}_i^{new}\\)  
+
+### 由线速度\\(v^{new}\\)得到点速度\\(\mathbf{v}_i^{new}\\)  
 
 ![](./assets/04-22-2.png)    
 
