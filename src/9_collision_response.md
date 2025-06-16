@@ -39,13 +39,14 @@ $$
 \mathbf{f} _j(\mathbf{x} )=−∇_jE=−ρ\frac{\mathbf{x} _ {ij}}{||\mathbf{x} _{ij}||^2}
 $$
 
-[TODO]
+[TODO]    
 $$
 \frac{\alpha ||\mathbf{x}|| }{\alpha \mathbf{x}} =\frac{\mathbf{x}^\mathbf{T} }{||\mathbf{x}||} 
 $$
 
 
 > &#x2705; 用 Log 定义能量、前面某一节课讲过。距离 → 能量 → 斥力    
+> &#x2753; \\(||\mathbf{x}_{ij}|| \\) 的物理含义没有定义。可能是希望两个三角形之间穿透矩离。\\( \mathbf{x}\\) 代表两个刚体的状态。   
 
 ![](./assets/09-23.png)   
 
@@ -61,7 +62,9 @@ $$
 \bar{\mathbf{x} }^ {[1]}\longleftarrow \mathrm{argmin} _\mathbf{x} (\frac{1}{2} ||\mathbf{x} −\mathbf{x} ^{[1]}||^2−ρ\sum \mathrm{log} ||\mathbf{x} _{ij}||)
 $$
 
-> &#x2705; 优化目标：点的位置与目标位置（穿模）尽量接近，然后优化。   
+> &#x2705; 优化目标：点的位置与目标位置（穿模）尽量接近，且不穿模。   
+> &#x2705; 绿色是来自\\(\mathbf{x}^{[1]}\\)的引力，对应公式第1页。黄色是来自边界的斥力对应公式第2页。    
+![](./assets/09-24.png)   
 
 Gradient Descent:    
 
@@ -70,24 +73,26 @@ For \\(k=0…K\\)
 $$\mathbf{x} ^{(k+1)}\longleftarrow \mathbf{x} ^{(k)}+α(\mathbf{x} ^{[1]}−\mathbf{x} ^{(k)}+ρ\sum \frac{\mathbf{x} _{ij}}{||\mathbf{x} _{ij}||^2})$$ 
 \\(\bar{\mathbf{x} }^ {[1]}\longleftarrow \mathbf{x} ^{(k+1)}\\)
 
-
+> &#x2705; **每走一小步都需要反复的碰撞检测，重新计算**\\(||\mathbf{x} _{ij}||\\)。    
+> &#x2705; 关键是步长\\(\alpha \\)     
 The step size \\({\color{Red} α}\\) must be adjusted to ensure that no collision happens on the way.  To find \\({\color{Red} α}\\), **we need collision tests**.    
 
-![](./assets/09-24.png)   
-
-
-> &#x2705; 绿色是来自\\(\mathbf{x}^{[1]}\\)的引力，黄色是来自边界的斥力、关键是步长\\(\alpha \\)， 每走一小步都需要反复的碰撞检测。   
-
-
+[&#x2705;] \\( \alpha \\) 不是 learning rate 吗？为什么碰撞检测的结果会影响到\\( \alpha \\) ？
 
 P32    
 ## Impact Zone Optimization    
 
 The goal of impact zone optimization is to optimize \\(\mathbf{x}^{[1]}\\) until it becomes intersection-free. (This potentially suffers from the tunneling issue, but it’s uncommon.)     
 
+> tunneling issue 是指：\\(\mathbf{x} ^{[1]}\\) 离两个安全区都比较近。\\(\mathbf{x} ^{[0]}\\) 在其中一个安全区，而\\(\mathbf{x} ^{[1]}\\) 被优化到了另一个安全区。表现出的现象为穿透。  
+
+目标优化：   
+
 $$
 \bar{\mathbf{x} }^{[1]}\longleftarrow \mathrm{argmin} _\mathbf{x}  \frac{1}{2} ||\bar{\mathbf{x} }-\mathbf{x}^{[1]}||^2
 $$  
+
+约束：   
 
 $$
 \text{such that}
@@ -99,56 +104,12 @@ $$
 
 ![](./assets/09-25.png)   
 
+###　无约束优化问题　　　
 
-> &#x2705; 利用 constrain（不是能量）转化成优化问题，具体没讲。  
-
-
-
-P33   
-### Geometric Impulse   
-
-The goal of impact zone optimization is to optimize \\(\mathbf{x}^{[1]}\\) until it becomes intersection-free. (This potentially suffers from the tunneling issue, but it’s uncommon.)     
-
-![](./assets/09-26.png)   
-
-Every pair gives new positions to the involved vertices.  We can combine them together in a Jacobi, or Gauss-Seidel fashion, just like position-based dynamics.     
-
-
-
-
-P34    
-### After-Class Reading (Cont.)   
-
-
-Bridson et al. 2002. *Robust Treatment of Collisions, Contact
-and Friction for Cloth Animation. TOG (SIGGRAPH)*.     
-
-Relative simple explicit integration of cloth dynamics     
-
-
-
-P35   
-### Augmented Lagrangian     
-
-$$
-\bar{\mathbf{x} }^{[1]}\longleftarrow \text{argmin} _\mathbf{x}  \frac{1}{2} ||{\mathbf{x} }-\mathbf{x}^{[1]}||^2
-$$  
-
-$$
-\text{such that}
-\begin{cases}
- C(\mathbf{x} )=−(\mathbf{x} _3−b_0\mathbf{x} _0−b_1\mathbf{x} _1−b_2\mathbf{x} _1)\cdot \mathbf{N} ≤0 & \text{ For each detected vertex-triangle pair }  \\\\
- C(\mathbf{x} )=−(b_2\mathbf{x} _2+b_3\mathbf{x} _3−b_0\mathbf{x} _0−b_1\mathbf{x} _1)\cdot \mathbf{N}≤0 & \text{ For each detected edge-edge pair }
-\end{cases}
-$$
-
-![](./assets/09-27.png)  
-
+这是一个带约束优化问题。　　　  Ⓐ
 
 
 P36   
-### Augmented Lagrangian    
-
 
 We can then convert it into an unconstrained form:   
 
@@ -186,9 +147,29 @@ P37
 
 ![](./assets/09-28.png)    
 
+    
+P33   
+
+![](./assets/09-26.png)   
+
+Every pair gives new positions to the involved vertices.  We can combine them together in a Jacobi, or Gauss-Seidel fashion, just like position-based dynamics.     
+
+
+
+
+P34    
+### After-Class Reading (Cont.)   
+
+
+Bridson et al. 2002. *Robust Treatment of Collisions, Contact
+and Friction for Cloth Animation. TOG (SIGGRAPH)*.     
+
+Relative simple explicit integration of cloth dynamics     
+
 
 
 P38    
+
 ## Rigid Impact Zones    
 
 
@@ -201,7 +182,7 @@ The rigid impact zone method simply freezes vertices in collision from **moving 
 
 
 P39   
-# A Practical System   
+## A Practical System Summary   
 
 ![](./assets/09-30.png)    
 
