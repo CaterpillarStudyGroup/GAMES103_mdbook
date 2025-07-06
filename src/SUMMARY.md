@@ -35,7 +35,7 @@
   - [投影函数 Projection Function](./6_constraints_Projection.md)
   - [PBD](./6_constraints_PBD.md)
   - [Strain Limiting](6_constraints_strain.md)
-  - [Projective Dynamics](6_constraints_Projective_Dynamics.md)
+  - [投影动力学 (Projective Dynamics)](6_constraints_Projective_Dynamics.md)
   - [Contrained Dynamics](6_constraints_Contrained_Dynamics.md)
   - [总结](6_constraints_summary.md)
 - [07-FEM](7_FEM.md)

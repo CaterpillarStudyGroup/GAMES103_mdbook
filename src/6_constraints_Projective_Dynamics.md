@@ -1,11 +1,12 @@
 P22   
-# Projective Dynamics     
+# 投影动力学 (Projective Dynamics)     
 
-## 原理
+## 原理   
 
-Instead of blending projections in a Jacobi or Gauss-Seidel fashion as in PBD, projective dynamics uses <u>projection</u> to define a <u>quadratic</u> energy.      
+> &#x2705; PBD方法直接拿约束来修复顶点位置，没有物理含义。而Projective Dynatics把projection方法跟物拟模拟结合起来。     
+> &#x2705; Projective Dynamics与PBD的差别主要体现在用约束来做什么。    
 
-> &#x2705; PBD方法直接拿约束来修复顶点位置，没有物理含义。而本页方法把projection方法跟物拟模拟结合起来，主要体现在用约束来做什么。    
+Projective Dynamics**将约束转化为能量**，通过最小化能量函数来求解系统的状态。因此是一种基于优化的物理仿真方法
 
 ## 能量和力
 
@@ -103,10 +104,6 @@ For \\(k=0\dots K\\)
 
 “Newton’s Method”    
 
-$$
-\quad
-$$
-
 
 P26  
 ## Preconditioned Steepest Descent
@@ -130,10 +127,13 @@ The performance depends on how well \\(\mathbf{{\color{Orange} H} }\\) approxima
 P27  
 ## Pros and Cons of Projective Dynamics 
 
-
+### Pros
 
  - By building constraints into energy, the simulation now has a theoretical <u>solution</u> with **physical** meaning.    
  - **Fast on CPUs** with a direct solver. No more factorization!    
+
+### Cons
+
 > &#x2705; Fast on CPU,因为它只作一次\\(\mathbf{LU}\\)分解。   
  - Fast convergence in the first few iterations.    
  - **Slow on GPUs**. (GPUs don’t support direct solver wells.)    
@@ -153,8 +153,9 @@ P27
 P28   
 ## After-Class Reading
 
-
-Bouaziz et al. 2014. *Projective Dynamics: Fusing Constraint Projections for Fast Simulation. TOG (SIGGRAPH)*.    
+|ID|Year|Name|Note|Tags|Link|
+|---|---|---|---|---|---|
+||2014|Projective Dynamics: Fusing Constraint Projections for Fast Simulation|
 
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。
