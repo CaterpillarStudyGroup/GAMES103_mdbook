@@ -1,20 +1,10 @@
-
-P3    
-# Prerequisites
-
- - The course is designed for    
-    - Undergraduates in the 3rd or 4th year, or fresh graduates.     
-
-
-> &#x2705; 建议：读 paper 而不是教材，只读重点不读全文学知识而不是学用 Unity. 多读多写多想  
-
 P14    
-
-[数学基础](https://caterpillarstudygroup.github.io/mathematics_basic_for_ML/index.html)          
-
 # Graphics Pipeline   
 
-[Animation](https://caterpillarstudygroup.github.io/GAMES105_mdbook/)     
+
+[数学基础](https://caterpillarstudygroup.github.io/mathematics_basic_for_ML/index.html)          
+[Animation - 角色动画](https://caterpillarstudygroup.github.io/GAMES105_mdbook/)   
+[Animation - 物理动画](https://caterpillarstudygroup.github.io/GAMES103_mdbook/)     
 [Geometry](https://caterpillarstudygroup.github.io/GAMES102_mdbook/)       
 [Rendering](https://caterpillarstudygroup.github.io/GAMES101_mdbook/)          
 
@@ -51,18 +41,6 @@ P18
 > &#x2705; 电影：离线，不需要交互，提前录下来，例如游戏中的过场动画     
 
 ![](./assets/01-2.png)
-
-
-P27
-# Animation
-
-## Character and Physics-Based Animation      
-
-![](./assets/01-10.png) 
-
-> &#x2705; 本课程主要是后者，但通常二者是结合的。
-
-![](./assets/01-11.png)    
 
  
 P38 

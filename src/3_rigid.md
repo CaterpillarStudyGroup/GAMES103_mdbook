@@ -1,11 +1,6 @@
 # Rigid Bodies    
 
-
-
 > &#x2705; rigid：物体很硬，因此不考虑形变。  
-
-
-
 
 P7   
 ## Rigid Body Motion  
