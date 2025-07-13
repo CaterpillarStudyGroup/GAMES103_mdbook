@@ -1,23 +1,34 @@
-# GAMES103_mdbook
+本文以GAMES103课程为始，围绕图形学物理仿真话题，根据自己的理解重新排版、增删。如有侵权，请联系删除。
 
-基于物理的计算机动画入门
+**仿真是指，根据仿真对象在当前时刻的力计算下一时刻仿真对象的状态。**因此本文根据仿真对象来划分章节。对每一种仿真对象（组合），分析
+1. 属性，包含固有属性和需要仿真的状态
+2. 可能受到的力，包含内力和外力
+3. 对象在力的作用下如何响应，即更新状态
+4. 这种仿真对象的使用场景
 
-[原始课程链接](https://www.bilibili.com/video/BV12Q4y1S73g/?spm_id_from=333.337.search-card.all.click)
+> &#x2705; 这里涉及到时间步的概念。仿真的帧率不需要与渲染的帧率保持一致。通常一个渲染step会包含多个仿真step。  
 
-如有侵权，请联系删除
+> &#x2705; 王老师建议的学习方法：  
+> 读 paper 而不是教材  
+> 只读重点不读全文  
+> 学知识而不是学用 Unity  
+> 多读多写多想  
 
-*由于加载速度的限制，一个页面的内容太多会导致图片加载不出来，因此把内容分得非常细，每一个页面涉及一个很小的话题。*
+# Reference
 
-# 主要内容
+1. 基于物理的计算机动画入门 [原始课程链接](https://www.bilibili.com/video/BV12Q4y1S73g/?spm_id_from=333.337.search-card.all.click)
 
-![](./src/assets/1-16.png)   
+![](./assets/1-16.png)   
 
-# 说明
+2. 知乎、Deepseek等网络材料
 
-这个是GAMES-Webinar提供的一个课程系列。  
-作者王华民老师的课程是抓大放小风格。不会在公式推导的细节上深究，甚至有时有一句“你们相信我没有把公式抄错吧”就算是完成公式的推导了。但老师在关键问题上一点都不含糊。喜欢把算法从大的层面进行分类和归纳。算法讲完后一定少不了关于“用不同套路解决同一问题”的比较。在传授了算法的同时，也言传身教地让听众学会了辩证地思考。   
-特别值得一提的是，老师在最后一课的最后的一段总结讲得很好。是整篇课程的升华。大概是关于以下内容：（1）关于图形学的学术研究。（2）关于自学的困境。（3）关于AI模拟。
+3. 图形学相关
 
+[数学基础](https://caterpillarstudygroup.github.io/mathematics_basic_for_ML/index.html)          
+[Animation - 角色动画](https://caterpillarstudygroup.github.io/GAMES105_mdbook/)   
+[Animation - 物理动画](https://caterpillarstudygroup.github.io/GAMES103_mdbook/)     
+[Geometry](https://caterpillarstudygroup.github.io/GAMES102_mdbook/)       
+[Rendering](https://caterpillarstudygroup.github.io/GAMES101_mdbook/)  
 
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。  

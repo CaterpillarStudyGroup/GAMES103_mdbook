@@ -1,27 +1,22 @@
 # Summary
 
 - [Introduction](README.md)
-- [01-intro](1_intro.md)
 
 # BackGround
 
-- [02-math]()
+- [数学基础]()
   - [Vector](2_math_vector.md)
   - [Matrix](2_math_matrix.md)
   - [Tensor Calculus](2_math_calculus.md)
-
-# 仿真的基本单位
-
+- [图形学基础](Graphics.md)
 - [仿真的基本单位]()
   - [粒子](Unit/Particle.md)
   - [格子](Unit/Grid.md)
-
-# 刚体 - 粒子以相对位置不变的关系聚合
-
-- [刚体动力学](3_rigid.md)
-- [刚体的属性](Rigid/Attribution.md)
-  - [平移运动](3_rigid_Translational_Motion.md)
-  - [旋转运动](3_rigid_Rotational_Motion.md)
+  - [粒子与格子的混合]()
+- [刚体 - 粒子以相对位置不变的关系聚合]()
+  - [刚体的属性](Rigid/Attribution.md)
+  - [刚体动力学](Rigid/Force.md)
+  - [补充](Rigid/supplementary.md)
   - [补充](3_rigid_supplementary.md)
 - [刚体碰撞](4_rigidcontact.md)
   - [粒子的碰撞检测与响应](4_rigidcontact_Particle.md)
@@ -54,6 +49,9 @@
   - [Nonlinear optimization](8_FEM2_Nonlinear_optimization.md)
 - [Untangling Cloth](9_collision_untangling.md)
 
+# Grid - 整齐排布的格子
+
+- [Grid](Grid.md)
 
 # 水
 
