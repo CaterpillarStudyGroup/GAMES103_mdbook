@@ -17,6 +17,8 @@
   - [刚体的属性](Rigid/Attribution.md)
   - [刚体动力学](Rigid/Force.md)
   - [补充](Rigid/supplementary.md)
+- [粒子与刚体组成的系统]()
+  - [系统的属性](ParticleRigid/Attribution.md)
 - [刚体系统 - 多个刚体组成的系统](4_rigidcontact.md)
   - [粒子的碰撞检测与响应](4_rigidcontact_Particle.md)
   - [刚体的碰撞检测 - Broad Phase](9_collision_detect.md)
