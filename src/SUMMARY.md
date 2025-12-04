@@ -22,7 +22,7 @@
     - [刚体动力学](Rigid/Force.md)
     - [补充](Rigid/supplementary.md)
   - [可形变Mesh - 软体]()
-    - []
+    - [软体的属性](Soft/Attribution.md)
     - [布料](5_cloth.md)
       - [Mass Spring System](5_cloth_spring.md)
       - [Bending and Locking Issues](5_cloth_bending_blcoking.md)
