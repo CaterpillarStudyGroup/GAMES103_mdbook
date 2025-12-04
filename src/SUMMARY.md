@@ -15,6 +15,7 @@
 
 - [粒子]()
   - [粒子](Particle/Particle.md)
+  - [应用场景 - 刚体](Particle/Rigid.md)
 - [Mesh]()
   - [不可形变Mesh - 刚体]()
     - [刚体的属性](Rigid/Attribution.md)
@@ -40,15 +41,26 @@
     - [08-FEM2](8_FEM2.md)
       - [Nonlinear optimization](8_FEM2_Nonlinear_optimization.md)
 
-- [格子]()
-- [粒子与格子的混合]()
-- [粒子与刚体组成的系统]()
-
+- [Grid](Grid.md)
+  - [2D Grid - 水]()
+    - [10-wave](10_wave.md)
+    - [高度场模型]()
+      - [高度场模型](10_wave_height_feild.md)
+      - [Volume Preservation](./10_wave_volume.md)
+      - [Boundary Conditions](10_wave_boundary.md)
+      - [Two-Way Coupling](10_wave_coupling.md)
+      - [Summary](10_wave_summary.md)
+  - [欧拉模型](11_EulerianFluids.md)
+    - [A Grid Representation and Finite Differencing](11_EulerianFluids_Grid.md)
+    - [Staggered Grid](11_EulerianFluids_Staggered.md)
+    - [Incompressible, Viscous  Navier-Stokes Equations](11_EulerianFluids_Incompressible.md)
+    - [Air and Smoke](11_EulerianFluids_Air_Smoke.md)
+    - [Summary](./11_EulerianFluids_Summary.md)
 # 仿真代理之间的作用
 
-- [粒子 + 刚体](ParticleRigid/Attribution.md)
-- [刚体系统](4_rigidcontact.md)
+- [粒子 + Mesh](ParticleMesh/Attribution.md)
   - [粒子的碰撞检测与响应](4_rigidcontact_Particle.md)
+- [刚体系统](4_rigidcontact.md)
   - [刚体的碰撞检测 - Broad Phase](9_collision_detect.md)
   - [刚体的碰撞检测 - Narrow Phase](9_collision_detect_narrow.md)
   - [Energy Based 刚体碰撞响应](4_rigidcontact_Rigid.md)
@@ -63,18 +75,4 @@
 
 # Grid - 整齐排布的格子
 
-- [Grid](Grid.md)
-- [2D Grid - 水]()
-  - [10-wave](10_wave.md)
-  - [高度场模型]()
-    - [高度场模型](10_wave_height_feild.md)
-    - [Volume Preservation](./10_wave_volume.md)
-    - [Boundary Conditions](10_wave_boundary.md)
-    - [Two-Way Coupling](10_wave_coupling.md)
-    - [Summary](10_wave_summary.md)
-- [欧拉模型](11_EulerianFluids.md)
-  - [A Grid Representation and Finite Differencing](11_EulerianFluids_Grid.md)
-  - [Staggered Grid](11_EulerianFluids_Staggered.md)
-  - [Incompressible, Viscous  Navier-Stokes Equations](11_EulerianFluids_Incompressible.md)
-  - [Air and Smoke](11_EulerianFluids_Air_Smoke.md)
-  - [Summary](./11_EulerianFluids_Summary.md)
+

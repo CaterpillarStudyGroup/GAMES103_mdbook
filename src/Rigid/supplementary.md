@@ -2,51 +2,63 @@
 
 ## 力矩 torque \\(\mathbf{τ} \\) 
 
-A torque is the rotational equivalent of a force. It describes the rotational <u>tendency</u> caused by a force.    
+Torque：力矩，造成物体旋转的趋势。类比于Force：力，造成物体运动的趋势。   
 
-> &#x2705; Torque：力矩，造成物体旋转的趋势。类比于Force：力，造成物体运动的趋势。   
+### 力转化为力矩
+
+> &#x2705; 力转化为力矩，不是物理性质上的转化，而是数学形式上的转化。把力用力矩的形式表达，用于计算它对旋转产生的影响。  
 
 ![](../assets/04-2.png)     
 
-> &#x2705; \\(\mathbf{Rr} _i\\)：当前状态下质心到作用点的向量 
+定义：  
+- \(\mathbf{f} _i\\)：力  
+- \\(\mathbf{Rr} _i\\)：当前状态下质心到作用点的向量 
+- \\(\mathbf{τ} _i\\)：力矩
 
-\\(\mathbf{τ} _i\\) is perpendicular to both vectors: \\(\mathbf{Rr} _i\\) and \\(\mathbf{f} _i\\).    
-
-> &#x2705; 力矩的方向决定了旋转轴的方向，由叉差乘得到   
-
-\\(\mathbf{τ} _i\\) is porportional to ||\\(\mathbf{Rr} _i\\)|| and ||\\(\mathbf{f} _i\\)||.    
-
-
-\\(\mathbf{τ} _i\\) is porportional to \\(\sin \theta\\).     
-(\\(\theta\\)  is the angle between two vectors.)
+分析：  
+- \\(\mathbf{τ} _i\\) is perpendicular to both vectors: \\(\mathbf{Rr} _i\\) and \\(\mathbf{f} _i\\).    
+- \\(\mathbf{τ} _i\\) is porportional to ||\\(\mathbf{Rr} _i\\)|| and ||\\(\mathbf{f} _i\\)||.    
 
 > &#x2705; 力矩的大小决定旋转的快慢。 
 
-|\\(\mathbf{τ} _i\longleftarrow (\mathbf{Rr} _i)\times \mathbf{f} _i\\)|   
-|----|
+- \\(\mathbf{τ} _i\\) is porportional to \\(\sin \theta\\).    
+ 
+> &#x2705; \\(\theta\\)  is the angle between \(\mathbf{f} _i\\)和\\(\mathbf{Rr} _i\\)
 
-![](./assets/03-22.png) 
+因此：
+
+$$
+\mathbf{τ} _i\longleftarrow (\mathbf{Rr} _i)\times \mathbf{f} _i
+$$
 
 P6   
 
 ## inertia tensor
 
-Similar to mass, an inertia tensor describes the resistance to rotational tendency caused by torque. But different from mass, it’s not a constant.    
+inertia 看作是对运动的抵抗。
 
-> &#x2705; inertia 也与自身的状态相关
-
-![](./assets/04-3.png)     
+![](../assets/04-3.png)     
 
 Which side receives greater resistance?     
 
-> &#x2705; 两图的力矩大小相同，但产生的旋转不同   
-inertia 看作是对运动的抵抗，其效果与力矩的方向有关，因此不是常数  
+> &#x2705; 两图对同一个刚体施加的力矩大小相同，但产生的旋转不同。可知inertia的效果与力矩的方向有关，因此不是常数。  
+
+换个角度出，对两个不同（旋转）状态的刚体施加（大小和方向）相同的力矩，其产生的效果也不一样。  
+
+即，**inertia 与自身的状态相关**。
 
 P7   
 
+### 计算inertia
+
+Similar to mass, an inertia tensor describes the resistance to rotational tendency caused by torque. But different from mass, it’s not a constant.    
+
 It’s a matrix! The mass inverse is the resistance (just like mass).    
 
-> &#x2705; 用于旋转的质量不再是实数，而是矩阵，称为 Inertia 矩阵，用 \\(\mathbf{I}\\) 来标记 Inertia 矩阵，其中 \\(\mathbf{I}_{ref}\\)为参考状态，\\(\mathbf{I}\\) 为当前状态，\\(\mathbf{I}\\) 是 \\(3\times 3\\) 矩阵。  
+> &#x2705; 用于旋转的质量不再是实数，而是\\(3\times 3\\)的矩阵，称为 Inertia 矩阵。  
+> &#x2705; 用 \\(\mathbf{I}\\) 来标记当前状态下的 Inertia 矩阵。用 \\(\mathbf{I}_{ref}\\)为参考状态下的Inertia 矩阵。
+
+具体计算公式如下 ：
 
 |reference state|current state|
 |---|---|
