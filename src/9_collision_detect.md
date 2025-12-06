@@ -1,11 +1,23 @@
-P4  
-# Collision Detection Pipeline    
+# 粒子与 Mesh     
 
-![](./assets/09-1.png)    
+## 相交检测     
 
+检测粒子是否在 Mesh 的内部   
+射线法：粒子从自身出发，发出一条射线，判断射线是与 Mesh 上的面片相交。    
+相交次数为奇数，则在 Mesh 内    
+相交次数为偶数，则在 Mesh 外    
 
+### 穿透检测    
 
-P5    
+## 碰撞响应    
+
+粒子与 SDF 的碰撞响应在此处同样适用     
+
+Mesh 与 Mesh 
+
+P5  
+# 相交检测 —— 粗检测      
+
 ## 方法一：Spatial Partitioning    
 
 
