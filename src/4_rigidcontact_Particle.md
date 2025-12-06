@@ -48,7 +48,24 @@ P14
 Intuitively, we can consider collision detection with the union of two objects as **collision detection with two separate objects**.    
 
 P15   
-# 粒子碰撞响应 —— Penalty Method  
+### 穿透检测  
+
+$$ \phi (x(t))=0 $$    
+解出\\(t\\)   
+如果\\(t\\)在所检测的时时范内有解，则说明存在穿透\\(t\\)为穿透时刻。   
+
+## 粒子碰撞响应 —— Penalty Method  
+
+### 碰撞解除   
+
+SDF 常用于代表静态物体，这种物体不响应力和碰撞，所以所有的碰撞响应都发生在粒子上。    
+
+![](./assets/04-17.png)    
+
+> &#x2705; 更新方向：N方向。更新距离：穿入的距离。
+
+
+### 状态更新
 
 ## Quadratic Penalty Method    
 
@@ -64,6 +81,12 @@ A penalty method applies a penalty force in the next update. When the penalty po
 
 
 P16   
+
+粒子的运动状态发生变化确实是由于力的作用。但对力的大小的假设均不合理。    
+力的大小确实与穿透深度有关，因为：    
+
+穿透深 → 相对速度大 → 碰撞速度和反弹速度都大 → 速度改变大 → 力大
+
 ## Quadratic Penalty Method with a Buffer   
 
 
@@ -113,7 +136,7 @@ P18
  
 > &#x2705; 缺点：   
 (1) 难以模拟摩擦。   
-(2) 碰撞->施加力->调整，因此效果是滞后的。    
+(2) 碰撞 → 施加力 → 调整，因此效果是滞后的。    
 优点：易实现  
  
 P19   
@@ -128,12 +151,6 @@ An impulse method assumes that collision changes the position and the velocity a
 
 > &#x2705; lmpulse 省去了力这一步，直接更新刚体状态。方法要求已经有一个比较好的\\(\phi (x)\\)   
 > &#x2705; 关键区别不在于是否使用力，而是位置是怎样计算出来的，前者的位置由力和速度，这个计算出来的(不管是作为下一时刻还是这一时刻)的位置，都不能保证一定能以物体内部推出来，但后者直接求出当前置对应的表面位置的点，并更新上去，因此能立即生效。    
-
-## 更新位置
-
-![](./assets/04-17.png)    
-
-> &#x2705; 更新方向：N方向。更新距离：穿入的距离。
 
 ## 更新速度
 
