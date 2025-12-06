@@ -171,6 +171,22 @@ Changing the position is not enough, we must change the velocity as well.
 > &#x2705; 刚体常见于 Impulse； 弹性体常见于Penalty.   
 
 
+
+# 粒子与 Mesh     
+
+## 相交检测     
+
+检测粒子是否在 Mesh 的内部   
+射线法：粒子从自身出发，发出一条射线，判断射线是与 Mesh 上的面片相交。    
+相交次数为奇数，则在 Mesh 内    
+相交次数为偶数，则在 Mesh 外    
+
+### 穿透检测    
+
+## 碰撞响应    
+
+粒子与 SDF 的碰撞响应在此处同样适用     
+
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。
 >
