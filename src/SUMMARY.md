@@ -62,7 +62,7 @@
 
 # 仿真代理之间的作用
 
-- [粒子 + SDF](ParticleMesh/Attribution.md)
+- [粒子 + SDF](ParticleSDF/Attribution.md)
   - [粒子的碰撞检测与响应](4_rigidcontact_Particle.md)
 - [刚体 + SDF]()
   - [Energy Based 刚体碰撞响应](4_rigidcontact_Rigid.md)

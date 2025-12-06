@@ -170,6 +170,10 @@ Changing the position is not enough, we must change the velocity as well.
 > &#x2705; 优点：可以精确控制摩擦力和反弹位置。缺点：计算比 Penalty 复杂   
 > &#x2705; 刚体常见于 Impulse； 弹性体常见于Penalty.   
 
+||速度大小|速度方向|
+|---|---|---|
+|Penalty|碰撞深度->力的大小|表面方向|
+|Impulse|相对速度 * decay | 反弹方向+惯性方向|
 
 
 # 粒子与 Mesh     
