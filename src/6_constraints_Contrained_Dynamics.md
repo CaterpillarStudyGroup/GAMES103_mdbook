@@ -12,7 +12,7 @@ P30
 
 A critical problem exists: what if constraints/forces are **very very stiff**? Or infinitely stiff?    
 
-> &#x2705; 此算法 PD 的扩展，用于处理 very very stiff 的场景，即距离约束必须严格满足。而前面算法需要做很多次迭代才能产生这种效果（计算量大）。   
+> &#x2705; 此算法是 PD 的扩展，用于处理 very very stiff 的场景，即距离约束必须严格满足。而前面算法需要做很多次迭代才能产生这种效果（计算量大）。   
 
 
 ## 根据约束建立模型  
