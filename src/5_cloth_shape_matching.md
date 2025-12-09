@@ -3,12 +3,17 @@ P39
 
 > &#x2705; Shape Matching 跳过了。   
 
+先让每个粒子独立仿真，也不需要考虑弹簧力。   
+将每个面片的变形程度构建为能量，通过优化能量的方式使 Mesh 减少形变，所有面片以统一的方式进行优化，因此是一种全局优化方法。   
 
 P40   
-## Shape Matching   
+## 量化变形   
 
 The basic idea is to define a quadratic energy based on the rotated reference element. To do so, we split transformation into deformation + rotation.     
 
+有两种方式基于能量恢复形变。   
+1. 向能量减少的方向优化。      
+2. 转化为力，基于力进行仿真。    
 
 ![](./assets/05-26.png)    
 
@@ -16,16 +21,12 @@ The basic idea is to define a quadratic energy based on the rotated reference el
 
 
 P41   
-## Shape Matching
-
-The basic idea is to define a quadratic energy based on the rotated reference element. To do so, we split transformation into deformation + rotation.
-
 
 ![](./assets/05-27.png)    
 
 
 P42   
-## Shape Matching   
+## 计算能量   
 
 We can then define the quadratic energy as:   
 
