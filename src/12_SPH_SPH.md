@@ -1,21 +1,8 @@
 # A SPH Model
 
+> &#x2705; SPH = Smoothed Particle Hydrodynamics     
 > &#x2705; 搞一个模型，能够用于计算偏微分，把微分向量应用到方程上进行求解。   
 > &#x2705; SP:smooth particle      
-
-
-P4   
-## A SPH Model  
-
-Consider a (**Lagrangian**) particle system: each water molecule is a particle with physical quantities attached, such as position \\(\mathbf{x}_i\\), velocity \\(\mathbf{v}_i\\), and mass \\(m_i\\).   
-
-![](./assets/12-1.png)    
-
-
-
-> &#x2705; 用粒子来表达流体，物理变量附着在粒子上，粒子转化为三角网格再渲染，或直接渲染带透明贴图的粒子(游戏)。   
-
-
 
 P5   
 ## 原理   
@@ -25,6 +12,13 @@ P5
  - How to estimate the quantity at a new location \\(\mathbf{x}_i\\)?   
 
 > &#x2705; 空间中有很多带有物理量的粒子，求任意位置上的物理量。这是插值问题，关键是要插值结果平滑。    
+
+|||
+|--|--|
+| 属性 | 符号 |
+| 体积 | \\( \nu \\)  |
+| 密度 | \\( \rho \\)  |
+| 其它非仿真属性 | \\( A \\) |
 
 ## 模型
 ### A Simple Model
@@ -36,6 +30,9 @@ $$
 $$
 
 ![](./assets/12-2.png)   
+
+假设空间是一个关于 \\(A\\) 的场，粒子是空间中的采样。    
+根据 \\(i\\) 附近范围内采样出的 \\(A\\) 值预测 \\(i\\) 点处的 \\(A\\) 值。
 
 #### 存在的问题
 
@@ -62,6 +59,7 @@ $$
 
 ![](./assets/12-4.png)   
 
+体积 \\(V-i\\) 的计算在后面介绍。这里先假设 \\(V-i\\) 已知。   
 
 > &#x2705; 公式假设总球的体积是1，球内的粒子瓜分这些体积。所以\\(\sum _jV_j=1\\)    
 
@@ -90,7 +88,7 @@ P9
 ### Final Solution   
 
 
- - Final solution:   
+解决方法：根据 \\(j\\) 到 \\(i\\) 的距离来决定 \\(j\\) 对 \\(i\\) 的影响权重。      
  
 $$
 \begin{matrix}

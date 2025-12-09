@@ -15,7 +15,6 @@
 
 - [粒子]()
   - [粒子](Particle/Particle.md)
-  - [粒子系统 - SPH模型](12_SPH.md)
     - [A SPH Model](12_SPH_SPH.md)
     - [SPH-Based Fluids](12_SPH_Fluids.md)
     - [Fluid Display](12_SPH_Display.md)

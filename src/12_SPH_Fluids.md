@@ -1,3 +1,15 @@
+
+P4   
+## A SPH Model  
+
+Consider a (**Lagrangian**) particle system: each water molecule is a particle with physical quantities attached, such as position \\(\mathbf{x}_i\\), velocity \\(\mathbf{v}_i\\), and mass \\(m_i\\).   
+
+![](./assets/12-1.png)    
+
+
+
+> &#x2705; 用粒子来表达流体，物理变量附着在粒子上。先通过粒子系统的方式独立计算每个粒子。粒子转化为三角网格再渲染，或直接渲染带透明贴图的粒子(游戏)。   
+
 P16   
 # SPH-Based Fluids   
 
