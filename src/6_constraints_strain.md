@@ -1,6 +1,8 @@
 P14  
 # Strain Limiting    
 
+PBD 是一个让仿真结果变得满足约束的方法，可以认为是仿真的后处理。由此产生了其它的用法。   
+
 ## 原理
 Strain limiting aims at using the projection function for **correction** only. 
 
