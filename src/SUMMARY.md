@@ -24,6 +24,8 @@
   - [刚体的属性](Rigid/Attribution.md)
   - [刚体动力学](Rigid/Force.md)
   - [补充](Rigid/supplementary.md)
+- [应有场景-布料]()
+  - [构建弹簧网络](spring-network.md)
 - [可形变Mesh - 弹性体](Elastic/Elastic.md)
   - [弹性体的属性](Elastic/Attribution.md)
   - [Mass Spring System](5_cloth_spring.md)
