@@ -1,10 +1,9 @@
-# 不可形变Mesh与刚体
+# 不可形变Mesh —— 刚体
 
 [Mesh](https://caterpillarstudygroup.github.io/GAMES102_mdbook/Introduction/3DData.html)由顶点、边、面片组成。  
 
 不可形变的Mesh指，Mesh上的顶点、边、面片的相对位置位移保持不变，因此把不可形变Mesh称为刚体。刚体的特点是物体很硬，不考虑形变。  
 
-Mesh由点、线、面组成，从不同的角度看待Mesh，可以得到不同的仿真属性和仿真方法，用于不同的仿真目的。
 
 # 刚体的仿真属性
 
