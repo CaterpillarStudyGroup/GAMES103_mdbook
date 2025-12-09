@@ -16,8 +16,8 @@ P30
 
 A dihedral angle model defines bending forces as a function of \\(\theta : \mathbf{f} _i=f (\theta )\mathbf{u} _i\\).    
 
-> &#x2705; Dihedarl Angel:二面角  
-> &#x2705; 把弯曲的力写成关于二面角的函数
+> &#x2705; Dihedarl Angel:二面角   
+> &#x2705; 把弯曲的力写成关于二面角的函数    
 
 ![](./assets/05-23.png)    
 
@@ -27,11 +27,11 @@ A dihedral angle model defines bending forces as a function of \\(\theta : \math
 
  - First, \\(\mathbf{u}_1\\) and \\(\mathbf{u}_2\\) should be in the normal directions \\(\mathbf{n}_1\\) and \\(\mathbf{n}_2\\).     
 
- - Second, bending **doesn’t stretch the edge**, so \\(\mathbf{u}_4\\)−\\(\mathbf{u}_3\\) should be orthogonal to the edge, i.e., in the span of \\(\mathbf{n}_1\\) and \\(\mathbf{n}_2\\).
+ - Second, bending **doesn’t stretch the edge**, so \\(\mathbf{u}_4\\)−\\(\mathbf{u}_3\\) should be orthogonal to the edge, i.e., in the span of \\(\mathbf{n}_1\\) and \\(\mathbf{n}_2\\).    
 
- - Finally, \\(\mathbf{u}_1+\mathbf{u}_2+\mathbf{u}_3+\mathbf{u}_4=\mathbf{0}\\), which means \\(\mathbf{u}_3\\) and \\(\mathbf{u}_4\\) are in the span of \\(\mathbf{n}_1\\) and \\(\mathbf{n}_2\\).    
+ - Finally, \\(\mathbf{u}_1+\mathbf{u}_2+\mathbf{u}_3+\mathbf{u}_4=\mathbf{0}\\), which means \\(\mathbf{u}_3\\) and \\(\mathbf{u}_4\\) are in the span of \\(\mathbf{n}_1\\) and \\(\mathbf{n}_2\\).     
 
-> &#x2705; 合力为0。
+> &#x2705; 合力为0。   
 
 
 
@@ -62,10 +62,10 @@ $$
 
 
 
-> &#x2705; Non-planar case：不是指弯曲时的力，而是指静止状态(reference state)为非平面的场景下，弯曲为\\(\theta\\)时的力。\\(\theta_0\\)表示 reference state. 
-> &#x2705; 老师没解释公式怎么来的   
+> &#x2705; Non-planar case：不是指弯曲时的力，而是指静止状态(reference state)为非平面的场景下，弯曲为\\(\theta\\)时的力。\\(\theta_0\\)表示 reference state.     
+> &#x2705; 老师没解释公式怎么来的      
 > &#x1F50E;  Bridson et al. 2003. *Simulation of Clothing with Folds and Wrinkles*. SCA.      
-> &#x2705; 此论文适合读完。除了弯曲模型，还有一些有意思的设计。    
+> &#x2705; 此论文适合读完。除了弯曲模型，还有一些有意思的设计。     
 
 Explicit integration.     
 Derivative is difficult to compute.    
@@ -116,8 +116,8 @@ $$
 It’s not hard to see that: \\(E (\mathbf{x} )=\frac{3||\mathbf{q} ^\mathbf{T}\mathbf{x} ||^2}{2(A_0+A_1)}\\).  Also, \\(E (\mathbf{x} )=0\\) when the triangles are flat.    
 
 
-> &#x2705; \\(\mathbf{q^T}\mathbf{x}\\)在估算两个三角形的拉普拉斯，即两个三角的曲率、当两个三角形共面时， \\(E(\mathbf{x})=0\\)   
-> &#x1F50E; 离散曲面的拉普拉斯，见GAMES102   
+> &#x2705; \\(\mathbf{q^T}\mathbf{x}\\)在估算两个三角形的拉普拉斯，即两个三角的曲率、当两个三角形共面时， \\(E(\mathbf{x})=0\\)    
+> &#x1F50E; 离散曲面的拉普拉斯，见GAMES102    
 > &#x2705; \\(E(\mathbf{x})\\) 来自数学上曲率的推导，而不是来自物理意义的推导。  
 > &#x2705; 问题：能量的思想能用在刚体上吗？    
 答：这里的能量是弹性能量、刚体无弹性，因此也无所谓能量。   
