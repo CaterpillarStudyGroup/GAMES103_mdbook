@@ -38,7 +38,9 @@ $$
 
 > &#x1F4A1; 为了方便计算机进行计算，需要把连续积分形式转为离散积分形式。
 > 数值积分相关内容请戳这里：[link](https://caterpillarstudygroup.github.io/mathematics_basic_for_ML/NumericalAnalysis/NumericalIntegration.html)。最后结论是混合式的积分方法。
-> ![](../assets/03-11.png)    
+
+> ![](../assets/03-13-2.png)  
+
 
 ## 总结
 
@@ -50,5 +52,11 @@ $$
 
 # 应用场景
 
-实际应用场景中对单个粒子进行仿真没有意义。  
-可以通过不同的方式把粒子组合成系统再进行复杂场景的仿真。
+粒子可以作为水分子，气体分子，烟雾分子的仿真代理。用于仿真液体、气体的效果，针对实际的应用场景，还会增加一些粒子属性。   
+粒子也可以作为刚体所占用空间的代理，仿真刚体破碎的效果。    
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/
