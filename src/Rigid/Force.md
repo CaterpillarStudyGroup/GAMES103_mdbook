@@ -56,3 +56,8 @@ P30
 
 ![](../assets/03-27.png)  
 ![](../assets/04-1.png)     
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/

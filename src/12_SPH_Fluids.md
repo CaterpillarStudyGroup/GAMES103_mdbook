@@ -1,5 +1,10 @@
 
-P4   
+
+P16   
+# SPH-Based Fluids   
+
+P17  
+   
 ## A SPH Model  
 
 Consider a (**Lagrangian**) particle system: each water molecule is a particle with physical quantities attached, such as position \\(\mathbf{x}_i\\), velocity \\(\mathbf{v}_i\\), and mass \\(m_i\\).   
@@ -10,20 +15,12 @@ Consider a (**Lagrangian**) particle system: each water molecule is a particle w
 
 > &#x2705; 用粒子来表达流体，物理变量附着在粒子上。先通过粒子系统的方式独立计算每个粒子。粒子转化为三角网格再渲染，或直接渲染带透明贴图的粒子(游戏)。   
 
-P16   
-# SPH-Based Fluids   
+关键在于怎样构造粒子所受到的力，使粒子的运动效果看上去像水分子的运动。   
 
-P17  
-## Fluid Dynamics   
-
-
- - We model fluid dynamics by applying three forces on particle i.     
+- We model fluid dynamics by applying three forces on particle i.     
     - Gravity
     - Fluid Pressure
     - Fluid Viscosity   
-
-
-
 
 
 P18   
@@ -36,12 +33,10 @@ $$
 $$
 
 
-
-
 P19   
 ## Pressure Force   
 
-> &#x2705; 要解决的问题：怎么计算压强？怎么把压强转化为力？
+计算密度 → 计算压强 → 计算压力    
 
 ### 怎么计算压强
 

@@ -52,3 +52,8 @@ $$
 $$
 
 粒子视角可以用于Mesh的受力分析，但是不能直接对Mesh上的粒子进行仿真，要把粒子受到的力转化为刚体的受力响应。  
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/
