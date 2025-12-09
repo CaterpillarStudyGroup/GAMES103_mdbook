@@ -38,20 +38,19 @@ P19
 
 计算密度 → 计算压强 → 计算压力    
 
-### 怎么计算压强
+### 计算密度   
 
- - Pressure is related to the density
-    - First compute the density of Particle i:
+First compute the density of Particle i:
 
-    $$
-    \rho _ i = \sum _ j m _ j W _ {ij}
-    $$
+$$
+\rho _ i = \sum _ j m _ j W _ {ij}
+$$
 
-    - Convert it into pressure (some empirical function):   
+### 计算压强
 
-    $$
-    P_i=k((\frac{\rho _i}{\rho _\mathrm{constant } } )^7-1)
-    $$
+$$
+P_i=k((\frac{\rho _i}{\rho _\mathrm{constant } } )^7-1)
+$$
 
 
 
@@ -66,7 +65,7 @@ P20
 
 ![](./assets/12-10.png)   
 
-
+压强差产生压力。   
 
 P21   
  - Mathematically, the difference of pressure => Gradient of pressure.    
@@ -76,6 +75,8 @@ $$
 $$
 
 > &#x2705; 体积为粒子在空间中占有的体积，体积越大受到的压力越大、\\(\nabla\\)代表压强的差。   
+
+### 计算压力    
 
 - To compute this pressure gradient, we assume that the  pressure is also smoothly represented:  
 
@@ -92,7 +93,9 @@ $$
 $$
 
 P22   
-## Viscosity Force   
+通过 smooth 函数，把离散值变成连续值，以便于微分计算。这是一种常用技巧。   
+
+### Viscosity Force   
 
 ### 粘滞所产生的效果
 
@@ -103,17 +106,19 @@ P22
 ![](./assets/12-11.png)   
 
 
-> &#x2705;  Viscosity (粘滞)类似于 damping (阻尼)，但有些区别，后者的目标是让粒子的运动停下来，前者的目的是让所有粒子的运动整齐划一，即速度差趋于0. 
+> &#x2705;  Viscosity (粘滞)类似于 damping (阻尼)，但有些区别，后者的目标是让粒子的运动停下来，前者的目的是让所有粒子的运动整齐划一，即速度差趋于0.     
+> &#x2705; smooth 会产生粘滞的效果。  
+
 
 P23   
 ### 粘滞力 Viscosity Force   
 
 - Mathematically, it means:   
 $$
-\mathbf{F} _i^{vis \cos  ity}=-\nu m_i\Delta  _i\mathbf{V} ^{smooth}
+\mathbf{F} _i^{visity}=-V m_i\Delta  _i\mathbf{V} ^{smooth}
 $$ 
 
-> &#x2705; \\(V\\)：粘滞系数， \\(\nabla V\\)：速度的 Laplacian.注意速度是3D矢量。   
+> &#x2705; \\(\nu\\)：粘滞系数， \\(\nabla V\\)：速度的 Laplacian.注意速度是3D矢量。   
 
 - To compute this Laplacian, we assume that the velocity is also smoothly represented:  
 
@@ -127,12 +132,7 @@ $$
 $$
 \mathbf{F} _i^{vis \cos  ity}=-\nu m_i\sum _jV_j\mathbf{v} _j\Delta  _iW _{ij}
 $$
-
-
-
-> &#x2705; smooth会产生粘滞的效果。    
-
-
+  
 
 P24  
 ## Algorithm   
@@ -154,44 +154,8 @@ P24
 
 
 
-> &#x2705; 性能瓶颈：计算邻居，因为总粒子数为百万级。   
+> &#x2705; 性能瓶颈在于搜索邻居，因为总粒子数为百万级。   
 
-
-## Spatial Partition加速求最近邻
-
-P25   
-### Exhaustive Neighborhood Search   
-
-
- - Search over every particle pair? O(\\(N^2\\))
- - 10M particles means: 100 Trillion pairs…    
-
-
-
-
-
-P26   
-### Solution: Spatial Partition   
-
-
- - Separate the space into cells    
- - Each cell stores the particles in it   
- - To find the neighborhood of i, just look at the surrounding
-cells   
-
-
-![](./assets/12-13.png)   
-
-
-P27   
-### Spatial Partition   
-
-
- - What if particles are not uniformly distributed?   
-> &#x2705; 例如水花喷溅的效果，通常靠近水面的粒子小一点，更利于表现细节。  
- - **Solution**: Octree, Binary Spatial Partitioning tree…    
-
-![](./assets/12-14.png)   
 
 
 ---------------------------------------
