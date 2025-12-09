@@ -1,3 +1,10 @@
+
+# 骨络   
+
+骨络结构包含点和线，每个点都可以自由移动和旋转。(Mesh 上的顶点不能旋转。) 如果顶点之间存在边，那么顶点间的相对位置关系不能发生改变。
+
+> &#x2705; Skeleton 用于衣服、刚体、人体等对象的仿真代理。比如人体的关节联结，是一种非常stiff的约束。  
+
 P30   
 # Constrained Dynamics   
 
@@ -5,8 +12,8 @@ P30
 
 A critical problem exists: what if constraints/forces are **very very stiff**? Or infinitely stiff?    
 
-> &#x2705; 此算法用于处理 very very stiff 的场景即约束必须严格满足，而前面算法需要做很多次迭代才能产生这种效果（计算量大）。   
-> &#x2705; 此算法常用于衣服、刚体、人体。比如人体的关节联结，是一种非常stiff的约束。  
+> &#x2705; 此算法 PD 的扩展，用于处理 very very stiff 的场景，即距离约束必须严格满足。而前面算法需要做很多次迭代才能产生这种效果（计算量大）。   
+
 
 ## 根据约束建立模型  
 
