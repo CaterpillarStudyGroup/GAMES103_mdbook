@@ -1,7 +1,10 @@
 # 投影函数 Projection Function
 
+每个顶点独立仿真，也不用考虑弹簧力。    
+顶点独立运动后，约束被破坏。通过投影的方式保持约束。投影是指，直接当前的(不合理的)状态直接变成最近的合理的状态。难点在于怎么找到最近的合理的状态。   
+
 P5   
-## A Single Spring   
+## A Single 约束   
 
 
 If a spring is infinitely stiff, we can treat the length as a constraint and define a projection function.      
@@ -61,8 +64,9 @@ By default, \\(m_i=m_j\\), but we can also set \\(m_i=\infty\\) for stationary n
 > &#x2705; 对于固定点，不更新就好了。    
 
 P8   
-## Multiple Springs – A Gauss-Seidel Approach    
+## Multiple 约束 – A Gauss-Seidel Approach    
 
+一次只针对一个约束作的投影，因此是局部优化方法。   
 
 What about multiple springs? The Gauss-Seidel approach **projects each spring sequentially in a certain order**. Imagine two springs with unit rest lengths…
 
@@ -84,7 +88,7 @@ P9
 
 
 P10  
-## Multiple Springs – A Jacobi Approach   
+## Multiple 约束 – A Jacobi Approach   
 
 
  - To avoid bias, the Jacobi approach projects all of the edges **simultaneously** and then linearly blend the results.    
