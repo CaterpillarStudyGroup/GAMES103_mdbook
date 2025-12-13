@@ -39,8 +39,18 @@ $$
 > &#x1F4A1; 为了方便计算机进行计算，需要把连续积分形式转为离散积分形式。
 > 数值积分相关内容请戳这里：[link](https://caterpillarstudygroup.github.io/mathematics_basic_for_ML/NumericalAnalysis/NumericalIntegration.html)。最后结论是混合式的积分方法。
 
+<<<<<<< Updated upstream
 > ![](../assets/03-13-2.png)  
 
+=======
+$$
+\begin{cases}
+ \mathbf{v} (t^{[1]})=\mathbf{v} (t^{[0]})+ \Delta t m^{−1}\mathbf{f} (\mathbf{x(t^{[0]})}, \mathbf{v}(t^{[0]}), t^{[0]})\\\\
+\mathbf{x} (t^{[1]})=\mathbf{x} (t^{[0]})+\Delta t\mathbf{v} (t^{[1]})
+\end{cases}
+$$
+> ![](../assets/03-11.png)    
+>>>>>>> Stashed changes
 
 ## 总结
 
