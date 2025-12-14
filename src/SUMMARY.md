@@ -58,13 +58,12 @@
     - [Incompressible, Viscous  Navier-Stokes Equations](11_EulerianFluids_Incompressible.md)
     - [Air and Smoke](11_EulerianFluids_Air_Smoke.md)
     - [Summary](./11_EulerianFluids_Summary.md)
+- [SDF](SDF.md)
 
 # 仿真代理之间的作用
 
-- [粒子 + SDF](ParticleSDF/Attribution.md)
-  - [粒子的碰撞检测与响应](4_rigidcontact_Particle.md)
-- [刚体 + SDF]()
-  - [Energy Based 刚体碰撞响应](4_rigidcontact_Rigid.md)
+- [粒子 + SDF](ParticleSDF.md)
+- [刚体 + SDF](RigidSDF.md)
 - [刚体系统](4_rigidcontact.md)
   - [刚体的碰撞检测 - Broad Phase](9_collision_detect.md) 
   - [刚体的碰撞检测 - Narrow Phase](9_collision_detect_narrow.md)

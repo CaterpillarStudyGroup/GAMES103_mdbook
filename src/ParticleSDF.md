@@ -1,28 +1,24 @@
 P11  
-# 粒子碰撞检测 --- SDF 
+# 粒子 + SDF 
 
-## Signed Distance Function   
+```mermaid
+mindmap
+粒子SDF仿真
+    碰撞检测
+        离散相交检测
+            粗检测
+            细检测
+        连续穿透检测
+            粗检测
+            细检测
+    碰撞响应
+        相交解除
+        状态更新
+            Penalty
+            Impulse
+```
 
-
-A <u>signed</u> distance function \\(\phi (\mathbf{x} )\\) defines the distance from \\(\mathbf{x}\\) to a surface with a sign. The sign indicates on which side \\(\mathbf{x}\\) is located.     
-
-
-![](./assets/04-6.png)     
-
-
-
-P12   
-### Signed Distance Function Examples    
-
-
-![](./assets/04-07.png)     
-
-
-> &#x2705; 圆柱SDF基于勾股定理，\\(\sqrt{\cdot }\\) 内第一项为斜边长，
-第二项为底边长，得出点到中轴的距离。  
-
-
-
+# 碰撞检测
 
 P13   
 ## Intersection of Signed Distance Functions    
