@@ -118,7 +118,7 @@ $$
 \mathbf{F} _i^{visity}=-V m_i\Delta  _i\mathbf{V} ^{smooth}
 $$ 
 
-> &#x2705; \\(\nu\\)：粘滞系数， \\(\nabla V\\)：速度的 Laplacian.注意速度是3D矢量。   
+> &#x2705; \\(\nu\\)：粘滞系数， \\(\nabla \nu\\)：速度的 Laplacian.注意速度是3D矢量。   
 
 - To compute this Laplacian, we assume that the velocity is also smoothly represented:  
 
@@ -130,7 +130,7 @@ $$
 - So:   
 
 $$
-\mathbf{F} _i^{vis \cos  ity}=-\nu m_i\sum _jV_j\mathbf{v} _j\Delta  _iW _{ij}
+\mathbf{F} _i^{vis\cosity}=-\nu m_i\sum _jV_j\mathbf{v} _j\Delta  _iW _{ij}
 $$
   
 
