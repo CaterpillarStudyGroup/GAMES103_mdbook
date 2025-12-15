@@ -130,7 +130,7 @@ $$
 - So:   
 
 $$
-\mathbf{F} _i^{vis\cosity}=-\nu m_i\sum _jV_j\mathbf{v} _j\Delta  _iW _{ij}
+\mathbf{F} _i^{viscosity}=-\nu m_i\sum _jV_j\mathbf{v} _j\Delta  _iW _{ij}
 $$
   
 
