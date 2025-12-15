@@ -71,11 +71,9 @@ SDF 常用于代表静态物体，这种物体不响应力和碰撞，所以所�
 
 状态更新是更新粒子的速度，使其表现出碰撞后反弹的效果。   
 
-Ⓐ： Penalty Method  
+# Penalty Method  
 
-Ⓑ： SDF 常用于代表静态物体，这种物体不响应力和碰撞，所以所有的碰撞响应都发生在粒子上。 
-
-## Quadratic Penalty Method    
+#### Quadratic Penalty Method    
 
 A penalty method applies a penalty force in the next update. When the penalty potential is quadratic, the force is linear.     
 
