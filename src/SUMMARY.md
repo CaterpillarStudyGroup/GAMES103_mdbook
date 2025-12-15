@@ -63,6 +63,7 @@
 # 仿真代理之间的作用
 
 - [粒子 + SDF](ParticleSDF.md)
+- [粒子与 Mesh](ParticleMesh.md)
 - [刚体 + SDF](RigidSDF.md)
 - [刚体系统](4_rigidcontact.md)
   - [刚体的碰撞检测 - Broad Phase](9_collision_detect.md) 
