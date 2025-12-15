@@ -120,7 +120,7 @@ Muller et al. 2005.
 *Meshless Deformations Based on Shape Matching*. TOG (SIGGRAPH).     
 
 
-##　状态更新　　　
+## 状态更新　　　
 
 ### 冲量法   
 
