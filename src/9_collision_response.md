@@ -1,8 +1,5 @@
 P27      
-# Continuous Collision Response    
-
-> &#x2705; 发现碰撞的pairs后如何处理。   
-
+# 相交解除    
 
 P28   
 ## Interior Point Methods and Impact Zone Optimization
@@ -64,6 +61,7 @@ $$
 
 > &#x2705; 优化目标：点的位置与目标位置（穿模）尽量接近，且不穿模。   
 > &#x2705; 绿色是来自\\(\mathbf{x}^{[1]}\\)的引力，对应公式第1页。黄色是来自边界的斥力对应公式第2页。    
+> &#x2753; ||\\(X_{ij}\\)||代表穿模情况，为什么是用距离的方式定义？   
 
 ![](./assets/09-24.png)   
 
