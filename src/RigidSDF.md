@@ -1,9 +1,9 @@
 P24   
-# Rigid Body Discrete Collision Response
+# 碰撞检测    
 
-## Rigid Body Collision Response by Impulse
+让刚体上的每个顶点与SDF做一次碰撞检测，检测方法与[粒子+SDF]（ ）相同。
 
-碰撞 → 粒子响应 → 粒子速度 → 刚体冲重 → 刚体状态    
+碰撞 → 粒子响应 → 粒子速度 → 刚体冲量 → 刚体状态    
 
 ### 刚体碰撞响应与粒子碰撞响应的区别
 

@@ -6,11 +6,9 @@ mindmap
 粒子SDF仿真
     碰撞检测
         离散相交检测
-            粗检测
-            细检测
+           
         连续穿透检测
-            粗检测
-            细检测
+           
     碰撞响应
         相交解除
         状态更新
@@ -21,7 +19,9 @@ mindmap
 # 碰撞检测
 
 P13   
-## Intersection of Signed Distance Functions    
+## 离散相交检测     
+
+检测粒子是否在 SDF 的内部    
 
 ![](./assets/04-8.png)     
 
@@ -44,24 +44,35 @@ P14
 Intuitively, we can consider collision detection with the union of two objects as **collision detection with two separate objects**.    
 
 P15   
-### 穿透检测  
+## 穿透检测  
 
 $$ \phi (x(t))=0 $$    
 解出 \\(t\\)   
 如果 \\(t\\) 在所检测的时间范围内有解，则说明存在穿透 \\(t\\) 为穿透时刻。   
 
-## 粒子碰撞响应 —— Penalty Method  
-
-### 碰撞解除   
+## 粒子碰撞响应 
 
 SDF 常用于代表静态物体，这种物体不响应力和碰撞，所以所有的碰撞响应都发生在粒子上。    
 
+
+## 碰撞解除   
+
+碰撞解除是将粒子移到不发生碰撞的位置上。
+
 ![](./assets/04-17.png)    
 
-> &#x2705; 更新方向：N方向。更新距离：穿入的距离。
+> &#x2705; 更新方向：N方向。更新距离：穿入的距离。即把粒子移动到离它最近的 SDF 的表面上。     
+这种解法非常简单，但存在不合理的情况，考虑以场景：粒子从 \\(t_k\\) 移动到 \\(t_{k+1}\\)，此时检测到了相交。这种情况下，粒子应退回到发生穿遂时刻的Ⓐ处，而不是离它最近的Ⓑ处。   
 
+![](./assets/0001.png)   
 
-### 状态更新
+## 状态更新    
+
+状态更新是更新粒子的速度，使其表现出碰撞后反弹的效果。   
+
+Ⓐ： Penalty Method  
+
+Ⓑ： SDF 常用于代表静态物体，这种物体不响应力和碰撞，所以所有的碰撞响应都发生在粒子上。 
 
 ## Quadratic Penalty Method    
 
@@ -78,12 +89,13 @@ A penalty method applies a penalty force in the next update. When the penalty po
 
 P16   
 
-粒子的运动状态发生变化确实是由于力的作用。但对力的大小的假设均不合理。    
+> &#x2705; 粒子的运动状态发生变化确实是由于力的作用。但对力的大小的假设不合理。    
 力的大小确实与穿透深度有关，因为：    
 
-穿透深 → 相对速度大 → 碰撞速度和反弹速度都大 → 速度改变大 → 力大
+穿透深 → 相对速度大 → 碰撞速度和反弹速度都大 → 速度改变大 → 力大   
+力的大小与碰撞深度只是间接的正相交，没有直接的必然性。因此把它们的关系假设为正比关系是不合理的。   
 
-## Quadratic Penalty Method with a Buffer   
+#### Quadratic Penalty Method with a Buffer   
 
 
 A buffer helps lessen the penetration issue. But it cannot strictly prevent penetration, no matter how large \\(k\\) is.      
@@ -102,7 +114,7 @@ A buffer helps lessen the penetration issue. But it cannot strictly prevent pene
 
 
 P17   
-## Log-Barrier Penalty Method     
+#### Log-Barrier Penalty Method     
 
 
 A log-barrier penalty potential ensures that the force can be large enough. But it assumes \\(\phi (\mathbf{x} ) < 0\\) will never happen!!! To achieve that, it needs to adjust \\(\Delta t\\).     
@@ -115,28 +127,28 @@ A log-barrier penalty potential ensures that the force can be large enough. But 
  2.\\(\mathbf{x}\\) 穿透表面后，会越陷越深。  
  3.本算法如果要求保证穿透永远不会发生，因此要仔细调节 \\(\Delta t\\).  
 
-
+- Log-barrier method can be limited within a buffer as well.    
+    - Li et al. 2020. *Incremental Potential Contact: Intersection- and Inversion-free Large Deformation Dynamics*. TOG.    
+    - Wu et al. 2020. *A Safe and Fast Repulsion Method for GPU-based Cloth Self Collisions*. TOG.   
 
 P18  
-## A Short Summary of Penalty Methods    
+#### A Short Summary of Penalty Methods    
 
  - The use of step size adjustment is a must.     
     - To avoid overshooting.    
     - To avoid penetration in log-barrier methods.    
 
- - Log-barrier method can be limited within a buffer as well.    
-    - Li et al. 2020. *Incremental Potential Contact: Intersection- and Inversion-free Large Deformation Dynamics*. TOG.    
-    - Wu et al. 2020. *A Safe and Fast Repulsion Method for GPU-based Cloth Self Collisions*. TOG.   
+ 
 
  - Frictional contacts are difficult to handle.    
  
 > &#x2705; 缺点：   
 (1) 难以模拟摩擦。   
-(2) 碰撞 → 施加力 → 调整，因此效果是滞后的。    
-优点：易实现  
+优点：易实现     
+这种方法一开始所建立的假设基础就是不合理的。再怎么修补也难以避免其 artifacts.   
  
 P19   
-# Particle Collision Response —— Impulse Method    
+### Impulse Method    
 
 An impulse method assumes that collision changes the position and the velocity all of sudden.      
 
@@ -145,13 +157,11 @@ An impulse method assumes that collision changes the position and the velocity a
 
 ![](./assets/04-16.png)    
 
-> &#x2705; lmpulse 省去了力这一步，直接更新刚体状态。方法要求已经有一个比较好的\\(\phi (x)\\)   
-> &#x2705; 关键区别不在于是否使用力，而是位置是怎样计算出来的，前者的位置由力和速度，这个计算出来的(不管是作为下一时刻还是这一时刻)的位置，都不能保证一定能以物体内部推出来，但后者直接求出当前置对应的表面位置的点，并更新上去，因此能立即生效。    
+> &#x2705; lmpulse 省去了力这一步，直接更新刚体状态。
 
-## 更新速度
 
 P20    
-Changing the position is not enough, we must change the velocity as well.      
+
 
 > &#x2705; \\(\mathbf{v}\cdot \mathbf{N}\ge 0\\)：当前速度想要让物体越陷越深, 这种情况下才需要更新速度   
 
@@ -161,18 +171,20 @@ Changing the position is not enough, we must change the velocity as well.
 > &#x2705; \\(\mathbf{v_N}\\)方向速度反弹， \\(\mu _\mathbf{N}\\) 为反弹系数。\\(\mathbf{v_N}\\)方向不变或由于摩擦而衰减  
 > &#x2705; a的约束：（1）越小越好，尽量把速度衰减掉（2）满足库仑定律（切方向的速度改变不应大于法线方向的速度改变）（3）切方向速度不能反转，即a不能为负   
 
-## Impulse方法总结
+#### Impulse方法总结
 
 > &#x2705; 优点：可以精确控制摩擦力和反弹位置。缺点：计算比 Penalty 复杂   
 > &#x2705; 刚体常见于 Impulse； 弹性体常见于Penalty.   
 
 ||速度大小|速度方向|
 |---|---|---|
-|Penalty|碰撞深度->力的大小|表面方向|
+|Penalty|碰撞深度->力的大小| 力的方向+原方向 |
 |Impulse|相对速度 * decay | 反弹方向+惯性方向|
 
 
 # 粒子与 Mesh     
+
+# 碰撞检测   
 
 ## 相交检测     
 
@@ -181,11 +193,17 @@ Changing the position is not enough, we must change the velocity as well.
 相交次数为奇数，则在 Mesh 内    
 相交次数为偶数，则在 Mesh 外    
 
-### 穿透检测    
+## 穿透检测    
 
-## 碰撞响应    
+# 碰撞响应    
 
-粒子与 SDF 的碰撞响应在此处同样适用     
+粒子与 SDF 的碰撞响应在此处同样适用，但碰撞深度与反弹方向不同的计算方法不同。       
+
+||粒子+SDF|粒子+Mesh|
+|---|---|---|
+|碰撞深度|\\(\phi (x)\\)| 点到最近面片的距离 |
+|反弹方向|\\(\nabla \phi (x)\\)| 片面的方向|
+
 
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。
