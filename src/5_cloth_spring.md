@@ -110,10 +110,10 @@ P14
 其中：\\(\mathbf{M}\\)对角矩阵，描述质量，\\(3N \times 3N\\)。\\(\mathbf{x}\\)为 \\(3N\times 1\\)矢量,描述顶点信息。\\(E\\) 为所有的力的能量。\\(\mathbf{||x||_M^2=x^TMx} \\)。  
 > &#x2705; 只有保守力能用能量描述、非保守力（例如摩擦力）则不行。       
 
-定义\\(\mathbf{g(x)} =\mathbf{x} ^{[0]}+\Delta t\mathbf{v}^{[0]}+\Delta t^2M^{-1}+(\mathbf{x}^{[1]})-\mathbf{x} ^{[1]}\\)     
+定义 \\(\mathbf{g(x)} =\mathbf{x} ^{[0]}+\Delta t\mathbf{v}^{[0]}+\Delta t^2M^{-1}+(\mathbf{x}^{[1]})-\mathbf{x} ^{[1]}\\)     
 也可以得出：\\(x^{[1]}=\mathrm{argmin} (g(\mathbf{x} ))^2\\) 或     
 
-$$ x^{[1]}=\mathrm{argmin} |g(\mathbf{x} )|$$
+$$ \mathbf{x}^{[1]}=\mathrm{argmin} |\mathbf{g(x)}|$$
 
 只是这样构造出的优化问题，求导比较难计算。    
 
