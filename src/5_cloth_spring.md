@@ -3,6 +3,10 @@ P4
 
 原理：对每个粒子独立仿真，类似于粒子系统，但通过构造粒子间的弹簧力来保证 Mesh 边长尽量不变的约束。通过构造网状的弹簧系统来保证 Mesh 面片不发生形变。通过增加对角顶点的弹簧来约束 Mesh 体积上的形变。    
 
+> &#x2705; 本节课所讲的套路：分析力 → 隐式积分 → 优化问题 → 更新，对弹簧系统、有限元、弹性体等各种物理模拟同样适用   
+
+## 构建弹簧系统    
+
 ## An Ideal Spring    
 
 An ideal spring satisfies Hooke’s law: the spring force tries to restore the rest length.    
@@ -46,9 +50,7 @@ $$
 
 
 P11   
-# 积分系统  
-
-## Explicit Integration of A Mass-Spring System   
+## 积分系统——显式积分  
 
 ![](./assets/05-9.png)    
 
@@ -73,7 +75,7 @@ A naive solution is to use a small \\(∆t\\) . But that slows down the simulati
 
 
 P13  
-## Implicit Integration    
+## 积分系统——隐式积分   
 
 Implicit integration is a better solution to numerical instability.  The idea is to integrate both **x** and **v** implicitly.   
 
@@ -81,10 +83,11 @@ Implicit integration is a better solution to numerical instability.  The idea is
 区别在于，Explicit用当前力，往往使结果变大，产生爆炸，Implicit用未来力，往往使结果变小，产生消失。  
 > &#x2705; 消失只是结果不对。但爆炸会让结果崩溃，这是最不可接受的问题。因此用隐式代替显式。  
 
-#### 积分公式
+用未来力计算未来速度，用未来速度计算未来位置。    
 
 ![](./assets/05-11.png)    
 
+> &#x2705; 未来力，未来速度，未来位置都是未知量，不能直接求解。   
 > &#x2705; 下面公式1通过把上面公式1代入公式2得到。下面公式2通过把上面公式写反推得到。    
 粒子和刚体的仿真中使用了半隐式积分(现在的力，未来的速度)，这里使用了隐式积分(未来的力，未来的速度)。力和速度都是未知的，需要解方程。    
 
@@ -100,7 +103,9 @@ $$
 > &#x2705; holonomic：力的大小和方向只跟位置有关，跟速度无关。例如重力，弹力。那么 \\(f\\)可以写成关于位置的函数\\(f(x)\\)。  
 > &#x2705; 但\\(f(x)\\)不一定是线性的。因此最后转化为解非线性方程的问题。未知量为\\({x} ^{[1]}\\)    
 
-#### 积分求解转为优化问题
+### 线性近似法求解积分    
+
+### 积分求解转为优化问题
 
 P14   
 
@@ -118,7 +123,7 @@ $$ \mathbf{x}^{[1]}=\mathrm{argmin} |\mathbf{g(x)}|$$
 只是这样构造出的优化问题，求导比较难计算。    
 
 P18  
-#### Simulation by Newton’s Method    
+### Simulation by Newton’s Method    
 
 > &#x1F50E; Newton-Raphson Method见补充2. 这里直接开始Newton方向本当前场景的应用。  
 
@@ -138,8 +143,7 @@ $$
 
 ![](./assets/05-28.png)    
 
-> &#x2753; 每一个 step 都包含一次迭代优化、能做到实时？   
-> &#x2705; 本节课所讲的套路：分析力 → 隐式积分 → 优化问题 → 更新，对弹簧系统、有限元、弹性体等各种物理模拟同样适用   
+
 > &#x2705; 早期的方式不是用优化来做的，而是近似成线性问题后直接解方程组。这种方法相当于每一个Step做了一次牛顿法。  
 
 
@@ -226,10 +230,6 @@ P23
 
  - Other solutions exist. For example,     
 > &#x1F50E; Choi and Ko. 2002. Stable But Responive Cloth. TOG (SIGGRAPH)      
-
-
-
-
 
 
 P24   
