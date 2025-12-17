@@ -23,3 +23,9 @@ $$
 $$
 F = \mathbf{f} (\mathbf{x} (t), \mathbf{v} (t), t)
 $$
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/
