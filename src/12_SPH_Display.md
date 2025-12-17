@@ -1,7 +1,5 @@
-  
-## Spatial Partition加速求最近邻
 
-## 补充 1：
+## 补充 1：Spatial Partition加速求最近邻
 
 P25   
 ### Exhaustive Neighborhood Search   
@@ -14,6 +12,11 @@ P25
 P26   
 ### Solution: Spatial Partition   
 
+
+|  $$ \color{Red}{ \text{ What is the bottleneck of the performance here?}} $$  |
+|---|
+
+> &#x2705; 性能瓶颈在于搜索邻居，因为总粒子数为百万级。   
 
  - Separate the space into cells    
  - Each cell stores the particles in it   

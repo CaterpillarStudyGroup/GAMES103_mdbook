@@ -4,8 +4,6 @@ P16
 # SPH-Based Fluids   
 
 P17  
-   
-## A SPH Model  
 
 Consider a (**Lagrangian**) particle system: each water molecule is a particle with physical quantities attached, such as position \\(\mathbf{x}_i\\), velocity \\(\mathbf{v}_i\\), and mass \\(m_i\\).   
 
@@ -68,7 +66,7 @@ P20
 压强差产生压力。   
 
 P21   
- - Mathematically, the difference of pressure => Gradient of pressure.    
+ - Mathematically, **the difference of pressure => Gradient of pressure**.    
 
 $$
 \mathbf{F} _i^{pressure}=-V_i\nabla _iP^{smooth}
@@ -95,7 +93,7 @@ $$
 P22   
 通过 smooth 函数，把离散值变成连续值，以便于微分计算。这是一种常用技巧。   
 
-### Viscosity Force   
+# Viscosity Force 粘滞力   
 
 ### 粘滞所产生的效果
 
@@ -111,14 +109,14 @@ P22
 
 
 P23   
-### 粘滞力 Viscosity Force   
+### 计算粘滞力     
 
 - Mathematically, it means:   
 $$
-\mathbf{F} _i^{visity}=-V m_i\Delta  _i\mathbf{V} ^{smooth}
+\mathbf{F} _i^{viscosity}=-\nu m_i\Delta  _i\mathbf{V} ^{smooth}
 $$ 
 
-> &#x2705; \\(\nu\\)：粘滞系数， \\(\nabla \nu\\)：速度的 Laplacian.注意速度是3D矢量。   
+> &#x2705; \\(\nu\\)：粘滞系数， \\(\Delta \nu\\)：速度的 Laplacian. 注意速度是3D矢量。   
 
 - To compute this Laplacian, we assume that the velocity is also smoothly represented:  
 
@@ -148,13 +146,6 @@ P24
  - Update \\(v_i = v_i + t * \text{ Force } / m_i\\);   
  - Update \\(x_i = x_i + t * v_i\\);   
 
-
-|  $$ \color{Red}{ \text{ What is the bottleneck of the performance here?}} $$  |
-|---|
-
-
-
-> &#x2705; 性能瓶颈在于搜索邻居，因为总粒子数为百万级。   
 
 
 
