@@ -317,7 +317,7 @@ The paper proposes to **use only one Newton iteration**, i.e., solving only one 
 > 没有做非线性优化或解非线性方程，而是把非线性方程线性化，等价于做一次牛顿迭代。   
 
 
-# 补充1：非线性方程求解
+# 补充1：非线性方程求解转化为优化问题
 
 求解的非线性方程如下，其中\\({x} ^{[1]}\\)是未知量。  
 $$

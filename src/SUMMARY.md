@@ -15,9 +15,8 @@
 
 - [粒子]()
   - [粒子](Particle/Particle.md)
-    - [A SPH Model](12_SPH_SPH.md)
-    - [SPH-Based Fluids](12_SPH_Fluids.md)
-    - [Fluid Display](12_SPH_Display.md)
+    - [A SPH Model](Particle/SPHModel.md)
+    - [SPH应用 - 水](Particle/SPH_Fluids.md)
   - [应用场景 - 刚体](Particle/Rigid.md)
 - [不可形变Mesh - 刚体]()
   - [刚体的属性](Rigid/Attribution.md)
