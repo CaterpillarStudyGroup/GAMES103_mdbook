@@ -9,6 +9,7 @@ mindmap
             弹簧系统
             PD
             FVM
+            FEM
         基于投影的方法
             PBD
             Strain Limiting
