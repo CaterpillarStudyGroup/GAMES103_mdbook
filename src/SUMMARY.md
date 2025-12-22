@@ -74,6 +74,8 @@
   - [刚体的碰撞检测 - Broad Phase](9_collision_detect.md) 
   - [刚体的碰撞检测 - Narrow Phase](9_collision_detect_narrow.md)
   - [Constrain Based 刚体碰撞响应](9_collision_response.md)
+  - [内点法](Interior_Point_Methods.md)
+  - [优化法](Impact_Zone_Optimization.md)
   - [Incremental Potential Contact](RigidSystem/IPC.md)
   - [补充](./4_rigidcontact_supplementary.md)
   - [Summary](./9_collision_summary.md)

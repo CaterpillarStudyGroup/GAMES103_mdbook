@@ -1,6 +1,15 @@
 P27      
 # 相交解除    
 
+P39   
+## A Practical System Summary   
+
+![](./assets/09-30.png)    
+
+
+> &#x2705; 有碰撞，先做 Impact Zone. 因为这个快、不能解决再用后面方法、计算量不允许则选择 Rigid Impact.   
+
+
 P28   
 ## Interior Point Methods and Impact Zone Optimization
 
@@ -181,13 +190,6 @@ The rigid impact zone method simply freezes vertices in collision from **moving 
 
 
 
-P39   
-## A Practical System Summary   
-
-![](./assets/09-30.png)    
-
-
-> &#x2705; 有碰撞，先做 Impact Zone. 因为这个快、不能解决再用后面方法、计算量不允许则选择 Rigid Impact.   
 
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。
