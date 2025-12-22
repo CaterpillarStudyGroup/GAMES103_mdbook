@@ -79,6 +79,5 @@
   - [刚性冲击区域](Rigid_Impact_Zones.md)
   - [Incremental Potential Contact](RigidSystem/IPC.md)
   - [补充](./4_rigidcontact_supplementary.md)
-  - [Summary](./9_collision_summary.md)
 - [Untangling Cloth](9_collision_untangling.md)
 - [刚体 + 2DGrid](RigidGrid.md)
