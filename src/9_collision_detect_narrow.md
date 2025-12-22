@@ -1,6 +1,8 @@
 
 P21   
-# Discrete Collision Detection (DCD)    
+# 离散相交检测 —— 细检测   
+
+Discrete Collision Detection (DCD)    
 
 DCD tests if any intersection exists in each state at discrete time instant: \\(\mathbf{x}^{[0]}\\), \\(\mathbf{x}^{[1]}\\), …
 
@@ -21,6 +23,8 @@ To a triangle mesh, the basic test is <u>edge-triangle intersection</u> test.
 > &#x2705; 相交和碰撞的区别：相交分析的是运动前后的状态、碰撞检测的是运动的过程、未相交不一定无碰撞、
 
 P22   
+# 连续穿透检测 —— 细检测   
+
 ## Tunneling   
 
 
@@ -34,8 +38,7 @@ DCD is simple and robust, but it suffers from the tunneling problem: objects pen
 > 这种情况无相交但是有碰撞  
 
 P23   
-# Continuous Collision Detection (CCD)    
-
+Continuous Collision Detection (CCD)    
 
 CCD tests if any intersection exists between two states: \\(\mathbf{x} ^{[0]}\\) and \\(\mathbf{x} ^{[1]}\\).    
 
