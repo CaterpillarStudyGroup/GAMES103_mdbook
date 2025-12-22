@@ -50,7 +50,7 @@ $$ \phi (x(t))=0 $$
 解出 \\(t\\)   
 如果 \\(t\\) 在所检测的时间范围内有解，则说明存在穿透 \\(t\\) 为穿透时刻。   
 
-## 粒子碰撞响应 
+# 粒子碰撞响应 
 
 SDF 常用于代表静态物体，这种物体不响应力和碰撞，所以所有的碰撞响应都发生在粒子上。    
 
@@ -71,7 +71,7 @@ SDF 常用于代表静态物体，这种物体不响应力和碰撞，所以所�
 
 状态更新是更新粒子的速度，使其表现出碰撞后反弹的效果。   
 
-# Penalty Method  
+### Penalty Method  
 
 #### Quadratic Penalty Method    
 
@@ -81,9 +81,7 @@ A penalty method applies a penalty force in the next update. When the penalty po
 
 ![](./assets/04-10.png)     
 
-当粒子进入物体内部后，就会产生一个向外的推力。     
-> &#x2705; 力的大小与距离有关，方向为normal  
-> &#x2705; 存在的问题：只有\\(\mathbf{x}\\) 进入 mesh 内部了，才会有力，但此时穿透的 artifacts 已经产生了。解决方法：使用buffer  
+当粒子进入物体内部后，就会产生一个向外的推力。力的大小与距离有关，方向为normal.粒子的状态由下一步仿真更新。        
 
 
 P16   
@@ -92,6 +90,7 @@ P16
 力的大小确实与穿透深度有关，因为：    
 穿透深 → 相对速度大 → 碰撞速度和反弹速度都大 → 速度改变大 → 力大    
 力的大小与碰撞深度只是间接的正相交，没有直接的必然性。因此把它们的关系假设为正比关系是不合理的。   
+> &#x2705; 存在的问题：只有\\(\mathbf{x}\\) 进入 mesh 内部了，才会有力，但此时穿透的 artifacts 已经产生了。解决方法：使用buffer  
 
 #### Quadratic Penalty Method with a Buffer   
 
@@ -142,24 +141,21 @@ P18
  
 > &#x2705; 缺点：   
 (1) 难以模拟摩擦。   
+(2) 这种方法一开始所建立的假设基础就是不合理的。再怎么修补也难以避免其 artifacts.    
 优点：易实现     
-这种方法一开始所建立的假设基础就是不合理的。再怎么修补也难以避免其 artifacts.   
- 
+
 P19   
 ### Impulse Method    
 
 An impulse method assumes that collision changes the position and the velocity all of sudden.      
 
 > &#x2705; Penalty 方法是碰撞 → 力 → 下一时刻的速度和位置，效果滞后。   
-> &#x2705; Impulse方法碰撞时立即更新速度和位置   
+> &#x2705; lmpulse 省去了力这一步，立即直接更新刚体状态。
+> &#x2705; 这不是这两种方法的关键区别，关键区别在于对状态变化规则的假设。      
 
 ![](./assets/04-16.png)    
 
-> &#x2705; lmpulse 省去了力这一步，直接更新刚体状态。
-
-
 P20    
-
 
 > &#x2705; \\(\mathbf{v}\cdot \mathbf{N}\ge 0\\)：当前速度想要让物体越陷越深, 这种情况下才需要更新速度   
 
