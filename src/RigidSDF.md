@@ -22,13 +22,13 @@ Problem: **we cannot directly modif**y \\(\mathbf{x}_i\\) or \\(\mathbf{v}_i\\) 
 **对于粒子，可以直接用Impulse修改\\(x\\)和\\(v\\)**   
 **对于刚体，impulse只能修改\\(x\\)和\\(v\\)，不能修改\\(x_i\\)和\\(v_i\\)**；其中\\(x\\)可以通过直接修改更新，也可以通过修改\\(v\\)来更新，这里选择后者。  
   
-## 解决方法：通过修改\\(\mathbf{v}\\)和\\(\mathbf{\omega}\\)实现修改\\(x_i\\)和\\(v_i\\)    
+解决方法：通过修改\\(\mathbf{v}\\)和\\(\mathbf{\omega}\\)实现修改\\(x_i\\)和\\(v_i\\)    
 
 ## 相交解除    
 
 
 P32    
-## Shape Matching    
+### Shape Matching    
 
 > &#x2705; 用粒子的方法来解决刚体的问题
 
@@ -45,7 +45,8 @@ First, move vertices **independently** by its velocity, with collision and frict
 
 Second, enforce the **rigidity** constraint to become a rigid body again.      
 
-
+先对 Mesh 上的每个顶点看作是粒子对它们进行独立的仿真。保证仿真后每个粒子(顶点)不与 SDF 发生相交。     
+此时刚体可能发生了形变，再更新刚体的位置和旋转，使其各个顶点尽量接近第一步的仿真结果。   
 
 > &#x2705; 第二步是 Shape Matching 的关键   
 
@@ -103,7 +104,7 @@ Physical quantities are attached to each vertex, not to the entire body.
 
 
 P40  
-## 算法分析    
+#### 算法分析    
 
 
  - 优点：Easy to implement and compatible with other nodal systems, i.e., cloth, soft bodies and even particle fluids.    
@@ -114,7 +115,7 @@ P40
  
  
  P41   
-## After-Class Reading    
+#### After-Class Reading    
 
 Muller et al. 2005.    
 *Meshless Deformations Based on Shape Matching*. TOG (SIGGRAPH).     
@@ -136,14 +137,19 @@ What happens to \\(\mathbf{v}_i\\) when an impulse \\(\mathbf{j}\\) is appliedat
 > &#x2705; \\(\mathbf{j}\\) 是一个未知的冲量。\\(\mathbf{v}_i\\) 是点速度、\\(\mathbf{v}\\)是线速度     
 > &#x2705;假设：此时对\\(x_i\\)点施加冲量\\(j\\)，会发生什么？   
 
+#### 冲量\\(j\\)对刚体的影响     
+
+根据[刚体动力学]()可得：   
+
 ![](./assets/04-22-1.png)    
 
 > &#x2705; 冲量 = \\(Ft\\) = \\(m\Delta v \Rightarrow \Delta v\\) = 冲量/\\(m\\)，由此得到\\(v^{new}\\)  
-> &#x2705; 冲量=质量矩阵 * \\( \Delta \omega \\) = 力矩 * \\(t(Rr_i) \times fi·t=(Rr_i \times j)\\)，可得：
-\\(Rr_i \times j\\) = 冲量造成的力矩 ＝ 质量矩阵 · \\(\Delta \omega \Rightarrow \Delta \omega\\) ＝ 质量矩阵\\(^{-1}\\) · 冲量力矩 ，由此得到\\(\omega^{new}\\)   
-> &#x2753; 为什么质量矩阵是单位阵？   
+> &#x2705; 冲量力矩=质量矩阵 * \\( \Delta \omega \\) = 力矩 \\(·t\\),由力矩=\\((Rr_i \times f_i)\\)，可得：
+\\(Rr_i \times j\\) = 冲量力矩 \\(\Rightarrow \Delta \omega\\) ＝ 质量矩阵\\(^{-1}\\) · 冲量力矩 ，由此得到\\(\omega^{new}\\)   
 
-#### 由线速度\\(v^{new}\\)得到点速度\\(\mathbf{v}_i^{new}\\)  
+#### 冲量\\(j\\)对刚体顶点\\(i\\)的影响       
+
+由线速度\\(v^{new}\\)得到点速度\\(\mathbf{v}_i^{new}\\)  
 
 ![](./assets/04-22-2.png)    
 
@@ -188,12 +194,6 @@ P29
 #### Some Implementation Details    
 
 
-
- - If there are many vertices in collision, we use their position average.     
-
-> &#x2705; 如果有多个顶点发生碰撞呢？
-> 答：方法1，问题简化，用平均值。方法2，解线性系统，见下一页  
-
  - We can decrease the restitution \\(\mathbf{\mu_N} \\) to reduce oscillation（抖动）.     
 
 > &#x2705; 抖动原因：重力让它往下，冲量让它往上，导致在地面上反复振荡      
@@ -206,6 +206,8 @@ P29
 P30   
 ### 多碰撞点场景    
 
+> &#x2705; 如果有多个顶点发生碰撞呢？     
+> 答：方法1，问题简化，用平均值。方法2，解线性系统。  
 
 ![](./assets/04-25.png)    
 
