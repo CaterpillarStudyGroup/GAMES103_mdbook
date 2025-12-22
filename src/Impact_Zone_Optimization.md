@@ -59,6 +59,7 @@ P37
 ### About Impact Zone Optimization   
 
  - Fast per iteration    
+ 
     - Only have to deal with vertices in collision.    
 
  - Convergence sensitive to \\(||\mathbf{x} ^{[0]}−\mathbf{x} ^{[1]}||^2\\), or the time step \\(∆t\\)      
