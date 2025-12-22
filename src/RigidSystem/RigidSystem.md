@@ -1,12 +1,7 @@
 P9   
 
 # Topics for the Day   
-
-- Collision Detection    
-   - Broad Phase
-   - Narrow Phase
-- Interior Point Methods    
-- Impact Zone Optimization    
+  
 
 ```mermaid
 mindmap
@@ -16,13 +11,13 @@ mindmap
             宽检测
             窄检测
         连续穿透检测
-            宽检测
-            窄检测
+            宽检测 Broad Phase
+             窄检测Narrow Phase
     碰撞响应
         相交解除
-            内点法
+            内点法 Interior Point Methods
                 IPC
-            优化法
+            优化法 Impact Zone Optimization
         状态更新
             
 ```
