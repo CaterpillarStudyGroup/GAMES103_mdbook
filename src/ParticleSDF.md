@@ -150,7 +150,7 @@ P19
 An impulse method assumes that collision changes the position and the velocity all of sudden.      
 
 > &#x2705; Penalty 方法是碰撞 → 力 → 下一时刻的速度和位置，效果滞后。   
-> &#x2705; lmpulse 省去了力这一步，立即直接更新刚体状态。
+> &#x2705; lmpulse 省去了力这一步，立即直接更新刚体状态。     
 > &#x2705; 这不是这两种方法的关键区别，关键区别在于对状态变化规则的假设。      
 
 ![](./assets/04-16.png)    
