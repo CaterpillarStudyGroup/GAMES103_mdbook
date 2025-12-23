@@ -137,7 +137,7 @@ What happens to \\(\mathbf{v}_i\\) when an impulse \\(\mathbf{j}\\) is appliedat
 > &#x2705; \\(\mathbf{j}\\) 是一个未知的冲量。\\(\mathbf{v}_i\\) 是点速度、\\(\mathbf{v}\\)是线速度     
 > &#x2705;假设：此时对\\(x_i\\)点施加冲量\\(j\\)，会发生什么？   
 
-#### 冲量\\(j\\)对刚体的影响     
+#### 冲量\\(\mathbf{j}\\)对刚体的影响     
 
 根据[刚体动力学]()可得：   
 
