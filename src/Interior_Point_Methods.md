@@ -2,6 +2,9 @@
 P30   
 ## Log-Barrier Interior Point Methods   
 
+内点法把碰撞解除抽象为带约事优化问题。优化的目标是\\(x^{[0]}→x^{[1]}\\)，优化的约束是不碰撞。问题是如何把离散曲面的碰撞检测描述为优化公式？     
+\\(||x_{ij}||\\)就是这个目的。    
+
 ### 算法过程
 
 For simplicity, let’s consider the Log-barrier repulsion between two vertices.     
