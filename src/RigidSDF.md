@@ -147,7 +147,7 @@ What happens to \\(\mathbf{v}_i\\) when an impulse \\(\mathbf{j}\\) is appliedat
 > &#x2705; 冲量力矩=质量矩阵 * \\( \Delta \omega \\) = 力矩 \\(·t\\), 由力矩=\\(Rr_i \times f_i\\)，可得：
 \\(Rr_i \times j\\) = 冲量力矩 \\(\Rightarrow \Delta \omega\\) ＝ 质量矩阵\\(^{-1}\\) · 冲量力矩 ，由此得到\\(\omega^{new}\\)   
 
-#### 冲量\\(j\\)对刚体顶点\\(i\\)的影响       
+#### 冲量\\(\mathbf{j}\\)对刚体顶点\\(\mathbf{i}\\)的影响       
 
 由线速度\\(v^{new}\\)得到点速度\\(\mathbf{v}_i^{new}\\)  
 
