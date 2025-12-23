@@ -7,6 +7,9 @@ The goal of impact zone optimization is to optimize \\(\mathbf{x}^{[1]}\\) until
 
 > tunneling issue 是指：\\(\mathbf{x} ^{[1]}\\) 离两个安全区都比较近。\\(\mathbf{x} ^{[0]}\\) 在其中一个安全区，而\\(\mathbf{x} ^{[1]}\\) 被优化到了另一个安全区。表现出的现象为穿透。  
 
+
+### 带约束优化问题    
+
 目标优化：   
 
 $$
@@ -25,9 +28,10 @@ $$
 
 ![](./assets/09-25.png)   
 
-### 无约束优化问题　　　
+这是一个带约束优化问题。　　　  
 
-这是一个带约束优化问题。　　　  Ⓐ
+
+### 带约束优化问题转为无约束优化问题　　　
 
 
 P36   
@@ -59,7 +63,7 @@ P37
 ### About Impact Zone Optimization   
 
  - Fast per iteration    
- 
+
     - Only have to deal with vertices in collision.    
 
  - Convergence sensitive to \\(||\mathbf{x} ^{[0]}−\mathbf{x} ^{[1]}||^2\\), or the time step \\(∆t\\)      
@@ -87,8 +91,6 @@ Bridson et al. 2002. *Robust Treatment of Collisions, Contact
 and Friction for Cloth Animation. TOG (SIGGRAPH)*.     
 
 Relative simple explicit integration of cloth dynamics     
-
-
 
 
 
