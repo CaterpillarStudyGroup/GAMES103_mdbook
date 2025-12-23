@@ -1,13 +1,6 @@
 P41   
-# Intersection Elimination   
+# 相交解除 Intersection Elimination   
 
-
- - Let’s consider how to eliminate existing intersections, but without using any collision history.   
- 
- - Such a method is useful when there are already intersections in simulation, due to:    
-    - Past collision handling failures
-    - Intense user interaction
- - In this case, we don’t require the simulation is to always <u>intersection-free</u>.     
 
 P42   
 ## 对于有体积的物体
@@ -17,14 +10,16 @@ Eliminating cloth-volume and volume-volume intersections is straightforward: sim
 ![](./assets/09-32.png)    
 
 
-
-
 P43   
 ## 对于没有体积的物体，Untangling Cloth问题    
 
-The situation is complicated in cloth-cloth intersection, since we don’t have a clear definition of inside and outside.      
+The situation is complicated in cloth-cloth intersection, since we don’t have a clear definition of inside and outside.   
+
+> &#x2705;P42适用于有体积的物体，但布没有封闭体积，两根线没有里面外面之分，因此相交时不知道哪一段是正确的。  
 
 ## 方法一
+
+> &#x2705; 方法：对布分段，根据分段区域决定谁在上谁在下，以此为依据推动顶点。  
 
 ### 算法过程
 
@@ -34,16 +29,12 @@ Baraff et al. used flood-fill to segment cloth into regions and decided which re
 
 Baraff et al. 2003. Untangling Cloth. TOG (SIGGRAPH)   
 
-> &#x2705;P42适用于有体积的物体，但布没有封闭体积，两根线没有里面外面之分，因此相交时不知道哪一段是正确的。  
-> &#x2705; 方法：对布分段，根据分段区域决定谁在上谁在下，以此为依据推动顶点。  
-> &#x2705; 此方法缺点：1. 无法处理边界；2. 难以在 GPU 上实 现；  
- 
+
 P44  
 ### 算法效果
 
 ![](./assets/09-34-1.png)    
-
-Baraff et al. 2003. Untangling Cloth. TOG (SIGGRAPH)    
+ 
 
 > &#x2705;缺点：1. 难以处理边界；2. 对整个面进行评估，难以用于GPU.   
 
