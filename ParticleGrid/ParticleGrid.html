@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>粒子 + Grid - GAMES103</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The note of GAMES103">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">BackGround</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 数学基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../2_math_vector.html"><strong aria-hidden="true">2.1.</strong> Vector</a></li><li class="chapter-item expanded "><a href="../2_math_matrix.html"><strong aria-hidden="true">2.2.</strong> Matrix</a></li><li class="chapter-item expanded "><a href="../2_math_calculus.html"><strong aria-hidden="true">2.3.</strong> Tensor Calculus</a></li></ol></li><li class="chapter-item expanded "><a href="../Graphics.html"><strong aria-hidden="true">3.</strong> 图形学基础</a></li><li class="chapter-item expanded "><a href="../BackGround/Force.html"><strong aria-hidden="true">4.</strong> 力</a></li><li class="chapter-item expanded affix "><li class="part-title">单个仿真代理的仿真</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 粒子</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Particle/Particle.html"><strong aria-hidden="true">5.1.</strong> 粒子</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Particle/SPHModel.html"><strong aria-hidden="true">5.1.1.</strong> A SPH Model</a></li><li class="chapter-item expanded "><a href="../Particle/SPH_Fluids.html"><strong aria-hidden="true">5.1.2.</strong> SPH应用 - 水</a></li><li class="chapter-item expanded "><a href="../Particle/AIModel.html"><strong aria-hidden="true">5.1.3.</strong> AI方法</a></li></ol></li><li class="chapter-item expanded "><a href="../Particle/Rigid.html"><strong aria-hidden="true">5.2.</strong> 应用场景 - 刚体</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 不可形变Mesh - 刚体</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Rigid/Attribution.html"><strong aria-hidden="true">6.1.</strong> 刚体的属性</a></li><li class="chapter-item expanded "><a href="../Rigid/Force.html"><strong aria-hidden="true">6.2.</strong> 刚体动力学</a></li><li class="chapter-item expanded "><a href="../Rigid/supplementary.html"><strong aria-hidden="true">6.3.</strong> 补充</a></li></ol></li><li class="chapter-item expanded "><a href="../Elastic/Elastic.html"><strong aria-hidden="true">7.</strong> 可形变Mesh - 弹性体</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Elastic/Attribution.html"><strong aria-hidden="true">7.1.</strong> 弹性体的属性</a></li><li class="chapter-item expanded "><a href="../5_cloth_spring.html"><strong aria-hidden="true">7.2.</strong> Mass Spring System</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../5_cloth.html"><strong aria-hidden="true">7.2.1.</strong> 布料</a></li><li class="chapter-item expanded "><a href="../5_cloth_bending_blcoking.html"><strong aria-hidden="true">7.2.2.</strong> Bending and Locking Issues</a></li></ol></li><li class="chapter-item expanded "><a href="../5_cloth_shape_matching.html"><strong aria-hidden="true">7.3.</strong> Shape Matching</a></li><li class="chapter-item expanded "><a href="../6_constraints.html"><strong aria-hidden="true">7.4.</strong> 约束方法</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../6_constraints_Projection.html"><strong aria-hidden="true">7.4.1.</strong> 投影函数 Projection Function</a></li></ol></li><li class="chapter-item expanded "><a href="../6_constraints_PBD.html"><strong aria-hidden="true">7.5.</strong> PBD</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../6_constraints_strain.html"><strong aria-hidden="true">7.5.1.</strong> Strain Limiting</a></li></ol></li><li class="chapter-item expanded "><a href="../6_constraints_Projective_Dynamics.html"><strong aria-hidden="true">7.6.</strong> 投影动力学 (Projective Dynamics)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../6_constraints_summary.html"><strong aria-hidden="true">7.6.1.</strong> 总结</a></li></ol></li><li class="chapter-item expanded "><a href="../7_FEM_FEM.html"><strong aria-hidden="true">7.7.</strong> Linear Finite Element Method</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../8_FEM2.html"><strong aria-hidden="true">7.7.1.</strong> 08-FEM2</a></li><li class="chapter-item expanded "><a href="../8_FEM2_Nonlinear_optimization.html"><strong aria-hidden="true">7.7.2.</strong> Nonlinear optimization</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.8.</strong> Discrete Elastic Rods</div></li></ol></li><li class="chapter-item expanded "><a href="../6_constraints_Contrained_Dynamics.html"><strong aria-hidden="true">8.</strong> Skeleton</a></li><li class="chapter-item expanded "><a href="../7_FEM_FVM.html"><strong aria-hidden="true">9.</strong> 四面体Mesh - FVM</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../7_FEM_Hyperelastic.html"><strong aria-hidden="true">9.1.</strong> Hyperelastic Models</a></li><li class="chapter-item expanded "><a href="../7_FEM_summary.html"><strong aria-hidden="true">9.2.</strong> Summary</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> 2D Grid - 水</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">10.1.</strong> 高度场模型</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../10_wave_height_feild.html"><strong aria-hidden="true">10.1.1.</strong> 高度场模型</a></li><li class="chapter-item expanded "><a href="../10_wave_volume.html"><strong aria-hidden="true">10.1.2.</strong> Volume Preservation</a></li><li class="chapter-item expanded "><a href="../10_wave_boundary.html"><strong aria-hidden="true">10.1.3.</strong> Boundary Conditions</a></li><li class="chapter-item expanded "><a href="../10_wave_summary.html"><strong aria-hidden="true">10.1.4.</strong> Summary</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> 3D Grid</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../11_EulerianFluids.html"><strong aria-hidden="true">11.1.</strong> 欧拉模型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../11_EulerianFluids_Grid.html"><strong aria-hidden="true">11.1.1.</strong> A Grid Representation and Finite Differencing</a></li><li class="chapter-item expanded "><a href="../11_EulerianFluids_Staggered.html"><strong aria-hidden="true">11.1.2.</strong> Staggered Grid</a></li><li class="chapter-item expanded "><a href="../11_EulerianFluids_Incompressible.html"><strong aria-hidden="true">11.1.3.</strong> Incompressible, Viscous  Navier-Stokes Equations</a></li><li class="chapter-item expanded "><a href="../11_EulerianFluids_Air_Smoke.html"><strong aria-hidden="true">11.1.4.</strong> Air and Smoke</a></li><li class="chapter-item expanded "><a href="../11_EulerianFluids_Summary.html"><strong aria-hidden="true">11.1.5.</strong> Summary</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../SDF.html"><strong aria-hidden="true">12.</strong> SDF</a></li><li class="chapter-item expanded affix "><li class="part-title">混合仿真代理的仿真</li><li class="chapter-item expanded "><a href="../ParticleGrid/ParticleGrid.html" class="active"><strong aria-hidden="true">13.</strong> 粒子 + Grid</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ParticleGrid/MPM.html"><strong aria-hidden="true">13.1.</strong> Material Point Method</a></li><li class="chapter-item expanded "><a href="../ParticleGrid/AIModel.html"><strong aria-hidden="true">13.2.</strong> AI方法</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">仿真代理之间的作用</li><li class="chapter-item expanded "><a href="../ParticleSDF.html"><strong aria-hidden="true">14.</strong> 粒子 + SDF</a></li><li class="chapter-item expanded "><a href="../ParticleMesh.html"><strong aria-hidden="true">15.</strong> 粒子 + Mesh</a></li><li class="chapter-item expanded "><a href="../RigidSDF.html"><strong aria-hidden="true">16.</strong> 刚体 + SDF</a></li><li class="chapter-item expanded "><a href="../RigidSystem/RigidSystem.html"><strong aria-hidden="true">17.</strong> 刚体系统</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../9_collision_detect.html"><strong aria-hidden="true">17.1.</strong> 刚体的碰撞检测 - Broad Phase</a></li><li class="chapter-item expanded "><a href="../9_collision_detect_narrow.html"><strong aria-hidden="true">17.2.</strong> 刚体的碰撞检测 - Narrow Phase</a></li><li class="chapter-item expanded "><a href="../9_collision_response.html"><strong aria-hidden="true">17.3.</strong> Constrain Based 刚体碰撞响应</a></li><li class="chapter-item expanded "><a href="../Interior_Point_Methods.html"><strong aria-hidden="true">17.4.</strong> 内点法</a></li><li class="chapter-item expanded "><a href="../Impact_Zone_Optimization.html"><strong aria-hidden="true">17.5.</strong> 优化法</a></li><li class="chapter-item expanded "><a href="../Rigid_Impact_Zones.html"><strong aria-hidden="true">17.6.</strong> 刚性冲击区域</a></li><li class="chapter-item expanded "><a href="../RigidSystem/IPC.html"><strong aria-hidden="true">17.7.</strong> Incremental Potential Contact</a></li><li class="chapter-item expanded "><a href="../4_rigidcontact_supplementary.html"><strong aria-hidden="true">17.8.</strong> 补充</a></li></ol></li><li class="chapter-item expanded "><a href="../RigidSoft.html"><strong aria-hidden="true">18.</strong> 刚体 + 软体</a></li><li class="chapter-item expanded "><a href="../9_collision_untangling.html"><strong aria-hidden="true">19.</strong> Untangling Cloth</a></li><li class="chapter-item expanded "><a href="../RigidGrid.html"><strong aria-hidden="true">20.</strong> 刚体 + Grid</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">GAMES103</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/CaterpillarStudyGroup/GAMES103_mdbook" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <h1 id="two-types-of-simulation-approaches"><a class="header" href="#two-types-of-simulation-approaches">Two Types of Simulation Approaches</a></h1>
+<p>数值模拟方法可分为拉格朗日方法和欧拉方法两大类。</p>
+<table><thead><tr><th>Lagrangian Approach</th><th>Eulerian Approach</th></tr></thead><tbody>
+<tr><td><img src="../assets/10-1.png" alt="" /></td><td><img src="../assets/10-2.png" alt="" /></td></tr>
+<tr><td>✅ 无 Grid. 物理量附加在粒子上，粒子运动时更新自身物理量。</td><td>✅ 固定 Grid. 物理量固定在 Grid 上。粒子运动后统一新格子的物理量。</td></tr>
+<tr><td>拉格朗日法中计算网格随物质一起变形，可方便地跟踪材料界面和引入与变形历史相关的材料模型，但对于涉及特大变形的问题会因网格严重畸变而产生数值求解困难，且难以有效地模拟材料的破碎、融化和汽化等行为。此类方法代表性程序为DYAN。</td><td>欧拉法中计算网格固定在空间中，不存网格畸变问题，但不易跟踪材料界面，且非线性对流项也会导致数值求解困难。</td></tr>
+</tbody></table>
+<h1 id="粒子法与网格法的结合"><a class="header" href="#粒子法与网格法的结合">粒子法与网格法的结合</a></h1>
+<p>粒子与网格结合的方法（Particle-in-Cell, PIC）是物理仿真中一类重要的多尺度耦合方法，主要用于流体动力学、等离子体物理、天体物理、固体力学等领域。以下是常见的几类粒子与网格结合的方法及其特点：</p>
+<h2 id="常见方法"><a class="header" href="#常见方法">常见方法</a></h2>
+<h3 id="1-粒子-网格法particle-in-cell-pic"><a class="header" href="#1-粒子-网格法particle-in-cell-pic"><strong>1. 粒子-网格法（Particle-in-Cell, PIC）</strong></a></h3>
+<ul>
+<li><strong>原理</strong>：将粒子作为离散质量/电荷载体，而将网格用于计算场量（如电磁场、重力场）。粒子在连续空间中运动，但其产生的场量或所受的力通过插值在网格上计算。</li>
+<li><strong>步骤</strong>：
+<ol>
+<li><strong>粒子到网格插值</strong>：将粒子的质量、电荷等属性分配到邻近网格节点。</li>
+<li><strong>网格上求解场方程</strong>：在网格上求解泊松方程（静电场）或麦克斯韦方程（电磁场）等。</li>
+<li><strong>网格到场插值</strong>：将网格节点上的场量插值回粒子位置，更新粒子受力。</li>
+<li><strong>粒子推进</strong>：根据牛顿定律更新粒子位置和速度。</li>
+</ol>
+</li>
+<li><strong>应用</strong>：等离子体模拟、天体物理（N体+网格）、流体模拟（如物质点法MPM）。</li>
+</ul>
+<hr />
+<h3 id="2-物质点法material-point-method-mpm"><a class="header" href="#2-物质点法material-point-method-mpm"><strong>2. 物质点法（Material Point Method, MPM）</strong></a></h3>
+<ul>
+<li><strong>原理</strong>：结合拉格朗日粒子（物质点）和欧拉网格的优点，用于固体力学和流固耦合。粒子携带质量、速度、应力等全部材料信息，网格作为临时计算背景用于求解动量方程。</li>
+<li><strong>步骤</strong>：
+<ol>
+<li><strong>粒子到网格映射</strong>：将粒子质量、动量映射到网格节点。</li>
+<li><strong>网格求解</strong>：在网格上求解动量方程，获得节点加速度/速度。</li>
+<li><strong>网格到粒子映射</strong>：将节点速度更新映射回粒子，更新粒子位置和应力。</li>
+<li><strong>网格重置</strong>：每步结束后网格可丢弃或重复使用。</li>
+</ol>
+</li>
+<li><strong>优点</strong>：避免网格畸变，适合大变形问题（如雪、泥沙、断裂模拟）。</li>
+<li><strong>变种</strong>：
+<ul>
+<li><strong>广义插值物质点法（GIMP）</strong>：改进插值函数，减少数值噪声。</li>
+<li><strong>CPDI（Convected Particle Domain Interpolation）</strong>：更精确描述粒子变形。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="3-流体隐式粒子法fluid-implicit-particle-flip与粒子-网格混合法"><a class="header" href="#3-流体隐式粒子法fluid-implicit-particle-flip与粒子-网格混合法"><strong>3. 流体隐式粒子法（Fluid Implicit Particle, FLIP）与粒子-网格混合法</strong></a></h3>
+<ul>
+<li><strong>原理</strong>：在流体模拟中结合粒子和网格，粒子携带速度等信息，网格用于求解压力泊松方程（实现不可压缩性）。</li>
+<li><strong>方法</strong>：
+<ul>
+<li><strong>PIC（流体版）</strong>：粒子速度完全由网格插值获得，较稳定但耗散大。</li>
+<li><strong>FLIP</strong>：粒子速度变化量由网格插值，保留更多细节，适合高分辨率模拟。</li>
+</ul>
+</li>
+<li><strong>应用</strong>：计算机图形学中的流体动画（如烟雾、水）。</li>
+</ul>
+<hr />
+<h3 id="4-任意拉格朗日-欧拉法arbitrary-lagrangian-eulerian-ale"><a class="header" href="#4-任意拉格朗日-欧拉法arbitrary-lagrangian-eulerian-ale"><strong>4. 任意拉格朗日-欧拉法（Arbitrary Lagrangian-Eulerian, ALE）</strong></a></h3>
+<ul>
+<li><strong>原理</strong>：网格可随物质运动（拉格朗日）或固定（欧拉），也可任意移动以兼顾两者优点。通常与粒子结合用于处理大变形或界面问题。</li>
+<li><strong>结合方式</strong>：在变形过大区域将材料转为粒子，避免网格畸变。</li>
+<li><strong>应用</strong>：爆炸、冲击、金属成型等固体力学问题。</li>
+</ul>
+<hr />
+<h3 id="5-耦合粒子-网格法coupled-particle-grid-methods"><a class="header" href="#5-耦合粒子-网格法coupled-particle-grid-methods"><strong>5. 耦合粒子-网格法（Coupled Particle-Grid Methods）</strong></a></h3>
+<ul>
+<li><strong>离散元法（DEM）与有限元法（FEM）耦合</strong>：
+<ul>
+<li>颗粒物质（DEM粒子）与连续体（FEM网格）交互，用于模拟颗粒-结构相互作用。</li>
+</ul>
+</li>
+<li><strong>光滑粒子流体动力学（SPH）与网格耦合</strong>：
+<ul>
+<li>近界面区域用SPH（粒子法），远处用网格法（如FVM），提高计算效率。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="6-其他混合方法"><a class="header" href="#6-其他混合方法"><strong>6. 其他混合方法</strong></a></h3>
+<ul>
+<li><strong>分子动力学（MD）与连续体耦合</strong>：
+<ul>
+<li>微观区域用MD（粒子），宏观区域用有限元网格，通过重叠区交换信息。</li>
+</ul>
+</li>
+<li><strong>蒙特卡洛粒子与网格耦合</strong>：
+<ul>
+<li>在辐射传输、稀薄气体动力学中，粒子跟踪与网格场计算结合。</li>
+</ul>
+</li>
+</ul>
+<h2 id="总结"><a class="header" href="#总结">总结</a></h2>
+<h3 id="选择依据"><a class="header" href="#选择依据"><strong>选择依据</strong></a></h3>
+<table><thead><tr><th><strong>方法</strong></th><th><strong>适用领域</strong></th><th><strong>主要优点</strong></th></tr></thead><tbody>
+<tr><td><strong>PIC</strong></td><td>等离子体、电磁场</td><td>场求解稳定，粒子自由度灵活</td></tr>
+<tr><td><strong>MPM</strong></td><td>固体大变形、多相材料</td><td>避免网格畸变，适合历史相关材料</td></tr>
+<tr><td><strong>FLIP/PIC</strong></td><td>不可压缩流体</td><td>细节保留好，适合动画</td></tr>
+<tr><td><strong>ALE</strong></td><td>冲击、流固耦合</td><td>自适应网格，兼顾精度与变形</td></tr>
+<tr><td><strong>DEM-FEM</strong></td><td>颗粒-结构相互作用</td><td>离散与连续介质自然耦合</td></tr>
+</tbody></table>
+<hr />
+<h2 id="发展趋势"><a class="header" href="#发展趋势"><strong>发展趋势</strong></a></h2>
+<ol>
+<li><strong>多尺度耦合</strong>：如量子-分子动力学-连续体的跨尺度模拟。</li>
+<li><strong>机器学习加速</strong>：用神经网络替代部分网格求解或粒子交互。</li>
+<li><strong>高性能计算优化</strong>：针对GPU/异构计算设计混合算法。</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../SDF.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../ParticleGrid/MPM.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../SDF.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../ParticleGrid/MPM.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/mermaid.min.js"></script>
+        <script type="text/javascript" src="../theme/mermaid-init.js"></script>
+    </body>
+</html>
