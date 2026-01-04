@@ -8,7 +8,6 @@ mindmap
         基于能量的方法
             弹簧系统
             PD
-            FVM
             FEM
         基于投影的方法
             PBD
