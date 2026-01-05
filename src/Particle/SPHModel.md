@@ -10,7 +10,8 @@ P5
  - How to estimate the quantity at a new location \\(\mathbf{x}_i\\)?   
 
 > &#x2705; 空间中有很多带有物理量的粒子，求任意位置上的物理量。这是插值问题，关键是要插值结果平滑。    
-VX 1.3  16:27      
+
+![](../assets/1.3-1.png)    
 
 SPH 适用于模拟自由表面流体。    
 烟不属于自由表面流体。    
@@ -34,14 +35,14 @@ $$
 \end{matrix}
 $$
 
-![](./assets/12-2.png)   
+![](../assets/12-2.png)   
 
 > &#x2705; 假设空间是一个关于 \\(A\\) 的场，粒子是空间中的采样。    
 > &#x2705; 根据 \\(i\\) 附近范围内采样出的 \\(A\\) 值预测 \\(i\\) 点处的 \\(A\\) 值。
 
 #### 存在的问题
 
-![](./assets/12-3.png)   
+![](../assets/12-3.png)   
 
 
 
@@ -62,7 +63,7 @@ $$
 $$
 
 
-![](./assets/12-4.png)   
+![](../assets/12-4.png)   
 
 > &#x2705; 体积 \\(V-i\\) 的计算在后面介绍。这里先假设 \\(V-i\\) 已知。   
 > &#x2705; 公式假设总球的体积是1，球内的粒子瓜分这些体积。所以\\(\sum _jV_j=1\\)    
@@ -81,7 +82,7 @@ $$
 
  - Not smooth!  (7 -> 9!)
 
-![](./assets/12-5.png)   
+![](../assets/12-5.png)   
 
 
 
@@ -122,7 +123,7 @@ $$
 |----|
 
 
-![](./assets/12-7.png)   
+![](../assets/12-7.png)   
 
 
 
@@ -138,7 +139,7 @@ P11
 
  - So the actual solution is:   
 
-![](./assets/12-8.png)   
+![](../assets/12-8.png)   
 
 P12  
 ## Kernal函数
@@ -173,7 +174,7 @@ P12
 P13   
 ### A Smoothing Kernel Example    
 
-![](./assets/12-9.png)   
+![](../assets/12-9.png)   
 
 $$
 W_{ij}=\frac{3}{2\pi h^3} 
