@@ -109,16 +109,26 @@ Implicit integration is a better solution to numerical instability.  The idea is
 
 Linearize:   
 
+$$ 
+\mathbf{v} _{t+1}=\mathbf{v}_t+∆t\mathbf{M} ^{−1}[\mathbf{f} (\mathbf{x}_t)+\frac{\partial \mathbf{f} }{\partial \mathbf{x} }(\mathbf{x} _t) ∆t\mathbf{v} _{t+1}] 
+$$
+
 Clean up:     
 
+$$
+[\mathbf{I}-∆t^2\mathbf{M} ^{−1}\frac{\partial \mathbf{f} }{\partial \mathbf{x} }(\mathbf{x} _t)  ]\mathbf{v} _{t+1}=\mathbf{v}_t+∆t\mathbf{M} ^{−1}\mathbf{f} (\mathbf{x}_t)
+$$
+
 A mice *linear* system!      
-![](./assets/1.3-3.png)    
 
 解线性系统见补充材料       
 
+![](./assets/1.3-3.png)    
+
 问：为什么不直接求逆？    
 答：求逆太贵     
-80C
+
+### 积分求解转为优化问题
 
 > &#x2705; 下面公式1通过把上面公式1代入公式2得到。下面公式2通过把上面公式写反推得到。    
 粒子和刚体的仿真中使用了半隐式积分(现在的力，未来的速度)，这里使用了隐式积分(未来的力，未来的速度)。力和速度都是未知的，需要解方程。    
@@ -136,9 +146,6 @@ $$
 > &#x2705; holonomic：力的大小和方向只跟位置有关，跟速度无关。例如重力，弹力。那么 \\(f\\)可以写成关于位置的函数\\(f(x)\\)。  
 > &#x2705; 但\\(f(x)\\)不一定是线性的。因此最后转化为解非线性方程的问题。未知量为\\({x} ^{[1]}\\)    
 
-
-
-### 积分求解转为优化问题
 
 P14   
 
@@ -175,7 +182,6 @@ $$
 $$
 
 ![](./assets/05-28.png)    
-
 
 
 P19  
@@ -266,7 +272,9 @@ P23
 
 
 P24   
-## Linear Solvers 
+## 补充 3：Linear Solvers 
+
+Jacob1. Gauss-Seidel，共轭梯度    
 
 ### The Jacobi Method    
 
@@ -348,7 +356,7 @@ The paper proposes to **use only one Newton iteration**, i.e., solving only one 
 > &#x2705;这篇论文是衣服模拟的经典论文，第一个用隐式积分做衣服模型的论文。  
 > 论文没有用弹簧系统，而是另一套模型。  
 > 没有做非线性优化或解非线性方程，而是把非线性方程线性化，等价于做一次牛顿迭代。   
-
+&#x1F50E; Fast mass - spring system solver    
 
 # 补充1：非线性方程求解转化为优化问题
 
