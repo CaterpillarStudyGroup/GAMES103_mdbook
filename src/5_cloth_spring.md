@@ -354,7 +354,8 @@ $$
 x^{[1]} & =  \mathrm{argmin}& F(x)\Rightarrow {F}' (x^{[1]}) & = & 0
 \end{eqnarray}
 $$   
-因此, \\({F}' (x) = y. \quad F(x) = \int ydx \\)    
+因此, \\({F}' (x) = y. \quad F(x) = \int ydx \\)       
+反之则不一定成立，\\({F}' (x) = 0\\) 解出的 \\(x\\) 有可能是极大值点，所以还要看 \\({F}' (x)\\) 的正负。
 
 # 补充2：Newton-Raphson Method   
 
