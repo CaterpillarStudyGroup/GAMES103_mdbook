@@ -1,9 +1,11 @@
 
-
-
-
-
 P3   
+# FEM      
+
+Lecture 3 31:48     
+
+把空间分成极小的 element    
+
 # Linear Finite Element Method    
 
 P4  
