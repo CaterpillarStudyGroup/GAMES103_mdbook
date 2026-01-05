@@ -7,19 +7,21 @@ P4
 
 ## 构建弹簧系统    
 
-## An Ideal Spring    
+### An Ideal Spring —— 一个端点     
 
 An ideal spring satisfies Hooke’s law: the spring force tries to restore the rest length.    
 
 
 ![](./assets/05-1.png) 
 
+### An Ideal Spring —— 两个端点     
+
 ![](./assets/05-2.png)    
 
 
 \\(E(\mathbf{x})=\frac{1}{2}k (||\mathbf{x}_i −\mathbf{x}_j||−\mathbf{L} )^2\\)
 
-
+胡克定律：    
 
 \\(\mathbf{f} _i(\mathbf{x} )=−∇_i\mathbf{E} =−k(||\mathbf{x}_i −\mathbf{x}_j||−L)\frac{\mathbf{x}_i −\mathbf{x}_j}{||\mathbf{x}_i −\mathbf{x}_j ||}\\)
 
@@ -30,7 +32,7 @@ An ideal spring satisfies Hooke’s law: the spring force tries to restore the r
 
 
 P5  
-## Multiple Springs   
+### Multiple Springs   
 
 When there are many springs, the energies and the forces can be simply summed up.     
 
@@ -50,16 +52,20 @@ $$
 
 
 P11   
-## 积分系统——显式积分  
+## 仿真流程    
 
 ![](./assets/05-9.png)    
 
 
-> &#x2705; 整体流程跟刚体运动很像，只是力变得复杂，每个弹簧端点上受到的力都要考虑，但没有了旋转。  
+
 > &#x2705; \\( E [e] [0] ：e\\)代表弹簧 ID:0或1代表弹簧两个端点     
 > &#x2757; 图画得不对，先提前把所有的力都算出来，再遍历所有顶点    
+> &#x2705; 整体流程就像是对 Mesh 上的每个顶点独立地进行粒子仿真，只是力变得复杂，每个弹簧端点上受到的力都要考虑，且力的大小和方向与顶点的位置关系有关。  
+
+## 积分系统——显式积分  
 
 P12   
+与粒子仿真相同。每个 Mesh 顶点从力到位置的计算过程涉及积分。积分也可以是显式、隐式、半隐式。    
    
 Explicit integration suffers from **numerical instability** caused by <u>overshooting</U>, when the stiffness \\(k\\) and/or the time step \\(∆t\\) is too large.     
 
@@ -79,15 +85,41 @@ P13
 
 Implicit integration is a better solution to numerical instability.  The idea is to integrate both **x** and **v** implicitly.   
 
-> &#x2705;Explicit和Implicit都是用某个时刻的力代表整个\\(Δt\\)时间的力，就都会出现上述误差。   
+> &#x2705;Explicit和Implicit都是用某个时刻的力代表整个 \\(Δt\\) 时间的力，就都会出现上述误差。   
 区别在于，Explicit用当前力，往往使结果变大，产生爆炸，Implicit用未来力，往往使结果变小，产生消失。  
 > &#x2705; 消失只是结果不对。但爆炸会让结果崩溃，这是最不可接受的问题。因此用隐式代替显式。  
+
+隐式积分相对稳定，可以使用稍大的 \\(Δt\\)，但也存在以下问题：    
+1. 实现复杂，因此难以优化。    
+2. 每个 \\(Δt\\) 的求解更耗时，因此不一定会更快。     
+3. 可能出现数值振荡。     
 
 用未来力计算未来速度，用未来速度计算未来位置。    
 
 ![](./assets/05-11.png)    
 
 > &#x2705; 未来力，未来速度，未来位置都是未知量，不能直接求解。   
+
+### 线性近似法求解积分    
+
+> &#x2705; 早期的方式不是用优化来做的，而是近似成线性问题后直接解方程组。这种方法相当于每一个Step做了一次牛顿法。  
+
+公式 2 代入公式 1 并消元，得：    
+\\(\mathbf{v} ^{[1]}=\mathbf{v}^{[0]}+∆t\mathbf{M} ^{−1}\mathbf{f} (\mathbf{x}^{[0]}+∆t\mathbf{v} ^{[1]})\\) \\(\mathbf{f}\\) 在 \\(\mathbf{x}^{[0]}\\) 处泰勒展开，得：     
+
+Linearize:   
+
+Clean up:     
+
+A mice *linear* system!      
+![](./assets/1.3-3.png)    
+
+解线性系统见补充材料       
+
+问：为什么不直接求逆？    
+答：求逆太贵     
+80C
+
 > &#x2705; 下面公式1通过把上面公式1代入公式2得到。下面公式2通过把上面公式写反推得到。    
 粒子和刚体的仿真中使用了半隐式积分(现在的力，未来的速度)，这里使用了隐式积分(未来的力，未来的速度)。力和速度都是未知的，需要解方程。    
 
@@ -95,6 +127,7 @@ Implicit integration is a better solution to numerical instability.  The idea is
 ![](./assets/05-12.png)    
 
 Assuming that \\(\mathbf{f}\\) is *holonomic*, i.e., depending on \\(\mathbf{x}\\) only, our question is how to solve:    
+
 $$
 \mathbf{x} ^{[1]}=\mathbf{x}^{[0]}+∆t\mathbf{v} ^{[0]}+∆t^2\mathbf{M} ^{−1}\mathbf{f} (\mathbf{x}^{[1]})
 $$
@@ -103,7 +136,7 @@ $$
 > &#x2705; holonomic：力的大小和方向只跟位置有关，跟速度无关。例如重力，弹力。那么 \\(f\\)可以写成关于位置的函数\\(f(x)\\)。  
 > &#x2705; 但\\(f(x)\\)不一定是线性的。因此最后转化为解非线性方程的问题。未知量为\\({x} ^{[1]}\\)    
 
-### 线性近似法求解积分    
+
 
 ### 积分求解转为优化问题
 
@@ -143,8 +176,6 @@ $$
 
 ![](./assets/05-28.png)    
 
-
-> &#x2705; 早期的方式不是用优化来做的，而是近似成线性问题后直接解方程组。这种方法相当于每一个Step做了一次牛顿法。  
 
 
 P19  
