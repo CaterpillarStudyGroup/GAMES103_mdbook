@@ -1,7 +1,6 @@
 # A SPH Model
 
 > &#x2705; SPH = Smoothed Particle Hydrodynamics     
-> &#x2705; 搞一个模型，能够用于计算偏微分，把微分向量应用到方程上进行求解。      
 
 P5   
 ## 原理   
@@ -11,6 +10,13 @@ P5
  - How to estimate the quantity at a new location \\(\mathbf{x}_i\\)?   
 
 > &#x2705; 空间中有很多带有物理量的粒子，求任意位置上的物理量。这是插值问题，关键是要插值结果平滑。    
+VX 1.3  16:27      
+
+SPH 适用于模拟自由表面流体。    
+烟不属于自由表面流体。    
+ 
+
+## 模型
 
 |||
 |--|--|
@@ -19,7 +25,7 @@ P5
 | 密度 | \\( \rho \\)  |
 | 其它非仿真属性 | \\( A \\) |
 
-## 模型
+
 ### A Simple Model
 
 $$
