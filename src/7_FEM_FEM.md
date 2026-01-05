@@ -18,15 +18,24 @@ In a nutshell, linear FEM assumes that for any point \\(\mathbf{X}\\) in the ref
 > &#x2705; reference triangle：三角形处于没有发生形变的静止的状态。   
 > &#x2705; \\(\mathbf{X}\\)和\\(\mathbf{x}\\)可以分别是 reference 和 deformed 三角形的顶点或内部点，公式都同样适用。  
 
-![](./assets/07-1.png)    
+![](./assets/07-01.png)    
 
+由于是均匀形变，在一个三角形内部，\\(\mathbf{F}\\) 是一致的。    
 
 For any vector between two points, we can use F to convert it from reference to deformed:    
 $$
 \mathbf{x} _{ba}=\mathbf{x} _b−\mathbf{x} _a=\mathbf{FX} _b+\mathbf{c} −\mathbf{FX} _a−\mathbf{c} =\mathbf{FX} _{ba}.
 $$
 
+\\(J=\mathbf{det} (\mathbf{F} )\\) 表示形变后的面积变化     
+弹性势能：     
+$$
+\mathbf{U} (e)=\int _e\psi (\mathbf{F} (x))dx=\mathbf{V} _e\psi (\mathbf{F} _e)
+$$
 
+\\(\psi\\) 是能量密度函数    
+
+然后根据能量计算力，再仿真。    
 
 P5   
 ## 计算Deformation Gradient    
@@ -35,6 +44,7 @@ Therefore, we can calculate the deformation gradient by edge vectors.
 
 ![](./assets/07-2.png)    
 
+公式第二项只与 reference 有关，可以预计算。   
 
 **Problem:** \\(\mathbf{F}\\) **is related to deformation, but it contains rotation**.     
 
@@ -72,6 +82,7 @@ So we get rid of \\(\mathbf{U}\\) as: \\(\mathbf{G} =\frac{1}{2} (\mathbf{F^TF�
 P7   
 ## 计算能量    
 
+前面提到的能量公式是一种通用的形式。这里的能量计算过程是一种具体的广泛使用的公式。     
 
 Let \\(\mathbf{G}\\) be the the green strain describing deformation. We consider the **energy density** per reference area as: \\(W (\mathbf{G})\\).    
 
@@ -196,6 +207,20 @@ Only talks about cloth (2D reference -> 3D deformation)
     - Green strain \\(\mathbf{G} \in \mathbf{R} ^{3×3}\\)   
     - Stress tensor \\(\mathbf{S} \in \mathbf{R} ^{3×3}\\)   
     - Forces \\(\mathbf{F}_i \in \mathbf{R} ^3\\)    
+
+FEM 不擅长处理自碰撞。    
+
+### 隐式积分    
+
+Recall backward Euler time integration:     
+
+$$
+[\mathbf{I} -\Delta t^2\mathbf{M} ^{-1}\frac{\partial \mathbf{f} }{\partial \mathbf{x} }(\mathbf{x} _t)]\mathbf{v} _{t+1}=\mathbf{v} _t+\Delta t\mathbf{M} ^{-1}\mathbf{f} (\mathbf{x} _t)
+$$
+
+Want implicit time integration? Compute force differentials \\(\frac{\partial \mathbf{f} }{\partial \mathbf{x} } =\frac{\partial^2\Psi  }{\partial \mathbf{F} ^2} \\)        
+
+**Question:** in both explicit and implicit schemes, how to compute \\(m_i\\)? Use mass lumping (or any other convenient approximation you want...)      
 
 
 ---------------------------------------
