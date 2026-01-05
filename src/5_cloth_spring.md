@@ -271,92 +271,6 @@ P23
 > &#x1F50E; Choi and Ko. 2002. Stable But Responive Cloth. TOG (SIGGRAPH)      
 
 
-P24   
-## 补充 3：Linear Solvers 
-
-Jacob1. Gauss-Seidel，共轭梯度    
-
-### The Jacobi Method    
-
-We can use the Jacobi method to solve \\(\mathbf{A}∆\mathbf{x}  = \mathbf{b} \\).   
-
-![](./assets/05-21.png)    
-
-
-
-The vanilla Jacobi method (\\(α\\) = 1) has a tight convergence requirement on \\(\mathbf{A}\\), i.e., being diagonal dominant.    
-
-The use of \\(α\\) allows the method to converget even when \\(\mathbf{A}\\) is positive definite only.    
-
-
-
-
-P25   
-### An Incomplete Summary    
-
- - Direct Solvers (LU, LDLT, Cholesky, …)    
-    - One shot, expensive but worthy if you need exact solutions.    
-    - Little restriction on \\(\mathbf{A}\\)    
-    - Mostly suitable on CPUs     
-> &#x1F50E;  Intel MKL PARDISO  
-
- - Iterative Solvers     
-    - Expensive to solve exactly, but controllable    
-    - Convergence restriction on \\(\mathbf{A}\\), typically positive definiteness    
-    - Suitable on both CPUs and GPUs    
-    - Easy to implement    
-    - Accelerable: Chebyshev, Nesterov, <u>Conjugate Gradient</u>…    
-
-> &#x2705; 课后答疑  
-问题二：怎么加速？  
-答：用 Jacobian 可以在 GPU 上加速、直接法比迭代法慢。  
-问题三：共轭梯度    
-共轭梯度的效率很大程度上取决于 precondition,但在GPU上能使用的precondition 比较受限、 CPU 上一般选择 Incomplete LU 分解。   
-问题四：支持的维度    
-直接法比较占内存，因此支持的维度不如迭代法大。  
-
-P26   
-### The Jacobi Method with Chebyshev Acceleration    
-
-We can use the accelerated Jacobi method to solve \\(\mathbf{A}∆\mathbf{x} =\mathbf{b} \\).    
-
-> The Accelerated Jacobi Method    
-> \\(∆\mathbf{x}  \longleftarrow \mathbf{0} \\)    
-> last_\\(∆\mathbf{x}  \longleftarrow \mathbf{0}\\)   
-> For \\(k=0\dots \mathbf{K}\\)   
-\\(\mathbf{r}  \longleftarrow \mathbf{b} −\mathbf{A} ∆\mathbf{x}\\)    
-If \\(||\mathbf{r} ||<\omega \quad\\)	break     
-If  \\(k=0	\quad\quad\quad \omega =1\\)   
-Else If \\( k=1 \quad \quad\quad\omega =2/(2-\rho^2)\\)    
-Else \\(\quad\quad\quad\omega =4/(4-\rho ^2\omega )\\)      
-old_\\(∆ \mathbf{x} \longleftarrow ∆ \mathbf{x}\\)    
-\\(∆\mathbf{x} ⟵∆\mathbf{x} +\mathbf{αD} ^{−1}\mathbf{r}\\)   
-\\(∆\mathbf{x} \longleftarrow \omega ∆ \mathbf{x} +(1−\omega)\\)last_∆\\(\mathbf{x} <br>\\)   
-last_\\(∆\mathbf{x} \longleftarrow \\) old_\\(∆\mathbf{x}\\)    
-
-
-
-| \\(\rho  (\rho <1)\\) is the estimated spectral radius of the iterative matrix.    |
-|---|
-
-
-> &#x2705; 这一页老师没讲   
-
-
-
-P27   
-# After-Class Reading   
-
-Baraff and Witkin. 1998. Large Step in Cloth Simulation. SIGGRAPH.    
-
-One of the first papers using implicit integration.     
-
-The paper proposes to **use only one Newton iteration**, i.e., solving only one linear system. This practice is fast, but can fail to converge.    
-
-> &#x2705;这篇论文是衣服模拟的经典论文，第一个用隐式积分做衣服模型的论文。  
-> 论文没有用弹簧系统，而是另一套模型。  
-> 没有做非线性优化或解非线性方程，而是把非线性方程线性化，等价于做一次牛顿迭代。   
-&#x1F50E; Fast mass - spring system solver    
 
 # 补充1：非线性方程求解转化为优化问题
 
@@ -455,7 +369,92 @@ $$
 > &#x2705; 按照 \\(\Delta x\\) 的更新公式，只需要用到\\(F'(x)\\) 和 \\({F}''(x)\\)， 不需要知道 \\(F(x)\\).   
 > &#x2705; 此处\\(x\\)是向量，因此\\(F'(x)\\)是向量，\\({F}''(x)\\)是 Hession 矩阵  
 
+P24   
+## 补充 3：Linear Solvers 
 
+Jacob1. Gauss-Seidel，共轭梯度    
+
+### The Jacobi Method    
+
+We can use the Jacobi method to solve \\(\mathbf{A}∆\mathbf{x}  = \mathbf{b} \\).   
+
+![](./assets/05-21.png)    
+
+
+
+The vanilla Jacobi method (\\(α\\) = 1) has a tight convergence requirement on \\(\mathbf{A}\\), i.e., being diagonal dominant.    
+
+The use of \\(α\\) allows the method to converget even when \\(\mathbf{A}\\) is positive definite only.    
+
+
+
+
+P25   
+### An Incomplete Summary    
+
+ - Direct Solvers (LU, LDLT, Cholesky, …)    
+    - One shot, expensive but worthy if you need exact solutions.    
+    - Little restriction on \\(\mathbf{A}\\)    
+    - Mostly suitable on CPUs     
+> &#x1F50E;  Intel MKL PARDISO  
+
+ - Iterative Solvers     
+    - Expensive to solve exactly, but controllable    
+    - Convergence restriction on \\(\mathbf{A}\\), typically positive definiteness    
+    - Suitable on both CPUs and GPUs    
+    - Easy to implement    
+    - Accelerable: Chebyshev, Nesterov, <u>Conjugate Gradient</u>…    
+
+> &#x2705; 课后答疑  
+问题二：怎么加速？  
+答：用 Jacobian 可以在 GPU 上加速、直接法比迭代法慢。  
+问题三：共轭梯度    
+共轭梯度的效率很大程度上取决于 precondition,但在GPU上能使用的precondition 比较受限、 CPU 上一般选择 Incomplete LU 分解。   
+问题四：支持的维度    
+直接法比较占内存，因此支持的维度不如迭代法大。  
+
+P26   
+### The Jacobi Method with Chebyshev Acceleration    
+
+We can use the accelerated Jacobi method to solve \\(\mathbf{A}∆\mathbf{x} =\mathbf{b} \\).    
+
+> The Accelerated Jacobi Method    
+> \\(∆\mathbf{x}  \longleftarrow \mathbf{0} \\)    
+> last_\\(∆\mathbf{x}  \longleftarrow \mathbf{0}\\)   
+> For \\(k=0\dots \mathbf{K}\\)   
+\\(\mathbf{r}  \longleftarrow \mathbf{b} −\mathbf{A} ∆\mathbf{x}\\)    
+If \\(||\mathbf{r} ||<\omega \quad\\)	break     
+If  \\(k=0	\quad\quad\quad \omega =1\\)   
+Else If \\( k=1 \quad \quad\quad\omega =2/(2-\rho^2)\\)    
+Else \\(\quad\quad\quad\omega =4/(4-\rho ^2\omega )\\)      
+old_\\(∆ \mathbf{x} \longleftarrow ∆ \mathbf{x}\\)    
+\\(∆\mathbf{x} ⟵∆\mathbf{x} +\mathbf{αD} ^{−1}\mathbf{r}\\)   
+\\(∆\mathbf{x} \longleftarrow \omega ∆ \mathbf{x} +(1−\omega)\\)last_∆\\(\mathbf{x} <br>\\)   
+last_\\(∆\mathbf{x} \longleftarrow \\) old_\\(∆\mathbf{x}\\)    
+
+
+
+| \\(\rho  (\rho <1)\\) is the estimated spectral radius of the iterative matrix.    |
+|---|
+
+
+> &#x2705; 这一页老师没讲   
+
+
+
+P27   
+# After-Class Reading   
+
+Baraff and Witkin. 1998. Large Step in Cloth Simulation. SIGGRAPH.    
+
+One of the first papers using implicit integration.     
+
+The paper proposes to **use only one Newton iteration**, i.e., solving only one linear system. This practice is fast, but can fail to converge.    
+
+> &#x2705;这篇论文是衣服模拟的经典论文，第一个用隐式积分做衣服模型的论文。  
+> 论文没有用弹簧系统，而是另一套模型。  
+> 没有做非线性优化或解非线性方程，而是把非线性方程线性化，等价于做一次牛顿迭代。   
+&#x1F50E; Fast mass - spring system solver    
 
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。
