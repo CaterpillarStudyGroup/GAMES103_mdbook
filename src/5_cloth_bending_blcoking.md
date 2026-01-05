@@ -188,8 +188,8 @@ P43
 # A Summary For the Day    
 
  - A mass-spring system          
-     - Planar springs against stretching/compression	\\(\quad\\)- replaceable by co-rotational model
-     - Bending springs				\\(\quad\\)- replaceable by dihedral or quadratic bending
+     - Planar springs against stretching/compression \\(\quad\\)- replaceable by co-rotational model
+     - Bending springs \\(\quad\\)- replaceable by dihedral or quadratic bending
      - Regardless of the models, as long as we have \\(E (\mathbf{x})\\), we can calculate force \\(\mathbf{f} (\mathbf{x} )=−∇ \mathbf{E} (\mathbf{x})\\) and Hessian \\(\mathbf{H} (\mathbf{x} )=∂E^2(\mathbf{x} )/∂\mathbf{x} ^2\\).  Forces and Hessians are stackable.    
 
  - Two integration approaches    

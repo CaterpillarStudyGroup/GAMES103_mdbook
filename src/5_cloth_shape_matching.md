@@ -1,23 +1,17 @@
 P39   
 # Shape Matching    
 
-> &#x2705; Shape Matching 跳过了。   
 
 先让每个粒子独立仿真，也不需要考虑弹簧力。   
 将每个面片的变形程度构建为能量，通过优化能量的方式使 Mesh 减少形变，所有面片以统一的方式进行优化，因此是一种全局优化方法。   
 
 P40   
-## 量化变形   
+## 量化形变   
 
 The basic idea is to define a quadratic energy based on the rotated reference element. To do so, we split transformation into deformation + rotation.     
 
-有两种方式基于能量恢复形变。   
-1. 向能量减少的方向优化。      
-2. 转化为力，基于力进行仿真。    
 
 ![](./assets/05-26.png)    
-
-
 
 
 P41   
@@ -46,28 +40,11 @@ E(\mathbf{x} ) =\frac{1}{2} ||\begin{bmatrix}
 \end{bmatrix}^{−1}−\mathbf{R}||^2
 $$
 
+## 恢复形变      
 
-P43   
-# A Summary For the Day    
-
- - A mass-spring system          
-     - Planar springs against stretching/compression	\\(\quad\\)- replaceable by co-rotational model
-     - Bending springs				\\(\quad\\)- replaceable by dihedral or quadratic bending
-     - Regardless of the models, as long as we have \\(E (\mathbf{x})\\), we can calculate force \\(\mathbf{f} (\mathbf{x} )=−∇ \mathbf{E} (\mathbf{x})\\) and Hessian \\(\mathbf{H} (\mathbf{x} )=∂E^2(\mathbf{x} )/∂\mathbf{x} ^2\\).  Forces and Hessians are stackable.    
-
- - Two integration approaches    
-     - Explicit integration, just need force.  Instability
-     - Implicit integration, as a nonlinear optimization problem      
-     - One way is to use Newton’s method, which solves a linear system in every iteration:    
-
-$$
-(\frac{1}{∆t^2}\mathbf{M} +\mathbf{H} (\mathbf{x} ^{(k)}))∆\mathbf{x} =− \frac{1}{∆t^2} \mathbf{M} (\mathbf{x} ^{(k)}−\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]})+\mathbf{f} (\mathbf{x} ^{(k)})
-$$
-
- - There are a variety of linear solvers (beyond the scope of this class).    
- - Some simulators choose to solve only one Newton iteration, i.e., one linear system per time step.    
-
-
+有两种方式基于能量恢复形变。   
+1. 向能量减少的方向优化。      
+2. 转化为力，基于力进行仿真。    
 
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。
