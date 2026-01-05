@@ -162,6 +162,10 @@ According to Lecture 2, Page 48,
 
 ## Positive Definiteness of Hessian    
 
+以上方法解出的 \\(x\\) 不是应是 \\(\mathrm{argmin}\\) \\(\mathbf{F}(x)\\)，也有可能是\\(\mathrm{argmax}\\) \\(\mathbf{F}(x)\\)，这取决于“\\((x)\\)”的正负。     
+
+![](./assets/05-18.png)    
+
 > &#x2705; \\(H(x)\\)的正定性由\\(H_e\\)的正定性决定。    
 
 下面分析\\(H_e\\)的正定性：  
@@ -192,8 +196,6 @@ When a spring is stretched, \\(\mathbf{H} _e\\) is s.p.d.; but when it’s compr
 As a result, \\(\mathbf{H}(\mathbf{x})\\) may not be s.p.d. (Lecture 2, Page 36).    
 
 \\(\mathbf{A}\\) may not be s.p.d. either.    
-
-![](./assets/05-18.png)    
 
 
 > &#x2705; \\(\Delta t\\)越小，A越容易正定、弹簧系统越稳定。   
