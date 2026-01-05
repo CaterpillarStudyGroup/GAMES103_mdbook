@@ -1,12 +1,5 @@
 
 P2   
-# Topics for the Day
-
- - A Mass-Spring System    
-    - Explicit Integration   
-    - Implicit Integration   
- - Bending and Locking Issues   
- - Shape matching   
 
  
 # 构建弹簧网络
