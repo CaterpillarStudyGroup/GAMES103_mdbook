@@ -151,28 +151,25 @@ P24
 P25   
 ### Exhaustive Neighborhood Search   
 
+|  $$ \color{Red}{ \text{ What is the bottleneck of the performance here?}} $$  |
+|---|
 
  - Search over every particle pair? O(\\(N^2\\))
  - 10M particles means: 100 Trillion pairs…      
 
+> &#x2705; 性能瓶颈在于搜索邻居，因为总粒子数为百万级。   
 
 P26   
 ### Solution: Spatial Partition   
 
 
-|  $$ \color{Red}{ \text{ What is the bottleneck of the performance here?}} $$  |
-|---|
-
-> &#x2705; 性能瓶颈在于搜索邻居，因为总粒子数为百万级。   
-
  - Separate the space into cells    
  - Each cell stores the particles in it   
- - To find the neighborhood of i, just look at the surrounding
-cells   
-
+ - To find the neighborhood of i, just look at the surrounding cells      
 
 ![](../assets/12-13.png)   
 
+其它技巧：位压缩，Moten 编码，Compact hashing, AI 方法    
 
 P27   
 ### 遗留问题：   
@@ -195,13 +192,18 @@ P28
 
 
 > &#x2705; 点云转成三角面片用于渲染也是一个比较复杂的问题。    
-> &#x2705;（1）平滑方法：bias kemal（见GAMES 102）    
-> &#x2705;（2）把球转为SDF，SDF转为Mesh    
+> &#x2705;（1）平滑方法：bias kemal（见GAMES 102）或 vdb       
+> &#x2705;（2）把球转为SDF，SDF转为 Mesh (Marching Cubes)     
 
+## 补充 3：计算梯度     
+
+这个奇怪的梯度计算公式能让计算结果稳定。    
+
+![](../assets/1.3-2.png)   
 
 
 P29   
-## 补充 3：Ongoing Research    
+## 补充 4：Ongoing Research    
 
 
  - How to make the simulation more efficient?   
@@ -212,7 +214,8 @@ P29
  
  - Using AI, not physics, to predict particle movement?    
 
-
+PCI-SPH：类似隐式积分，预测 + 校正，得到一个散度小(不可压)的速度场。    
+PBF：用于实时场景，PBD + SPH    
 
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。
