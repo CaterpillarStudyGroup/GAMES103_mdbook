@@ -27,7 +27,7 @@ $$
 \mathbf{x} _{ba}=\mathbf{x} _b−\mathbf{x} _a=\mathbf{FX} _b+\mathbf{c} −\mathbf{FX} _a−\mathbf{c} =\mathbf{FX} _{ba}.
 $$
 
-\\(J=\mathbf{det} (\mathbf{F} )\\) 表示形变后的面积变化     
+\\(J=\mathrm{det} (\mathbf{F} )\\) 表示形变后的面积变化     
 弹性势能：     
 $$
 \mathbf{U} (e)=\int _e\psi (\mathbf{F} (x))dx=\mathbf{V} _e\psi (\mathbf{F} _e)
