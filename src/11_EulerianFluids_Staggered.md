@@ -19,7 +19,7 @@ P14
 ## Solution: Staggered Grid   
 
 > &#x2705; 不规定所有物理量都定义在格子中间，也可以定义在墙上。    
-对照 Height Fleld 方法，也是把 \\(P\\) 和 \\(H\\) 定义在格子上，把速度定义在格子交界处。    
+> &#x2705; 对照 Height Fleld 方法，也是把 \\(P\\) 和 \\(H\\) 定义在格子上，把速度定义在格子交界处。    
 
 We define some physical quantities on faces, specifically **velocities**.    
 
