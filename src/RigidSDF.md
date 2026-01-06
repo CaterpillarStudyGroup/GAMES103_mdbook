@@ -16,7 +16,7 @@ P24
 
 SDF 常用于代表静态物体，这种物体不响应力和碰撞，所以所有的碰撞响应都发生在粒子上。    
 
-Problem: **we cannot directly modif**y \\(\mathbf{x}_i\\) or \\(\mathbf{v}_i\\) **isince they not state variables**. They areindirectly determined.     
+Problem: **we cannot directly modif**y \\(\mathbf{x}_i\\) or \\(\mathbf{v}_i\\) **since they not state variables**. They areindirectly determined.     
 
 
 **对于粒子，可以直接用Impulse修改\\(x\\)和\\(v\\)**   
