@@ -105,7 +105,8 @@ Implicit integration is a better solution to numerical instability.  The idea is
 > &#x2705; 早期的方式不是用优化来做的，而是近似成线性问题后直接解方程组。这种方法相当于每一个Step做了一次牛顿法。  
 
 公式 2 代入公式 1 并消元，得：    
-\\(\mathbf{v} ^{[1]}=\mathbf{v}^{[0]}+∆t\mathbf{M} ^{−1}\mathbf{f} (\mathbf{x}^{[0]}+∆t\mathbf{v} ^{[1]})\\) \\(\mathbf{f}\\) 在 \\(\mathbf{x}^{[0]}\\) 处泰勒展开，得：     
+\\(\mathbf{v} ^{[1]}=\mathbf{v}^{[0]}+∆t\mathbf{M} ^{−1}\mathbf{f} (\mathbf{x}^{[0]}+∆t\mathbf{v} ^{[1]})\\)     
+\\(\mathbf{f}\\) 在 \\(\mathbf{x}^{[0]}\\) 处泰勒展开，得：     
 
 Linearize:   
 
