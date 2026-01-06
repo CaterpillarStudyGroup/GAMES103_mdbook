@@ -15,7 +15,7 @@ P43
 
 The situation is complicated in cloth-cloth intersection, since we don’t have a clear definition of inside and outside.   
 
-> &#x2705;P42适用于有体积的物体，但布没有封闭体积，两根线没有里面外面之分，因此相交时不知道哪一段是正确的。  
+> &#x2705; P42适用于有体积的物体，但布没有封闭体积，两根线没有里面外面之分，因此相交时不知道哪一段是正确的。  
 
 ## 方法一
 
@@ -51,7 +51,7 @@ Their method can handle boundaries, but it doesn’t always work.
 
 
 > &#x2705; 两个面相交会产生一条曲线，目标是让曲线变短。优点：可以处理边界；缺点：基于局部优化、可用于 GPU。   
-> &#x2705;可以处理边界情况，缩短边界也能解除相交。   
+> &#x2705; 可以处理边界情况，缩短边界也能解除相交。   
 
 
 P46   
