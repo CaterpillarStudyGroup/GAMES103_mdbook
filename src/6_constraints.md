@@ -19,7 +19,7 @@ P4
  - Can we achieve high stiffness, with a low computational cost?    
 
 
-> &#x2705;当弹簧系数大的情况下，仍能保证系统稳定。   
+> &#x2705; 当弹簧系数大的情况下，仍能保证系统稳定。   
 
 
 ---------------------------------------
