@@ -7,8 +7,8 @@ A **bending** spring offers **little resistance** when cloth is nearly planar, s
 ![](./assets/05-22.png)    
 
 
-> &#x2705;黑线为三角形面片，每条边一根弹簧，并增加一根蓝线弹簧，构成弯曲弹簧，阻止两个面片弯折。   
-存在的问题：小的弯折，弹簧长度几乎不变，抵抗弯曲的力量非常弱。（不适用于类似于纸的弯折效果）。   
+> &#x2705; 黑线为三角形面片，每条边一根弹簧，并增加一根蓝线弹簧，构成弯曲弹簧，阻止两个面片弯折。   
+> &#x2705; 存在的问题：小的弯折，弹簧长度几乎不变，抵抗弯曲的力量非常弱。（不适用于类似于纸的弯折效果）。   
 
 
 P30   
@@ -64,7 +64,7 @@ $$
 
 > &#x2705; Non-planar case：不是指弯曲时的力，而是指静止状态(reference state)为非平面的场景下，弯曲为\\(\theta\\)时的力。\\(\theta_0\\)表示 reference state.     
 > &#x2705; 老师没解释公式怎么来的      
-> &#x1F50E;  Bridson et al. 2003. *Simulation of Clothing with Folds and Wrinkles*. SCA.      
+> &#x1F50E; Bridson et al. 2003. *Simulation of Clothing with Folds and Wrinkles*. SCA.      
 > &#x2705; 此论文适合读完。除了弯曲模型，还有一些有意思的设计。     
 
 Explicit integration.     
@@ -76,7 +76,7 @@ P34
 ## A Quadratic Bending Model     
 
 
-> &#x2705;二面角方法是纯分析力的方法，比较复杂。此处是Bending issue的另一个方法。   
+> &#x2705; 二面角方法是纯分析力的方法，比较复杂。此处是Bending issue的另一个方法。   
 
 A quadratic bending model has two assumptions: 1) planar case; 2) little stretching.      
 
@@ -167,7 +167,7 @@ Is it true? Think about a zero bending case. Can a simulator fold cloth freely?
 
 
 > &#x2705; 正常来讲拉伸和弯曲是两件独立的事情。但在弹簧模型系统中，把它们耦合了。  
-> 例如纸这种无弹性的面料，会把它的弹性系数调得很大，达到无弹性的效果。但导致了它无法弯折的artifacts。    
+> &#x2705; 例如纸这种无弹性的面料，会把它的弹性系数调得很大，达到无弹性的效果。但导致了它无法弯折的artifacts。    
 > &#x2705; 在K很大或网格分辨率低时， locking issue 会特别明显。   
 
 
@@ -178,7 +178,7 @@ For a <u>manifold</u> mesh, Euler’s formula says:#edges=3#vertices-3-#boundary
 So if edges are all hard constraints, the DoFs are only: 3+ #boundary_edges.    
 
 > &#x2705; 自由度 = 变量数 - 约束数。  
-> 每个顶点有3个自由度、每条边是一个约束，因此单纯加点不会改善，但让点变密可以改善     
+> &#x2705; 每个顶点有3个自由度、每条边是一个约束，因此单纯加点不会改善，但让点变密可以改善     
 > &#x2705; 实操套路：1. 弹簧压缩时让k比较小；2. 假设弹簧在一定长度范围内可自由活动，不受力，以上方法都不解决根本问题；3. 把自由度定义在边上不­是顶点上，但把问题搞得更复杂了。   
 
 
