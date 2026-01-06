@@ -273,6 +273,20 @@ P23
 
 
 
+P27   
+# After-Class Reading   
+
+Baraff and Witkin. 1998. Large Step in Cloth Simulation. SIGGRAPH.    
+
+One of the first papers using implicit integration.     
+
+The paper proposes to **use only one Newton iteration**, i.e., solving only one linear system. This practice is fast, but can fail to converge.    
+
+> &#x2705;这篇论文是衣服模拟的经典论文，第一个用隐式积分做衣服模型的论文。  
+> 论文没有用弹簧系统，而是另一套模型。  
+> 没有做非线性优化或解非线性方程，而是把非线性方程线性化，等价于做一次牛顿迭代。   
+&#x1F50E; Fast mass - spring system solver    
+
 # 补充1：非线性方程求解转化为优化问题
 
 求解的非线性方程如下，其中\\({x} ^{[1]}\\)是未知量。  
@@ -442,20 +456,6 @@ last_\\(∆\mathbf{x} \longleftarrow \\) old_\\(∆\mathbf{x}\\)
 > &#x2705; 这一页老师没讲   
 
 
-
-P27   
-# After-Class Reading   
-
-Baraff and Witkin. 1998. Large Step in Cloth Simulation. SIGGRAPH.    
-
-One of the first papers using implicit integration.     
-
-The paper proposes to **use only one Newton iteration**, i.e., solving only one linear system. This practice is fast, but can fail to converge.    
-
-> &#x2705;这篇论文是衣服模拟的经典论文，第一个用隐式积分做衣服模型的论文。  
-> 论文没有用弹簧系统，而是另一套模型。  
-> 没有做非线性优化或解非线性方程，而是把非线性方程线性化，等价于做一次牛顿迭代。   
-&#x1F50E; Fast mass - spring system solver    
 
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。
