@@ -52,7 +52,7 @@ h(\mathbf{x} )
 
 > &#x2705; Divergence:散度，也是\\(\mathbf{J}(\mathbf{x})\\)的 trace   
 > &#x2705; Curl：旋度。  
-怎么理解 curl?把微分算子\\(\nabla \\)看作是个向量，让它与 \\(\mathbf{f}\\) 做叉乘、在流体模拟中常用。 
+> &#x2705; 怎么理解 curl?把微分算子\\(\nabla \\)看作是个向量，让它与 \\(\mathbf{f}\\) 做叉乘、在流体模拟中常用。 
  
 
 
