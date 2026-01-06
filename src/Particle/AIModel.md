@@ -3,3 +3,4 @@ Choromanski, Sumeet Singh, and Vikas Sindhwani. Modeling the real world with hig
 dynamics, 2024. 2
 
 Lecture 2 [1:08:23]     
+Lecture2[1:08:23]    
