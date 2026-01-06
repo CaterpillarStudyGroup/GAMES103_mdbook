@@ -6,7 +6,9 @@ P19
 
 ![](./assets/11-9.png)   
 
-> &#x2705; 这是一个描述了速度场的公式，它可以告许你速度如何更新。公式1限制不可压，公式2 diffusion 的目的是粘滞。   
+> &#x2705; 这是一个描述了速度场的公式，它可以告许你速度如何更新。第二项 advection 描述速度的流动。    
+第三项 diffusion 的目的是粘滞。\\(\Delta\\) 不是指增量，而是指 Laplace.   
+第四项限制流体不可压。       
 
 Method of Characteristics: solving a long partial differential equation (PDE) in steps
  - Step 1: Update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=\mathbf{g}\\)   
@@ -39,6 +41,7 @@ P21
 
 > &#x2705;  Advection,代表流动。即速度会跟着粒子移动，基于欧拉的方法才需要考虑这个问题。因为固定的格子无法描述水的流动。       
 > &#x2705; 基于拉格朗日的方法，变量定义在粒子上，天然满足这个特点。    
+> &#x2753; 不可压和流动有什么关系？    
 
 ### 数学模型
 
@@ -52,6 +55,7 @@ Next we need to update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=−(
 Solving this in an Eulerian way can be a source of instability.   
 
 > &#x2705; Eulerian way： \\(\mathbf{u}^{\mathrm{new} }=\frac{\partial u}{\partial t} ·Δt＋\mathbf{u}\\) 不稳定    
+> &#x2705; 由当前状态计算下一刻的速度，显式积分。    
 
 To solve this problem, we come to realize that advection means to carry physical quantities by velocity.   
 
@@ -61,7 +65,8 @@ P22
 
 The solution is to trace a virtual particle backward over time.   
 
-> &#x2705; 例如要求\\(\mathbf{x}_0\\)的速度，倒推哪个粒子会运动到\\(\mathbf{x}_0\\)处;因此找到\\(\mathbf{x}_1\\)，从\\(\mathbf{x}_1\\)的下一刻速度来更新\\(\mathbf{x}_0\\)的速度。
+> &#x2705; 例如要求\\(\mathbf{x}_0\\)的速度，倒推哪个粒子会运动到\\(\mathbf{x}_0\\)处;因此找到\\(\mathbf{x}_1\\)，从\\(\mathbf{x}_1\\)的下一刻速度来更新\\(\mathbf{x}_0\\)的速度。    
+> &#x2753; 是用 \\(\mathbf{x}_1\\) 的速度还是 \\(\mathbf{x}_1\\) 下一时刻的速度？    
 
 ![](./assets/11-12.png)   
 
@@ -72,6 +77,9 @@ The solution is to trace a virtual particle backward over time.
  - Compute \\(\mathbf{u}(\mathbf{x}_1)\\)
  - \\(u_{i,j}^{new}←u(\mathbf{x}_1)\\)   
 
+\\(\mathbf{u}\\) 和 \\(u\\) 都是表达某个点的速度，它们的区别在于：    
+\\(\mathbf{u}\\) 描述空间点 \\(\mathbf{x}\\) 的速度，是 2D 速度，是通过相邻格子插值得来的。    
+\\(u\\) 描述空间点 \\(\mathbf{x}\\) 在水平方向上的速度，是 1D 的。向左或向右，由于 \\(\mathbf{x}_0\\) 定义在竖直墙上，所以只取水平方向的速度。    
 
 Note that if the velocities are staggered, we need to do staggered bilinear interpolation.   
 
@@ -90,14 +98,14 @@ We could also subdivided the time step for better tracing.
 > &#x2705; 反推找\\(\mathbf{x}_1\\)时 step 细一点，这样能找得准一点    
 > &#x2705; 怎么计算每个\\(\mathbf{x}\\)的\\(\mathbf{u}\\)?答：双线性插值方法、   
 > &#x2705; 做模拟通常更在乎稳定而不是误差，此方法更稳定，但会有模糊的 artifacts.   
-
-
-
+> &#x2705; 这一步不可导。   
 
 P25   
 ## Step 3: Diffusion  
 
 Next we need to update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=\upsilon ∆\mathbf{u}\\).   
+
+根据公式更新即可。    
 
 ![](./assets/11-15-1.png)   
 
@@ -128,15 +136,11 @@ $$
 v_{i,j}^{new}←v_{i,j}−\frac{∆t}{ℎ}(p_{i,j}−p_{i,j−1})
 $$
 
-But what is \\(\mathbf{p}\\)?
-
 
 > &#x2705; 公式第二项离散化后在特定方向上的压强。   
 > &#x2705; \\(u\\)和\\(v\\)分别为两个方向上的速度。   
 
-
-
-
+But what is \\(\mathbf{p}\\)?
 
 P28   
 ### 压强的来源
