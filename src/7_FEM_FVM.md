@@ -22,7 +22,7 @@ f\mathbf{} =\oint _L \mathbf{t} dl
 $$
 
 > &#x2705; \\(\mathbf{t}\\)是\\(L\\) 上的单位面积/长度上的力。那么总的力是 \\(t\\) 的积分。     
-traction 表达物体形变后会向周围施加的力。     
+> &#x2705; traction 表达物体形变后会向周围施加的力。     
 
 ### Stress    
 
@@ -89,8 +89,8 @@ $$
 P16   
 ### 3D   
 
-> &#x2705;  三维场景是对四面体的四个面积分。  
-> &#x2705;  每个三角形的 stress 都不同、同一个三角形内部 stress 是常数。  
+> &#x2705; 三维场景是对四面体的四个面积分。  
+> &#x2705; 每个三角形的 stress 都不同、同一个三角形内部 stress 是常数。  
 
 
 In 3D, FVM works in the same way.    
@@ -111,11 +111,11 @@ $$
 $$
 
 
-> &#x2753;  遗留问题， stress 如何计算？  
+> &#x2753; 遗留问题， stress 如何计算？  
 
-> &#x2705;\\(f_0\\)是\\(\sigma n\\)在绿色体截面上的积分。   
-> &#x2705;类似于上一页合力为零的原理，\\( \oint 截面＋\oint 表面=0\\)   
-> &#x2705;“面积／3”是因为面上的贡献均匀地分布到三个点上。  
+> &#x2705; \\(f_0\\)是\\(\sigma n\\)在绿色体截面上的积分。   
+> &#x2705; 类似于上一页合力为零的原理，\\( \oint 截面＋\oint 表面=0\\)   
+> &#x2705; “面积／3”是因为面上的贡献均匀地分布到三个点上。  
 
 
 
@@ -130,7 +130,7 @@ Although the use of stress tensor is the same: **mapping from the interface norm
 |  In FEM, we define the energy density \\(W\\) in the **reference** state.  Therefore, this stress \\(\mathbf{S}\\)  is a mapping from the normal \\(\mathbf{N}\\) to the traction \\(\mathbf{T}\\), both in the **reference** state.   | In FVM, we need \\(\mathbf{σ}\\) to convert the normal into \\(\mathbf{t}\\) for force calculation. Therefore, this stress assumes the normal \\(\mathbf{n}\\) and the traction \\(\mathbf{t}\\) are in the **deformed** state.    |  
 
 
-> &#x2705;  在 reference 状态下有 normal. traction 和 stress.在形变状态下也有 normal traction 和 stress.FEM 使用的是 reference 空间下的量。    
+> &#x2705; 在 reference 状态下有 normal. traction 和 stress.在形变状态下也有 normal traction 和 stress.FEM 使用的是 reference 空间下的量。    
 
 
 P18   
@@ -142,8 +142,8 @@ We can now have different stresses, serving the same purpose but in different fo
 ![](./assets/07-15.png)   
 
 
-> &#x2705;  FVM 需要的是 Cauchy Stress.（\\(\sigma \\)）、上节课讲了(S)的 计算方法，需要根据(S)求(\\(\sigma \\)).    
-\\(P → \sigma \\) 的过程没有展开讲，结论在P21     
+> &#x2705; FVM 需要的是 Cauchy Stress.（\\(\sigma \\)）、上节课讲了(S)的 计算方法，需要根据(S)求(\\(\sigma \\)).    
+> &#x2705; \\(P → \sigma \\) 的过程没有展开讲，结论在P21     
 
 $$
 S=J\sigma=PF^\tau 
@@ -189,9 +189,6 @@ $$
 $$
 
 
-
-
-
 P20   
 
 Now we know: \\(A\mathbf{n} =\mathrm{det} (\mathbf{F})\mathbf{F^{−T}} (A^{\mathrm{ref}}\mathbf{N} )\\).     
@@ -213,9 +210,6 @@ $$
 \mathrm{det} ^{−1}(\mathbf{F} )\mathbf{PF^T=σ} 
 $$
 
-
-
-
 P21  
 ### 结论
 
@@ -223,9 +217,6 @@ We can now have different stresses, serving the same purpose but in different fo
 
 
 ![](./assets/07-17.png)  
-
-
-
 
 P22 
 ## 根据stress算出力   
@@ -311,8 +302,6 @@ $$
 $$
 
 
-
-
 P25   
 ## A Quick Summary    
 
@@ -336,7 +325,7 @@ Simulation of Skeleton Muscles*. SCA.
 Volino et al. 2009. *A Simple Approach to Nonlinear Tensile
 Stiffness for Accurate Cloth Simulation*. TOG.    
 
-> &#x2705;2D有限元   
+> &#x2705; 2D有限元   
 
 
 ---------------------------------------
