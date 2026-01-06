@@ -145,7 +145,15 @@ We can now have different stresses, serving the same purpose but in different fo
 > &#x2705;  FVM 需要的是 Cauchy Stress.（\\(\sigma \\)）、上节课讲了(S)的 计算方法，需要根据(S)求(\\(\sigma \\)).    
 \\(P → \sigma \\) 的过程没有展开讲，结论在P21     
 
+$$
+S=J\sigma=PF^\tau 
+$$
 
+$$
+P=J\sigma F^{-\tau }
+$$
+
+Lecture 21:35     
 
 P19  
 ### P与\\(\sigma \\)的关系：Area Weighted Normals   
