@@ -1,6 +1,6 @@
 
 P21   
-# 离散相交检测 —— 细检测   
+# 离散相交检测 —— 公式求解   
 
 Discrete Collision Detection (DCD)    
 

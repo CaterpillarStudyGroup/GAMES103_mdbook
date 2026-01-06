@@ -70,6 +70,7 @@
 - [刚体 + SDF](RigidSDF.md)
 - [刚体系统](RigidSystem/RigidSystem.md)
   - [刚体的碰撞检测 - Broad Phase](9_collision_detect.md) 
+  - [离散相交检测 - GJK](9_collision_GJK.md) 
   - [刚体的碰撞检测 - Narrow Phase](9_collision_detect_narrow.md)
   - [Constrain Based 刚体碰撞响应](9_collision_response.md)
   - [内点法](Interior_Point_Methods.md)
