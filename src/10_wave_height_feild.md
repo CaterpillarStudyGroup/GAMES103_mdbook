@@ -80,9 +80,8 @@ P10
 
 前面的仿真都需要时间的离散化。这里除了时间离散化，还要空间离散化。    
 时间离散和空间离散是有区别的。    
-时间上，每个时间步要计算的是与上一个时间步的积累差异，因此需要积。\\(\Delta a → \Delta \nu → \Delta x\\)     
-
-空间上，每个位置要计算的是这个位置上的物理属性,因此要用微分。 \\(\Delta x → \Delta \nu → \Delta a\\)     
+时间上，每个时间步要计算的是与上一个时间步的积累差异，因此需要积。\\(\Delta a→\Delta \nu→\Delta x\\)     
+空间上，每个位置要计算的是这个位置上的物理属性，因此要用微分。 \\(\Delta x→\Delta \nu→\Delta a\\)     
 
 
 We discretize a continuous height field into a discrete set of height columns.    
