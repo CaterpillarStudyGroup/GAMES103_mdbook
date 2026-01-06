@@ -49,7 +49,7 @@ Let \\(N\\) be the number of vertices and E be the number of constraints,
 | Dual variables (Lagrangian multipliers)  | \\(\mathbf{λ} =−\mathbf{C} ^{−1}\phi \in \mathbf{R} ^E\\)|&#x2705; \\(\lambda \\) 是人为引入的变量，称为拉格朗日算子。   |
 
 > &#x2705; \\(E\\) 和 \\(f\\) 变成了关于两个变量\\((x、\lambda )\\)的函数。   
-> &#x2705;把能量写成约束的形式    
+> &#x2705; 把能量写成约束的形式    
 $$
 E(x)=\frac{1}{2}\phi ^T (x)C^{-1}\lambda 
 \\\\
@@ -93,7 +93,7 @@ $$
 $$
 
 > &#x2705; 最后的矩阵公式由上面两个公式整理合并得到。   
-\\(x ^{\mathrm{new}}-x =\bigtriangleup t\cdot v \\)    
+> &#x2705; \\(x ^{\mathrm{new}}-x =\bigtriangleup t\cdot v \\)    
 
 
 ## 解隐式积分
