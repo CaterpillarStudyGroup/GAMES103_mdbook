@@ -6,9 +6,10 @@ P19
 
 ![](./assets/11-9.png)   
 
-> &#x2705; 这是一个描述了速度场的公式，它可以告许你速度如何更新。第二项 advection 描述速度的流动。    
-第三项 diffusion 的目的是粘滞。\\(\Delta\\) 不是指增量，而是指 Laplace.   
-第四项限制流体不可压。       
+> &#x2705; 这是一个描述了速度场的公式，它可以告许你速度如何更新。     
+> &#x2705; 第二项 advection 描述速度的流动。    
+> &#x2705; 第三项 diffusion 的目的是粘滞。\\(\Delta\\) 不是指增量，而是指 Laplace.   
+> &#x2705; 第四项限制流体不可压。       
 
 Method of Characteristics: solving a long partial differential equation (PDE) in steps
  - Step 1: Update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=\mathbf{g}\\)   
