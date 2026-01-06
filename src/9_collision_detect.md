@@ -1,22 +1,25 @@
 
 
 P5  
-# 相交检测 —— 粗检测      
+# 相交检测
 
 ## 方法一：Spatial Partitioning    
 
 
 Spatial partitioning divides the space by a grid and stores objects into grid cells.     
 
-
+> &#x2705; 把空间划分成固定大小的格子，标记每个对象所占的格子。    
 
 P6   
 
 ### 静止场景
 To find pair candidates for collision test, we just have to check the grid cells.      
 
+> &#x2705; 位于同一格子里的两个对象可能存在穿模。    
+
 ![](./assets/09-2.png)    
 
+> &#x2705; 图中以三角形面片为例，但实际上对刚体和 bbox 同样适用。   
 
 P7   
 ### 运动场景    
@@ -64,7 +67,27 @@ Chapter 32. Broad-Phase Collision Detectionwith CUDA
 
 
 P14   
-## 方法二：Bounding Volume Hierarchy
+## 方法二：Bounding Volume Hierarchy    
+
+
+**碰撞检测提供以信息：**    
+1. 是否存在穿模     
+2. 最快解除模的移动方向     
+3. 解除穿模移动方向对应的矩离    
+
+**碰撞检测层次：**    
+1. 刚体 bbox 之间      
+2. 刚体之间    
+3. 三角形面片之间     
+
+**其它：**     
+1. 粗/精检测，是否能准确判断穿模情况，或是提供排除信息     
+2. 是否支持多个对象之间碰撞检测     
+
+输出：是否存在穿模(精)   
+检测层次：1.2.3    
+多对象检测：支持    
+
 
 Bounding volume hierarchy is built on geometric/topological proximity of objects.     
 
