@@ -5,8 +5,10 @@ P28
 > &#x2705; 前面的内容，都假设使用 StVK 材料、优点是简单；缺点是无法处理反转。因此在材料力学中不常用。  
 Hyperplasia 利用能量密度(W)、提供一个从 Strain (G) 到 Stress (S)的映射   
  
+Lecture 3 [17:18]     
+Stress：材料恢复自身形状的内力，应力。     
+Strain：应变。     
 
-## 跳过
 
 P29   
 ### First Piola–Kirchhoff stress    
