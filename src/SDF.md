@@ -19,3 +19,7 @@ P12
 第二项为底边长，得出点到中轴的距离。  
 
 
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/
