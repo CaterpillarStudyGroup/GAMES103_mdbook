@@ -85,8 +85,8 @@ P13
 
 Implicit integration is a better solution to numerical instability.  The idea is to integrate both **x** and **v** implicitly.   
 
-> &#x2705;Explicit和Implicit都是用某个时刻的力代表整个 \\(Δt\\) 时间的力，就都会出现上述误差。   
-区别在于，Explicit用当前力，往往使结果变大，产生爆炸，Implicit用未来力，往往使结果变小，产生消失。  
+> &#x2705; Explicit和Implicit都是用某个时刻的力代表整个 \\(Δt\\) 时间的力，就都会出现上述误差。   
+> &#x2705; 区别在于，Explicit用当前力，往往使结果变大，产生爆炸，Implicit用未来力，往往使结果变小，产生消失。  
 > &#x2705; 消失只是结果不对。但爆炸会让结果崩溃，这是最不可接受的问题。因此用隐式代替显式。  
 
 隐式积分相对稳定，可以使用稍大的 \\(Δt\\)，但也存在以下问题：    
@@ -204,7 +204,7 @@ According to Lecture 2, Page 48,
 
 ![](./assets/05-18.png)    
 
-> &#x2705; \\(H(x)\\)的正定性由\\(H_e\\)的正定性决定。    
+> &#x2705; \\(H(x)\\) 的正定性由 \\(H_e\\) 的正定性决定。    
 
 下面分析\\(H_e\\)的正定性：  
 For any \\(\mathbf{x} _{ij}, \mathbf{v} ≠0\\),    
@@ -221,7 +221,7 @@ $$
 \mathbf{V} ^\mathbf{T} (\mathbf{I} -\frac{{\mathbf{x} _{ij}\mathbf{x} _{ij}}^\mathbf{T} }{||\mathbf{x} _{ij}||^2}) \mathbf{V} =\frac{||\mathbf{x} _{ij}||^2||\mathbf{v} ||^2-||{\mathbf{x} _{ij}}^\mathbf{T} \mathbf{v} ||^2}{||\mathbf{x} _{ij}||^2}\ge 0 
 $$
 
-> &#x2705;  \\( \mathbf{x}_ {ij}\\) 代表顶点\\( \mathbf{x}_ {i}\\)和顶点\\( \mathbf{x}_ {j}\\)的位置的差。   
+> &#x2705; \\( \mathbf{x}_ {ij}\\) 代表顶点\\( \mathbf{x}_ {i}\\)和顶点\\( \mathbf{x}_ {j}\\)的位置的差。   
 > &#x2705; 最后一个公式分子满足柯西不等式   
 > &#x2705; 结论：\\(||x_{ij}||< Le\\). 代表弹簧处于压缩状态。此时 He 有可能非正定，但拉伸时一定正定。  
 > &#x2705; He 正定则\\(H(x)\\)半正定，此时弹簧系统有唯一解。  
@@ -237,7 +237,7 @@ As a result, \\(\mathbf{H}(\mathbf{x})\\) may not be s.p.d. (Lecture 2, Page 36
 
 
 > &#x2705; \\(\Delta t\\)越小，A越容易正定、弹簧系统越稳定。   
-> &#x2705;为什么要讨论\\(H\\)矩阵是否正定？答：\\(H\\)矩阵相当于二阶导，正定代表开口向上，有唯一最小值。  
+> &#x2705; 为什么要讨论\\(H\\)矩阵是否正定？答：\\(H\\)矩阵相当于二阶导，正定代表开口向上，有唯一最小值。  
 > &#x2705; 但是A不正定，不代表没有唯一解。   
 
 P22 
@@ -283,9 +283,9 @@ One of the first papers using implicit integration.
 The paper proposes to **use only one Newton iteration**, i.e., solving only one linear system. This practice is fast, but can fail to converge.    
 
 > &#x2705;这篇论文是衣服模拟的经典论文，第一个用隐式积分做衣服模型的论文。  
-> 论文没有用弹簧系统，而是另一套模型。  
-> 没有做非线性优化或解非线性方程，而是把非线性方程线性化，等价于做一次牛顿迭代。   
-&#x1F50E; Fast mass - spring system solver    
+> &#x2705; 论文没有用弹簧系统，而是另一套模型。  
+> &#x2705; 没有做非线性优化或解非线性方程，而是把非线性方程线性化，等价于做一次牛顿迭代。   
+> &#x1F50E; Fast mass - spring system solver    
 
 # 补充1：非线性方程求解转化为优化问题
 
