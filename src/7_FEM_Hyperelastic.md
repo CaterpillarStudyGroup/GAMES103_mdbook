@@ -11,9 +11,16 @@ Strain：应变。
 
 
 P29   
-### First Piola–Kirchhoff stress    
+### 材料参数和超弹性模型     
 
+定义：     
 We treat the first Piola–Kirchhoff stress tensor \\(\mathbf{P}\\) as a function of deformation gradient \\(\mathbf{F}\\):     
+
+函数 \\(\mathbf{P(F)}\\) 中除了变量 \\(\mathbf{F}\\)，还包其它超量，这些参数就是材料系数。Lecture 3 [22:17]  
+
+不同的 \\(\mathbf{P}\\) 的定义方式称为超弹性模型     
+Lecture 3 [25:45]     
+  
 
 $$
 \mathbf{f} _0= −\frac{\mathbf{P} (\mathbf{F} )}{6}(\mathbf{X} _{10}×\mathbf{X} _{20}+\mathbf{X} _{20}×\mathbf{X} _{30}+\mathbf{X} _{30}×\mathbf{X} _{10})
@@ -26,11 +33,6 @@ $$
 $$
 
 ![](./assets/07-21.png)  
-
-
-> &#x2705;   没讲，
-
-
 
 P30  
 ### Rotation-Invariance    
