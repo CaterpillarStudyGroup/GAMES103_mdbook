@@ -27,18 +27,15 @@ P33
 
  - Two representations   
     - Volume-of-fluid (as the name suggests…)     
-> &#x2705; 表示1：例如一个格子存储水的体积的百分化。用于早期，无法描述水的界面，因此不精准。   
-
+    > &#x2705; 表示1：例如一个格子存储水的体积的百分化。用于早期，无法描述水的界面，因此不精准。   
     - A signed distance function defined over the grid.   
-> &#x2753; 怎么计算一个格子中的水的百分比？   
+    > &#x2753; 怎么计算一个格子中的水的百分比？   
 
 
  - How to advect(更新)?    
     - Semi-Lagrangian (volume loss)   
-    - Level set method (volume loss)，专用于 SDF 表示方法       
-  
-     
-> &#x2705; 水变少是常见问题，两种advect都存在。    
+    - Level set method (volume loss)，专用于 SDF 表示方法            
+    > &#x2705; 水变少是常见问题，两种advect都存在。    
 
 
 
