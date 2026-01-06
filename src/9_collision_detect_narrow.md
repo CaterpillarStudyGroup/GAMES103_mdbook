@@ -8,6 +8,11 @@ DCD tests if any intersection exists in each state at discrete time instant: \\(
 
 > &#x2705; 准确来说。DCD检测的不是碰撞，而是相交    
 
+输出：是否碰撞(精)，碰撞位置   
+检测层次：边、面片        
+是否支持多个：否    
+
+
 ## edge-triangle intersection
 
 To a triangle mesh, the basic test is <u>edge-triangle intersection</u> test.     
@@ -23,7 +28,7 @@ To a triangle mesh, the basic test is <u>edge-triangle intersection</u> test.
 > &#x2705; 相交和碰撞的区别：相交分析的是运动前后的状态、碰撞检测的是运动的过程、未相交不一定无碰撞、
 
 P22   
-# 连续穿透检测 —— 细检测   
+# 连续穿透检测  
 
 ## Tunneling   
 
