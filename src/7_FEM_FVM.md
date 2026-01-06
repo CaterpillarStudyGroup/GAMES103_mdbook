@@ -153,7 +153,7 @@ $$
 P=J\sigma F^{-\tau }
 $$
 
-Lecture 21:35     
+Lecture [21:35]     
 
 P19  
 ### P与\\(\sigma \\)的关系：Area Weighted Normals   
