@@ -10,6 +10,23 @@ Projective Dynamics**将约束转化为能量**，通过最小化能量函数来
 
 PD 与弹簧系统的区别在于，弹簧系统基于弹簧力计算能量。PD 基于约束计算能量。  
 
+```mermaid
+---
+title: PD   
+---
+flowchart LR
+    Current(["当前状态"]) 
+    Constrain[("约束")]
+    Outter[("外力")]
+    Energy(["能量场E"]) 
+    NextWoConstrain(["不考虑约束的下一时刻状态"]) 
+    Next(["下一时刻状态"])
+
+    Constrain-->Energy
+    Outter & Current --> Integrate --> NextWoConstrain
+    Energy & NextWoConstrain --> PD --> Next --> Current
+```
+
 ## 能量和力
 
 ![](./assets/06-10.png)    

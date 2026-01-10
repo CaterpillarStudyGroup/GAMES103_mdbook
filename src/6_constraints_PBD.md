@@ -1,5 +1,20 @@
 # Position Based Dynamics (PBD)   
 
+```mermaid
+---
+title: PBD
+---
+flowchart LR
+    Current(["当前状态"]) 
+    Constrain[("约束")]
+    Outter[("外力")]
+    NextWoConstrain(["不考虑约束的下一时刻状态"]) 
+    Next(["下一时刻状态"])
+
+    Outter & Current --> Integrate --> NextWoConstrain
+    Constrain & NextWoConstrain --> PBD --> Next --> Current
+```
+
 ## 算法过程
 
 Position based dynamics (PBD) is based on the projection function.    

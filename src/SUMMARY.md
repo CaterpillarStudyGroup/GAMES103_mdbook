@@ -8,6 +8,7 @@
   - [Vector](2_math_vector.md)
   - [Matrix](2_math_matrix.md)
   - [Tensor Calculus](2_math_calculus.md)
+  - [Linear Solver](Math/LinearSolver.md)
 - [图形学基础](Graphics.md)
 - [力](BackGround/Force.md)
 
