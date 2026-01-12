@@ -76,13 +76,6 @@ A **Neumann** boundary: \\(f_{i−1,j}=f_{i,j}\\)
 > &#x2705; 至少有一个边界使用Dirithlet．否则会全部收缩为0．   
 > &#x2705; Neumann是约束相对关系，没有绝对数值，会有无穷多解。   
 
-P12   
-P204A
-
-The process of applying Laplacian smoothing is called **diffusion**.     
-
-> &#x2705; Laplace的本质是与邻居做平均。   
-
 
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。

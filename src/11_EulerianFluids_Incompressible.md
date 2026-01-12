@@ -28,11 +28,14 @@ $$
 **材料导数就是这两种变化的总和**。
 
 P19  
+[TODO] 补充材料导数
+
 ## Equation Fomulation   
 
 ![](./assets/11-9.png)   
 
-> &#x2705; 这是一个描述了速度场的公式，它可以告许你速度如何更新。     
+> &#x2705; 这是一个描述了速度场的公式，它可以告许你速度如何更新。   
+> &#x2705; 第一项代表重力。有时也把所有的外力统一表达为 \\(g\\).      
 > &#x2705; 第二项 advection 描述速度的流动。    
 > &#x2705; 第三项 diffusion 的目的是粘滞。\\(\Delta\\) 不是指增量，而是指 Laplace.   
 > &#x2705; 第四项限制流体不可压。       
@@ -68,9 +71,8 @@ P21
 
 > &#x2705;  Advection,代表流动。即速度会跟着粒子移动，基于欧拉的方法才需要考虑这个问题。因为固定的格子无法描述水的流动。       
 > &#x2705; 基于拉格朗日的方法，变量定义在粒子上，天然满足这个特点。    
-> &#x2753; 不可压和流动有什么关系？    
 
-### 数学模型
+### 方法一：数学模型
 
 Next we need to update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=−(\mathbf{u}\cdot ∇)\mathbf{u}\\).   
 
@@ -87,13 +89,14 @@ Solving this in an Eulerian way can be a source of instability.
 To solve this problem, we come to realize that advection means to carry physical quantities by velocity.   
 
 P22  
-### Solution: Semi-Lagrangian Method   
+### 方法二: Semi-Lagrangian Method   
 
 
-The solution is to trace a virtual particle backward over time.   
+The solution is to trace a virtual particle backward over time.    
+特点：非常稳定，但数值粘性非常高。  
 
-> &#x2705; 例如要求\\(\mathbf{x}_0\\)的速度，倒推哪个粒子会运动到\\(\mathbf{x}_0\\)处;因此找到\\(\mathbf{x}_1\\)，从\\(\mathbf{x}_1\\)的下一刻速度来更新\\(\mathbf{x}_0\\)的速度。    
-> &#x2753; 是用 \\(\mathbf{x}_1\\) 的速度还是 \\(\mathbf{x}_1\\) 下一时刻的速度？    
+> &#x2705; 例如要求\\(\mathbf{x}_0\\)的速度，倒推哪个粒子会运动到\\(\mathbf{x}_0\\)处；因此找到\\(\mathbf{x}_1\\)，用\\(\mathbf{x}_1\\)的速度来更新\\(\mathbf{x}_0\\)的速度。    
+
 
 ![](./assets/11-12.png)   
 
@@ -101,7 +104,8 @@ The solution is to trace a virtual particle backward over time.
  - Compute \\(\mathbf{u}(\mathbf{x}_0)\\)   
  - \\(\mathbf{x}_1←\mathbf{x}_0−∆t \mathbf{u}(\mathbf{x}_0)\\)   
 > &#x2705; 假设短时间内速度不变，根据当前速度猜测上一帧的位置。   
- - Compute \\(\mathbf{u}(\mathbf{x}_1)\\)
+> &#x2705; 在求 Advection 时认为每个粒子的速度不变。   
+ - Compute \\(\mathbf{u}(\mathbf{x}_1)\\) 双线性插值    
  - \\(u_{i,j}^{new}←u(\mathbf{x}_1)\\)   
 
 \\(\mathbf{u}\\) 和 \\(u\\) 都是表达某个点的速度，它们的区别在于：    
@@ -114,7 +118,39 @@ Note that if the velocities are staggered, we need to do staggered bilinear inte
 P23  
 > &#x2705; 对每个墙上的速度都以相同的方式更新。    
 
+直接向前推一个时间步来取 \\(x_1\\) 的位置，可能是非常不准的。   
 
+![](./assets/11-13-1.png)   
+
+
+实际上这种方法也是欧拉法    
+
+Initial value problem (ODE): simply use explicit time integration schemes, e.g.,
+ 
+- Forward Euler ("RK1")
+```c++
+p -= dt * velocity(p)
+```
+
+- Explicit Midpoint ("RK2")
+```c++
+p_mid = p - 0.5 * dt * velocity(p)
+p -= dt * velocity(p_mid)
+```
+
+- RK3
+```c++
+v1 = velocity(p)
+p1 = p - 0.5 * dt * v1
+v2 = velocity(p1)
+p2 = p - 0.75 * dt * v2
+v3 = velocity(p2)
+p -= dt * (2 / 9 * v1 + 1 / 3 * v2 + 4 / 9 * v3)
+```
+
+要不要我帮你把这些代码逻辑转化为数学公式的标准写法，方便你更直观理解？
+
+一般RK2就够用了。    
 P24   
 
 We could also subdivided the time step for better tracing.   
@@ -127,6 +163,27 @@ We could also subdivided the time step for better tracing.
 > &#x2705; 做模拟通常更在乎稳定而不是误差，此方法更稳定，但会有模糊的 artifacts.   
 > &#x2705; 这一步不可导。   
 
+### 方法三：BFECC   
+
+方法二中多次使用双线性插值，导致结果变糊(表现在流体上就是看上去很粘)     
+
+BFECC: Back and Forth Error Compensation and Correction
+ 
+- \\(x^* = \text{SL}(x, \Delta t)\\)
+- \\(x^{**} = \text{SL}(x^{*}, -\Delta t)\\)
+- Estimate the error \\(x^{\text{error}} = \frac{1}{2}(x^{**} - x)\\)
+- Apply the error \\(x^{\text{final}} = x^* + x^{\text{error}}\\)
+ 
+Be careful: need to prevent overshooting.
+
+公式中的 SL 代表方法二    
+这种方法之后要接 error 的截断保护     
+
+### 其它方法    
+BFECC    
+BiMocq    
+结合粒子的方法    
+
 P25   
 ## Step 3: Diffusion  
 
@@ -137,17 +194,21 @@ Next we need to update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=\ups
 ![](./assets/11-15-1.png)   
 
 
-
-
 > &#x2705; 分别对\\(u\\)和 \\(v\\) 做 laplacian.   
 > &#x2705; 注意公式中\\(v\\)和\\(\nu \\)的不同，后者为粘滞系数。   
+  
+
+The process of applying Laplacian smoothing is called **diffusion**.     
+
+> &#x2705; Laplace的本质是与邻居做平均。   
 
 We could also use even smaller sub-steps…   
 
 
-
 P27  
 ## Step 4: Pressure Projection    
+
+
 
 Finally, we need to update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=−∇\mathbf{p}\\). 
 
