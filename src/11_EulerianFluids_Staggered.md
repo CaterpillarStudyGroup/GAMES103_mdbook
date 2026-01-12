@@ -1,5 +1,7 @@
 P13  
-# Problem with Central Differencing   
+# Staggered Grid 表示
+
+## Problem with Regular Grid 表示   
 
 Central differencing gives the derivative in the middle.    
 
@@ -16,7 +18,7 @@ Central differencing gives the derivative in the middle.
 
 
 P14  
-## Solution: Staggered Grid   
+## Solution: 把速度属性放在墙上   
 
 > &#x2705; 不规定所有物理量都定义在格子中间，也可以定义在墙上。    
 > &#x2705; 对照 Height Fleld 方法，也是把 \\(P\\) 和 \\(H\\) 定义在格子上，把速度定义在格子交界处。    
@@ -48,24 +50,25 @@ P15
 
 No volume change is equal to say the fluid is incompressible. This can be formally written as a divergence-free velocity field.   
 
-> &#x2705; 由于格子不可压，每个格子的净流出（入）应该为0．    
-> &#x2705; \\(\nabla\\)为散度符号，见前面课程。   
-> &#x2705; 公式1为直观理解，公式2为数学推导，本质上是一致的。   
-> &#x2753; “流体不可压”与“净流入流出”为0是什么关系？    
+   
 > &#x2705; 由于流体不可压，当有流出时，就会产生使等量流入反生的内力。反之亦然。导致最终的趋势是净流入流出为0。    
 
 ![](./assets/11-8-1.png)   
 
+    
+> &#x2705; \\(\nabla\\)为散度符号，见前面课程。   
+> &#x2705; 公式1为直观理解，公式2为数学推导，本质上是一致的。   
 
 P16   
 ## Bilinear Interpolation   
 
-通过微分和差分，可以计算特点位置的物理属性。再通过插值，计算出任意位置的物理属性。    
+通过微分和差分，可以计算特定点位置的物理属性。再通过插值，计算出任意位置的物理属性。    
 
 
 P17   
 
-We use bilinear interpolation to interpolate staggered velocities as well.    
+![](./assets/11-8-2.png)   
+
 
 > &#x1F50E; 双线性插值：见GAMES 101    
 
