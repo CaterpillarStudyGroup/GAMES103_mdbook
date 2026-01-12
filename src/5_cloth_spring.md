@@ -113,13 +113,15 @@ Implicit integration is a better solution to numerical instability.  The idea is
 2. 每个 \\(Δt\\) 的求解更耗时，因此不一定会更快。     
 3. 可能出现数值振荡。     
 
-用未来力计算未来速度，用未来速度计算未来位置。    
+隐式积分用未来力计算未来速度，用未来速度计算未来位置。未来力，未来速度，未来位置都是未知量，不能直接求解。   
+
+> &#x2705; 粒子和刚体的仿真中使用了半隐式积分(现在的力，未来的速度)，这里使用了隐式积分(未来的力，未来的速度)。力和速度都是未知的，需要解方程。    
 
 ![](./assets/05-11.png)    
 
-> &#x2705; 未来力，未来速度，未来位置都是未知量，不能直接求解。   
 
-### 线性近似法求解积分    
+
+### 解积分方法一：线性近似法求解积分    
 
 > &#x2705; 近似成线性问题后直接解方程组。这种方法相当于每一个Step做了一次牛顿法。  
 
@@ -139,19 +141,23 @@ $$
 [\mathbf{I}-∆t^2\mathbf{M} ^{−1}\frac{\partial \mathbf{f} }{\partial \mathbf{x} }(\mathbf{x} _t)  ]\mathbf{v} _{t+1}=\mathbf{v}_t+∆t\mathbf{M} ^{−1}\mathbf{f} (\mathbf{x}_t)
 $$
 
-A mice *linear* system!      
+A nice *linear* system!      
+
+$$
+[\mathbf{I} -\beta \Delta t^2\mathbf{M} ^{-1}\frac{\partial \mathbf{f} }{\partial \mathbf{x} }(\mathbf{x} _t )]\mathbf{v} _{t+1}=\mathbf{v} _t+\Delta t\mathbf{M} ^{-1}\mathbf{f} (\mathbf{x} _t)
+$$
+
+@β=0: forward/semi-implicit Euler (explicit)    
+@β=1/2: middle-point (implicit)      
+B=1: backward Euler (implicit)       
 
 解线性系统见补充材料       
-
-![](./assets/1.3-3.png)    
-
 问：为什么不直接求逆？    
 答：求逆太贵     
 
-### 积分求解转为优化问题
+### 解积分方法二：积分求解转为优化问题
 
-> &#x2705; 下面公式1通过把上面公式1代入公式2得到。下面公式2通过把上面公式写反推得到。    
-> &#x2705; 粒子和刚体的仿真中使用了半隐式积分(现在的力，未来的速度)，这里使用了隐式积分(未来的力，未来的速度)。力和速度都是未知的，需要解方程。    
+> &#x2705; 把公式1代入公式2并消元，得：
 
 消元得：    
 ![](./assets/05-12.png)    
