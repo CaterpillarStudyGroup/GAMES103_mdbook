@@ -208,7 +208,7 @@ We could also use even smaller sub-steps…
 P27  
 ## Step 4: Pressure Projection    
 
-
+通过压强实现散度为0(流体不可压)的效果。   
 
 Finally, we need to update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=−∇\mathbf{p}\\). 
 
