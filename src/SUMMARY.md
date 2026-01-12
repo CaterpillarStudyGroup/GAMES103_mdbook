@@ -27,6 +27,7 @@
 - [可形变Mesh - 弹性体](Elastic/Elastic.md)
   - [弹性体的属性](Elastic/Attribution.md)
   - [Mass Spring System](5_cloth_spring.md)
+  - [补充](5_cloth_supplementary.md)
     - [布料](5_cloth.md)
     - [Bending and Locking Issues](5_cloth_bending_blcoking.md)
   - [Shape Matching](5_cloth_shape_matching.md)

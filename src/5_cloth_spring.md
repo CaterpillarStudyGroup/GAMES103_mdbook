@@ -147,9 +147,9 @@ $$
 [\mathbf{I} -\beta \Delta t^2\mathbf{M} ^{-1}\frac{\partial \mathbf{f} }{\partial \mathbf{x} }(\mathbf{x} _t )]\mathbf{v} _{t+1}=\mathbf{v} _t+\Delta t\mathbf{M} ^{-1}\mathbf{f} (\mathbf{x} _t)
 $$
 
-@β=0: forward/semi-implicit Euler (explicit)    
-@β=1/2: middle-point (implicit)      
-B=1: backward Euler (implicit)       
+&#x2776; \\(\beta\\) = 0: forward/semi-implicit Euler (explicit)    
+&#x2777; \\(\beta\\) = 1/2: middle-point (implicit)      
+&#x2778; \\(\beta\\) = 1: backward Euler (implicit)       
 
 解线性系统见补充材料       
 问：为什么不直接求逆？    
@@ -160,7 +160,9 @@ B=1: backward Euler (implicit)
 > &#x2705; 把公式1代入公式2并消元，得：
 
 消元得：    
-![](./assets/05-12.png)    
+$$
+\mathbf{x} ^{[1]}=\mathbf{x} ^{[0]}+\Delta t\mathbf{v} ^{[0]}+\Delta t^2\mathbf{M} ^{-1}\mathbf{f} ^{[1]}
+$$   
 
 Assuming that \\(\mathbf{f}\\) is *holonomic*, i.e., depending on \\(\mathbf{x}\\) only, our question is how to solve:    
 
@@ -175,28 +177,27 @@ $$
 
 P14   
 
-\\(\mathbf{x} ^{[1]} =\\) argmin \\(F(\mathbf{x})\quad\\)  for   \\(\quad F(\mathbf{x}) = \frac{1}{2∆t^2}||\mathbf{x} −\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]}||_M^2+E(\mathbf{x} )\\)    
+\\(\mathbf{x} ^{[1]} =\\) argmin \\(F(\mathbf{x})\quad\\)  for   \\(\quad F(\mathbf{x}) = \frac{1}{2∆t^2}\mathbf{M}||\mathbf{x} −\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]}||^2+E(\mathbf{x} )\\)    
 
 > &#x2705; 前面方程解\\({x} ^{[1]}\\)等价于F(x)函数极小点。等价转换的推导在**补充1**。非线性方程问题为转化为优化问题。  
 > &#x2705; 其中：\\(\mathbf{M}\\)对角矩阵，描述质量，\\(3N \times 3N\\)。\\(\mathbf{x}\\)为 \\(3N\times 1\\)矢量,描述顶点信息。\\(E\\) 为所有的力的能量。\\(\mathbf{||x||_M^2=x^TMx} \\)。  
 > &#x2705; 只有保守力能用能量描述、非保守力（例如摩擦力）则不行。       
 
 定义 \\(\mathbf{g(x)} =\mathbf{x} ^{[0]}+\Delta t\mathbf{v}^{[0]}+\Delta t^2M^{-1}+(\mathbf{x}^{[1]})-\mathbf{x} ^{[1]}\\)     
-也可以得出：\\(x^{[1]}=\mathrm{argmin} (g(\mathbf{x} ))^2\\) 或     
+也可以得出：\\(x^{[1]}=\mathrm{argmin} (g(\mathbf{x} )^2)\\) 或 \\(\mathbf{x}^{[1]}=\mathrm{argmin} |\mathbf{g(x)}|\\)     
 
-$$ \mathbf{x}^{[1]}=\mathrm{argmin} |\mathbf{g(x)}|$$
 
 只是这样构造出的优化问题，求导比较难计算。    
 
 P18  
 ### Simulation by Newton’s Method    
 
-> &#x1F50E; Newton-Raphson Method见补充2. 这里直接开始Newton方向本当前场景的应用。  
+> &#x1F50E; Newton-Raphson Method见补充2. 这里直接开始Newton方向在本当前场景的应用。  
 
 Specifically to simulation, we have:   
 
 $$
-F (\mathbf{x} )=\frac{1}{2∆t^2}||\mathbf{x} −\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]}||_\mathbf{M} ^2+\mathbf{E} (\mathbf{x} )
+F (\mathbf{x} )=\frac{1}{2∆t^2}\mathbf{M} ||\mathbf{x} −\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]}|| ^2+\mathbf{E} (\mathbf{x} )
 $$
 
 $$
@@ -204,8 +205,10 @@ $$
 $$
 
 $$
-\frac{∂^2F (\mathbf{x} ^{(k)})}{∂\mathbf{x} ^2} =\frac{1}{∆t^2} \mathbf{M} +\mathbf{H} (x^{(k)})
+\frac{∂^2F (\mathbf{x} ^{(k)})}{∂\mathbf{x} ^2} =\frac{1}{∆t^2} \mathbf{M} +\mathbf{H} (x^{(k)})=\mathbf{A}
 $$
+
+解线性系统 \\(\Delta \mathbf{x} =b\\)      
 
 ![](./assets/05-28.png)    
 
@@ -225,7 +228,9 @@ According to Lecture 2, Page 48,
 
 ## Positive Definiteness of Hessian    
 
-以上方法解出的 \\(x\\) 不是应是 \\(\mathrm{argmin}\\) \\(\mathbf{F}(x)\\)，也有可能是\\(\mathrm{argmax}\\) \\(\mathbf{F}(x)\\)，这取决于“\\((x)\\)”的正负。     
+以上方法解出的 \\(x\\) 不是应是 \\(\mathrm{argmin}\\) \\(\mathbf{F}(x)\\)，也有可能是\\(\mathrm{argmax}\\) \\(\mathbf{F}(x)\\)，这取决于“\\(\frac{\partial ^2\mathbf{F} (\mathbf{x} )}{\partial \mathbf{x} ^2}\\)”的正负。     
+
+[TODO] 为什么要正定   
 
 ![](./assets/05-18.png)    
 
@@ -262,7 +267,6 @@ As a result, \\(\mathbf{H}(\mathbf{x})\\) may not be s.p.d. (Lecture 2, Page 36
 
 
 > &#x2705; \\(\Delta t\\)越小，A越容易正定、弹簧系统越稳定。   
-> &#x2705; 为什么要讨论\\(H\\)矩阵是否正定？答：\\(H\\)矩阵相当于二阶导，正定代表开口向上，有唯一最小值。  
 > &#x2705; 但是A不正定，不代表没有唯一解。   
 
 P22 
@@ -311,104 +315,6 @@ The paper proposes to **use only one Newton iteration**, i.e., solving only one 
 > &#x2705; 论文没有用弹簧系统，而是另一套模型。  
 > &#x2705; 没有做非线性优化或解非线性方程，而是把非线性方程线性化，等价于做一次牛顿迭代。   
 > &#x1F50E; Fast mass - spring system solver    
-
-# 补充1：非线性方程求解转化为优化问题
-
-求解的非线性方程如下，其中\\({x} ^{[1]}\\)是未知量。  
-$$
-\mathbf{x} ^{[1]}=\mathbf{x}^{[0]}+∆t\mathbf{v} ^{[0]}+∆t^2\mathbf{M} ^{−1}\mathbf{f} (\mathbf{x}^{[1]})
-$$
-
-P14   
-
-$$
-\mathbf{||x||_M^2=x^TMx} 
-$$
-
-> &#x2705; Note that this is applicable to every system, not just a mass-spring system.    
-
-
-把公式处理一下得，  
-$$
-x^{[0]}+Δtv^{[0]}+Δt^2M^{-1}f(x^{[1]})-x^{[1]}=0
-$$
-左右两边同时乘以\\(\frac{M}{Δt^2}\\)得   
-$$
-\frac{1}{Δt^2} M(x^{[1]}-x^{[0]}-Δtv^{[0]})-f(x^{[1]})=0
-$$  
-这里面唯一的未知量是\\(x^{[1]}\\)，定义函数
-$$
-y=\frac{1}{Δt^2} M(x-x^{[0]}-Δtv^{[0]})-f(x)
-$$    
-当\\(x = x^{[1]}\\) 时，\\(y = 0\\), 即 \\(y(x^{[1]}) = 0\\)   
-从另一个角度讲， 
-$$
-\begin{eqnarray}
-x^{[1]} & =  \mathrm{argmin}& F(x)\Rightarrow {F}' (x^{[1]}) & = & 0
-\end{eqnarray}
-$$   
-因此, \\({F}' (x) = y. \quad F(x) = \int ydx \\)       
-反之则不一定成立，\\({F}' (x) = 0\\) 解出的 \\(x\\) 有可能是极大值点，所以还要看 \\({F}' (x)\\) 的正负。
-
-# 补充2：Newton-Raphson Method   
-
-## x是值的F(x)函数
-
-The Newton-Raphson method, commonly known as Newton’s method, solves the optimization problem: \\(x^{[1]}\\) = argmin \\(F(x)\\).   
-
-![](./assets/05-13.png)    
-
-Given a current \\(x^{(k)}\\), we approximate our goal by: 
-
-$$
-0={F}' (x)≈{F}'(x^{(k)})+{F}'' (x^{(k)})(x−x^{(k)})
-$$
-
-> &#x2705; \\(a = \min F(x)⇒ F'(a)= 0\\)，\\({F}' (x)\\) 是非线性函数，直接解\\({F}' (x)=0\\) 很难解    
-> &#x2705; 对\\({F}'(x)\\) 做一阶泰勒展开，保留到二阶项。   
-> &#x2705; 假设\\(x^{[k]}\\)为任意已知值，就变成了解线性方程，很容易解出\\(x\\).   
-> &#x2705; 因为\\({F}'(x)\\) 是一个近似的，\\(x\\) 也是一个近似解。但\\(x^{[k]}\\) 越接近真实解，\\(x\\) 也会越接近真实解。因此，选代是\\(x^{[k]}\\)和\\(x\\) 都不断逼近真实解的过程。  
-> &#x2705; 普通的梯度下降是把\\({F}' (x)\\) 近似到一阶，牛顿法是近似到二阶，因此下降更快。    
-
-![](./assets/05-14.png)    
-
-> &#x2705; Overshooting 的本质：误差会积累和放大   
-
-
-P16    
-Newton’s method finds an extremum, but it can be a minimum or maximum.    
-
-![](./assets/05-15.png)    
-
- - At a minimum \\(x^∗, {F}'' (x^∗)>0\\).     
- - At a maximum \\(x^∗, {F}''(x^∗)<0\\). 
- - If \\({F}''(x)>0\\) is everywhere, \\(F(x)\\) has no maximum.  \\(=> F(x)\\) has only one minimum.     
-
-
-
-> &#x2705; \\(F'(a)= 0,a\\)  有可能是最大值或最小值，因此要判定解是否合理。判定方法： \\({F}''(x)\\)  
-
-
-
-
-P17  
-## x是向量的F(x)函数    
-
-
-Now we can apply Newton’s method to: \\(x^{[1]} \\)= argmin \\(F(x)\\).
-Given a current \\(x^{(k)}\\), we approximate our goal by: 
-
-$$
-0=\nabla F( \mathbf{x}) ≈\nabla F (\mathbf{x} ^{(k)})+\frac{∂F ^2(\mathbf{x} ^{(k)})}{∂\mathbf{x} ^2} (\mathbf{x−x} ^{(k)}) 
-$$
-
-![](./assets/05-16.png)    
-
-
-
-> &#x2705; 按照 \\(\Delta x\\) 的更新公式，只需要用到\\(F'(x)\\) 和 \\({F}''(x)\\)， 不需要知道 \\(F(x)\\).   
-> &#x2705; 此处\\(x\\)是向量，因此\\(F'(x)\\)是向量，\\({F}''(x)\\)是 Hession 矩阵  
-
 
 
 
