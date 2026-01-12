@@ -19,7 +19,7 @@ flowchart LR
     Outter & Force & Current --> Integrate --> Next --> Current
 ```
 
-> &#x2705; 本节课所讲的套路：分析力 → 隐式积分 → 优化问题 → 更新，对弹簧系统、有限元、弹性体等各种物理模拟同样适用   
+> &#x2705; 本节课所讲的套路：分析力 → 隐式积分 → 通过优化解积分 → 更新，对弹簧系统、有限元、弹性体等各种物理模拟同样适用   
 > &#x2705; 在求解隐式积分的过程中，把解非线性方程转化为优化问题，有的地方也会把优化目标称为能量函数\\(\Phi\\)。这个能量函数与上图中的能量E不同。E=0代表系统中没有存储的势能。而\\(\Phi=0\\)代表到达下一时刻的状态。  
 
 
@@ -84,12 +84,12 @@ P11
 ## 积分系统——显式积分  
 
 P12   
-与粒子仿真相同。每个 Mesh 顶点从力到位置的计算过程涉及积分。积分也可以是显式、隐式、半隐式。    
+与粒子仿真相同。每个 Mesh 顶点根据受力更新位置的过程涉及积分。积分离散化也可以是显式、隐式、半隐式。    
    
 Explicit integration suffers from **numerical instability** caused by <u>overshooting</U>, when the stiffness \\(k\\) and/or the time step \\(∆t\\) is too large.     
 
 > &#x2705; Explicit：当前力 → 当前速度 → 当前位置   
-根据公式\\(FΔt≈mv，vΔt≈Δx\\)，如果\\(Δt\\)太大，会导致\\(Δx\\)太大，而导致overshooting。   
+显式积分不稳定，如果 \\(Δt\\) 或 \\(k\\) 太大，会导致 overshooting。   
 
 ![](./assets/05-10.png)   
 
