@@ -11,11 +11,12 @@ P4
 > &#x2705; 把场定义在标准格子上的好处：(1)把物理量定义在格子的中心（2）计算导数或利用导数进行微分计算变得容易了。   
 > &#x2705; 上节课grid用1D来表示2D，2D表示3D，不是真正的grid方法。   
 > &#x1F50E; Central Differencing：L10.    
+> &#x2705; 空间中任意位置的物理量由格子中心插值得出。   
 
 P6   
 ## Finite Differencing on Grid   
 
-### 一阶层数
+### 一阶导数
 
 The grid is very friendly with central differencing.   
 
@@ -26,8 +27,6 @@ The grid is very friendly with central differencing.
 
 P7   
 ### 二阶导数
-
-The grid is very friendly with central differencing.    
 
 ![](./assets/11-3.png)   
 
@@ -78,7 +77,7 @@ A **Neumann** boundary: \\(f_{i−1,j}=f_{i,j}\\)
 > &#x2705; Neumann是约束相对关系，没有绝对数值，会有无穷多解。   
 
 P12   
-### Diffusion
+P204A
 
 The process of applying Laplacian smoothing is called **diffusion**.     
 
