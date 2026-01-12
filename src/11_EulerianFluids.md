@@ -1,15 +1,24 @@
-P2  
-# Topics for the Day   
 
+```mermaid
+mindmap
+Grid
+    网格表示
+        Regular 表示
+        Stagger 表示
+    网格的属性
+        有限差分
+        插值
+        Diffusion
+    网格的仿真
+        外力
+        Advection
+        压强
+        粕滞 Viscons
+    应用场景
+        气体
+        流体
+```
 
- - A Grid Representation and Finite Differencing  
-
- - Incompressible, Viscous Navier Stokes’ equations  
-
-> &#x2705; Incompressible：粒子不可压缩   
-> &#x2705; Viscous：有粘滞   
-
- - Air and liquid  
  
  
 ---------------------------------------
