@@ -10,9 +10,22 @@
 
 # 粒子法与网格法的结合
 
-粒子与网格结合的方法（Particle-in-Cell, PIC）是物理仿真中一类重要的多尺度耦合方法，主要用于流体动力学、等离子体物理、天体物理、固体力学等领域。以下是常见的几类粒子与网格结合的方法及其特点：
+### Motivation
+ 
+- **Recall that a fluid solver usually has two components**:
+  - **<u>Advection</u>** (evolving the fields)
+  - **<u>Projection</u>** (enforcing incompressibility)
+- **Eulerian grids are really good at projection**:
+  - Easy to discretize
+  - Efficient neighbor look-up
+  - Easy to precondition (geometric multigrid)
+- **But Eulerian grids are bad at advection...**
+  - Dissipative: loss of energy and geometry
+
 
 ## 常见方法
+
+![](../assets/10-2-1.png) 
 
 ### **1. 粒子-网格法（Particle-in-Cell, PIC）**
 - **原理**：将粒子作为离散质量/电荷载体，而将网格用于计算场量（如电磁场、重力场）。粒子在连续空间中运动，但其产生的场量或所受的力通过插值在网格上计算。
