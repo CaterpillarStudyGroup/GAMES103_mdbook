@@ -212,7 +212,38 @@ P27
 
 Finally, we need to update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=−∇\mathbf{p}\\). 
 
+### 公式推导法
+
+$$
+u^{new} = u - \Delta t \nabla p
+$$
+
+两边同时应用\\(\nabla\\)算子，得：    
+
+$$
+\nabla \cdot u^{new} = \nabla \cdot u - \Delta t \nabla \cdot \nabla p
+$$
+
+考虑不可压约束 \\(\nabla \cdot u^{new}=0\\)，得：    
+
+$$
+\nabla \cdot \nabla p = \frac{1}{\Delta t} \nabla \cdot u
+$$
+
+即Poisson's Equation.     
+离散化得：    
+
+$$
+4p_{i,j}−p_{i−1,j}−p_{i+1,j}−p_{i,j−1}−p_{i,j+1}= \\\\
+\\\\
+ℎ(−u_{i+1,j}−v_{i,j+1}+u_{i,j}+v_{i,j})
+$$
+
+### 直观理解法   
+
 ![](./assets/11-16.png)   
+
+同样在墙上定义带方向的压强
 
 Staggering makes this very straightforward:
 
@@ -224,14 +255,13 @@ $$
 v_{i,j}^{new}←v_{i,j}−\frac{∆t}{ℎ}(p_{i,j}−p_{i,j−1})
 $$
 
-
-> &#x2705; 公式第二项离散化后在特定方向上的压强。   
+  
 > &#x2705; \\(u\\)和\\(v\\)分别为两个方向上的速度。   
 
 But what is \\(\mathbf{p}\\)?
 
 P28   
-### 压强的来源
+### 压强的来源：流体不可压
 
 The pressure is caused by incompressibility.     
 
@@ -259,23 +289,9 @@ $$
 
 
 
-
-
-
 P29  
-### 压强的数学模型
 
 The pressure is caused by incompressibility. Eventually, we get a Poisson equation:  
-
-  
-
-Eventually, we get a Poisson equation:   
-
-$$
-4p_{i,j}−p_{i−1,j}−p_{i+1,j}−p_{i,j−1}−p_{i,j+1}= \\\\
-\\\\
-ℎ(−u_{i+1,j}−v_{i,j+1}+u_{i,j}+v_{i,j})
-$$
 
 
 with boundary conditions:   
@@ -286,8 +302,6 @@ $$ \text{Dirichlet boundary (open) } p_{i−1,j}=P \\\\
 Once we solve \\(\mathbf{p}\\), we update \\(\mathbf{u}\\) and done.   
 
 
-
-
 P30    
 ## After-Class Reading    
 
@@ -296,6 +310,45 @@ Jos Stam. 1999. *Stable Fluids. TOG (SIGGRAPH)*.
 
 > &#x2705; 这篇论文主要讨论了step2，但也包含了全部过程
 
+### 求解压强 \\(p\\)   
+
+Poisson's Equation 构成了一个巨大的线性系统    
+
+$$
+A_x = b
+$$
+
+其中 \\(A\\) 为 \\(p\\) 的系数构成的矩阵，\\(x\\) 为未知量 \\(p\\)，\\(b\\) 为已知量 \\(u\\)     
+ 
+### 压强 Laplacian 算子的离散化   
+
+![](./assets/11-16-1.png)   
+
+$$
+(\nabla \cdot \nabla p)_{i,j} = \frac{1}{\Delta x^2}(-4p_{i,j} + p_{i+1,j} + p_{i-1,j} + p_{i,j-1} + p_{i,j+1})
+$$
+
+ 
+### 解泊松方程    
+
+\\(A\\) 的特点：稀疏、对称、正定    
+Krylov-Subspace solvers：conjugate gradients + damped Jacobi smoothing + PARDISO    
+
+④VX 1-10 14:33
+ 
+\\(A\\) 的 condition 数越大，迭代法收敛越慢     
+让 condition 更小的方法：把问题变为    
+
+$$
+M^{-1}Ax = M^{-1}b
+$$
+
+\\(M\\) 是一个与 \\(A\\) 近似但易于求逆的矩阵
+ 
+#### Multigrid 求 M    
+
+④VX 1-10 15:06
+ 
 
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。
