@@ -63,6 +63,7 @@
 
 - [粒子 + Grid](ParticleGrid/ParticleGrid.md)
   - [Material Point Method](ParticleGrid/MPM.md)
+  - [MLS-MPM](ParticleGrid/MLS.md)
   - [AI方法](ParticleGrid/AIModel.md)
 
 # 仿真代理之间的作用
