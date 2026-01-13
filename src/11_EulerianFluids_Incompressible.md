@@ -334,7 +334,49 @@ $$
 \\(A\\) 的特点：稀疏、对称、正定    
 Krylov-Subspace solvers：conjugate gradients + damped Jacobi smoothing + PARDISO    
 
-④VX 1-10 14:33
+
+$$
+\mathbf{r}_0 = \mathbf{b} - \mathbf{A} \mathbf{x}_0
+$$
+
+$$
+\mathbf{p}_0 = \mathbf{r}_0
+$$
+
+$$
+\mathbf{k} = 0
+$$
+
+while True:   
+$$
+\alpha_k = \frac{\mathbf{r}_k^T \mathbf{r}_k}{\mathbf{p}_k^T \mathbf{A} \mathbf{p}_k}
+$$
+
+$$
+\mathbf{x}_{k+1} = \mathbf{x}_k + \alpha_k \mathbf{p}_k
+$$
+
+$$
+\mathbf{r}_{k+1} = \mathbf{r}_k - \alpha_k \mathbf{A} \mathbf{p}_k
+$$
+
+if \\(||\mathbf{r}_{k+1}||\\) is sufficiently small, break    
+
+$$
+\beta_k = \frac{\mathbf{r}_{k+1}^T \mathbf{r}_{k+1}}{\mathbf{r}_k^T \mathbf{r}_k}
+$$
+
+$$
+\mathbf{p}_{k+1} = \mathbf{r}_{k+1} + \beta_k \mathbf{p}_k
+$$
+
+$$
+k = k + 1
+$$ 
+
+
+return \\(\mathbf{x}_{k+1}\\)     
+
  
 \\(A\\) 的 condition 数越大，迭代法收敛越慢     
 让 condition 更小的方法：把问题变为    
@@ -347,7 +389,8 @@ $$
  
 #### Multigrid 求 M    
 
-④VX 1-10 15:06
+![](./assets/11-16-2.png)   
+
  
 
 ---------------------------------------
