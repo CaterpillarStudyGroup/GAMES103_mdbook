@@ -36,6 +36,28 @@
   4. **粒子推进**：根据牛顿定律更新粒子位置和速度。
 - **应用**：等离子体模拟、天体物理（N体+网格）、流体模拟（如物质点法MPM）。
 
+分配时，距离近的点有更大的权重    
+
+![](../assets/10-2-2.png) 
+
+权重由核函和数定义     
+
+![](../assets/10-2-3.png) 
+
+![](../assets/10-2-4.png) 
+
+step 4 可以是不同的积分法    
+PIC + grid-based 泊松 solver = 流体桢拟器    
+Step 2 在 Grid 上解 presure，得到无散速度场     
+
+缺点：能量耗散严重，表现为“黏”。     
+因为 G2P 过程有信息丢失    
+
+- Two solutions:     
+1. Transfer more information: APIC, PolyPIC     
+2. Transfer the <u>delta</u>: FLIP (later in this lecture)    
+
+
 ---
 
 ### **2. 物质点法（Material Point Method, MPM）**
@@ -50,6 +72,10 @@
   - **广义插值物质点法（GIMP）**：改进插值函数，减少数值噪声。
   - **CPDI（Convected Particle Domain Interpolation）**：更精确描述粒子变形。
 
+1. 可以处理不同材质(流、固等)及它们之间的耦合关系    
+2. 可以处理碰撞、破碎等效果    
+3. 擅长摸拟大形变      
+
 ---
 
 ### **3. 流体隐式粒子法（Fluid Implicit Particle, FLIP）与粒子-网格混合法**
@@ -57,7 +83,19 @@
 - **方法**：
   - **PIC（流体版）**：粒子速度完全由网格插值获得，较稳定但耗散大。
   - **FLIP**：粒子速度变化量由网格插值，保留更多细节，适合高分辨率模拟。
-- **应用**：计算机图形学中的流体动画（如烟雾、水）。
+- **应用**：计算机图形学中的流体动画（如烟雾、水）。      
+ 
+- **Idea: don’t gather the physical quantity. Gather the <u>delta</u> of the physical quantities before/after grid operation.**      
+  - grid op = pressure projection in incompressible fluid simulation    
+  - grid op = internal force computation in solid simulation (MPM)   
+
+
+PIC：\\(V_p^{t+1} = \text{gather}(V_i^{t+1})\\)     
+FLIP：\\(V_p^{t+1}=V_p^t + \text{gather}(V_i^{t+1}-V_i^t)\\)    
+FLIP 引入了 P2P 的信息路径来避免信息丢失。    
+但 FLIP too noisy，因此     
+FLIP0.99 = 0.99.  FLIP + 0.01PIC    
+
 
 ---
 
@@ -83,6 +121,8 @@
   - 在辐射传输、稀薄气体动力学中，粒子跟踪与网格场计算结合。
 
 ## 总结
+
+![](../assets/10-2-5.png) 
 
 ### **选择依据**
 | **方法**       | **适用领域**               | **主要优点**                          |
