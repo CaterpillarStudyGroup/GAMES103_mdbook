@@ -1,7 +1,7 @@
 P13  
 # Staggered Grid 表示
 
-## Problem with Regular Grid 表示   
+### Problem with Regular Grid 表示   
 
 Central differencing gives the derivative in the middle.    
 
@@ -46,7 +46,7 @@ We define some physical quantities on faces, specifically **velocities**.
 
 
 P15  
-## Divergence-Free Condition
+### Divergence-Free Condition
 
 No volume change is equal to say the fluid is incompressible. This can be formally written as a divergence-free velocity field.   
 

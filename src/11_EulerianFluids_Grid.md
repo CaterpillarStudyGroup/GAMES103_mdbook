@@ -14,7 +14,7 @@ P4
 > &#x2705; 空间中任意位置的物理量由格子中心插值得出。   
 
 P6   
-## Finite Differencing on Grid   
+### Finite Differencing on Grid   
 
 The grid is very friendly with central differencing.   
 
@@ -55,7 +55,7 @@ $$
 
 
 P9   
-## Boundary Conditions    
+### Boundary Conditions    
 
 The boundary condition specifies \\(f_{i−1,j}\\) if it’s outside.
 

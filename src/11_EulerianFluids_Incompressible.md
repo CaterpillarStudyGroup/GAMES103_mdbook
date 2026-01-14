@@ -28,6 +28,20 @@ $$
 **材料导数就是这两种变化的总和**。
 
 P19  
+
+NS方程有很多变种，这是其中一种    
+ 
+材料导数定义：   
+$$
+\frac{D\boldsymbol{u}}{Dt} = \frac{\partial\boldsymbol{u}}{\partial t} + \boldsymbol{u} \cdot \nabla\boldsymbol{u}
+$$
+
+NS方程：    
+
+$$
+\rho\frac{D\boldsymbol{u}}{Dt} = -\nabla p + \mu\Delta\boldsymbol{u} + \boldsymbol{f}
+$$
+
 [TODO] 补充材料导数
 
 ## Equation Fomulation   
