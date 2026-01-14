@@ -117,8 +117,7 @@ Implicit integration is a better solution to numerical instability.  The idea is
 
 > &#x2705; 粒子和刚体的仿真中使用了半隐式积分(现在的力，未来的速度)，这里使用了隐式积分(未来的力，未来的速度)。力和速度都是未知的，需要解方程。    
 
-![](./assets/05-11.png)    
-
+![](./assets/05-10-1.png)    
 
 
 ### 解积分方法一：线性近似法求解积分    
