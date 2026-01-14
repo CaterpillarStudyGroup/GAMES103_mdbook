@@ -366,11 +366,11 @@ $$
 if \\(||\mathbf{r}_{k+1}||\\) is sufficiently small, break    
 
 $$
-\beta_k = \frac{\mathbf{r}_{k+1}^T \mathbf{r}_{k+1}}{\mathbf{r}_k^T \mathbf{r}_k}
+\beta_k = \frac{\mathbf{r} _ {k+1}^T \mathbf{r} _ {k+1}}{\mathbf{r} _ k^T \mathbf{r} _ k}
 $$
 
 $$
-\mathbf{p}_{k+1} = \mathbf{r}_{k+1} + \beta_k \mathbf{p}_k
+\mathbf{p} _ {k+1} = \mathbf{r} _ {k+1} + \beta_k \mathbf{p}_k
 $$
 
 $$
