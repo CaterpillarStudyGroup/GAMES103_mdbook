@@ -6,7 +6,7 @@ P18
 **材料导数就是“流体微团所经历的真实变化率”**，它是将牛顿第二定律应用于流动流体时自然出现的关键算子，是连接流体力学中欧拉描述与拉格朗日描述的桥梁。
 
 $$
-\frac{D\phi}{Dt} = \underbrace{\frac{\partial \phi}{\partial t}}_{\text{局部导数}} + \underbrace{(\mathbf{u} \cdot \nabla) \phi}_{\text{对流导数}}
+\frac{D\phi}{Dt} = \underbrace{\frac{\partial \phi}{\partial t}} _ {\text{局部导数}} + \underbrace{(\mathbf{u} \cdot \nabla) \phi} _ {\text{对流导数}}
 $$
 
 *   **∂φ/∂t**：**局部导数**。固定点，随时间的变化。
