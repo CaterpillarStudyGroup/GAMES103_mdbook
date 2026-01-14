@@ -167,10 +167,10 @@ We could also subdivided the time step for better tracing.
 
 BFECC: Back and Forth Error Compensation and Correction
  
-- \\(x^* = \text{SL}(x, \Delta t)\\)
-- \\(x^{**} = \text{SL}(x^{*}, -\Delta t)\\)
-- Estimate the error \\(x^{\text{error}} = \frac{1}{2}(x^{**} - x)\\)
-- Apply the error \\(x^{\text{final}} = x^* + x^{\text{error}}\\)
+- \\(\mathbf{x}^* = \text{SL}(\mathbf{x}, \Delta t)\\)
+- \\( \mathbf{x}^{** }= \text{SL} ( \mathbf{x} ^ {*}, -\Delta t) \\)
+- Estimate the error \\(\mathbf{x}^{\text{error}} = \frac{1}{2}(\mathbf{x}^{**} - \mathbf{x})\\)
+- Apply the error \\(x^{\text{final}} = \mathbf{x}^* + \mathbf{x}^{\text{error}}\\)
  
 Be careful: need to prevent overshooting.
 
