@@ -291,6 +291,11 @@ P29
 
 The pressure is caused by incompressibility. Eventually, we get a Poisson equation:  
 
+$$
+4p_{i,j}−p_{i−1,j}−p_{i+1,j}−p_{i,j−1}−p_{i,j+1}= \\\\
+\\\\
+ℎ(−u_{i+1,j}−v_{i,j+1}+u_{i,j}+v_{i,j})
+$$
 
 with boundary conditions:   
 
