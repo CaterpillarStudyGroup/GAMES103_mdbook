@@ -206,7 +206,7 @@ $$
 \frac{∂^2F (\mathbf{x} ^{(k)})}{∂\mathbf{x} ^2} =\frac{1}{∆t^2} \mathbf{M} +\mathbf{H} (x^{(k)})=\mathbf{A}
 $$
 
-解线性系统 \\(\Delta \mathbf{x} =b\\)      
+解线性系统 \\(\mathbf{A} \Delta \mathbf{x} =b\\)      
 
 ![](./assets/05-28.png)    
 
