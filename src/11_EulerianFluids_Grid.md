@@ -16,9 +16,9 @@ P4
 P6   
 ## Finite Differencing on Grid   
 
-### 一阶导数
-
 The grid is very friendly with central differencing.   
+
+### 一阶导数
 
 ![](./assets/11-2.png)   
 
