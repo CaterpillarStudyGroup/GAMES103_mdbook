@@ -328,7 +328,7 @@ $$
 ![](./assets/11-16-1.png)   
 
 $$
-(\nabla \cdot \nabla p)_{i,j} = \frac{1}{\Delta x^2}(-4p_{i,j} + p_{i+1,j} + p_{i-1,j} + p_{i,j-1} + p_{i,j+1})
+(\nabla \cdot \nabla p) _ {i,j} = \frac{1}{\Delta x^2}(-4p _ {i,j} + p _ {i+1,j} + p _ {i-1,j} + p_{i,j-1} + p_{i,j+1})
 $$
 
  
