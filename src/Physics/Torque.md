@@ -69,13 +69,7 @@ It’s a matrix! The mass inverse is the resistance (just like mass).
 
 
 P33
-# After-Class Reading (Before Collision)
-
-P35  
-
-<https://graphics.pixar.com/pbm2001>     
-
-> &#x2705; 建议读其中的Rigid Body Dynamics部分    
+ 
 
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。

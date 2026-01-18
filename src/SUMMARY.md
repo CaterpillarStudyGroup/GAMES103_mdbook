@@ -9,8 +9,12 @@
   - [Matrix](2_math_matrix.md)
   - [Tensor Calculus](2_math_calculus.md)
   - [Linear Solver](Math/LinearSolver.md)
-- [图形学基础](Graphics.md)
-- [力](BackGround/Force.md)
+- [物理基础]()
+  - [力](Physics/Force.md)
+  - [力矩](./Physics/Torque.md)
+- [图形学基础]()
+  - [Graphics Pipeline](Graphics/GraphicsPipeline.md)
+  - [优化](./Graphics/Optimize.md)
 
 # 单个仿真代理的仿真
 
@@ -23,11 +27,9 @@
 - [不可形变Mesh - 刚体]()
   - [刚体的属性](Rigid/Attribution.md)
   - [刚体动力学](Rigid/Force.md)
-  - [补充](Rigid/supplementary.md)
 - [可形变Mesh - 弹性体](Elastic/Elastic.md)
   - [弹性体的属性](Elastic/Attribution.md)
   - [Mass Spring System](Elastic/MassSpringSystem.md)
-    - [补充](5_cloth_supplementary.md)
     - [布料](5_cloth.md)
     - [Bending and Locking Issues](5_cloth_bending_blcoking.md)
   - [投影动力学 (Projective Dynamics)](Elastic/Projective_Dynamics.md)

@@ -57,6 +57,14 @@ P30
 ![](../assets/03-27.png)  
 ![](../assets/04-1.png)     
 
+# After-Class Reading (Before Collision)
+
+P35  
+
+<https://graphics.pixar.com/pbm2001>     
+
+> &#x2705; 建议读其中的Rigid Body Dynamics部分   
+
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。
 >
