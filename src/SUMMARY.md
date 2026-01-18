@@ -20,7 +20,7 @@
 
 - [粒子]()
   - [粒子](Particle/Particle.md)
-    - [A SPH Model](Particle/SPHModel.md)
+    - [SPH Model](Particle/SPHModel.md)
     - [SPH应用 - 水](Particle/SPH_Fluids.md)
     - [AI方法](Particle/AIModel.md)
   - [应用场景 - 刚体](Particle/Rigid.md)
@@ -30,7 +30,7 @@
 - [可形变Mesh - 弹性体](Elastic/Elastic.md)
   - [弹性体的属性](Elastic/Attribution.md)
   - [Mass Spring System](Elastic/MassSpringSystem.md)
-    - [布料](5_cloth.md)
+    - [应用场景 - 布料](5_cloth.md)
     - [Bending and Locking Issues](5_cloth_bending_blcoking.md)
   - [投影动力学 (Projective Dynamics)](Elastic/Projective_Dynamics.md)
   - [Shape Matching](5_cloth_shape_matching.md)

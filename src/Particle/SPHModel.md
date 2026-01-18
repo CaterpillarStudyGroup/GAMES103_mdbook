@@ -1,4 +1,4 @@
-# A SPH Model
+# SPH Model
 
 > &#x2705; SPH = Smoothed Particle Hydrodynamics     
 

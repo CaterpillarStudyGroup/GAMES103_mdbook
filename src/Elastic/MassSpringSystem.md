@@ -61,7 +61,6 @@ flowchart LR
     Velocity & Current --> NextWoContrain --> Mometen
     Constrain-->Energy 
     Energy & Mometen --> Target --> Optimize --> Next
-    
 ```
 
 > &#x2705; 本节课所讲的套路：分析力/能量 → 隐式积分 → 通过优化解积分 → 更新，对弹簧系统、有限元、弹性体等各种物理模拟同样适用。区别在于如何构造能量和解优化问题。     
