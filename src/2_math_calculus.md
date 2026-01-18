@@ -106,38 +106,6 @@ $$
 
 
 
-
-P46   
-# Spring Example  
-
-## A Spring     
-
-
-![](./assets/02-46.png)
-
-
-> &#x1F50D; Choi and Ko. 2002. Stable But Responive Cloth. TOG (SIGGRAPH)    
-
-
-> &#x2705; Energy：物理上的弹性势能    
-Force：物理上的力，是 Energy 的 gradient 的反方向;   
-公式后面有个 T,来源于前面的\\(\nabla \\)，   
-直观解释，前面是力的大小，后面是力的方向，推荐论文为以\\(\bot\\)公式推导的详细过程   
-
-
-
-
-
-P47   
-## A Spring with Two Ends    
-
-
-![](./assets/02-47-1.png)
-
-
-> &#x2705; \\(\nabla_0\\) 代表对\\(\mathbf{x}_0\\)的求导    
-
-
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。
 >

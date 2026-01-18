@@ -1,37 +1,49 @@
 P22   
 # 投影动力学 (Projective Dynamics)     
 
-## 原理   
+## 原理
+
+### PD VS. 弹簧系统
+
+PD由基于隐式积分弹簧系统演化而来，其基本流程是一致的。  
+
+```mermaid
+---
+title: Projective Dynamics 
+---
+flowchart LR
+    Current(["当前状态"]) 
+    Constrain[("约束")]
+    Outter[("外力")]
+    Energy(["势能能量"]) 
+    Mometen(["动能能量"]) 
+    Target(["优化目标"])
+    Velocity(["速度"]) 
+    Next(["下一时刻状态"]) 
+    NextWoContrain(["不考虑约束的下一时刻状态"])
+
+    Outter --> Velocity
+    Velocity & Current --> NextWoContrain --> Mometen
+    Constrain-->Energy 
+    Energy & Mometen --> Target --> Optimize --> Next
+```
+
+PD 与弹簧系统的区别在于，弹簧系统与PD计算能量的方式不同。弹簧系统使用弹簧的弹性势能计算能量，而PD使用约束计算能量。能量定义的不同也导致了解优化问题的方法不同。  
+
+### PD VS. PBD
 
 > &#x2705; PBD方法直接拿约束来修复顶点位置，没有物理含义。而Projective Dynatics把projection方法跟物拟模拟结合起来。     
 > &#x2705; Projective Dynamics与PBD的差别主要体现在用约束来做什么。    
 
 Projective Dynamics**将约束转化为能量**，通过最小化能量函数来求解系统的状态。因此是一种基于优化的物理仿真方法
 
-PD 与弹簧系统的区别在于，弹簧系统基于弹簧力计算能量。PD 基于约束计算能量。  
-
-```mermaid
----
-title: PD   
----
-flowchart LR
-    Current(["当前状态"]) 
-    Constrain[("约束")]
-    Outter[("外力")]
-    Energy(["能量场E"]) 
-    NextWoConstrain(["不考虑约束的下一时刻状态"]) 
-    Next(["下一时刻状态"])
-
-    Constrain-->Energy
-    Outter & Current --> Integrate --> NextWoConstrain
-    Energy & NextWoConstrain --> PD --> Next --> Current
-```
-
 ## 能量和力
 
-![](./assets/06-10.png)    
+![](../assets/06-10.png)    
 
-\\(E(\mathbf{x} ) = {\textstyle \sum_{e = (i,j)}}\frac{1}{2} ||(\mathbf{x} _i−\mathbf{x} _j)−(\mathbf{x} _{e,i}^{\mathrm{new} }−\mathbf{x} _{e,j}^{\mathrm{new} })||^2\\)
+$$
+E(\mathbf{x} ) = {\textstyle \sum_{e = (i,j)}}\frac{1}{2} ||(\mathbf{x} _i−\mathbf{x} _j)−(\mathbf{x} _{e,i}^{\mathrm{new} }−\mathbf{x} _{e,j}^{\mathrm{new} })||^2
+$$
 
 
 
@@ -58,9 +70,9 @@ P23
 
 Instead of blending projections in a Jacobi or Gauss-Seidel fashion as in PBD, <u>projective</u> dynamics uses projection to define a <u>quadratic</u> energy.     
 
-![](./assets/06-11.png)    
+![](../assets/06-11.png)    
 
-![](./assets/06-12.png)    
+![](../assets/06-12.png)    
 
 
 > &#x2705; 同一个顶点在三个不同边上的投影是不同的。   
