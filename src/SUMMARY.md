@@ -33,6 +33,7 @@
     - [应用场景 - 布料](5_cloth.md)
     - [Bending and Locking Issues](5_cloth_bending_blcoking.md)
   - [投影动力学 (Projective Dynamics)](Elastic/Projective_Dynamics.md)
+  - [Shape Matching](Elastic/ShapeMatching.md)
   - [Shape Matching](5_cloth_shape_matching.md)
   - [约束方法](6_constraints.md)
     - [投影函数 Projection Function](./6_constraints_Projection.md)
@@ -64,11 +65,13 @@
 # 混合仿真代理的仿真
 
 - [粒子 + Grid](ParticleGrid/ParticleGrid.md)
+  - [Particle in Cell](./ParticleGrid/PIC.md)
   - [Material Point Method](ParticleGrid/MPM.md)
   - [MLS-MPM](ParticleGrid/MLS.md)
   - [AI方法](ParticleGrid/AIModel.md)
   - [Affice PIC](ParticleGrid/APIC.md)
   - [Constitutive Models](ParticleGrid/Models.md)
+  - [More](ParticleGrid/More.md)
 
 # 仿真代理之间的作用
 

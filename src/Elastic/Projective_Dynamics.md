@@ -37,19 +37,131 @@ PD 与弹簧系统的区别在于，弹簧系统与PD计算能量的方式不同
 
 Projective Dynamics**将约束转化为能量**，通过最小化能量函数来求解系统的状态。因此是一种基于优化的物理仿真方法
 
-## 能量和力
+## 优化目标
+
+用隐式积分做弹簧系统，最终会转化为优化问题：
+
+$$
+\Psi(\mathbf{x}) = \frac{1}{2∆t^2}||\mathbf{x} −\mathbf{y}||_\mathbf{M}^2+E(\mathbf{x} )
+$$
+
+其中y为显式积分的结果，E(x)为系统的势能。  
+
+目标是优化\\(\Psi\\)：
+
+$$
+x = \argmin \Psi(x)
+$$
+
+在弹簧系统中，这样定义E(x)
+
 
 ![](../assets/06-10.png)    
 
 $$
-E(\mathbf{x} ) = {\textstyle \sum_{e = (i,j)}}\frac{1}{2} ||(\mathbf{x} _i−\mathbf{x} _j)−(\mathbf{x} _{e,i}^{\mathrm{new} }−\mathbf{x} _{e,j}^{\mathrm{new} })||^2
+E(x) = \sum_{e=(i,j)}E_e= \frac{1}{2} k\sum_{e=(i,j)} (||\mathbf{x} _{i} −\mathbf{x}_{j} ||−L_e)^2
+$$
+
+## 势能能量E(x)
+
+### 1根弹簧，2个顶点
+
+引入变量p为长度为\\(L_e\\)的向量：  
+
+$$
+p = \overrightarrow {\mathbf{x} _{i}'\mathbf{x}_{j}'}
+$$
+
+$$
+\begin{aligned}
+E(x) &= \frac{1}{2} k(||\mathbf{x} _{i} −\mathbf{x}_{j} ||−L_e)^2 \\
+&= \min \frac{1}{2} k(||(\mathbf{x} _{i} −\mathbf{x}_{j}) - (\mathbf{x} _{i}' −\mathbf{x}_{j}') ||)^2\\
+&= \min \frac{1}{2} k(||(\mathbf{x} _{i} −\mathbf{x}_{j}) - p ||)^2
+\end{aligned}
+$$
+
+可以解得：  
+
+$$
+p = \argmin E(x) = L\frac{x_i-x_j}{||x_i-x_j||}
+$$
+
+代入p得：  
+
+
+$$
+\begin{aligned}
+E(x) &= \frac{1}{2} k(||(\mathbf{x} _{i} −\mathbf{x}_{j}) - p ||)^2 \\
+&= \frac{1}{2} k ( || \underbrace{\begin{bmatrix} I & -I \end{bmatrix}}_{3 \times 6} \underbrace{\begin{bmatrix} x_i \\ x_j \end{bmatrix}}_{6 \times 1} - \underbrace{p}_{3\times 1}||^2)
+\end{aligned}
+$$
+
+根据牛顿法，需要根据E(x)的一阶导和二阶导来计算x的更新方向：  
+
+$$
+\begin{aligned}
+\nabla E &= k \begin{bmatrix} I \\ -I \end{bmatrix} (\begin{bmatrix} I & -I \end{bmatrix} \begin{bmatrix} x_i \\ x_j \end{bmatrix} - p) && \nabla E \in R^{6\times1}\\
+H &= k \begin{bmatrix} I \\ -I \end{bmatrix} \begin{bmatrix} I & -I \end{bmatrix} = k \begin{bmatrix} I & -I \\ -I & I \end{bmatrix} && H \in R^{6\times6}
+\end{aligned}
+$$
+
+### n根弹簧，m个顶点
+
+引入变量p，其中\\(p_e\\)为长度为\\(L_e\\)的向量：  
+
+$$
+p_{e=(i,j)} = \overrightarrow {\mathbf{x} _{i}'\mathbf{x}_{j}'}
+$$
+
+$$
+\begin{aligned}
+E(x) &= \frac{1}{2} k \sum_{e=(i,j)}(||\mathbf{x} _{i} −\mathbf{x}_{j} ||−L_e)^2 \\
+&= \min \frac{1}{2} k\sum_{e=(i,j)}(||(\mathbf{x} _{i} −\mathbf{x}_{j}) - (\mathbf{x} _{i}' −\mathbf{x}_{j}') ||)^2\\
+&= \min \frac{1}{2} k\sum_{e=(i,j)}(||(\mathbf{x} _{i} −\mathbf{x}_{j}) - p_e ||)^2
+\end{aligned}
+$$
+
+可以解得：  
+
+$$
+p_e = \argmin E_{e=(i,j)}(x) = L\frac{x_i-x_j}{||x_i-x_j||}
+$$
+
+代入p得：  
+
+
+$$
+\begin{aligned}
+E(x) &= \frac{1}{2} k\sum_{e=(i,j)}(||(\mathbf{x} _{i} −\mathbf{x}_{j}) - p_e ||)^2 \\
+&= \frac{1}{2} k ( || \underbrace{A}_{3n \times 3m} \underbrace{\mathbf{x}}_{3m \times 1} - \underbrace{P}_{3n\times 1}||^2)
+\end{aligned}
+$$
+
+其中，A是由弹簧连接关系构成的矩阵，只要弹簧结构不发生变化，整个仿真过程中A保持炒变。  
+
+根据牛顿法，需要根据E(x)的一阶导和二阶导来计算x的更新方向：  
+
+$$
+\begin{aligned}
+\nabla E &= k A^T (A \mathbf{x} - P) && \nabla E \in R^{3m\times1}\\
+H &= k A^TA && H \in R^{3m\times3m}
+\end{aligned}
+$$
+
+## 说明
+
+### 引入的变化p是形变后的e的投影
+
+$$
+(\mathbf{x} _{e,i}^{\mathrm{new} },\mathbf{x} _{e,j}^{\mathrm{new} }) = \mathrm{Projection} _e(\mathbf{x}_i,\mathbf{x}_j)
 $$
 
 
-
-{\\(\mathbf{x} _{e,i}^{\mathrm{new} },\mathbf{x} _{e,j}^{\mathrm{new} }\\)} = \\(\mathrm{Projection} _e(\mathbf{x}_i,\mathbf{x}_j)\\) for every edge \\(e\\)    
-
 > &#x2705; 本文基于约束定义能量。{\\(\mathbf{x} _{e,i}^{\mathrm{new} },\mathbf{x} _{e,j}^{\mathrm{new} }\\)}为期望的顶点位置。不直接把顶点从当前位置移到期望位置。而是把当前位置和期望位置的距离转化为能量，通过能量推动顶点从当前位置移到目标位置。   
+
+因此称为投影动力学
+
+### 这个能量与弹簧能量有什么区别
 
 $$
  E(\mathbf{x})=\sum _{e=(i,j)}\frac{k}{2}(||\mathbf{x}_i-\mathbf{x}_j||-L_e)^2 
@@ -63,10 +175,8 @@ $$
 > &#x2705; 本文基于约束定义能量和力，得到的结果与基于弹簧能量计算的能量和力相同。   
 > &#x2705; 既然 \\(E\\) 和 \\(F\\) 是一样的，何必多此一举? 答：H不同。   
 
-
-
 P23   
-## Hessian 矩阵   
+### Hessian 矩阵   
 
 Instead of blending projections in a Jacobi or Gauss-Seidel fashion as in PBD, <u>projective</u> dynamics uses projection to define a <u>quadratic</u> energy.     
 
@@ -79,106 +189,17 @@ Instead of blending projections in a Jacobi or Gauss-Seidel fashion as in PBD, <
 > &#x2705; **可以直接根据Mesh的拓扑关系构造H矩阵。**     
 > &#x2705; 为什么能简化\\(\mathbf{H}\\)的计算？答：在计算某一个端点时，假设另一个端点不动（常量），那么能量就是只关于这个端点的二次函数     
 
+### 为什么这样定义能量
 
+以这种方式定义能量，得到的H是一个只与弹簧拓扑有关的定值。这个定值不光构造简单，也能简化计算。  
 
-P24  
-## Shape Matching
+在以牛顿法的优化迭代方法中，需要解线性系统\\(Ax=b\\)。复杂的A使得线性系统难以求解。  
 
-Shape matching is also projective dynamics, if we view rotation as projection:    
+![](../assets/05-18.png)    
 
-|
-![](./assets/06-15.png)    
+由A的定义可知，当H是定值时，A也是一个定值。那么可以对A做一些预计算，以加速线性系统\\(Ax=b\\)的求解。  
 
-|**The 2D Space**|**The 3D Space**|    
-|---|---|    
-|![](./assets/06-013.png)|![](./assets/06-014.png)|
-
-
-
-Assuming that \\(\mathbf{{\color{Orange} R} }\\) is constant,     
-$$
-\begin{matrix}
- \mathbf{f} _0=−\nabla_0E(\mathbf{x} )\\\\
-\mathbf{f} _1=−\nabla_1E(\mathbf{x} ) \\\\
-\mathbf{f} _2=−\nabla_2E(\mathbf{x} )\\\\
-\mathbf{H} =\frac{∂E^2(\mathbf{x} )}{∂x^2} \quad \text{is  a constant !}   
-\end{matrix}
-$$
-
-
-P25   
-## Simulation by Projective Dynamics   
-
- - According to implicit integration and Newton’s method, a projective dynamics simulator looks as follows, with matrix \\(\mathbf{A} =\frac{1}{∆t^2}\mathbf{M+}\mathbf{H} \\) being constant.    
-
- - We can use a direct solver with **only one factorization of A**.
-
-> &#x2705; 解线性系统的主要耗时在LU分解，而这个算法中\\(\mathrm{H}\\)是常数矩阵，只需要做一次LU分解，简化了对\\(\mathrm{H}\\)分解的计算量。  
-
-Initialize  \\(\mathbf{x} ^{(0)}\\), often as\\( \mathbf{x} ^{[0]} \\)or \\(\mathbf{x} ^{[0]} +∆t\mathbf{v} ^{[0]} \\)    
-
-For \\(k=0\dots K\\)     
-\\(\quad\\) Recalculate projection     
-
-> &#x2705; 对于弹簧系统，Recaculate projection 这一步实际上不需要，因为直接用弹簧系统的公式算力，得到的\\(f\\)是一样的。  
-> &#x2705; 如果是做 shape matching, 还是需要这一步，用于算 \\(f\\)    
-
-\\(\quad\\) Solve \\((\frac{1}{∆t^2}\mathbf{M} +\mathbf{H} )∆\mathbf{x} =−\frac{1}{∆t^2}\mathbf{M} (\mathbf{x} ^{(k)}−\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]})+\mathbf{f} (\mathbf{x} ^{(k)})\\)    
-
-\\(\quad\\) \\(\mathbf{x} ^{(k+1)}\longleftarrow \mathbf{x} ^{(k)}+∆\mathbf{x} \\)      
-
-\\(\quad\\) If \\(||∆\mathbf{x}||\\) is small	\\(\quad\\) then break     
-
-\\(\mathbf{x} ^{[1]}\longleftarrow \mathbf{x} ^{(k+1)}\\)    
-
-\\(\mathbf{v} ^{[1]}\longleftarrow (\mathbf{x} ^{[1]}-\mathbf{x} ^{[0]})/∆t\\)
-
-“Newton’s Method”    
-
-
-P26  
-## Preconditioned Steepest Descent
-
- - Mathematically, this approach is preconditioned steepest descent, in which:     
-
-![](./assets/06-16.png)    
-
-$$
-F(\mathbf{x} )=\frac{1}{2∆t^2} ||\mathbf{x} −\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]}||_\mathbf{M} ^2+E(\mathbf{x} )
-$$
-
-
-The performance depends on how well \\(\mathbf{{\color{Orange} H} }\\) approximates the real Hessian.     
-
-
-> &#x2705;\\(\mathrm{H}\\)不需要很精确，一个近似的正定的矩阵，就能让结果收敛。  
-
-
-
-P27  
-## Pros and Cons of Projective Dynamics 
-
-### Pros
-
- - By building constraints into energy, the simulation now has a theoretical <u>solution</u> with **physical** meaning.    
- - **Fast on CPUs** with a direct solver. No more factorization!    
-
-### Cons
-
-> &#x2705; Fast on CPU,因为它只作一次\\(\mathbf{LU}\\)分解。   
- - Fast convergence in the first few iterations.    
- - **Slow on GPUs**. (GPUs don’t support direct solver wells.)    
-> &#x2705; Slow on GPU，因为\\(\mathbf{LU}\\)分解不适用于 \\(\mathbf{GPU}\\)   
- - Slow convergence over time, as it fails to consider Hessian caused by projection.     
-    - Still suffering from high stiffness    
- - Cannot easily handle **constraint changes**.   
-> &#x2705; constraint changes: 网格关系改变导至弹簧结构改变，原来的\\(\mathbf{H}\\)将不再适用。    
-    - Contacts    
-    - Remeshing due to fracture, etc.      
-
-
-> &#x2705; 课后答疑：   
-能量优化的方法很少用于刚体，主要是有限元、弹性体、衣服模拟。   
+> 如果只是使用了PD的方法来构造能量和H，但没有对A做预计算，实际上没有发挥PD的核心优势。  
 
 
 P28   
