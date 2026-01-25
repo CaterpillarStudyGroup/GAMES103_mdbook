@@ -32,6 +32,16 @@
 2. **机器学习加速**：用神经网络替代部分网格求解或粒子交互。
 3. **高性能计算优化**：针对GPU/异构计算设计混合算法。
 
+# Reference
+
+|ID|Year|Name|解决了什么痛点|主要贡献是什么|Tags|Link|
+|---|---|---|---|---|---|---|
+||2005|Animating sand as a fluid|将FLIP方法应用于不可压缩流模拟。这使混合流体模拟达到了新的高度，得以以更高的精度和稳定性探索复杂的流体动力学。|
+||1999|Stable fluids|该方法最终使得稳定的、三维的、基于物理的流体仿真成为可实现的目标，并能生成逼真的流体效果。这是首个无条件稳定的流体仿真方法，引入了半拉格朗日平流的概念，也是该领域最早应用混合仿真思路的研究之一。   ||里程碑|
+||1986|FLIP: A method for adaptively zoned, particle-in-cell calculations of fluid flows in two dimensions. Journal of Computational Physics Vol|**流体隐式粒子法**|
+||1962|The particle-in-cell method for numerical solution of problems in fluid dynamics.|**质点网格法**|
+
+
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。
 >
