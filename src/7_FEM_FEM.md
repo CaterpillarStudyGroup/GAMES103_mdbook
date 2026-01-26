@@ -53,7 +53,14 @@ Therefore, we can calculate the deformation gradient by edge vectors.
 > &#x2705; 期望\\(\mathbf{F}\\)只包含形变量、不包含平移和旋转、因为刚体运动不应该有形变，所以要把形变提取出来。    
 > &#x2705;平移已经在\\(\mathbf{c}\\)里面了，所以只需考虑旋转。   
 
+基于显式时间积分的 FEM    
 
+$$
+\text{deformed mesh} \rightarrow \overset{形变}F {\rightarrow} \overset{能量密度}ψ{\rightarrow}\overset{能量}U{\rightarrow}力\rightarrow速度\rightarrow位置  
+$$
+
+基于隐式时间积分的FEM.    
+与弹簧系统类似，但计算过程非常复杂。    
 
 P6  
 ## 从F中去除旋转
@@ -81,7 +88,7 @@ So we get rid of \\(\mathbf{U}\\) as: \\(\mathbf{G} =\frac{1}{2} (\mathbf{F^TF�
  - \\(\mathbf{G}\\) is <u>rotation invariant</u>: if additional rotation \\(\mathbf{R}\\), then deformation gradient is \\(\mathbf{RF}\\) but green strain is the same: \\(\mathbf{G} =\frac{1}{2} (\mathbf{F^TR^TRF−I} )=\frac{1}{2} (\mathbf{VD} ^2\mathbf{V} ^\mathbf{T} −\mathbf{I} )\\).    
 
 P7   
-## 计算能量    
+## 弹性体的弹性势能    
 
 前面提到的能量公式是一种通用的形式。这里的能量计算过程是一种具体的广泛使用的公式。     
 
