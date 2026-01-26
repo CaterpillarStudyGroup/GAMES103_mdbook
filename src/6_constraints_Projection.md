@@ -62,6 +62,7 @@ $$
 By default, \\(m_i=m_j\\), but we can also set \\(m_i=\infty\\) for stationary nodes.   
 
 > &#x2705; 对于固定点，不更新就好了。    
+> &#x2753; PBD 里哪里有涉及能量呢？   
 
 P8   
 ## Multiple 约束 – A Gauss-Seidel Approach    

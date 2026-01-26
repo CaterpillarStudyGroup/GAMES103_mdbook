@@ -11,7 +11,7 @@ flowchart LR
     NextWoConstrain(["不考虑约束的下一时刻状态"]) 
     Next(["下一时刻状态"])
 
-    Outter & Current --> Integrate --> NextWoConstrain
+    Outter & Current --> 显式积分 --> NextWoConstrain
     Constrain & NextWoConstrain --> PBD --> Next --> Current
 ```
 
