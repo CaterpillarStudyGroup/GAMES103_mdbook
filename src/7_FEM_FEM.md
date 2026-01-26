@@ -20,7 +20,7 @@ In a nutshell, linear FEM assumes that for any point \\(\mathbf{X}\\) in the ref
 
 ![](./assets/07-01.png)    
 
-由于是均匀形变，在一个三角形内部，\\(\mathbf{F}\\) 是一致的。    
+一个向量对另一个向量求导，得到的是 Jacobian 矩阵。由于是均匀形变，在一个三角形内部，\\(\mathbf{F}\\) 是一致的。    
 
 For any vector between two points, we can use F to convert it from reference to deformed:    
 $$
@@ -30,12 +30,13 @@ $$
 \\(J=\mathrm{det} (\mathbf{F} )\\) 表示形变后的面积变化     
 弹性势能：     
 $$
-\mathbf{U} (e)=\int _e\psi (\mathbf{F} (x))dx=\mathbf{V} _e\psi (\mathbf{F} _e)
+\mathbf{U} (e)= \int _ e \psi (\mathbf{F} (x))dx=\mathbf{V} _e\psi (\mathbf{F} _e)
 $$
 
 \\(\psi\\) 是能量密度函数    
 
-然后根据能量计算力，再仿真。    
+如果采用显示积分，接下来根据能量计算力，再仿真。如果采用隐示积分，接下来基于能量做优化。   
+弹性势能量密度函数关于体积的积分，对于一个元素来说，\\(\mathbf{F}\\) 是常数，\\(\psi (\mathbf{F})\\) 也是常用数。       
 
 P5   
 ## 计算Deformation Gradient    
