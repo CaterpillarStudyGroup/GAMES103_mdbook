@@ -59,13 +59,43 @@ $$
 
 > &#x2705; 密度到压强的计算是一个经验公式。直观理解就是：密度大 → 压强大 → 推动周围粒子离开自己 → 保体积效果       
 
+
+- To compute this pressure gradient, we assume that the  pressure is also smoothly represented:  
+
+$$
+P_i^{smooth}=  \sum _ j V_jP_j W_{ij}
+$$
+
+> &#x2705; 假设空间是一个压强场、粒子是空间中的采样。\\(P^{smooth}\\)是通过周粒子\\(P\\)的插值得到的采样点压强。   
+
+通过 smooth 函数，把离散值变成连续值，以便于微分计算。这是一种常用技巧。   
+
 ### 压强转化为力
 
 P20   
 
  - Pressure force depends on the **difference** of pressure:   
 
+从公式上理解：    
 
+$$
+\frac{D\boldsymbol{v}}{Dt}=-\frac{1}{\rho}\nabla \mathbf{p}+\boldsymbol{g}
+$$
+
+公式中的 \\(\boldsymbol{g} \\) 不在这里考虑，仅考虑 \\(\mathbf{p}\\) 对 \\(\boldsymbol{v}\\) 的影响
+求 \\(\mathbf{p}_i^{smooth}\\) 的梯度的过程见补充
+代入即可求得粒子的速度变化
+
+$$
+\Delta \boldsymbol{v}=\Delta t \cdot \frac{D\boldsymbol{v}}{Dt}=-\frac{1}{\rho}\Delta t \nabla \mathbf{p}_i^{smooth}=\Delta t \frac{\boldsymbol{F}_i^{Pressure}}{m}
+$$
+
+$$
+\boldsymbol{F}_i^{Pressure}=-\boldsymbol{v}_i \nabla \mathbf{p}_i^{smooth}
+$$
+
+从物理上理解。
+ 
 ![](../assets/12-10.png)   
 
 压强差产生压力。   
@@ -79,15 +109,7 @@ $$
 
 > &#x2705; 体积为粒子在空间中占有的体积，体积越大受到的压力越大、\\(\nabla\\)代表压强的差。   
 
-### 计算压力    
 
-- To compute this pressure gradient, we assume that the  pressure is also smoothly represented:  
-
-$$
-P_i^{smooth}=  \sum _ j V_jP_j W_{ij}
-$$
-
-> &#x2705; 假设空间是一个压强场、粒子是空间中的采样。\\(P^{smooth}\\)是通过周粒子\\(P\\)的插值得到的采样点压强。   
 
 - So:   
 
@@ -96,7 +118,6 @@ $$
 $$
 
 P22   
-通过 smooth 函数，把离散值变成连续值，以便于微分计算。这是一种常用技巧。   
 
 ## Viscosity Force 粘滞力   
 
@@ -150,6 +171,8 @@ P24
       - Force + = The viscosity force   
  - Update \\(v_i = v_i + t * \text{ Force } / m_i\\);   
  - Update \\(x_i = x_i + t * v_i\\);   
+
+这是显式积分的流程，也可以把它们转为隐式积分方式。   
 
 ## 补充 1：Spatial Partition加速求最近邻
 
