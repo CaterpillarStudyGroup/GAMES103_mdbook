@@ -4,7 +4,7 @@ P3
 
 Lecture 3 [31:48]     
 
-把空间分成极小的 element    
+把空间分成极小的 element，例如三角形，四面体。    
 
 # Linear Finite Element Method    
 
