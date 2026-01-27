@@ -63,8 +63,8 @@ Method of Characteristics: solving a long partial differential equation (PDE) in
  
 
 
-> &#x2705; 把偏微分方程分解几个小块，依次轮流优化每一小块。    
-> &#x2753; 这种方法为什么可行？   
+> &#x2705; Operator splitting：把偏微分方程分解几个小块，依次轮流优化每一小块。    
+
 
 
 P20   
@@ -110,16 +110,18 @@ P22
 The solution is to trace a virtual particle backward over time.    
 特点：非常稳定，但数值粘性非常高。  
 
-> &#x2705; 例如要求\\(\mathbf{x}_0\\)的速度，倒推哪个粒子会运动到\\(\mathbf{x}_0\\)处；因此找到\\(\mathbf{x}_1\\)，用\\(\mathbf{x}_1\\)的速度来更新\\(\mathbf{x}_0\\)的速度。    
-
+> &#x2705; 做模拟通常更在乎稳定而不是误差，此方法更稳定，但会有模糊的 artifacts.   
+> &#x2705; 例如要求\\(\mathbf{x}_0\\)的速度，倒推哪个粒子会运动到\\(\mathbf{x}_0\\)处；假设短时间内速度不变，根据当前速度猜测上一帧的位置。因此找到\\(\mathbf{x}_1\\)，用\\(\mathbf{x}_1\\)的速度来更新\\(\mathbf{x}_0\\)的速度。    
+> &#x2705; 怎么计算每个\\(\mathbf{x}\\)的\\(\mathbf{u}\\)?答：双线性插值方法、   
 
 ![](./assets/11-12.png)   
 
  - Define \\(\mathbf{x}_0←(i−0.5, j)\\)   
  - Compute \\(\mathbf{u}(\mathbf{x}_0)\\)   
  - \\(\mathbf{x}_1←\mathbf{x}_0−∆t \mathbf{u}(\mathbf{x}_0)\\)   
-> &#x2705; 假设短时间内速度不变，根据当前速度猜测上一帧的位置。   
-> &#x2705; 在求 Advection 时认为每个粒子的速度不变。   
+ 
+
+   
  - Compute \\(\mathbf{u}(\mathbf{x}_1)\\) 双线性插值    
  - \\(u_{i,j}^{new}←u(\mathbf{x}_1)\\)   
 
@@ -133,27 +135,27 @@ Note that if the velocities are staggered, we need to do staggered bilinear inte
 P23  
 > &#x2705; 对每个墙上的速度都以相同的方式更新。    
 
-直接向前推一个时间步来取 \\(\mathbf{x}_1\\) 的位置，可能是非常不准的。   
+直接向前推一个时间步来取 \\(\mathbf{x}_1\\) 的位置，可能是非常不准的，用这个的速度作为 \\(\mathbf{x}\\) 的速度也很不合适。   
 
 ![](./assets/11-13-1.png)   
 
+因此衍伸出不同的方法来确定 \\(\mathbf{x}_1\\) 位置及 \\(\mathbf{x}\\) 速度。    
 
-实际上这种方法也是欧拉法    
-
-Initial value problem (ODE): simply use explicit time integration schemes, e.g.,
+这是一个 Initial value problem (ODE)，以下是显式时间积分的方法：  
  
-- Forward Euler ("RK1")
+1. Forward Euler ("RK1")
 ```c++
 p -= dt * velocity(p)
 ```
+即上文提到的方法   
 
-- Explicit Midpoint ("RK2")
+2. Explicit Midpoint ("RK2")
 ```c++
 p_mid = p - 0.5 * dt * velocity(p)
 p -= dt * velocity(p_mid)
 ```
 
-- RK3
+3. RK3
 ```c++
 v1 = velocity(p)
 p1 = p - 0.5 * dt * v1
@@ -164,17 +166,15 @@ p -= dt * (2 / 9 * v1 + 1 / 3 * v2 + 4 / 9 * v3)
 ```
 
 一般RK2就够用了。    
+
 P24   
 
-We could also subdivided the time step for better tracing.   
+4. We could also subdivided the time step for better tracing.   
+
+> &#x2705; 反推找\\(\mathbf{x}_1\\)时 step 细一点，这样能找得准一点    
 
 ![](./assets/11-14.png)   
 
-
-> &#x2705; 反推找\\(\mathbf{x}_1\\)时 step 细一点，这样能找得准一点    
-> &#x2705; 怎么计算每个\\(\mathbf{x}\\)的\\(\mathbf{u}\\)?答：双线性插值方法、   
-> &#x2705; 做模拟通常更在乎稳定而不是误差，此方法更稳定，但会有模糊的 artifacts.   
-> &#x2705; 这一步不可导。   
 
 ### 方法三：BFECC   
 
@@ -186,15 +186,13 @@ BFECC: Back and Forth Error Compensation and Correction
 - \\( \mathbf{x}^{** }= \text{SL} ( \mathbf{x} ^ {*}, -\Delta t) \\)
 - Estimate the error \\(\mathbf{x}^{\text{error}} = \frac{1}{2}(\mathbf{x}^{**} - \mathbf{x})\\)
 - Apply the error \\(x^{\text{final}} = \mathbf{x}^* + \mathbf{x}^{\text{error}}\\)
- 
-Be careful: need to prevent overshooting.
 
 公式中的 SL 代表方法二    
-这种方法之后要接 error 的截断保护     
+
+Be careful: need to prevent overshooting，因此方法之后要接 error 的截断保护     
 
 ### 其它方法    
-BFECC    
-BiMocq    
+   
 结合粒子的方法    
 
 P25   
