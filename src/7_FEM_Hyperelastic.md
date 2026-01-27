@@ -137,7 +137,6 @@ P35
 > &#x2705; 主要是算P的方法不同
 
 
-
 P36    
 ## The Limitation of StVK    
 
@@ -162,3 +161,4 @@ P37
 > 本文出自CaterpillarStudyGroup，转载请注明出处。
 >
 > https://caterpillarstudygroup.github.io/GAMES103_mdbook/
+
