@@ -42,11 +42,12 @@ $$
 \rho\frac{D\boldsymbol{u}}{Dt} = -\nabla p + \mu\Delta\boldsymbol{u} + \boldsymbol{f}
 $$
 
-[TODO] 补充材料导数
 
-## Equation Fomulation   
+## NS Equation Fomulation   
 
-![](./assets/11-9.png)   
+合并材料导数公式与 NS 方程，得：    
+
+![](./assets/11-9-1.png)   
 
 > &#x2705; 这是一个描述了速度场的公式，它可以告许你速度如何更新。   
 > &#x2705; 第一项代表重力。有时也把所有的外力统一表达为 \\(g\\).      
@@ -58,7 +59,7 @@ Method of Characteristics: solving a long partial differential equation (PDE) in
  - Step 1: Update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=\mathbf{g}\\)   
  - Step 2: Update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=−(\mathbf{u}\cdot ∇)\mathbf{u}\\)  
  - Step 3: Update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=υ∆\mathbf{u}\\)  
- - Step 4: Update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=−∇\mathbf{p}\\)   
+ - Step 4: Update \\(\mathbf{u}\\) by solving \\(∂\mathbf{u}∕∂t=−\frac{1}{\rho} ∇\mathbf{p}\\)   
  
 
 
