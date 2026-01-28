@@ -42,7 +42,7 @@ $$
 
 The Newton-Raphson method, commonly known as Newton’s method, solves the optimization problem: \\(x^{[1]}\\) = argmin \\(F(x)\\).   
 
-![](./assets/05-13.png)    
+![](../assets/05-13.png)    
 
 Given a current \\(x^{(k)}\\), we approximate our goal by: 
 
@@ -56,7 +56,7 @@ $$
 > &#x2705; 因为\\({F}'(x)\\) 是一个近似的，\\(x\\) 也是一个近似解。但\\(x^{[k]}\\) 越接近真实解，\\(x\\) 也会越接近真实解。因此，选代是\\(x^{[k]}\\)和\\(x\\) 都不断逼近真实解的过程。  
 > &#x2705; 普通的梯度下降是把\\({F}' (x)\\) 近似到一阶，牛顿法是近似到二阶，因此下降更快。    
 
-![](./assets/05-14.png)    
+![](../assets/05-14.png)    
 
 > &#x2705; Overshooting 的本质：误差会积累和放大   
 
@@ -64,7 +64,7 @@ $$
 P16    
 Newton’s method finds an extremum, but it can be a minimum or maximum.    
 
-![](./assets/05-15.png)    
+![](../assets/05-15.png)    
 
  - At a minimum \\(x^∗, {F}'' (x^∗)>0\\).     
  - At a maximum \\(x^∗, {F}''(x^∗)<0\\). 
@@ -88,7 +88,7 @@ $$
 0=\nabla F( \mathbf{x}) ≈\nabla F (\mathbf{x} ^{(k)})+\frac{∂F ^2(\mathbf{x} ^{(k)})}{∂\mathbf{x} ^2} (\mathbf{x−x} ^{(k)}) 
 $$
 
-![](./assets/05-16.png)    
+![](../assets/05-16.png)    
 
 
 

@@ -9,7 +9,7 @@
 
 ## Real-Time Graphics Pipeline     
 
-![](./assets/01-1-1.png)   
+![](../assets/01-1-1.png) 
 
 
 P15  
@@ -23,7 +23,7 @@ For example, 24 FPS, 30 FPS, 60 FPS, …
 P17
 ## Animation Playback
 
-![](./assets/01-1.png) 
+![](../assets/01-1.png) 
 
 
 
@@ -39,7 +39,7 @@ P18
 > &#x2705; 动画：渲染，实时，需要与3D世界或玩家互动    
 > &#x2705; 电影：离线，不需要交互，提前录下来，例如游戏中的过场动画     
 
-![](./assets/01-2.png)
+![](../assets/01-2.png)
 
 
 ---------------------------------------
