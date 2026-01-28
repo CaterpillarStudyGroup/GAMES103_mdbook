@@ -69,21 +69,21 @@ $$
 引入变量p为长度为\\(L_e\\)的向量：  
 
 $$
-p = \overrightarrow {\mathbf{x} _{i}'\mathbf{x}_{j}'}
+p = \overrightarrow {\mathbf{x} _ {i}'\mathbf{x} _ {j}'}
 $$
 
 $$
 \begin{aligned}
-E(x) &= \frac{1}{2} k(||\mathbf{x} _{i} −\mathbf{x}_{j} ||−L_e)^2 \\
-&= \min \frac{1}{2} k(||(\mathbf{x} _{i} −\mathbf{x}_{j}) - (\mathbf{x} _{i}' −\mathbf{x}_{j}') ||)^2\\
-&= \min \frac{1}{2} k(||(\mathbf{x} _{i} −\mathbf{x}_{j}) - p ||)^2
+E(x) &= \frac{1}{2} k(||\mathbf{x} _ {i} −\mathbf{x} _ {j} ||−L _ e)^2 \\
+&= \min \frac{1}{2} k(||(\mathbf{x} _ {i} − \mathbf{x} _ {j}) - (\mathbf{x} _{i}' −\mathbf{x} _ {j}') ||)^2\\
+&= \min \frac{1}{2} k(||(\mathbf{x} _ {i} −\mathbf{x} _ {j}) - p ||)^2
 \end{aligned}
 $$
 
 可以解得：  
 
 $$
-p = \argmin E(x) = L\frac{x_i-x_j}{||x_i-x_j||}
+p = \argmin E(x) = L\frac{x _ i-x _ j}{||x _ i-x _ j||}
 $$
 
 代入p得：  
@@ -91,7 +91,7 @@ $$
 
 $$
 \begin{aligned}
-E(x) &= \frac{1}{2} k(||(\mathbf{x} _{i} −\mathbf{x}_{j}) - p ||)^2 \\
+E(x) &= \frac{1}{2} k(||(\mathbf{x} _ {i} −\mathbf{x} _ {j}) - p ||)^2 \\
 &= \frac{1}{2} k ( || \underbrace{\begin{bmatrix} I & -I \end{bmatrix}}_{3 \times 6} \underbrace{\begin{bmatrix} x_i \\ x_j \end{bmatrix}}_{6 \times 1} - \underbrace{p}_{3\times 1}||^2)
 \end{aligned}
 $$
