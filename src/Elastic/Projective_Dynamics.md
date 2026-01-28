@@ -74,8 +74,8 @@ $$
 
 $$
 \begin{aligned}
-E(x) &= \frac{1}{2} k(||\mathbf{x} _ {i} −\mathbf{x} _ {j} ||−L _ e)^2 \\
-&= \min \frac{1}{2} k(||(\mathbf{x} _ {i} − \mathbf{x} _ {j}) - (\mathbf{x} _{i}' −\mathbf{x} _ {j}') ||)^2\\
+E(x) &= \frac{1}{2} k(||\mathbf{x} _ {i} −\mathbf{x} _ {j} ||−L _ e)^2 \\\\
+&= \min \frac{1}{2} k(||(\mathbf{x} _ {i} − \mathbf{x} _ {j}) - (\mathbf{x} _{i}' −\mathbf{x} _ {j}') ||)^2\\\\
 &= \min \frac{1}{2} k(||(\mathbf{x} _ {i} −\mathbf{x} _ {j}) - p ||)^2
 \end{aligned}
 $$
@@ -91,8 +91,8 @@ $$
 
 $$
 \begin{aligned}
-E(x) &= \frac{1}{2} k(||(\mathbf{x} _ {i} −\mathbf{x} _ {j}) - p ||)^2 \\
-&= \frac{1}{2} k ( || \underbrace{\begin{bmatrix} I & -I \end{bmatrix}}_{3 \times 6} \underbrace{\begin{bmatrix} x_i \\ x_j \end{bmatrix}}_{6 \times 1} - \underbrace{p}_{3\times 1}||^2)
+E(x) &= \frac{1}{2} k(||(\mathbf{x} _ {i} −\mathbf{x} _ {j}) - p ||)^2 \\\\
+&= \frac{1}{2} k ( || \underbrace{\begin{bmatrix} I & -I \end{bmatrix}} _ {3 \times 6} \underbrace{\begin{bmatrix} x _ i \\\\ x _ j \end{bmatrix}} _ {6 \times 1} - \underbrace{p} _ {3\times 1}||^2)
 \end{aligned}
 $$
 
@@ -100,31 +100,31 @@ $$
 
 $$
 \begin{aligned}
-\nabla E &= k \begin{bmatrix} I \\ -I \end{bmatrix} (\begin{bmatrix} I & -I \end{bmatrix} \begin{bmatrix} x_i \\ x_j \end{bmatrix} - p) && \nabla E \in R^{6\times1}\\
-H &= k \begin{bmatrix} I \\ -I \end{bmatrix} \begin{bmatrix} I & -I \end{bmatrix} = k \begin{bmatrix} I & -I \\ -I & I \end{bmatrix} && H \in R^{6\times6}
+\nabla E &= k \begin{bmatrix} I \\\\ -I \end{bmatrix} (\begin{bmatrix} I & -I \end{bmatrix} \begin{bmatrix} x_i \\\\  x_ j \end{bmatrix} - p) && \nabla E \in R^{6\times1}\\\\
+H &= k \begin{bmatrix} I \\\\ -I \end{bmatrix} \begin{bmatrix} I & -I \end{bmatrix} = k \begin{bmatrix} I & -I \\\\ -I & I \end{bmatrix} && H \in R^{6\times6}
 \end{aligned}
 $$
 
 ### n根弹簧，m个顶点
 
-引入变量p，其中\\(p_e\\)为长度为\\(L_e\\)的向量：  
+引入变量p，其中\\(p_ e\\)为长度为\\(L_ e\\)的向量：  
 
 $$
-p_{e=(i,j)} = \overrightarrow {\mathbf{x} _{i}'\mathbf{x}_{j}'}
+p_{e=(i,j)} = \overrightarrow {\mathbf{x} _ {i}'\mathbf{x} _ {j}'}
 $$
 
 $$
 \begin{aligned}
-E(x) &= \frac{1}{2} k \sum_{e=(i,j)}(||\mathbf{x} _{i} −\mathbf{x}_{j} ||−L_e)^2 \\
-&= \min \frac{1}{2} k\sum_{e=(i,j)}(||(\mathbf{x} _{i} −\mathbf{x}_{j}) - (\mathbf{x} _{i}' −\mathbf{x}_{j}') ||)^2\\
-&= \min \frac{1}{2} k\sum_{e=(i,j)}(||(\mathbf{x} _{i} −\mathbf{x}_{j}) - p_e ||)^2
+E(x) &= \frac{1}{2} k \sum _ {e=(i,j)}(||\mathbf{x} _ {i} −\mathbf{x} _ {j} ||−L _ e)^2 \\\\
+&= \min \frac{1}{2} k\sum _ {e=(i,j)}(||(\mathbf{x} _ {i} −\mathbf{x} _ {j}) - (\mathbf{x} _ {i}' −\mathbf{x} _ {j}') ||)^2\\
+&= \min \frac{1}{2} k\sum _ {e=(i,j)}(||(\mathbf{x} _ {i} −\mathbf{x} _ {j}) - p_ e ||)^2
 \end{aligned}
 $$
 
 可以解得：  
 
 $$
-p_e = \argmin E_{e=(i,j)}(x) = L\frac{x_i-x_j}{||x_i-x_j||}
+p _ e = \argmin E _ {e=(i,j)}(x) = L\frac{x _ i-x _ j}{||x _ i-x_j||}
 $$
 
 代入p得：  
@@ -132,18 +132,18 @@ $$
 
 $$
 \begin{aligned}
-E(x) &= \frac{1}{2} k\sum_{e=(i,j)}(||(\mathbf{x} _{i} −\mathbf{x}_{j}) - p_e ||)^2 \\
-&= \frac{1}{2} k ( || \underbrace{A}_{3n \times 3m} \underbrace{\mathbf{x}}_{3m \times 1} - \underbrace{P}_{3n\times 1}||^2)
+E(x) &= \frac{1}{2} k\sum _ {e=(i,j)}(||(\mathbf{x} _ {i} −\mathbf{x}_{j}) - p_e ||)^2 \\\\
+&= \frac{1}{2} k ( || \underbrace{A} _ {3n \times 3m} \underbrace{\mathbf{x}} _ {3m \times 1} - \underbrace{P} _ {3n\times 1}||^2)
 \end{aligned}
 $$
 
 其中，A是由弹簧连接关系构成的矩阵，只要弹簧结构不发生变化，整个仿真过程中A保持炒变。  
 
-根据牛顿法，需要根据E(x)的一阶导和二阶导来计算x的更新方向：  
+根据牛顿法，需要根据 \\(E(x)\\) 的一阶导和二阶导来计算 \\(x\\) 的更新方向：  
 
 $$
 \begin{aligned}
-\nabla E &= k A^T (A \mathbf{x} - P) && \nabla E \in R^{3m\times1}\\
+\nabla E &= k A^T (A \mathbf{x} - P) && \nabla E \in R^{3m\times1}\\\\
 H &= k A^TA && H \in R^{3m\times3m}
 \end{aligned}
 $$
@@ -153,25 +153,25 @@ $$
 ### 引入的变化p是形变后的e的投影
 
 $$
-(\mathbf{x} _{e,i}^{\mathrm{new} },\mathbf{x} _{e,j}^{\mathrm{new} }) = \mathrm{Projection} _e(\mathbf{x}_i,\mathbf{x}_j)
+(\mathbf{x} _ {e,i}^{\mathrm{new} },\mathbf{x} _ {e,j}^{\mathrm{new} }) = \mathrm{Projection} _ e(\mathbf{x} _ i,\mathbf{x} _ j)
 $$
 
 
-> &#x2705; 本文基于约束定义能量。{\\(\mathbf{x} _{e,i}^{\mathrm{new} },\mathbf{x} _{e,j}^{\mathrm{new} }\\)}为期望的顶点位置。不直接把顶点从当前位置移到期望位置。而是把当前位置和期望位置的距离转化为能量，通过能量推动顶点从当前位置移到目标位置。   
+> &#x2705; 本文基于约束定义能量。{\\(\mathbf{x} _{e,i}^{\mathrm{new} },\mathbf{x} _ {e,j}^{\mathrm{new} }\\)}为期望的顶点位置。不直接把顶点从当前位置移到期望位置。而是把当前位置和期望位置的距离转化为能量，通过能量推动顶点从当前位置移到目标位置。   
 
 因此称为投影动力学
 
 ### 这个能量与弹簧能量有什么区别
 
 $$
- E(\mathbf{x})=\sum _{e=(i,j)}\frac{k}{2}(||\mathbf{x}_i-\mathbf{x}_j||-L_e)^2 
+ E(\mathbf{x})=\sum _{e=(i,j)}\frac{k}{2}(||\mathbf{x}_ i-\mathbf{x}_j||-L _ e)^2 
 $$  
 
 $$
-\mathbf{f} _i=−\nabla_iE(\mathbf{x} )=−{\textstyle \sum _{e:i\in e}}(\mathbf{x} _i−\mathbf{x} _j)−(\mathbf{x} _{e,i}^{\mathrm{new}} −\mathbf{x} _{e,j}^{\mathrm{new} })
+\mathbf{f} _ i=−\nabla_iE(\mathbf{x} )=−{\textstyle \sum _{e:i\in e}}(\mathbf{x} _ i−\mathbf{x} _ j)−(\mathbf{x} _ {e,i}^{\mathrm{new}} −\mathbf{x} _ {e,j}^{\mathrm{new} })
 $$
 
-> &#x2705; 基于 \\(E(\mathbf{x})、\mathbf{x}_i^{\mathrm{new} } 、\mathbf{x}_j^{\mathrm{new} }\\) 计算力，此时假设\\(\mathbf{x}_i^{\mathrm{new} }\\)和 \\(\mathbf{x}_j^{\mathrm{new} }\\)都是定值，\\(\mathbf{x}_i\\)和 \\(\mathbf{x}_j\\)是变量。   
+> &#x2705; 基于 \\(E(\mathbf{x})、\mathbf{x}_i^{\mathrm{new} } 、\mathbf{x} _ j^{\mathrm{new} }\\) 计算力，此时假设\\(\mathbf{x} _ i^{\mathrm{new} }\\)和 \\(\mathbf{x} _ j^{\mathrm{new} }\\)都是定值，\\(\mathbf{x} _ i\\)和 \\(\mathbf{x} _ j\\)是变量。   
 > &#x2705; 本文基于约束定义能量和力，得到的结果与基于弹簧能量计算的能量和力相同。   
 > &#x2705; 既然 \\(E\\) 和 \\(F\\) 是一样的，何必多此一举? 答：H不同。   
 
