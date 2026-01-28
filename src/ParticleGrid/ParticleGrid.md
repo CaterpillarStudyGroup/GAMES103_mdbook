@@ -10,6 +10,18 @@
 
 # 粒子法与网格法的结合
 
+$$
+\frac{D}{Dt} = \frac{\partial}{\partial t} + U \cdot \nabla
+$$
+
+这个公式将欧拉法与拉格朗日法联系在一起 \\(\frac{\partial}{\partial t}\\) 代表固定点物理属性随时间的变化。   
+\\(\frac{D}{Dt}\\) 代表流动粒子的物理属性随时间的变化。   
+\\(U \cdot \nabla\\) 代表物理属性随位置的变化。   
+ 
+欧拉网格上的物理属性基于 \\(\frac{\partial}{\partial t}\\) 更新。
+拉格朗日粒子上的物理属性基于 \\(\frac{D}{Dt}\\) 更新。    
+ 
+
 ### Motivation
  
 - **Recall that a fluid solver usually has two components**:

@@ -50,3 +50,8 @@ PIC + grid-based 泊松 solver = 流体桢拟器
 1. Transfer more information: APIC, PolyPIC     
 2. Transfer the <u>delta</u>: FLIP (later in this lecture)    
 
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/
