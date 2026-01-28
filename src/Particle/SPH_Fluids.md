@@ -82,9 +82,9 @@ $$
 \frac{D\boldsymbol{v}}{Dt}=-\frac{1}{\rho}\nabla \mathbf{p}+\boldsymbol{g}
 $$
 
-公式中的 \\(\boldsymbol{g} \\) 不在这里考虑，仅考虑 \\(\mathbf{p}\\) 对 \\(\boldsymbol{v}\\) 的影响
-求 \\(\mathbf{p}_i^{smooth}\\) 的梯度的过程见补充
-代入即可求得粒子的速度变化
+公式中的 \\(\boldsymbol{g} \\) 不在这里考虑，仅考虑 \\(\mathbf{p}\\) 对 \\(\boldsymbol{v}\\) 的影响     
+求 \\(\mathbf{p}_i^{smooth}\\) 的梯度的过程见补充    
+代入即可求得粒子的速度变化    
 
 $$
 \Delta \boldsymbol{v}=\Delta t \cdot \frac{D\boldsymbol{v}}{Dt}=-\frac{1}{\rho}\Delta t \nabla \mathbf{p}_i^{smooth}=\Delta t \frac{\boldsymbol{F}_i^{Pressure}}{m}
