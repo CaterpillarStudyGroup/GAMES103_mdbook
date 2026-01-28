@@ -59,7 +59,7 @@ $$
 ![](../assets/06-10.png)    
 
 $$
-E(x) = \sum_{e=(i,j)}E_e= \frac{1}{2} k\sum_{e=(i,j)} (||\mathbf{x} _{i} −\mathbf{x}_{j} ||−L_e)^2
+E(x) = \sum _ {e=(i,j)}E _ e= \frac{1}{2} k\sum _ {e=(i,j)} (||\mathbf{x} _ {i} − \mathbf{x} _ {j} ||−L _ e)^2
 $$
 
 ## 势能能量E(x)
