@@ -124,7 +124,7 @@ $$
 可以解得：  
 
 $$
-p _ e = \argmin E _ {e=(i,j)}(x) = L\frac{x _ i-x _ j}{||x _ i-x_j||}
+p _ e = \argmin E _ {e=(i,j)}(x) = L\frac{x _ i-x _ j}{||x _ i-x _ j||}
 $$
 
 代入p得：  
@@ -132,7 +132,7 @@ $$
 
 $$
 \begin{aligned}
-E(x) &= \frac{1}{2} k\sum _ {e=(i,j)}(||(\mathbf{x} _ {i} −\mathbf{x}_{j}) - p_e ||)^2 \\\\
+E(x) &= \frac{1}{2} k\sum _ {e=(i,j)}(||(\mathbf{x} _ {i} −\mathbf{x}_{j}) - p _ e ||)^2 \\\\
 &= \frac{1}{2} k ( || \underbrace{A} _ {3n \times 3m} \underbrace{\mathbf{x}} _ {3m \times 1} - \underbrace{P} _ {3n\times 1}||^2)
 \end{aligned}
 $$
@@ -164,7 +164,7 @@ $$
 ### 这个能量与弹簧能量有什么区别
 
 $$
- E(\mathbf{x})=\sum _{e=(i,j)}\frac{k}{2}(||\mathbf{x}_ i-\mathbf{x}_j||-L _ e)^2 
+ E(\mathbf{x})=\sum _ {e=(i,j)}\frac{k}{2}(||\mathbf{x} _  i-\mathbf{x} _ j||-L _ e)^2 
 $$  
 
 $$
