@@ -184,3 +184,9 @@ last_\\(∆\mathbf{x} \longleftarrow \\) old_\\(∆\mathbf{x}\\)
 共轭梯度的效率很大程度上取决于 precondition,但在GPU上能使用的precondition 比较受限、 CPU 上一般选择 Incomplete LU 分解。   
 问题四：支持的维度    
 直接法比较占内存，因此支持的维度不如迭代法大。  
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/
