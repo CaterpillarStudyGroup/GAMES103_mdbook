@@ -135,7 +135,7 @@ Note that if the velocities are staggered, we need to do staggered bilinear inte
 P23  
 > &#x2705; 对每个墙上的速度都以相同的方式更新。    
 
-直接向前推一个时间步来取 \\(\mathbf{x}_1\\) 的位置，可能是非常不准的，用这个的速度作为 \\(\mathbf{x}\\) 的速度也很不合适。   
+直接向前推一个时间步来取 \\(\mathbf{x}_1\\) 的位置，可能是非常不准的，用这个 \\(\mathbf{x}_1\\) 的速度作为 \\(\mathbf{x}\\) 的速度也很不合适。   
 
 ![](./assets/11-13-1.png)   
 
