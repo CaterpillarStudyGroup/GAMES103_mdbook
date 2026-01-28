@@ -5,14 +5,14 @@ mindmap
         可仿真属性
         约束
     仿真方法
-        基于能量的方法
-            弹簧系统
-            PD
-            FEM
-            FVM
+        弹簧系统
         基于投影的方法
             PBD
+            PD
             Strain Limiting
+        基于形变的方法
+            FEM
+            FVM
     应用场景
         线
         布

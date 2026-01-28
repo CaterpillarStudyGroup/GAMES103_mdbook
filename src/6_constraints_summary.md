@@ -1,20 +1,22 @@
 P37  
 # A Summary For the Day    
 
- - Position-based dynamics and strain limiting    
-    - The key is to build a projection function for every constraint.    
-    - Two approaches for integration: Jacobi and Gauss-Seidel.   
-    - Fast in low resolutions, but problematic in high resolutions.    
-    - Not physically correct.    
- - Projective Dynamics    
-    - Also uses projection functions, but they are now built into energies.    
-    - In every iteration, projections are first updated, and then treated as constants in implicit formulation.    
-    - The matrix in the system becomes constant, can be pre-factorized for fast simulation.    
-    - Converges fast only in the first few iterations, slow afterwards. CPU friendly.    
- - Constrained Dynamics   
-    - Focused on very stiff constraints. Introduces dual variables.    
-    - Also built upon implicit integration. Two methods: primal-dual, pure dual.    
-    - Restrictions on the solvers.    
+- **基于位置的动力学与应变限制法**
+    - 关键在于为每个约束建立投影函数。
+    - 两种积分方法：雅可比法与高斯-赛德尔法。
+    - 低分辨率下运行快，但高分辨率下存在局限。
+    - 物理准确性不足。
+
+- **投影动力学**
+    - 同样使用投影函数，但将其嵌入能量函数中构建。
+    - 每次迭代先更新投影量，再将其视为隐式公式中的常数处理。
+    - 系统矩阵恒定，可预先分解以实现快速模拟。
+    - 前几次迭代收敛快，后续速度下降，适合CPU计算。
+
+- **约束动力学**
+    - 专注于极刚性约束，引入对偶变量。
+    - 同样基于隐式积分，采用两种方法：原对偶法与纯对偶法。
+    - 对求解器有限制要求。
 
 
 
