@@ -10,6 +10,7 @@ P5
  - How to estimate the quantity at a new location \\(\mathbf{x}_i\\)?   
 
 > &#x2705; 空间中有很多带有物理量的粒子，求任意位置上的物理量。这是插值问题，关键是要插值结果平滑。    
+> &#x2705; SHP 的核心思想是将连续场量的导数转化为粒子间的求积。    
 
 ![](../assets/1.3-01.png)    
 
