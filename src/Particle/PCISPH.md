@@ -33,3 +33,11 @@ flowchart LR
 
 - 隐式离散格式，无需求解泊松方程，效率更高
 - 推导基于可压缩连续性方程，而非不可压缩泊松方程
+
+
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/
