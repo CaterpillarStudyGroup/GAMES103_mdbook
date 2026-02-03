@@ -10,8 +10,8 @@ flowchart LR
     F --> |修正步②| D[下一时刻状态]
 ```
 
-①预测步：基于外力的物理仿真<br>（不考虑内力约束）
-②这一步是WCSPH和PCISPH的关键差别
+①预测步：基于外力的物理仿真<br>（不考虑内力约束）      
+②这一步是WCSPH和PCISPH的关键差别     
 
 ## 二、WCSPH 与 PCISPH 的关键区别
 1.  **WCSPH**
