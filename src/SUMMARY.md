@@ -25,6 +25,7 @@
     - [SPH应用 - 水](Particle/SPH_Fluids.md)
     - [隐式不可压缩](Particle/IISPH.md)
     - [Divergenc-Fre SPH](Particle/DFSPH.md)
+    - [DPositon Based Fluid (PBF)](Particle/PBF.md)
     - [AI方法](Particle/AIModel.md)
   - [应用场景 - 刚体](Particle/Rigid.md)
 - [不可形变Mesh - 刚体]()
