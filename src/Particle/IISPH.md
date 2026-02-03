@@ -22,12 +22,15 @@ $$
 E = \text{动能} + \lambda \cdot \text{约束项}
 $$
 
-$$
-(1) \frac{\partial E}{\partial x} = \frac{\partial \text{动能}}{\partial x} + \lambda \cdot \frac{\partial \text{约束项}}{\partial x} = 0
-$$
+(1)      
 
 $$
-(2) \frac{\partial E}{\partial \xi} = \text{约束项} = 0
+\frac{\partial E}{\partial x} = \frac{\partial \text{动能}}{\partial x} + \lambda \cdot \frac{\partial \text{约束项}}{\partial x} = 0
+$$
+
+(2)     
+$$
+\frac{\partial E}{\partial \lambda } = \text{约束项} = 0
 $$
 
 $$
@@ -41,12 +44,13 @@ $$
 (3) 化简得到NS方程的变分形式，即
  
 $$
-\rho \frac{D\boldsymbol{u}}{Dt} = -\nabla p - \rho (\boldsymbol{u} \cdot \nabla)\boldsymbol{u} \quad (5)
+\rho \frac{D\boldsymbol{u}}{Dx} = -\nabla p - \rho (\boldsymbol{u} \cdot \nabla)\boldsymbol{u} \quad (5)
 $$
  
 将公式(4)(5)离散化，得到方程：    
-方程组中有两个未知量：$$\lambda, \boldsymbol{u}$$     
-求解这个线性方程组 (不是泊松方程)      
+方程组中有两个未知量：\\(\lambda, \boldsymbol{\nabla x}\\)         
+求解这个线性方程组 (不是泊松方程)     
+
 (4) 是 ISPH 的约束项的定义   
 而IISPH的约束项的定义应该是：   
  
