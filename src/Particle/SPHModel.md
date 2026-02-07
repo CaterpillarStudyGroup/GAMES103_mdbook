@@ -265,9 +265,7 @@ $$
 
 # Reference
 
-|ID|Year|Name|解决了什么痛点|主要贡献是什么|Tags|Link|
-|---|---|---|---|---|---|---|
-||1996|Smoothed particles: A new paradigm for animating highly deformable bodies.|将光滑粒子流体动力学引入计算机图形学领域，用于模拟高度可变形的物体。|
+
 
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。

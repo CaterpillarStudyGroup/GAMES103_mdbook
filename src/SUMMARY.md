@@ -69,6 +69,7 @@
 
 - [粒子 + Grid](ParticleGrid/ParticleGrid.md)
   - [Particle in Cell](./ParticleGrid/PIC.md)
+  - [Fluid Implicit Particle](./ParticleGrid/FLIP.md)
   - [Material Point Method](ParticleGrid/MPM.md)
   - [MLS-MPM](ParticleGrid/MLS.md)
   - [AI方法](ParticleGrid/AIModel.md)
