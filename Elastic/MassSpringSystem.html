@@ -1,0 +1,449 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Mass Spring System - GAMES103</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The note of GAMES103">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/pagetoc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">BackGround</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 数学基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../2_math_vector.html"><strong aria-hidden="true">2.1.</strong> Vector</a></li><li class="chapter-item expanded "><a href="../2_math_matrix.html"><strong aria-hidden="true">2.2.</strong> Matrix</a></li><li class="chapter-item expanded "><a href="../2_math_calculus.html"><strong aria-hidden="true">2.3.</strong> Tensor Calculus</a></li><li class="chapter-item expanded "><a href="../Math/LinearSolver.html"><strong aria-hidden="true">2.4.</strong> Linear Solver</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 物理基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Physics/Force.html"><strong aria-hidden="true">3.1.</strong> 力</a></li><li class="chapter-item expanded "><a href="../Physics/Torque.html"><strong aria-hidden="true">3.2.</strong> 力矩</a></li><li class="chapter-item expanded "><a href="../Physics/Fluid.html"><strong aria-hidden="true">3.3.</strong> 流体力学</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 图形学基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Graphics/GraphicsPipeline.html"><strong aria-hidden="true">4.1.</strong> Graphics Pipeline</a></li><li class="chapter-item expanded "><a href="../Graphics/Optimize.html"><strong aria-hidden="true">4.2.</strong> 优化</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">单个仿真代理的仿真</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 粒子</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Particle/Particle.html"><strong aria-hidden="true">5.1.</strong> 粒子</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Particle/SPHModel.html"><strong aria-hidden="true">5.1.1.</strong> SPH Model</a></li><li class="chapter-item expanded "><a href="../Particle/SPH_Fluids.html"><strong aria-hidden="true">5.1.2.</strong> SPH应用 - 水</a></li><li class="chapter-item expanded "><a href="../Particle/PCISPH.html"><strong aria-hidden="true">5.1.3.</strong> Predictive-Corrective</a></li><li class="chapter-item expanded "><a href="../Particle/IISPH.html"><strong aria-hidden="true">5.1.4.</strong> Implicit Imcompressible</a></li><li class="chapter-item expanded "><a href="../Particle/DFSPH.html"><strong aria-hidden="true">5.1.5.</strong> Divergenc-Fre SPH</a></li><li class="chapter-item expanded "><a href="../Particle/PBF.html"><strong aria-hidden="true">5.1.6.</strong> DPositon Based Fluid (PBF)</a></li><li class="chapter-item expanded "><a href="../Particle/AIModel.html"><strong aria-hidden="true">5.1.7.</strong> AI方法</a></li></ol></li><li class="chapter-item expanded "><a href="../Particle/Rigid.html"><strong aria-hidden="true">5.2.</strong> 应用场景 - 刚体</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 不可形变Mesh - 刚体</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Rigid/Attribution.html"><strong aria-hidden="true">6.1.</strong> 刚体的属性</a></li><li class="chapter-item expanded "><a href="../Rigid/Force.html"><strong aria-hidden="true">6.2.</strong> 刚体动力学</a></li></ol></li><li class="chapter-item expanded "><a href="../Elastic/Elastic.html"><strong aria-hidden="true">7.</strong> 可形变Mesh - 弹性体</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Elastic/Attribution.html"><strong aria-hidden="true">7.1.</strong> 弹性体的属性</a></li><li class="chapter-item expanded "><a href="../Elastic/MassSpringSystem.html" class="active"><strong aria-hidden="true">7.2.</strong> Mass Spring System</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../5_cloth.html"><strong aria-hidden="true">7.2.1.</strong> 应用场景 - 布料</a></li><li class="chapter-item expanded "><a href="../5_cloth_bending_blcoking.html"><strong aria-hidden="true">7.2.2.</strong> Bending and Locking Issues</a></li></ol></li><li class="chapter-item expanded "><a href="../Elastic/PBD.html"><strong aria-hidden="true">7.3.</strong> 位置动力学（Position Based Dynamics)</a></li><li class="chapter-item expanded "><a href="../Elastic/Projective_Dynamics.html"><strong aria-hidden="true">7.4.</strong> 投影动力学 (Projective Dynamics)</a></li><li class="chapter-item expanded "><a href="../Elastic/ShapeMatching.html"><strong aria-hidden="true">7.5.</strong> Shape Matching</a></li><li class="chapter-item expanded "><a href="../5_cloth_shape_matching.html"><strong aria-hidden="true">7.6.</strong> Shape Matching</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../6_constraints_strain.html"><strong aria-hidden="true">7.6.1.</strong> Strain Limiting</a></li><li class="chapter-item expanded "><a href="../6_constraints_summary.html"><strong aria-hidden="true">7.6.2.</strong> 总结</a></li></ol></li><li class="chapter-item expanded "><a href="../7_FEM_FEM.html"><strong aria-hidden="true">7.7.</strong> Linear Finite Element Method</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../8_FEM2.html"><strong aria-hidden="true">7.7.1.</strong> 08-FEM2</a></li><li class="chapter-item expanded "><a href="../8_FEM2_Nonlinear_optimization.html"><strong aria-hidden="true">7.7.2.</strong> Nonlinear optimization</a></li><li class="chapter-item expanded "><a href="../7_FEM_FVM.html"><strong aria-hidden="true">7.7.3.</strong> FVM</a></li><li class="chapter-item expanded "><a href="../7_FEM_Hyperelastic.html"><strong aria-hidden="true">7.7.4.</strong> Hyperelastic Models</a></li><li class="chapter-item expanded "><a href="../7_FEM_summary.html"><strong aria-hidden="true">7.7.5.</strong> Summary</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../6_constraints_Contrained_Dynamics.html"><strong aria-hidden="true">8.</strong> Skeleton</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> 2D Grid - 水</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">9.1.</strong> 高度场模型</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../10_wave_height_feild.html"><strong aria-hidden="true">9.1.1.</strong> 高度场模型</a></li><li class="chapter-item expanded "><a href="../10_wave_volume.html"><strong aria-hidden="true">9.1.2.</strong> Volume Preservation</a></li><li class="chapter-item expanded "><a href="../10_wave_boundary.html"><strong aria-hidden="true">9.1.3.</strong> Boundary Conditions</a></li><li class="chapter-item expanded "><a href="../10_wave_summary.html"><strong aria-hidden="true">9.1.4.</strong> Summary</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> 3D Grid</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../11_EulerianFluids.html"><strong aria-hidden="true">10.1.</strong> 欧拉模型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../11_EulerianFluids_Grid.html"><strong aria-hidden="true">10.1.1.</strong> A Grid Representation and Finite Differencing</a></li><li class="chapter-item expanded "><a href="../11_EulerianFluids_Staggered.html"><strong aria-hidden="true">10.1.2.</strong> Staggered Grid</a></li><li class="chapter-item expanded "><a href="../11_EulerianFluids_Incompressible.html"><strong aria-hidden="true">10.1.3.</strong> Incompressible, Viscous  Navier-Stokes Equations</a></li><li class="chapter-item expanded "><a href="../11_EulerianFluids_Air_Smoke.html"><strong aria-hidden="true">10.1.4.</strong> Air and Smoke</a></li><li class="chapter-item expanded "><a href="../11_EulerianFluids_Summary.html"><strong aria-hidden="true">10.1.5.</strong> Summary</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../SDF.html"><strong aria-hidden="true">11.</strong> SDF</a></li><li class="chapter-item expanded affix "><li class="part-title">混合仿真代理的仿真</li><li class="chapter-item expanded "><a href="../ParticleGrid/ParticleGrid.html"><strong aria-hidden="true">12.</strong> 粒子 + Grid</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../ParticleGrid/PIC.html"><strong aria-hidden="true">12.1.</strong> Particle in Cell</a></li><li class="chapter-item expanded "><a href="../ParticleGrid/FLIP.html"><strong aria-hidden="true">12.2.</strong> Fluid Implicit Particle</a></li><li class="chapter-item expanded "><a href="../ParticleGrid/MPM.html"><strong aria-hidden="true">12.3.</strong> Material Point Method</a></li><li class="chapter-item expanded "><a href="../ParticleGrid/MLS.html"><strong aria-hidden="true">12.4.</strong> MLS-MPM</a></li><li class="chapter-item expanded "><a href="../ParticleGrid/AIModel.html"><strong aria-hidden="true">12.5.</strong> AI方法</a></li><li class="chapter-item expanded "><a href="../ParticleGrid/APIC.html"><strong aria-hidden="true">12.6.</strong> Affice PIC</a></li><li class="chapter-item expanded "><a href="../ParticleGrid/Models.html"><strong aria-hidden="true">12.7.</strong> Constitutive Models</a></li><li class="chapter-item expanded "><a href="../ParticleGrid/More.html"><strong aria-hidden="true">12.8.</strong> More</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">仿真代理之间的作用</li><li class="chapter-item expanded "><a href="../ParticleSDF.html"><strong aria-hidden="true">13.</strong> 粒子 + SDF</a></li><li class="chapter-item expanded "><a href="../ParticleMesh.html"><strong aria-hidden="true">14.</strong> 粒子 + Mesh</a></li><li class="chapter-item expanded "><a href="../RigidSDF.html"><strong aria-hidden="true">15.</strong> 刚体 + SDF</a></li><li class="chapter-item expanded "><a href="../RigidSystem/RigidSystem.html"><strong aria-hidden="true">16.</strong> 刚体系统</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../9_collision_detect.html"><strong aria-hidden="true">16.1.</strong> 刚体的碰撞检测 - Broad Phase</a></li><li class="chapter-item expanded "><a href="../9_collision_GJK.html"><strong aria-hidden="true">16.2.</strong> 离散相交检测 - GJK</a></li><li class="chapter-item expanded "><a href="../9_collision_detect_narrow.html"><strong aria-hidden="true">16.3.</strong> 刚体的碰撞检测 - Narrow Phase</a></li><li class="chapter-item expanded "><a href="../9_collision_response.html"><strong aria-hidden="true">16.4.</strong> Constrain Based 刚体碰撞响应</a></li><li class="chapter-item expanded "><a href="../Interior_Point_Methods.html"><strong aria-hidden="true">16.5.</strong> 内点法</a></li><li class="chapter-item expanded "><a href="../Impact_Zone_Optimization.html"><strong aria-hidden="true">16.6.</strong> 优化法</a></li><li class="chapter-item expanded "><a href="../Rigid_Impact_Zones.html"><strong aria-hidden="true">16.7.</strong> 刚性冲击区域</a></li><li class="chapter-item expanded "><a href="../RigidSystem/IPC.html"><strong aria-hidden="true">16.8.</strong> Incremental Potential Contact</a></li><li class="chapter-item expanded "><a href="../4_rigidcontact_supplementary.html"><strong aria-hidden="true">16.9.</strong> 补充</a></li></ol></li><li class="chapter-item expanded "><a href="../RigidSoft.html"><strong aria-hidden="true">17.</strong> 刚体 + 软体</a></li><li class="chapter-item expanded "><a href="../9_collision_untangling.html"><strong aria-hidden="true">18.</strong> Untangling Cloth</a></li><li class="chapter-item expanded "><a href="../RigidGrid.html"><strong aria-hidden="true">19.</strong> 刚体 + Grid</a></li><li class="chapter-item expanded "><a href="../RigidParticleCoupling.html"><strong aria-hidden="true">20.</strong> 刚体 + SPH</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">GAMES103</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/CaterpillarStudyGroup/GAMES103_mdbook" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <p>P4</p>
+<h1 id="弹簧质点模型"><a class="header" href="#弹簧质点模型">弹簧质点模型</a></h1>
+<blockquote>
+<p>✅ 整体流程就像是对 Mesh 上的每个顶点独立地进行粒子仿真，只是力变得复杂，因为在粒子之间增加了弹簧。当弹簧发生形变，就产生了弹簧力（内力）。<br />
+✅ 通过在粒子间构造弹簧来约束 Mesh 边长尽量不变。通过构造网状的弹簧系统来保证 Mesh 面片不发生形变。通过增加对角顶点的弹簧来约束 Mesh 体积上的形变。</p>
+</blockquote>
+<pre class="mermaid">---
+title: 弹簧系统   
+---
+flowchart LR
+    Current([&quot;当前状态&quot;]) 
+    Constrain[(&quot;约束&quot;)]
+    Outter[(&quot;外力&quot;)]
+    Energy([&quot;能量&quot;]) 
+    Force([&quot;内力&quot;]) 
+    Next([&quot;下一时刻状态&quot;]) 
+
+    Constrain--&gt;Energy--&gt;Force
+    Outter &amp; Force &amp; Current --&gt; Integrate --&gt; Next --&gt; Current
+</pre>
+<p>积分可以是显式积分或者隐式积分。如果是显式积分，由力得到速度，速度更新状态。</p>
+<pre class="mermaid">---
+title: 弹簧系统 - 显式积分   
+---
+flowchart LR
+    Current([&quot;当前状态&quot;]) 
+    Constrain[(&quot;约束&quot;)]
+    Outter[(&quot;外力&quot;)]
+    Energy([&quot;能量&quot;]) 
+    Force([&quot;内力&quot;]) 
+    Velocity([&quot;速度&quot;]) 
+    Next([&quot;下一时刻状态&quot;]) 
+
+    Constrain--&gt;Energy--&gt;Force
+    Outter &amp; Force --&gt; Velocity
+    Velocity &amp; Current --&gt; Next
+</pre>
+<p>但显式积分存在不稳定性问题，在图形学中更常用的是隐式积分。</p>
+<pre class="mermaid">---
+title: 弹簧系统 - 隐式积分   
+---
+flowchart LR
+    Current([&quot;当前状态&quot;]) 
+    Constrain[(&quot;约束&quot;)]
+    Outter[(&quot;外力&quot;)]
+    Energy([&quot;势能能量&quot;]) 
+    Mometen([&quot;动能能量&quot;]) 
+    Target([&quot;优化目标&quot;])
+    Velocity([&quot;速度&quot;]) 
+    Next([&quot;下一时刻状态&quot;]) 
+    NextWoContrain([&quot;不考虑约束的下一时刻状态&quot;])
+
+    Outter --&gt; Velocity
+    Velocity &amp; Current --&gt; NextWoContrain --&gt; Mometen
+    Constrain--&gt;Energy 
+    Energy &amp; Mometen --&gt; Target --&gt; Optimize --&gt; Next
+</pre>
+<blockquote>
+<p>✅ 本节课所讲的套路：分析力/能量 → 隐式积分 → 通过优化解积分 → 更新，对弹簧系统、有限元、弹性体等各种物理模拟同样适用。区别在于如何构造能量和解优化问题。</p>
+</blockquote>
+<h2 id="构建弹簧系统"><a class="header" href="#构建弹簧系统">构建弹簧系统</a></h2>
+<h3 id="an-ideal-spring--一个端点"><a class="header" href="#an-ideal-spring--一个端点">An Ideal Spring —— 一个端点</a></h3>
+<p><img src="../assets/02-46.png" alt="" /></p>
+<blockquote>
+<p>✅ Energy：物理上的弹性势能<br />
+✅ Force：物理上的力，是 Energy 的 gradient 的反方向; 公式后面有个 T,来源于前面的\(\nabla \)，直观解释，前面是力的大小，后面是力的方向。<br />
+🔍 Choi and Ko. 2002. Stable But Responive Cloth. TOG (SIGGRAPH) --- 以上公式推导的详细过程</p>
+</blockquote>
+<h3 id="an-ideal-spring--两个端点"><a class="header" href="#an-ideal-spring--两个端点">An Ideal Spring —— 两个端点</a></h3>
+<p><img src="../assets/02-47-1.png" alt="" /></p>
+<p>$$</p>
+<p>\mathbf{f} _i(\mathbf{x} )=−∇_i\mathbf{E} =−k(||\mathbf{x}_i −\mathbf{x}_j||−L)\frac{\mathbf{x}_i −\mathbf{x}_j}{||\mathbf{x}_i −\mathbf{x}_j ||} \\
+\mathbf{f} _j(\mathbf{x})=−∇_jE=−k (||\mathbf{x}_j −\mathbf{x}_i ||−L)\frac {\mathbf{x}_j −\mathbf{x}_i}{||\mathbf{x}_j −\mathbf{x}_i||}</p>
+<p>$$</p>
+<p>P5</p>
+<h3 id="multiple-springs"><a class="header" href="#multiple-springs">Multiple Springs</a></h3>
+<p>When there are many springs, the energies and the forces can be simply summed up.</p>
+<p><img src="../assets/05-3.png" alt="" /></p>
+<p>$$
+E= {\textstyle \sum_{e=0}^{3}}E_e= {\textstyle \sum_{e=0}^{3}} (\frac{1}{2} k(||\mathbf{x} _i −\mathbf{x}_e ||−L_e)^2)
+$$</p>
+<p>$$
+f_i=−\nabla_iE = \textstyle \sum_{e=0}^{3}(−k(||\mathbf{x}_i−\mathbf{x}_e||−L_e)\frac{\mathbf{x}_i−\mathbf{x}_e}{||\mathbf{x}_i−\mathbf{x}_e||})
+$$</p>
+<blockquote>
+<p>✅ 能量和力都是可以叠加的</p>
+</blockquote>
+<h2 id="积分系统显式积分"><a class="header" href="#积分系统显式积分">积分系统——显式积分</a></h2>
+<p>P12<br />
+与粒子仿真相同。每个 Mesh 顶点根据受力更新位置的过程涉及积分。积分离散化也可以是显式、隐式、半隐式。</p>
+<p>Explicit integration suffers from <strong>numerical instability</strong> caused by <u>overshooting</U>, when the stiffness \(k\) and/or the time step \(∆t\) is too large.</p>
+<blockquote>
+<p>✅ Explicit：当前力 → 当前速度 → 当前位置<br />
+显式积分不稳定，如果 \(Δt\) 或 \(k\) 太大，会导致 overshooting。</p>
+</blockquote>
+<p>A naive solution is to use a small \(∆t\) . But that slows down the simulation.</p>
+<blockquote>
+<p>✅ 解决方法：减小\(\Delta t\)。但这个方法不解决本质问题，且会降低整个模拟系统的效率<br />
+✅ 本质上是\(Δt\)太大导致积分近似的结果与实际积分的结果有很大误差，\(k\)太大或\(Δt\)只是让这个问题更明显，减小\(k\)或\(Δt\)问题仍然存在。</p>
+</blockquote>
+<p>P13</p>
+<h2 id="积分系统隐式积分"><a class="header" href="#积分系统隐式积分">积分系统——隐式积分</a></h2>
+<p>Implicit integration is a better solution to numerical instability.  The idea is to integrate both <strong>x</strong> and <strong>v</strong> implicitly.</p>
+<blockquote>
+<p>✅ Explicit和Implicit都是用某个时刻的力代表整个 \(Δt\) 时间的力，就都会出现上述误差。<br />
+✅ 区别在于，Explicit用当前力，往往使结果变大，产生爆炸，Implicit用未来力，往往使结果变小，产生消失。<br />
+✅ 消失只是结果不对。但爆炸会让结果崩溃，这是最不可接受的问题。因此用隐式代替显式。</p>
+</blockquote>
+<p>隐式积分相对稳定，可以使用稍大的 \(Δt\)，但也存在以下问题：</p>
+<ol>
+<li>实现复杂，因此难以优化。</li>
+<li>每个 \(Δt\) 的求解更耗时，因此不一定会更快。</li>
+<li>可能出现数值振荡。</li>
+</ol>
+<h3 id="二元非线性方程组---一元非线性方程"><a class="header" href="#二元非线性方程组---一元非线性方程">二元非线性方程组 -&gt; 一元非线性方程</a></h3>
+<p>隐式积分用未来力计算未来速度，用未来速度计算未来位置。未来力，未来速度，未来位置都是未知量，不能直接求解，需要解方程。</p>
+<blockquote>
+<p>✅ 粒子和刚体的仿真中使用了半隐式积分(现在的力，未来的速度)。</p>
+</blockquote>
+<p><img src="../assets/05-11.png" alt="" /></p>
+<blockquote>
+<p>✅ 质点的质量可以不同吗？<br />
+答：可以不同。先根据三角形的面积计算三角的质量，再把质量分配到各个顶点上。<br />
+M是一个3n*3n的对角矩阵，具体形式为：<br />
+$$
+M = \begin{pmatrix}
+m_1 I_3 &amp; 0 &amp; \cdots &amp; 0 \
+0 &amp; m_2 I_3 &amp; \cdots &amp; 0 \
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \
+0 &amp; 0 &amp; \cdots &amp; m_n I_3
+\end{pmatrix}
+$$</p>
+</blockquote>
+<p>假设F是一个保守力，即F是只与x有关的非线性函数，那么公式中的f[1]不是一个新的未知量。</p>
+<blockquote>
+<p>✅ holonomic：力的大小和方向只跟位置有关，跟速度无关。例如重力，弹力。那么 \(f\)可以写成关于位置的函数\(f(x)\)。但\(f(x)\)不一定是线性的。</p>
+</blockquote>
+<p>公式 2 代入公式 1 并消元，得：</p>
+<p>$$
+\mathbf{v} ^{[1]}=\mathbf{v}^{[0]}+∆t\mathbf{M} ^{−1}\mathbf{f} (\mathbf{x}^{[0]}+∆t\mathbf{v} ^{[1]})
+$$</p>
+<p>或把公式1代入公式2并消元，得：</p>
+<p>消元得：<br />
+$$
+\mathbf{x} ^{[1]}=\mathbf{x} ^{[0]}+\Delta t\mathbf{v} ^{[0]}+\Delta t^2\mathbf{M} ^{-1}\mathbf{f}(x^{[1]})
+$$</p>
+<p>对x或v消元，解法都是类似的。最后都转化为解非线性方程的问题。</p>
+<h3 id="线性近似法求解一元非线性方程-解线性系统"><a class="header" href="#线性近似法求解一元非线性方程-解线性系统">线性近似法：求解一元非线性方程-&gt;解线性系统</a></h3>
+<blockquote>
+<p>✅ 近似成线性问题后直接解方程。这种方法相当于每一个Step做了一次牛顿法。</p>
+</blockquote>
+<p>以对x消元结果为例，\(\mathbf{f}\) 在 \(\mathbf{x}^{[0]}\) 处泰勒展开，得：</p>
+<p>$$ 
+\mathbf{v} _{t+1}=\mathbf{v}_t+∆t\mathbf{M} ^{−1}[\mathbf{f} (\mathbf{x}_t)+\frac{\partial \mathbf{f} }{\partial \mathbf{x} }(\mathbf{x} _t) ∆t\mathbf{v} _{t+1}] 
+$$</p>
+<p>整理后得:</p>
+<p>$$
+[\mathbf{I}-∆t^2\mathbf{M} ^{−1}\frac{\partial \mathbf{f} }{\partial \mathbf{x} }(\mathbf{x} _t)  ]\mathbf{v} _{t+1}=\mathbf{v}_t+∆t\mathbf{M} ^{−1}\mathbf{f} (\mathbf{x}_t)
+$$</p>
+<p>这就成了一个解线性系统的问题。解线性系统见<a href="../Math/LinearSolver.html">Linear Solver</a></p>
+<blockquote>
+<p>问：为什么不直接求逆？<br />
+答：求逆太贵</p>
+</blockquote>
+<p>这个公式再泛化一下，引入一个beta，就可以把隐式积分与之前的显式积分、中点法积分统一起来。</p>
+<p>$$
+[\mathbf{I} -\beta \Delta t^2\mathbf{M} ^{-1}\frac{\partial \mathbf{f} }{\partial \mathbf{x} }(\mathbf{x} _t )]\mathbf{v} _{t+1}=\mathbf{v} _t+\Delta t\mathbf{M} ^{-1}\mathbf{f} (\mathbf{x} _t)
+$$</p>
+<p>❶ \(\beta\) = 0: forward/semi-implicit Euler (explicit)<br />
+❷ \(\beta\) = 1/2: middle-point (implicit)<br />
+❸ \(\beta\) = 1: backward Euler (implicit)</p>
+<h3 id="方法二求解一元非线性方程-优化问题"><a class="header" href="#方法二求解一元非线性方程-优化问题">方法二：求解一元非线性方程-&gt;优化问题</a></h3>
+<p>构造优化目标F(x)：</p>
+<p>$$
+F(\mathbf{x}) = \frac{1}{2∆t^2}||\mathbf{x} −\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]}||_\mathbf{M}^2+E(\mathbf{x} )
+$$</p>
+<p>有：
+$$
+\mathbf{x} ^{[1]} = \argmin F(\mathbf{x})
+$$</p>
+<blockquote>
+<p>✅ 前面方程解\({x} ^{[1]}\)等价于F(x)函数极小点。等价转换的推导在<strong>补充1</strong>。非线性方程问题为转化为优化问题。<br />
+✅ 其中：\(\mathbf{M}\)对角矩阵，描述质量，\(3N \times 3N\)。\(\mathbf{x}\)为 \(3N\times 1\)矢量,描述顶点信息。\(E\) 为所有的力的能量。\(\mathbf{||x||_M^2=x^TMx} \)。<br />
+✅ 只有保守力能用能量描述、非保守力（例如摩擦力）则不行。</p>
+</blockquote>
+<p>定义 \(\mathbf{g(x)} =\mathbf{x} ^{[0]}+\Delta t\mathbf{v}^{[0]}+\Delta t^2M^{-1}f(\mathbf{x}^{[1]})-\mathbf{x} ^{[1]}\)<br />
+也可以得出：\(x^{[1]}=\mathrm{argmin} (g(\mathbf{x} )^2)\) 或 \(\mathbf{x}^{[1]}=\mathrm{argmin} |\mathbf{g(x)}|\)</p>
+<p>只是这样构造出的优化问题，求导比较难计算。</p>
+<p>P18</p>
+<h3 id="newtons-method解优化问题-解线性系统"><a class="header" href="#newtons-method解优化问题-解线性系统">Newton’s Method：解优化问题-&gt;解线性系统</a></h3>
+<blockquote>
+<p>🔎 Newton-Raphson Method见补充2. 这里直接开始Newton方向在本当前场景的应用。</p>
+</blockquote>
+<p>Specifically to simulation, we have:</p>
+<p>$$
+F (\mathbf{x} )=\frac{1}{2∆t^2} ||\mathbf{x} −\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]}||_\mathbf{M} ^2+\mathbf{E} (\mathbf{x} )
+$$</p>
+<p>$$
+∇F(\mathbf{x}^{(k)})=\frac{1}{∆t^2}\mathbf{M} (\mathbf{x} ^{(k)}−\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]})−\mathbf{f}(\mathbf{x}^{(k)})=b
+$$
+b
+$$
+\frac{∂^2F (\mathbf{x} ^{(k)})}{∂\mathbf{x} ^2} =\frac{1}{∆t^2} \mathbf{M} +\mathbf{H} (x^{(k)})=\mathbf{A}
+$$</p>
+<p>解线性系统 \(\Delta \mathbf{x} =b\)</p>
+<p><img src="../assets/05-28.png" alt="" /></p>
+<h3 id="positive-definiteness-of-hessian"><a class="header" href="#positive-definiteness-of-hessian">Positive Definiteness of Hessian</a></h3>
+<p>为了让优化问题收敛，我们希望A是正定的，具体原因见补充材料。</p>
+<p><img src="../assets/05-18.png" alt="" /></p>
+<blockquote>
+<p>✅ 而A的正定性取决于\(H(x)\) 的正定性。
+✅ \(H(x)\)的维度是\(3N \times 3N\)，N 是弹簧数。每个\(H_e\)的维度是\(3 \times 3\)。它是由所有弹簧的H构成的。</p>
+</blockquote>
+<p><img src="../assets/05-17.png" alt="" /></p>
+<blockquote>
+<p>✅ H(x)的正定性则是由 \(H_e\) 的正定性决定。</p>
+</blockquote>
+<p>下面分析\(H_e\)的正定性：<br />
+For any \(\mathbf{x} _{ij}, \mathbf{v} ≠0\),</p>
+<p>$$
+\mathbf{V}^\mathbf{T}\frac{{\mathbf{x} _{ij}\mathbf{x} _{ij}}^\mathbf{T} }{||\mathbf{x} _{ij}||^2}\mathbf{V}=||\frac{{\mathbf{x} _{ij}}^\mathbf{T} \mathbf{v} }{||\mathbf{x} _{ij}||}||^2&gt; 0
+$$</p>
+<p>$$
+\mathbf{V} ^\mathbf{T} (\mathbf{I} -\frac{{\mathbf{x} _{ij}\mathbf{x} _{ij}}^\mathbf{T} }{||\mathbf{x} _{ij}||^2}) \mathbf{V} =\frac{||\mathbf{x} _{ij}||^2||\mathbf{v} ||^2-||{\mathbf{x} _{ij}}^\mathbf{T} \mathbf{v} ||^2}{||\mathbf{x} _{ij}||^2}\ge 0 
+$$</p>
+<blockquote>
+<p>✅ \( \mathbf{x}_ {ij}\) 代表顶点\( \mathbf{x}_ {i}\)和顶点\( \mathbf{x}_ {j}\)的位置的差。<br />
+✅ 最后一个公式分子满足柯西不等式<br />
+✅ 结论：\(||x_{ij}||&lt; Le\). 代表弹簧处于压缩状态。此时 He 有可能非正定(可能有多个极小值点)，但拉伸时一定正定。<br />
+✅ He 正定则\(H(x)\)半正定，此时弹簧系统有唯一解。<br />
+✅ \(\Delta t\)越小，A越容易正定、弹簧系统越稳定。<br />
+✅ 但是A不正定，不代表没有唯一解。</p>
+</blockquote>
+<p>P23</p>
+<h3 id="enforcement-of-positive-definiteness"><a class="header" href="#enforcement-of-positive-definiteness">Enforcement of Positive Definiteness</a></h3>
+<blockquote>
+<p>✅ 不正定最大的问题不是解不唯一，因为解出任意一个解都能让模拟系统进行下去。<br />
+✅ 非正定的主要问题，是数学计算上的不稳定，可能导致解不出来； </p>
+</blockquote>
+<ul>
+<li>One solution is to simply drop the ending term, when \({\color{Orange}{ ||\mathbf{x} _{ij}||&lt;\mathbf{L} _e}}:\)</li>
+</ul>
+<p><img src="./assets/05-20.png" alt="" /></p>
+<blockquote>
+<p>✅ 简单粗爆的解决方法就是把后面这项删掉。</p>
+</blockquote>
+<blockquote>
+<p>🔎 Choi and Ko. 2002. Stable But Responive Cloth. TOG (SIGGRAPH) --- 其它让He正定的方法</p>
+</blockquote>
+<p>P27</p>
+<h1 id="after-class-reading"><a class="header" href="#after-class-reading">After-Class Reading</a></h1>
+<blockquote>
+<p>🔎 Baraff and Witkin. 1998. Large Step in Cloth Simulation. SIGGRAPH.</p>
+</blockquote>
+<blockquote>
+<p>✅这篇论文是衣服模拟的经典论文，第一个用隐式积分做衣服模型的论文。论文没有用弹簧系统，而是另一套模型。<br />
+✅ 关注其中解隐式积分的部分，没有做非线性优化或解非线性方程，而是把非线性方程线性化，等价于做一次牛顿迭代。<br />
+🔎 Fast mass - spring system solver</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>本文出自CaterpillarStudyGroup，转载请注明出处。</p>
+<p>https://caterpillarstudygroup.github.io/GAMES103_mdbook/</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../Elastic/Attribution.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../5_cloth.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../Elastic/Attribution.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../5_cloth.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../theme/pagetoc.js"></script>
+        <script type="text/javascript" src="../theme/mermaid.min.js"></script>
+        <script type="text/javascript" src="../theme/mermaid-init.js"></script>
+    </body>
+</html>
