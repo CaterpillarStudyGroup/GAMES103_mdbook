@@ -8,9 +8,13 @@ Use MLS shape function in MPM
 ![](../assets/10-2-8.png) 
 
 传统MPM将物体离散为携带各类拉格朗日量的粒子，包括位置 \\( \mathbf{x}_p \\)、速度 \\( \mathbf{v}_p \\) 和变形梯度 \\( \mathbf{F}_p \\)。随后通过粒子到欧拉网格的传递操作与网格到粒子的传递操作更新粒子状态。  
-在该方法中，在时间步 \\( t^n \\) 到 \\( t^{n+1} \\) 的更新过程中，使用 \\( \nabla N_i(\mathbf{x}_p) \\)（三维二次B样条核函数需迭代27次）计算网格动量，其中 \\( N_i(\mathbf{x}_p) \\) 是在第 \\( i \\) 个网格上定义、并于粒子位置 \\( \mathbf{x}_p \\) 处取值的B样条核函数。  
-如果场景包含上万个点，使用传统MPM方法模拟这些点将非常耗时。而MLS-MPM相较于传统MPM，加速模拟的同时，显著降低了计算成本。    
-作为一种混合欧拉-拉格朗日方法，它通过以下方程更新网格动量：
+1. 在该方法中，在时间步 \\( t^n \\) 到 \\( t^{n+1} \\) 的更新过程中，使用 \\( \nabla N_i(\mathbf{x}_p) \\)（三维二次B样条核函数需迭代27次）计算网格动量，其中 \\( N_i(\mathbf{x}_p) \\) 是在第 \\( i \\) 个网格上定义、并于粒子位置 \\( \mathbf{x}_p \\) 处取值的B样条核函数。  
+如果场景包含上万个点，使用传统MPM方法模拟这些点将非常耗时。而MLS-MPM 相较于传统 MPM，加速模拟的同时，显著降低了计算成本。    
+2. MPM 存在数值耗散问题，虽引入 Affine 速度场改善，但 A 与 F 不统一。    
+
+## 关键步骤
+  
+### 按 MLS 权重，把离子属性投影到网格。   
 
 ## P2G   
 
@@ -37,6 +41,11 @@ $$
 \\( \mathbf{F}_p \\) 会变化是因为欧拉视角下局部速度场的梯度 (\\(\nabla\nu \\)) 不为0。    
 
 > &#x1F50E; Yuanming Hu, Yu Fang, Ziheng Ge, Ziyin Qu, Yixin Zhu, Andre Pradhana, and Chenfanfu Jiang. 2018. A moving least squares material point method with displacement discontinuity and two-way rigid body coupling.
+
+### G2P     
+
+无网格插值，用局部粒子的加权最小二乘 (MLS) 拟合连续场。    
+MLS 可同时拟合值与梯度，得到仿射速度场与变形梯度更新一致的离散。    
 
 ## Grid 操作：边界条件    
 
