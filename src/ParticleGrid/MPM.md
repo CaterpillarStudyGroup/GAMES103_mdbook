@@ -55,6 +55,26 @@
 2. 可以处理碰撞、破碎等效果    
 3. 擅长摸拟大形变     
 
+## P2G     
+ 
+1. 粒子的质量、动量、速度等属性，过程同PIC      
+2. 粒子应力属性 ⟶ 网格力属性     
+流体/固体受力 ⟶ 变形梯度 F ⟶ 柯西应力张量 σ ⟶ 应力张量散度 ⟶ 粒子时网格的力     
+力来自应力的空间变化(梯度)，而不是应力本身的空间插值。    
+ 
+## 网格更新    
+
+![](../assets/10-2-61.png) 
+
+只更新网格速度    
+ 
+### G2P    
+ 
+1. 网格速度插值出粒子速度    
+2. 更新粒子位置    
+3. 重新计算粒子的变形梯度/应力     
+变形梯度F的更新 \\(∇N_I(x_P)\\)    
+
 > &#x1F50E; Deborah Sulsky, Shi-Jian Zhou, and Howard L Schreyer.
 Application of a particle-in-cell method to solid mechanics.
 
