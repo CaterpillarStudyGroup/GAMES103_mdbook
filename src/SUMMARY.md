@@ -75,6 +75,7 @@
   - [AI方法](ParticleGrid/AIModel.md)
   - [Affice PIC](ParticleGrid/APIC.md)
   - [Constitutive Models](ParticleGrid/Models.md)
+  - [PolyPIC](ParticleGrid/PolyPIC.md)
   - [More](ParticleGrid/More.md)
 
 # 仿真代理之间的作用
