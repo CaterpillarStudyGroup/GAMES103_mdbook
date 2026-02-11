@@ -1,6 +1,6 @@
 # 流体隐式粒子法（Fluid Implicit Particle, FLIP
 
-## - **Idea: don’t gather the physical quantity. Gather the <u>delta</u> of the physical quantities before/after grid operation.**      
+## 原理: don’t gather the physical quantity. Gather the <u>delta</u> of the physical quantities before/after grid operation.      
 
 ## 方法：      
 
@@ -18,7 +18,7 @@ FLIP：\\(V_p^{t+1}=V_p^t + \text{gather}(V_i^{t+1}-V_i^t)\\)，这会导致粒�
 FLIP0.99 = 0.99.  FLIP + 0.01PIC    
   - **PIC（流体版）**：粒子速度完全由网格插值获得，较稳定但**耗散大**。
   - **FLIP**：粒子**速度变化量**由网格插值，保留更多细节，适合高分辨率模拟。
-- **应用**：计算机图形学中的流体动画（如烟雾、水）。      
+## 应用：计算机图形学中的流体动画（如烟雾、水）。      
  
 
 
