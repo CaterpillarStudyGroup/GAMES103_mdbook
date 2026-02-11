@@ -31,3 +31,23 @@
 | **FLIP/PIC**   | 不可压缩流体              | 细节保留好，适合动画                  |
 | **ALE**        | 冲击、流固耦合            | 自适应网格，兼顾精度与变形            |
 | **DEM-FEM**    | 颗粒-结构相互作用         | 离散与连续介质自然耦合                |
+
+
+
+```mermaid
+flowchart LR
+    A[时空采样优化]
+    A --> B[时间自适应]
+    A --> C[空间自适应]
+    B --> D[全局自适应]
+    B --> E[局部自适应]
+    C --> F[欧拉法]
+    C --> G[拉格朗日法]
+    C --> H[混合法]
+    
+```
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/
