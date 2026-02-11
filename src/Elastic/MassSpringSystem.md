@@ -84,8 +84,8 @@ flowchart LR
 
 $$
 
-\mathbf{f} _i(\mathbf{x} )=−∇_i\mathbf{E} =−k(||\mathbf{x}_i −\mathbf{x}_j||−L)\frac{\mathbf{x}_i −\mathbf{x}_j}{||\mathbf{x}_i −\mathbf{x}_j ||} \\\\
-\mathbf{f} _j(\mathbf{x})=−∇_jE=−k (||\mathbf{x}_j −\mathbf{x}_i ||−L)\frac {\mathbf{x}_j −\mathbf{x}_i}{||\mathbf{x}_j −\mathbf{x}_i||}
+\mathbf{f} _ i(\mathbf{x} )=−∇ _ i\mathbf{E} =−k(||\mathbf{x} _ i −\mathbf{x} _ j||−L)\frac{\mathbf{x} _ i −\mathbf{x} _ j}{||\mathbf{x} _ i −\mathbf{x} _ j ||} \\\\
+\mathbf{f} _ j(\mathbf{x})=−∇ _ jE=−k (||\mathbf{x} _ j −\mathbf{x} _ i ||−L)\frac {\mathbf{x} _ j −\mathbf{x} _ i}{||\mathbf{x} _ j −\mathbf{x} _ i||}
 
 $$
 
