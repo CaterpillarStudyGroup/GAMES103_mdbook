@@ -92,3 +92,10 @@ cloth->appendAnchor(0, rigidBodyAnchor); // 将顶点0锚定到刚体
 - **论文**：《Soft Body Dynamics in Bullet Physics》（Erwin Coumans，Bullet 作者）。
 
 通过以上机制，Bullet3 能够实现逼真的刚软交互（如布料落在刚体上、软球撞击墙壁等）。
+
+
+
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/
