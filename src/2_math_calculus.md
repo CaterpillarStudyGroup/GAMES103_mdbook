@@ -78,7 +78,7 @@ $$
 ②\\(x\in R^n,f(x)\in R\\)
 
 $$
-f(x)=f(x_0)+\rhd {f}' (x_0)\cdot (x-x_0)+\frac{1}{2}(x-x_0)^TH(x-x_0)+\cdots 
+f(x)=f(x_0)+\nabla  {f}' (x_0)\cdot (x-x_0)+\frac{1}{2}(x-x_0)^TH(x-x_0)+\cdots 
 $$
 
 > &#x2705; 当\\(\mathbf{H}\\)正定时, \\(f(\mathbf{x})\\)满足一些特殊的性质    
