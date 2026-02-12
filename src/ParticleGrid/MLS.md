@@ -13,10 +13,10 @@ Use MLS shape function in MPM
 2. MPM 存在数值耗散问题，虽引入 Affine 速度场改善，但 A 与 F 不统一。    
 
 ## 关键步骤
-  
-### 按 MLS 权重，把离子属性投影到网格。   
 
-## P2G   
+### P2G   
+
+按 MLS 权重，把离子属性投影到网格。   
 
 $$
 \frac{m_i^{n+1} \hat{\mathbf{v}}_i^{n+1} - m_i^n \mathbf{v}_i^n}{\Delta t} = m_i^n \mathbf{g} + \mathbf{f}_i^n,
