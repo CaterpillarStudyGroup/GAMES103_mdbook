@@ -13,6 +13,7 @@
   - [力](Physics/Force.md)
   - [力矩](./Physics/Torque.md)
   - [流体力学](./Physics/Fluid.md)
+  - [稳定性](./Physics/Stability.md)
 - [图形学基础]()
   - [Graphics Pipeline](Graphics/GraphicsPipeline.md)
   - [优化](./Graphics/Optimize.md)
