@@ -17,7 +17,7 @@ A critical problem exists: what if constraints/forces are **very very stiff**? O
 
 ## 根据约束建立模型  
 
-![](./assets/06-17.png)    
+![](../assets/06-17.png)    
 
 Compliant constraint    
 
@@ -162,11 +162,11 @@ $$
 \end{bmatrix}
 $$
 
-![](./assets/06-18.png)    
+![](../assets/06-18.png)    
 
 According to constrained dynamics:\\(\mathbf{f} (\mathbf{x} )=\mathbf{J^Tλ}\\)  and \\(\mathbf{λ} =−\mathbf{C} ^{−1}\\mathbf{ϕ} \\), so: 
 
-![](./assets/06-19.png)   
+![](../assets/06-19.png)   
 
 $$
 \mathbf{J}_e=\frac{∂\phi _e}{∂\mathbf{x} }=\begin{bmatrix}
@@ -193,7 +193,7 @@ $$
 $$
 
 
-![](./assets/06-20.png)    
+![](../assets/06-20.png)    
 
 Missing geometric stiffness matrix here…
 
@@ -203,7 +203,7 @@ Missing geometric stiffness matrix here…
 P36  
 ## After-Class Reading (optional)   
 
-![](./assets/06-21.png)    
+![](../assets/06-21.png)    
 
 Tournier et al. 2015. *Stable Constrained Dynamics. TOG (SIGGRAPH)*.    
 
