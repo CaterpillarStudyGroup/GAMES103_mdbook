@@ -12,6 +12,7 @@
 - [物理基础]()
   - [力](Physics/Force.md)
   - [力矩](./Physics/Torque.md)
+  - [三维弹性力学](./Physics/Elasticity.md)
   - [流体力学](./Physics/Fluid.md)
   - [稳定性](./Physics/Stability.md)
 - [图形学基础]()
