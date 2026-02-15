@@ -16,7 +16,10 @@
   - [稳定性](./Physics/Stability.md)
 - [图形学基础]()
   - [Graphics Pipeline](Graphics/GraphicsPipeline.md)
-  - [优化](./Graphics/Optimize.md)
+  - [非线性优化优化](./Graphics/Optimize.md)
+    - [Newton-Raphson Method](./Graphics/NewtonRaphson.md)
+    - [梯度下降法](./Graphics/GradientDescent.md)
+    - [A unified descent framework](./Graphics/Nonlinear_optimization.md)
 
 # 单个仿真代理的仿真
 
