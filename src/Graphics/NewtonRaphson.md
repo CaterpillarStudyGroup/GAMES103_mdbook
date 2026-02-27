@@ -61,7 +61,6 @@ $$
 [TODO]怎么保证 \\(\mathbf{x}\\) 收敛    
 
 
-
 P26  
 ## 补充三：预条件最速下降法 Preconditioned Steepest Descent
 
