@@ -61,6 +61,26 @@ $$
 [TODO]怎么保证 \\(\mathbf{x}\\) 收敛    
 
 
+> &#x2705; 解线性系统的主要耗时在LU分解，而这个算法中\\(\mathrm{H}\\)是常数矩阵，只需要做一次LU分解，简化了对\\(\mathrm{H}\\)分解的计算量。 
+
+P26  
+## 补充三：预条件最速下降法 Preconditioned Steepest Descent
+
+ - Mathematically, this approach is preconditioned steepest descent, in which:     
+
+![](./assets/06-16.png)    
+
+$$
+F(\mathbf{x} )=\frac{1}{2∆t^2} ||\mathbf{x} −\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]}||_\mathbf{M} ^2+E(\mathbf{x} )
+$$
+
+
+The performance depends on how well \\(\mathbf{{\color{Orange} H} }\\) approximates the real Hessian.     
+
+
+> &#x2705;\\(\mathrm{H}\\)不需要很精确，一个近似的正定的矩阵，就能让结果收敛。  
+
+
 ---------------------------------------
 > 本文出自CaterpillarStudyGroup，转载请注明出处。
 >
