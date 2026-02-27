@@ -6,7 +6,7 @@
 > &#x2705; Skeleton 用于衣服、刚体、人体等对象的仿真代理。比如人体的关节联结，是一种非常stiff的约束。  
 
 P30   
-# Constrained Dynamics   
+# XPBD   
 
 ## 要解决的问题
 
