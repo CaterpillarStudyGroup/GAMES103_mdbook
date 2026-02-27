@@ -218,5 +218,9 @@ J的物理意义：变形引起的**体积变化比**。
 
 
 
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/
 
 
