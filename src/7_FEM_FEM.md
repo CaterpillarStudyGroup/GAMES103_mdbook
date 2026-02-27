@@ -6,6 +6,18 @@ Lecture 3 [31:48]
 
 把空间分成极小的 element，例如三角形，四面体。    
 
+用 FEM 做仿真仍然是用 \\(W=\sum (v - v_{lim}) + E(x)\\) 的思路。   
+关键在于 \\(E(x)\\) 的定义方式。    
+弹簧系统：用弹簧势能来定义\\(E(x)\\)。    
+PBD/PD/XPD 用约束来定义 \\(E(x)\\)。     
+FEM/FVM 的能量来自材料对形变的响应，所以需要对材料建模，根据材料特性构造 \\(E(x)\\)。    
+
+$$
+\text{deformed mesh} \rightarrow \overset{形变}F {\rightarrow} \overset{能量密度}ψ{\rightarrow}\overset{能量}U{\rightarrow}力\rightarrow速度\rightarrow位置  
+$$
+
+如果采用隐式积分，则通过最小化 \\(W\\) 解出下一时刻的速度和位置。    
+
 # Linear Finite Element Method    
 
 P4  
@@ -38,6 +50,8 @@ $$
 如果采用显示积分，接下来根据能量计算力，再仿真。如果采用隐示积分，接下来基于能量做优化。   
 弹性势能量密度函数关于体积的积分，对于一个元素来说，\\(\mathbf{F}\\) 是常数，\\(\psi (\mathbf{F})\\) 也是常用数。       
 
+\\(\Psi(F)\\) 的形状与具体的材料有关。   
+
 P5   
 ## 计算Deformation Gradient    
 
@@ -52,15 +66,7 @@ Therefore, we can calculate the deformation gradient by edge vectors.
 
 > &#x2705; 期望\\(\mathbf{F}\\)只包含形变量、不包含平移和旋转、因为刚体运动不应该有形变，所以要把形变提取出来。    
 > &#x2705;平移已经在\\(\mathbf{c}\\)里面了，所以只需考虑旋转。   
-
-基于显式时间积分的 FEM    
-
-$$
-\text{deformed mesh} \rightarrow \overset{形变}F {\rightarrow} \overset{能量密度}ψ{\rightarrow}\overset{能量}U{\rightarrow}力\rightarrow速度\rightarrow位置  
-$$
-
-基于隐式时间积分的FEM.    
-与弹簧系统类似，但计算过程非常复杂。    
+ 
 
 P6  
 ## 从F中去除旋转
