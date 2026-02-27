@@ -61,7 +61,6 @@ $$
 [TODO]怎么保证 \\(\mathbf{x}\\) 收敛    
 
 
-> &#x2705; 解线性系统的主要耗时在LU分解，而这个算法中\\(\mathrm{H}\\)是常数矩阵，只需要做一次LU分解，简化了对\\(\mathrm{H}\\)分解的计算量。 
 
 P26  
 ## 补充三：预条件最速下降法 Preconditioned Steepest Descent

@@ -157,7 +157,7 @@ $$
 $$
 
 
-> &#x2705; 本文基于约束定义能量。{\\(\mathbf{x} _{e,i}^{\mathrm{new} },\mathbf{x} _ {e,j}^{\mathrm{new} }\\)}为期望的顶点位置。不直接把顶点从当前位置移到期望位置。而是把当前位置和期望位置的距离转化为能量，通过能量推动顶点从当前位置移到目标位置。   
+> &#x2705; 本文基于约束定义能量。{\\(\mathbf{x} _{e,i}^{\mathrm{new} },\mathbf{x} _ {e,j}^{\mathrm{new} }\\)}为期望的顶点位置\\(P\\)。不直接把顶点从当前位置移到期望位置。而是把当前位置和期望位置的距离转化为能量，通过能量推动顶点从当前位置移到目标位置。   
 
 因此称为投影动力学
 
@@ -171,14 +171,11 @@ $$
 \mathbf{f} _ i=−\nabla_iE(\mathbf{x} )=−{\textstyle \sum _{e:i\in e}}(\mathbf{x} _ i−\mathbf{x} _ j)−(\mathbf{x} _ {e,i}^{\mathrm{new}} −\mathbf{x} _ {e,j}^{\mathrm{new} })
 $$
 
-> &#x2705; 基于 \\(E(\mathbf{x})、\mathbf{x}_i^{\mathrm{new} } 、\mathbf{x} _ j^{\mathrm{new} }\\) 计算力，此时假设\\(\mathbf{x} _ i^{\mathrm{new} }\\)和 \\(\mathbf{x} _ j^{\mathrm{new} }\\)都是定值，\\(\mathbf{x} _ i\\)和 \\(\mathbf{x} _ j\\)是变量。   
-> &#x2705; 本文基于约束定义能量和力，得到的结果与基于弹簧能量计算的能量和力相同。   
-> &#x2705; 既然 \\(E\\) 和 \\(F\\) 是一样的，何必多此一举? 答：H不同。   
+> 弹簧系统和\\(PD\\)都是基于当前状态\\((x_i、x_j)\\)和投影状态\\((p)\\)来计算能量，且所使用的公式都是基于胡克定理，看上去没有区别。      
+> 区别在于\\(p\\)。\\(p\\)是由\\(x\\)投影得到的，但\\(PD\\)在优化的过程中假设\\(p\\)是一个定值，即\\(f\\)与\\(H\\)都与\\(p\\)无关，这就简化了后面的优化步骤。     
 
 P23   
-### Hessian 矩阵   
 
-Instead of blending projections in a Jacobi or Gauss-Seidel fashion as in PBD, <u>projective</u> dynamics uses projection to define a <u>quadratic</u> energy.     
 
 ![](../assets/06-11.png)    
 
@@ -189,18 +186,20 @@ Instead of blending projections in a Jacobi or Gauss-Seidel fashion as in PBD, <
 > &#x2705; **可以直接根据Mesh的拓扑关系构造H矩阵。**     
 > &#x2705; 为什么能简化\\(\mathbf{H}\\)的计算？答：在计算某一个端点时，假设另一个端点不动（常量），那么能量就是只关于这个端点的二次函数     
 
-### 为什么这样定义能量
+### \\(PD\\) 的优势   
 
 以这种方式定义能量，得到的H是一个只与弹簧拓扑有关的定值。这个定值不光构造简单，也能简化计算。  
 
 在以牛顿法的优化迭代方法中，需要解线性系统\\(Ax=b\\)。复杂的A使得线性系统难以求解。  
 
+> &#x2705; 解线性系统的主要耗时在LU分解，而这个算法中\\(\mathrm{H}\\)是常数矩阵，只需要做一次LU分解，简化了对\\(\mathrm{H}\\)分解的计算量。 
+
 ![](../assets/05-18.png)    
 
 由A的定义可知，当H是定值时，A也是一个定值。那么可以对A做一些预计算，以加速线性系统\\(Ax=b\\)的求解。  
 
-> 如果只是使用了PD的方法来构造能量和H，但没有对A做预计算，实际上没有发挥PD的核心优势。  
-
+> 如果只是使用了\\(PD\\)的方法来构造能量和\\(H\\)，但没有对\\(A\\)做预计算，实际上没有发挥\\(PD\\)的核心优势。  
+> \\(PD\\) 的优势来源于此，局限性也来源于此。如果一个约束不能简化出这种简单的 \\(H\\)，就不能使用\\(PD\\)来做。
 
 P28   
 ## After-Class Reading
