@@ -74,5 +74,7 @@ P27
        
 
 
-> &#x2705; 课后答疑：   
-能量优化的方法很少用于刚体，主要是有限元、弹性体、衣服模拟。   
+---------------------------------------
+> 本文出自CaterpillarStudyGroup，转载请注明出处。
+>
+> https://caterpillarstudygroup.github.io/GAMES103_mdbook/ 

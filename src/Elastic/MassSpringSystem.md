@@ -147,18 +147,19 @@ Implicit integration is a better solution to numerical instability.  The idea is
 > &#x2705; 质点的质量可以不同吗？   
 答：可以不同。先根据三角形的面积计算三角的质量，再把质量分配到各个顶点上。   
 M是一个3n*3n的对角矩阵，具体形式为：  
+
 $$
 M = \begin{pmatrix}
-m_1 I_3 & 0 & \cdots & 0 \\
-0 & m_2 I_3 & \cdots & 0 \\
-\vdots & \vdots & \ddots & \vdots \\
+m_1 I_3 & 0 & \cdots & 0 \\\\
+0 & m_2 I_3 & \cdots & 0 \\\\
+\vdots & \vdots & \ddots & \vdots \\\\
 0 & 0 & \cdots & m_n I_3
 \end{pmatrix}
 $$
 
 假设F是一个保守力，即F是只与x有关的非线性函数，那么公式中的f[1]不是一个新的未知量。  
 
-> &#x2705; holonomic：力的大小和方向只跟位置有关，跟速度无关。例如重力，弹力。那么 \\(f\\)可以写成关于位置的函数\\(f(x)\\)。但\\(f(x)\\)不一定是线性的。
+> &#x2705; 保守力 holonomic：力的大小和方向只跟位置有关，跟速度无关。例如重力，弹力。那么 \\(f\\)可以写成关于位置的函数\\(f(x)\\)。但\\(f(x)\\)不一定是线性的。
 
 公式 2 代入公式 1 并消元，得：    
 
@@ -209,6 +210,8 @@ $$
 
 ### 方法二：求解一元非线性方程->优化问题
 
+> &#x2705; 课后答疑：   
+能量优化的方法很少用于刚体，主要是有限元、弹性体、衣服模拟。  
 构造优化目标F(x)：
 
 $$
@@ -244,12 +247,12 @@ $$
 $$
 ∇F(\mathbf{x}^{(k)})=\frac{1}{∆t^2}\mathbf{M} (\mathbf{x} ^{(k)}−\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]})−\mathbf{f}(\mathbf{x}^{(k)})=b
 $$
-b
+
 $$
 \frac{∂^2F (\mathbf{x} ^{(k)})}{∂\mathbf{x} ^2} =\frac{1}{∆t^2} \mathbf{M} +\mathbf{H} (x^{(k)})=\mathbf{A}
 $$
 
-解线性系统 \\(\Delta \mathbf{x} =b\\)      
+解线性系统 \\(A \Delta \mathbf{x} =b\\)      
 
 ![](../assets/05-28.png)    
 
