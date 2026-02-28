@@ -10,9 +10,30 @@ P30
 
 ## 要解决的问题
 
-A critical problem exists: what if constraints/forces are **very very stiff**? Or infinitely stiff?    
+\\(PBD\\) 的问题在于缺少物理性，硬度不可控，究其原因是，\\(PBD\\) 本质是把无限强的硬约束作为优化目标，在多轮的迭代优化中不断向这个目标靠近，但如果要真正收敛到这个目标需要很多次迭代，实际上会在目标收敛之前结束迭代。表现为 soft 的效果，所以软体的 stiff 程度取于迭代优化的收敛情况，因此不可控。   
 
-> &#x2705; 此算法是 PD 的扩展，用于处理 very very stiff 的场景，即距离约束必须严格满足。而前面算法需要做很多次迭代才能产生这种效果（计算量大）。   
+> &#x2705; 此算法是 PD 的扩展。用于处理 very very stiff 的场景，即距离约束必须严格满足。而前面算法需要做很多次迭代才能产生这种效果（计算量大）。   
+
+
+XPBD 试图通过软度系数 C 来控制物体的 stiff / soft 程度，XPBD 通过 C 定义势能的 scale，使得优化目标为动能与势能的 trade off。 当优化目标收敛时，达到期望的硬度，但如果在收敛前停止迭代，仍然会表现出比预期要软的效果。
+
+回顾隐式积分的优化目标：    
+
+$$
+\psi (x) = \frac{1}{2h^2}||x - y||_M^2 + E(x)
+$$
+
+其中第一项为动能，第二项为势能。
+
+\\(y\\) 为 \\(x\\) 在不考虑内力情况下下一时刻应该到达的位置，当\\(x=y\\) 时动能为0。    
+
+根据约束来定义势能 \\(E(x)\\)，其中 \\(\phi (x)\\) 为约束，\\(C\\) 为柔度参数。    
+
+这个 \\(\phi (x)\\) 只是约束的一种定义方式，也可以是其他的定义。    
+
+
+
+A critical problem exists: what if constraints/forces are **very very stiff**? Or infinitely stiff?    
 
 
 ## 根据约束建立模型  
