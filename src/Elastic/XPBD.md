@@ -77,19 +77,41 @@ P31
 By implicit integration, we get:   
 
 $$
+v^{[1]} = v^{[0]} + \Delta t \, M^{-1} f^{[1]}
+$$
+
+隐式积分公式推导见弹簧系统部分，也可以写成：   
+
+$$
+x^{[1]} = x^{[0]} + y + \Delta t^2 M^{-1} f^{[1]}
+$$
+
+引出两种不同的推导方法：   
+
+### 用速度公式推导   
+
+$$
 \mathbf{Mv} ^{\mathrm{new} }−∆t\mathbf{J^Tλ} ^{\mathrm{new} }=\mathbf{Mv} 
 $$
 
 > &#x2705; 动量守衡公式：\\(Mv'- Mv = Ft = \\)冲量   
 > &#x2705; 此处新 \\(\lambda^{\mathrm{new}} \\)来计算 F. 说明是 Implicit    
 
-Meanwhile,
+Meanwhile,对\\(-\phi ^{\mathrm{new}}\\) 的泰勒展开    
+
 $$
-\mathbf{Cλ} ^{\mathrm{new} }=−\mathbf{ϕ} ^{\mathrm{new} }≈−\mathbf{ϕ} −\mathbf{J} (\mathbf{x} ^{\mathrm{new} }−\mathbf{x} )≈−\mathbf{ϕ} −∆t\mathbf{Jv} ^{\mathrm{new} }
+−\mathbf{ϕ} ^{\mathrm{new} }≈−\mathbf{ϕ} −\mathbf{J} (\mathbf{x} ^{\mathrm{new} }−\mathbf{x} )≈−\mathbf{ϕ} −∆t\mathbf{Jv} ^{\mathrm{new} }
 $$
 
-> &#x2705; 对\\(-\phi ^{\mathrm{new}}\\) 的泰勒展开    
 > &#x2705;\\(J\\)是上页中的Jacobian.   
+
+根据定义 \\(\lambda^{\mathrm{new} } = C^{-1}\phi^{\mathrm{new} }\\)，得：  
+
+$$
+\lambda^{\mathrm{new} } = -\phi - \Delta t\mathbf{Jv} ^{\mathrm{new} }
+$$
+
+构造入方程组，    
 
 $$
 \begin{bmatrix}
@@ -98,7 +120,7 @@ $$
 \end{bmatrix}\begin{bmatrix}
 \mathbf{v} ^{\mathrm{new} } \\\\
 \mathbf{λ} ^{\mathrm{new} }
-\end{bmatrix}\begin{bmatrix}
+\end{bmatrix}=\begin{bmatrix}
 \mathbf{Mv}  \\\\
 -\mathbf{ϕ} 
 \end{bmatrix}
@@ -107,6 +129,31 @@ $$
 > &#x2705; 最后的矩阵公式由上面两个公式整理合并得到。   
 > &#x2705; \\(x ^{\mathrm{new}}-x =\bigtriangleup t\cdot v \\)    
 
+
+### 用位置公式推导：    
+
+$$
+M \cdot \Delta x + \Delta t^2 J^{\text{new}} \lambda^{\text{new}} = 0
+$$
+
+将 \\( J^{\text{new}} \\) 近似为 \\( J \\)，    
+
+构造方程组，得：   
+
+$$
+\begin{bmatrix}
+M & \Delta t^2 \cdot J^T \\\\
+J & C
+\end{bmatrix}
+\begin{bmatrix}
+\Delta x \\\\
+\Delta \lambda
+\end{bmatrix}
+=\begin{bmatrix}
+0 \\\\
+-\phi
+\end{bmatrix}
+$$
 
 ## 解隐式积分
 
