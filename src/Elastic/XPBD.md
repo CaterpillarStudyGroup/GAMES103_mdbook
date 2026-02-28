@@ -127,7 +127,7 @@ $$
 $$
 
 > &#x2705; 最后的矩阵公式由上面两个公式整理合并得到。   
-> &#x2705; \\(x ^{\mathrm{new}}-x =\bigtriangleup t\cdot v \\)    
+> &#x2705; \\(x ^{\mathrm{new}}-x =\Delta t\cdot v \\)    
 
 
 ### 用位置公式推导：    
