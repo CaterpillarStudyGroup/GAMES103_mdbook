@@ -193,11 +193,11 @@ $$
 
 > &#x2705; 用哪种方法取决于应用场景    
 
-## 优点
-
-Infinite stiffness? \\(\mathbf{C \longrightarrow 0}\\).    
+## 优点   
 
 > &#x2705; 此方法将软硬度量解耦出来，并用矩阵C来表示，使得可以方便控制软硬度，例如让\\(c=0\\) 来表示 infinite stiffness.   
+
+当\\(c=0\\) 时，方法退化为PBD。   
 
 ## 应用
    
