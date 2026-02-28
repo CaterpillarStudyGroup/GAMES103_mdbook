@@ -77,7 +77,7 @@ P31
 By implicit integration, we get:   
 
 $$
-v^{[1]} = v^{[0]} + \Delta t \, M^{-1} f^{[1]}
+v^{[1]} = v^{[0]} + \Delta tM^{-1} f^{[1]}
 $$
 
 隐式积分公式推导见弹簧系统部分，也可以写成：   
