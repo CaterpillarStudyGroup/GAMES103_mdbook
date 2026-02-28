@@ -14,8 +14,11 @@ P30
 
 > &#x2705; 此算法是 PD 的扩展。用于处理 very very stiff 的场景，即距离约束必须严格满足。而前面算法需要做很多次迭代才能产生这种效果（计算量大）。   
 
-
 XPBD 试图通过软度系数 C 来控制物体的 stiff / soft 程度，XPBD 通过 C 定义势能的 scale，使得优化目标为动能与势能的 trade off。 当优化目标收敛时，达到期望的硬度，但如果在收敛前停止迭代，仍然会表现出比预期要软的效果。
+
+## 根据约束建立模型  
+
+![](../assets/06-17.png)    
 
 回顾隐式积分的优化目标：    
 
@@ -29,28 +32,18 @@ $$
 
 根据约束来定义势能 \\(E(x)\\)，其中 \\(\phi (x)\\) 为约束，\\(C\\) 为柔度参数。    
 
-这个 \\(\phi (x)\\) 只是约束的一种定义方式，也可以是其他的定义。    
-
-
-
-A critical problem exists: what if constraints/forces are **very very stiff**? Or infinitely stiff?    
-
-
-## 根据约束建立模型  
-
-![](../assets/06-17.png)    
-
 Compliant constraint    
 
 $$
 \mathbf{ϕ} _e(\mathbf{x} )=||\mathbf{x} _{ei}− \mathbf{x} _{ej}||−L_e
 $$
 
+这个 \\(\phi (x)\\) 只是约束的一种定义方式，也可以是其他的定义。    
+
 $$
 E(\mathbf{x} )={\textstyle \sum_e}\frac{1}{2} k(||\mathbf{x} _{ei} −\mathbf{x} _{ej}||−L_e)^2=\frac{1}{2} \mathbf{\mathbf{ϕ}^T(x)C} ^{−1}\mathbf{ϕ} (\mathbf{x} )
 $$
-
-> &#x2705; \\(E(X)=\sum _ {e} \frac{1}{2}k( \phi _ e(x))^2\\)  
+ 
 
 $$
 \mathbf{f} (\mathbf{x} )=−∇E=-\begin{pmatrix}
@@ -69,16 +62,14 @@ Let \\(N\\) be the number of vertices and E be the number of constraints,
 | Jacobian  |\\(\mathbf{J} =\frac{∂\phi}{∂\mathbf{x} } \in \mathbf{R} ^{E×3N}\\) |  
 | Dual variables (Lagrangian multipliers)  | \\(\mathbf{λ} =−\mathbf{C} ^{−1}\phi \in \mathbf{R} ^E\\)|&#x2705; \\(\lambda \\) 是人为引入的变量，称为拉格朗日算子。   |
 
-> &#x2705; \\(E\\) 和 \\(f\\) 变成了关于两个变量\\((x、\lambda )\\)的函数。   
-> &#x2705; 把能量写成约束的形式    
+引入变量 \\(\lambda = -C⁻¹\phi \\)，代入\\(E(x)\\)和\\(f(x)\\)，得     
+
 $$
-E(x)=\frac{1}{2}\phi ^T (x)C^{-1}\lambda 
+E(x)=\frac{1}{2}\phi ^T (x)\lambda 
 \\\\
 f(x)=J^T \lambda  
 $$
-根据\\(E(x)\\)和\\(f(x)\\)做隐式积分    
-
-
+    
 ## 转化为隐式积分问题
 
 P31  
