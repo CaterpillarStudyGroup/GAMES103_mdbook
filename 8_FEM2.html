@@ -1,0 +1,436 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>08-FEM2 - GAMES103</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="The note of GAMES103">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/pagetoc.css">
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">BackGround</li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 数学基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="2_math_vector.html"><strong aria-hidden="true">2.1.</strong> Vector</a></li><li class="chapter-item expanded "><a href="2_math_matrix.html"><strong aria-hidden="true">2.2.</strong> Matrix</a></li><li class="chapter-item expanded "><a href="2_math_calculus.html"><strong aria-hidden="true">2.3.</strong> Tensor Calculus</a></li><li class="chapter-item expanded "><a href="Math/LinearSolver.html"><strong aria-hidden="true">2.4.</strong> Linear Solver</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 物理基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="Physics/Force.html"><strong aria-hidden="true">3.1.</strong> 力</a></li><li class="chapter-item expanded "><a href="Physics/Torque.html"><strong aria-hidden="true">3.2.</strong> 力矩</a></li><li class="chapter-item expanded "><a href="Physics/Elasticity.html"><strong aria-hidden="true">3.3.</strong> 三维弹性力学</a></li><li class="chapter-item expanded "><a href="Physics/Fluid.html"><strong aria-hidden="true">3.4.</strong> 流体力学</a></li><li class="chapter-item expanded "><a href="Physics/Stability.html"><strong aria-hidden="true">3.5.</strong> 稳定性</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 图形学基础</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="Graphics/GraphicsPipeline.html"><strong aria-hidden="true">4.1.</strong> Graphics Pipeline</a></li><li class="chapter-item expanded "><a href="Graphics/Optimize.html"><strong aria-hidden="true">4.2.</strong> 非线性优化优化</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Graphics/NewtonRaphson.html"><strong aria-hidden="true">4.2.1.</strong> Newton-Raphson Method</a></li><li class="chapter-item expanded "><a href="Graphics/GradientDescent.html"><strong aria-hidden="true">4.2.2.</strong> 梯度下降法</a></li><li class="chapter-item expanded "><a href="Graphics/Nonlinear_optimization.html"><strong aria-hidden="true">4.2.3.</strong> A unified descent framework</a></li></ol></li></ol></li><li class="chapter-item expanded "><li class="part-title">单个仿真代理的仿真</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 粒子</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="Particle/Particle.html"><strong aria-hidden="true">5.1.</strong> 粒子</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Particle/SPHModel.html"><strong aria-hidden="true">5.1.1.</strong> SPH Model</a></li><li class="chapter-item expanded "><a href="Particle/SPH_Fluids.html"><strong aria-hidden="true">5.1.2.</strong> SPH应用 - 水(不可压)</a></li><li class="chapter-item expanded "><a href="Particle/PCISPH.html"><strong aria-hidden="true">5.1.3.</strong> Predictive-Corrective SPH</a></li><li class="chapter-item expanded "><a href="Particle/IISPH.html"><strong aria-hidden="true">5.1.4.</strong> Implicit Imcompressible SPH</a></li><li class="chapter-item expanded "><a href="Particle/DFSPH.html"><strong aria-hidden="true">5.1.5.</strong> Divergenc-Fre SPH</a></li><li class="chapter-item expanded "><a href="Particle/PBF.html"><strong aria-hidden="true">5.1.6.</strong> Positon Based Fluid (PBF)</a></li><li class="chapter-item expanded "><a href="Particle/TemporalAdaptivity.html"><strong aria-hidden="true">5.1.7.</strong> 时间自适应</a></li><li class="chapter-item expanded "><a href="Particle/SpatialAdaptivity.html"><strong aria-hidden="true">5.1.8.</strong> 空间自适应</a></li><li class="chapter-item expanded "><a href="Particle/More.html"><strong aria-hidden="true">5.1.9.</strong> More</a></li></ol></li><li class="chapter-item expanded "><a href="Particle/Rigid.html"><strong aria-hidden="true">5.2.</strong> 应用场景 - 刚体</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 不可形变Mesh - 刚体</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="Rigid/Attribution.html"><strong aria-hidden="true">6.1.</strong> 刚体的属性</a></li><li class="chapter-item expanded "><a href="Rigid/Force.html"><strong aria-hidden="true">6.2.</strong> 刚体动力学</a></li></ol></li><li class="chapter-item expanded "><a href="Elastic/Elastic.html"><strong aria-hidden="true">7.</strong> 可形变Mesh - 弹性体</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="Elastic/Attribution.html"><strong aria-hidden="true">7.1.</strong> 弹性体的属性</a></li><li class="chapter-item expanded "><a href="Elastic/MassSpringSystem.html"><strong aria-hidden="true">7.2.</strong> Mass Spring System</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="5_cloth.html"><strong aria-hidden="true">7.2.1.</strong> 应用场景 - 布料</a></li><li class="chapter-item expanded "><a href="5_cloth_bending_blcoking.html"><strong aria-hidden="true">7.2.2.</strong> Bending and Locking Issues</a></li></ol></li><li class="chapter-item expanded "><a href="Elastic/PBD.html"><strong aria-hidden="true">7.3.</strong> 位置动力学（Position Based Dynamics)</a></li><li class="chapter-item expanded "><a href="Elastic/Projective_Dynamics.html"><strong aria-hidden="true">7.4.</strong> 投影动力学 (Projective Dynamics)</a></li><li class="chapter-item expanded "><a href="Elastic/ShapeMatching.html"><strong aria-hidden="true">7.5.</strong> Shape Matching</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="6_constraints_strain.html"><strong aria-hidden="true">7.5.1.</strong> Strain Limiting</a></li><li class="chapter-item expanded "><a href="6_constraints_summary.html"><strong aria-hidden="true">7.5.2.</strong> 总结</a></li></ol></li><li class="chapter-item expanded "><a href="Elastic/XPBD.html"><strong aria-hidden="true">7.6.</strong> XPBD</a></li><li class="chapter-item expanded "><a href="Elastic/Stable.html"><strong aria-hidden="true">7.7.</strong> Stable Constrained Dynamics</a></li><li class="chapter-item expanded "><a href="7_FEM_FEM.html"><strong aria-hidden="true">7.8.</strong> Linear Finite Element Method</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="8_FEM2.html" class="active"><strong aria-hidden="true">7.8.1.</strong> 08-FEM2</a></li><li class="chapter-item expanded "><a href="8_FEM2_Nonlinear_optimization.html"><strong aria-hidden="true">7.8.2.</strong> Nonlinear optimization</a></li><li class="chapter-item expanded "><a href="7_FEM_FVM.html"><strong aria-hidden="true">7.8.3.</strong> FVM</a></li><li class="chapter-item expanded "><a href="7_FEM_Hyperelastic.html"><strong aria-hidden="true">7.8.4.</strong> Hyperelastic Models</a></li><li class="chapter-item expanded "><a href="7_FEM_summary.html"><strong aria-hidden="true">7.8.5.</strong> Summary</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> 2D Grid - 水</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.</strong> 高度场模型</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="10_wave_height_feild.html"><strong aria-hidden="true">8.1.1.</strong> 高度场模型</a></li><li class="chapter-item expanded "><a href="10_wave_volume.html"><strong aria-hidden="true">8.1.2.</strong> Volume Preservation</a></li><li class="chapter-item expanded "><a href="10_wave_boundary.html"><strong aria-hidden="true">8.1.3.</strong> Boundary Conditions</a></li><li class="chapter-item expanded "><a href="10_wave_summary.html"><strong aria-hidden="true">8.1.4.</strong> Summary</a></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> 3D Grid</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="11_EulerianFluids.html"><strong aria-hidden="true">9.1.</strong> 欧拉模型</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="11_EulerianFluids_Grid.html"><strong aria-hidden="true">9.1.1.</strong> A Grid Representation and Finite Differencing</a></li><li class="chapter-item expanded "><a href="11_EulerianFluids_Staggered.html"><strong aria-hidden="true">9.1.2.</strong> Staggered Grid</a></li><li class="chapter-item expanded "><a href="11_EulerianFluids_Incompressible.html"><strong aria-hidden="true">9.1.3.</strong> Incompressible, Viscous  Navier-Stokes Equations</a></li><li class="chapter-item expanded "><a href="11_EulerianFluids_Air_Smoke.html"><strong aria-hidden="true">9.1.4.</strong> Air and Smoke</a></li><li class="chapter-item expanded "><a href="11_EulerianFluids_Summary.html"><strong aria-hidden="true">9.1.5.</strong> Summary</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="SDF.html"><strong aria-hidden="true">10.</strong> SDF</a></li><li class="chapter-item expanded affix "><li class="part-title">混合仿真代理的仿真</li><li class="chapter-item expanded "><a href="ParticleGrid/ParticleGrid.html"><strong aria-hidden="true">11.</strong> 粒子 + Grid</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ParticleGrid/PIC.html"><strong aria-hidden="true">11.1.</strong> Particle in Cell</a></li><li class="chapter-item expanded "><a href="ParticleGrid/FLIP.html"><strong aria-hidden="true">11.2.</strong> Fluid Implicit Particle</a></li><li class="chapter-item expanded "><a href="ParticleGrid/MPM.html"><strong aria-hidden="true">11.3.</strong> Material Point Method</a></li><li class="chapter-item expanded "><a href="ParticleGrid/MLS.html"><strong aria-hidden="true">11.4.</strong> MLS-MPM</a></li><li class="chapter-item expanded "><a href="ParticleGrid/AIModel.html"><strong aria-hidden="true">11.5.</strong> AI方法</a></li><li class="chapter-item expanded "><a href="ParticleGrid/APIC.html"><strong aria-hidden="true">11.6.</strong> Affice PIC</a></li><li class="chapter-item expanded "><a href="ParticleGrid/Models.html"><strong aria-hidden="true">11.7.</strong> Constitutive Models</a></li><li class="chapter-item expanded "><a href="ParticleGrid/PolyPIC.html"><strong aria-hidden="true">11.8.</strong> PolyPIC</a></li><li class="chapter-item expanded "><a href="ParticleGrid/More.html"><strong aria-hidden="true">11.9.</strong> More</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">仿真代理之间的作用</li><li class="chapter-item expanded "><a href="ParticleSDF.html"><strong aria-hidden="true">12.</strong> 粒子 + SDF</a></li><li class="chapter-item expanded "><a href="ParticleMesh.html"><strong aria-hidden="true">13.</strong> 粒子 + Mesh</a></li><li class="chapter-item expanded "><a href="RigidSDF.html"><strong aria-hidden="true">14.</strong> 刚体 + SDF</a></li><li class="chapter-item expanded "><a href="RigidSystem/RigidSystem.html"><strong aria-hidden="true">15.</strong> 刚体系统</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="9_collision_detect.html"><strong aria-hidden="true">15.1.</strong> 刚体的碰撞检测 - Broad Phase</a></li><li class="chapter-item expanded "><a href="9_collision_GJK.html"><strong aria-hidden="true">15.2.</strong> 离散相交检测 - GJK</a></li><li class="chapter-item expanded "><a href="9_collision_detect_narrow.html"><strong aria-hidden="true">15.3.</strong> 刚体的碰撞检测 - Narrow Phase</a></li><li class="chapter-item expanded "><a href="9_collision_response.html"><strong aria-hidden="true">15.4.</strong> Constrain Based 刚体碰撞响应</a></li><li class="chapter-item expanded "><a href="Interior_Point_Methods.html"><strong aria-hidden="true">15.5.</strong> 内点法</a></li><li class="chapter-item expanded "><a href="Impact_Zone_Optimization.html"><strong aria-hidden="true">15.6.</strong> 优化法</a></li><li class="chapter-item expanded "><a href="Rigid_Impact_Zones.html"><strong aria-hidden="true">15.7.</strong> 刚性冲击区域</a></li><li class="chapter-item expanded "><a href="RigidSystem/IPC.html"><strong aria-hidden="true">15.8.</strong> Incremental Potential Contact</a></li><li class="chapter-item expanded "><a href="4_rigidcontact_supplementary.html"><strong aria-hidden="true">15.9.</strong> 补充</a></li></ol></li><li class="chapter-item expanded "><a href="RigidSoft.html"><strong aria-hidden="true">16.</strong> 刚体 + 软体</a></li><li class="chapter-item expanded "><a href="9_collision_untangling.html"><strong aria-hidden="true">17.</strong> Untangling Cloth</a></li><li class="chapter-item expanded "><a href="RigidGrid.html"><strong aria-hidden="true">18.</strong> 刚体 + Grid</a></li><li class="chapter-item expanded "><a href="RigidParticleCoupling.html"><strong aria-hidden="true">19.</strong> 刚体 + SPH</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">GAMES103</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/CaterpillarStudyGroup/GAMES103_mdbook" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main><div class="sidetoc"><nav class="pagetoc"></nav></div>
+                        <p>P3</p>
+<h1 id="topics-for-the-day"><a class="header" href="#topics-for-the-day">Topics for the Day</a></h1>
+<ul>
+<li>
+<p>Hessian of Elastic Energy</p>
+</li>
+<li>
+<p>Implicit Integration</p>
+</li>
+<li>
+<p>Nonlinear optimization.</p>
+</li>
+</ul>
+<blockquote>
+<p>✅ 隐式积分不讲了。推荐P12页的论文<br />
+✅ 直接跳到 P18、非线性优化。</p>
+</blockquote>
+<p>P4</p>
+<h1 id="hessian-of-elastic-energy"><a class="header" href="#hessian-of-elastic-energy">Hessian of Elastic Energy</a></h1>
+<p>P5</p>
+<h2 id="recall-that"><a class="header" href="#recall-that">Recall that…</a></h2>
+<p><img src="./assets/08-2.png" alt="" /></p>
+<p>P6</p>
+<h2 id="energy-hessian"><a class="header" href="#energy-hessian">Energy Hessian:</a></h2>
+<p><img src="./assets/08-3.png" alt="" /></p>
+<p>P7</p>
+<h2 id="svd-derivative"><a class="header" href="#svd-derivative">SVD Derivative</a></h2>
+<p>Since \(\mathbf{F=UΛV^T}\)is singular value decomposition \((\mathbf{Λ} =\mathrm{diag} (λ_0,λ_1,λ_2))\), we can do:</p>
+<p>$$
+\mathbf{U^T} \frac{∂\mathbf{F} }{∂\mathbf{F} _{kl}}\mathbf{V} =\mathbf{U^T} (\frac{∂\mathbf{U} }{∂\mathbf{F} _{kl}}\mathbf{ΛV^T} +\mathbf{U}\frac{∂\mathbf{Λ} }{∂\mathbf{F} _{kl}}\mathbf{V^T}+\mathbf{UΛ}\frac{∂\mathbf{V^T} }{∂\mathbf{F} _{kl}})\mathbf{V}
+$$</p>
+<p>$$
+\mathbf{U^T} \frac{∂\mathbf{F} }{∂\mathbf{F} _{kl}}\mathbf{V} =(\mathbf{U^T} \frac{∂\mathbf{U} }{∂\mathbf{F} _{kl}})\mathbf{Λ} +\frac{∂\mathbf{Λ} }{∂\mathbf{F} _{kl}}+ \mathbf{Λ}(\frac{∂\mathbf{V^T} }{∂\mathbf{F} _{kl}}\mathbf{V})
+$$</p>
+<p>$$
+\mathbf{U^T} \frac{∂\mathbf{F} }{∂\mathbf{F} _{kl}}\mathbf{V} = \mathbf{AΛ} +\frac{∂\mathbf{Λ} }{∂\mathbf{F} _{kl}}+ \mathbf{ΛB}
+$$</p>
+<p>P8</p>
+<h2 id="skew-symmetric-matrix"><a class="header" href="#skew-symmetric-matrix">Skew-Symmetric Matrix</a></h2>
+<p>Matrix \(\mathbf{A}\) is skew-symmetric (or anti-symmetric), if \(\mathbf{A=−A^T}\):</p>
+<p>$$
+\mathbf{A} =\begin{bmatrix}
+0 &amp; a &amp; b \\
+-a &amp; 0 &amp; c \\
+-b  &amp; -c &amp; 0
+\end{bmatrix}
+$$</p>
+<p>If \(\mathbf{D}\) is diagonal, then:</p>
+<p>$$
+\mathbf{AD} =\begin{bmatrix}
+0 &amp; a &amp; b \\
+-a &amp; 0 &amp; c \\
+-b  &amp; -c &amp; 0
+\end{bmatrix}\begin{bmatrix}
+d &amp; 0 &amp;0 \\
+0 &amp; e &amp; 0\\
+0 &amp; 0 &amp;f
+\end{bmatrix}=\begin{bmatrix}
+0 &amp; ? &amp; ?\\
+? &amp; 0 &amp;? \\
+? &amp; ? &amp;0
+\end{bmatrix} 
+$$</p>
+<p>$$ 
+\mathbf{DA} = \begin{bmatrix}
+d  &amp; 0 &amp; 0\\
+0 &amp; e &amp; 0\\
+0 &amp; 0 &amp;f
+\end{bmatrix}\begin{bmatrix}
+0  &amp; a &amp; b\\
+-a &amp; 0 &amp;c \\
+-b &amp; -c &amp;0
+\end{bmatrix}=\begin{bmatrix}
+0 &amp; ? &amp;? \\
+? &amp;  0&amp; ?\\
+? &amp; ? &amp;0
+\end{bmatrix}
+$$</p>
+<p>When \(\mathbf{U}\) is orthogonal, we have:</p>
+<p>$$
+\mathbf{0} =\frac{∂(\mathbf{U^TU)}}{∂\mathbf{F} _{kl}} =\mathbf{U^T} \frac{ ∂\mathbf{U} }{∂\mathbf{F} _{kl}}+\frac{∂\mathbf{U^T}}{∂\mathbf{F} _{kl}}\mathbf{U} =\mathbf{U^T}\frac{∂\mathbf{U} }{∂\mathbf{F} _{kl}}+(\mathbf{U^T} \frac{∂\mathbf{U}}{∂\mathbf{F} _{kl}})^\mathbf{T} 
+$$</p>
+<p>Therefore, \(\mathbf{A=U^T}\frac{∂\mathbf{U} }{∂\mathbf{F} _{kl}}\) is skew-symmetric. So is \(\mathbf{B} =\frac{∂\mathbf{V^T} }{∂\mathbf{F} _{kl}} \mathbf{V}\).</p>
+<p>P9</p>
+<h2 id="svd-derivative-cont"><a class="header" href="#svd-derivative-cont">SVD Derivative (cont.)</a></h2>
+<p>Since \(\mathbf{F=UΛV^T}\) is singular value decomposition \(\mathbf{Λ} =\mathrm{diag} (λ_0,λ_1,λ_2)\), we can do:</p>
+<p>$$
+\mathbf{U^T} \frac{∂\mathbf{F} }{∂\mathbf{F} _{kl}}\mathbf{V} = \mathbf{AΛ} +\frac{∂\mathbf{Λ} }{∂\mathbf{F} _{kl}}+\mathbf{ΛB} 
+$$</p>
+<p>After expansion, we get:</p>
+<p>$$
+\mathbf{U^T} \frac{∂\mathbf{F}}{∂\mathbf{F} _{kl}} \mathbf{V} =<br />
+\begin{bmatrix}
+0 &amp; a_0 &amp; a_1\\
+-a_0 &amp; 0 &amp; a_2\\
+-a_1&amp; -a_2 &amp;0
+\end{bmatrix} \begin{bmatrix}
+λ_0 &amp; \Box  &amp; \Box\\
+\Box &amp; λ_1 &amp;\Box \\
+\Box &amp; \Box &amp;λ_2
+\end{bmatrix} \begin{bmatrix}
+\frac{∂λ_0}{∂\mathbf{F} _{kl}} &amp; \Box &amp; \Box\\
+\Box &amp; \frac{∂λ_1}{∂\mathbf{F} _{kl}} &amp; \Box\\
+\Box &amp; \Box &amp;\frac{∂λ_2}{∂\mathbf{F} _{kl}}
+\end{bmatrix} \begin{bmatrix}
+λ_0  &amp; \Box  &amp; \Box \\
+\Box  &amp; λ_1 &amp;\Box  \\
+\Box &amp; \Box  &amp;λ_2
+\end{bmatrix} \begin{bmatrix}
+0 &amp;  b_0&amp; b_1\\
+-b_0 &amp; 0 &amp;b_2 \\
+-b_1 &amp; -b_2 &amp;0
+\end{bmatrix}
+$$</p>
+<p>P10</p>
+<h2 id="svd-derivative-cont-1"><a class="header" href="#svd-derivative-cont-1">SVD Derivative (cont.)</a></h2>
+<p>Since \(\mathbf{F=UΛV^T}\) is singular value decomposition \(\mathbf{Λ}=\mathrm{diag} (λ_0,λ_1,λ_2)\), we can do:</p>
+<p>$$
+\mathbf{U^T} \frac{∂\mathbf{F} }{∂\mathbf{F} _{kl}}\mathbf{V} =\mathbf{AΛ} +\frac{∂\mathbf{Λ} }{∂\mathbf{F} _{kl}}+\mathbf{ΛB} 
+$$</p>
+<p>After expansion, we get:</p>
+<p>$$
+\mathbf{U^T} \frac{∂\mathbf{F}}{∂\mathbf{F} _ {kl}}\mathbf{V}<br />
+= \begin{bmatrix}
+∂λ _ 0/∂\mathbf{F} _ {kl}  &amp; λ _ 1 a _ 0 + λ _ 0 b _ 0 &amp; λ _ 2 a_ 1 + λ _ 0 b _ 1 \\
+−λ _ 0 a_ 0 − λ _ 1 b _ 0 &amp; ∂λ _ 1/∂ \mathbf{F} _ {kl} &amp; λ _ 2 a _ 2 + λ _ 1 b _ 2\\
+−λ _ 0 a_ 1−λ_ 2b_ 1 &amp; −λ_ 1a_ 0a_ 2−λ_ 2b_ 2 &amp;∂λ_ 2/∂ \mathbf{F} _ {kl}
+\end{bmatrix} 
+$$</p>
+<p>$$
+\begin{bmatrix}
+m_ {00} &amp; m_ {01} &amp; m_ {02} \\
+m_ {10} &amp; m_ {11} &amp; m_ {12}  \\
+m_ {20} &amp; m_ {21} &amp; m_ {22} 
+\end{bmatrix} = \begin{bmatrix}
+∂λ_0/∂\mathbf{F} _{kl}  &amp; λ_1a_0+λ_0b_0 &amp; λ_2a_1+λ_0b_1\\
+−λ_0a_0−λ_1b_0 &amp; ∂λ_1/∂ \mathbf{F} _{kl} &amp; λ_2a_2+λ_1b_2\\
+−λ_0a_1−λ_2b_1 &amp; −λ_1a_0a_2−λ_2b_2 &amp;∂λ_2/∂ \mathbf{F} _ {kl}
+\end{bmatrix} 
+$$</p>
+<p>Eventually, we get: \(\mathbf{A=U^T} \frac{∂\mathbf{U} }{∂\mathbf{F} _{kl}}, \mathbf{B} = \frac{∂\mathbf{V^T} }{∂\mathbf{F} _{kl}}\mathbf{V} \) and \(∂λ_0/∂\mathbf{F} _{kl}, ∂λ_1/∂\mathbf{F} _{kl}, ∂λ_2/∂\mathbf{F} _{kl}\).</p>
+<p>P11</p>
+<h2 id="a-quick-summary"><a class="header" href="#a-quick-summary">A Quick Summary</a></h2>
+<ul>
+<li>Step 1: By SVD derivatives, we get: \(\frac{∂\mathbf{U} }{∂\mathbf{F} _{kl}},\frac{∂λ_d}{∂\mathbf{F} _{kl}},\frac{∂\mathbf{V^T} }{∂\mathbf{F} _{kl}}\).</li>
+</ul>
+<p><img src="./assets/08-4.png" alt="" /></p>
+<ul>
+<li>Step 3: Finally, we reach our goal in Hessian matrix:</li>
+</ul>
+<p>$$
+\frac{∂\mathbf{f} _i}{∂\mathbf{x} _j}=\sum _ {k,l}\frac{∂\mathbf{f} _i}{∂\mathbf{F} _{kl}} \frac{∂\mathbf{F} _{kl}}{∂\mathbf{x} _j}=\sum _ {k,l}
+\frac{∂(\mathrm{Udiag} (\frac{∂W} {∂λ_0},\frac{∂W} {∂λ_1},\frac{∂W} {∂λ_2})\mathbf{V^T}) }{∂\mathbf{F} _{kl}}−V\mathbf{d} _i\frac{∂\mathbf{F} _{kl}}{∂\mathbf{x} _j}
+$$</p>
+<p>P12</p>
+<h2 id="after-class-reading"><a class="header" href="#after-class-reading">After-Class Reading</a></h2>
+<p>Xu et al. 2015. <em>Nonlinear Material Design Using Principal
+Stretches</em>. TOG (SIGGRAPH).</p>
+<p>Definitely read this paper if you decide to implement it.</p>
+<p>P13</p>
+<h2 id="implicit-integration"><a class="header" href="#implicit-integration">Implicit Integration</a></h2>
+<p>P14</p>
+<h1 id="implicit-integration-1"><a class="header" href="#implicit-integration-1">Implicit Integration</a></h1>
+<p>Recall that we need implicit integration to avoid numerical instability (Class 5, page 13):</p>
+<p>$$
+\begin{cases} 
+\mathbf{v} ^{[1]}=\mathbf{v} ^{[0]}+∆t\mathbf{M} ^{−1}\mathbf{f} ^{[1]} \\<br />
+\mathbf{x} ^{[1]}=\mathbf{x} ^{[0]}+∆t\mathbf{v} ^{[1]} 
+\end{cases}
+$$</p>
+<p>$$\mathrm{or} $$</p>
+<p>$$
+\begin{cases} 
+\mathbf{x} ^{[1]}=\mathbf{x} ^{[0]}+∆t\mathbf{v} ^{[0]}+∆t^2\mathbf{M} ^{−1}\mathbf{f} ^{[1]}   \\<br />
+\mathbf{v} ^{[1]}=(\mathbf{x} ^{[1]}−\mathbf{x} ^{[0]})/∆t<br />
+\end{cases} 
+$$</p>
+<p>We also said that:</p>
+<p>$$
+\mathbf{x} ^{[1]}=\mathbf{x} ^{[0]}+∆t\mathbf{v} ^{[0]}+∆t^2\mathbf{M} ^{−1}\mathbf{f}(\mathbf{x}^{[1]})
+$$</p>
+<p>$$
+\Updownarrow
+$$</p>
+<p>$$
+\mathbf{x} ^{[1]}=\mathrm{argmin } F (\mathbf{x} ) 	\quad  \mathrm{for} \quad\mathbf{F} (\mathbf{x} )=\frac{1}{2∆t^2}||\mathbf{x} −\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]}||_M^2+E(\mathbf{x} )
+$$</p>
+<p>P15</p>
+<h2 id="newton-raphson-method"><a class="header" href="#newton-raphson-method">Newton-Raphson Method</a></h2>
+<p>The Newton-Raphson method, commonly known as Newton’s method, solves the optimization problem: \(x^{[1]}\)=argmin \(F(x)\).  	\(\quad\quad\)		\((F(x)\) is Lipschitz continuous.)</p>
+<p>Given a current \(x^{(k)}\), we approximate our goal by:</p>
+<p>$$
+0={F}'(x)≈{F}'(x^{(k)})+{F}'' (x^{(k)})(x−x^{(k)})
+$$</p>
+<p><img src="./assets/08-6.png" alt="" /></p>
+<p>P16</p>
+<h3 id="newton-raphson-method-1"><a class="header" href="#newton-raphson-method-1">Newton-Raphson Method</a></h3>
+<p>Now we can apply Newton’s method to: \(\mathbf{x} ^{[1]}\)= argmin \( F (\mathbf{x} )\).<br />
+Given a current \(\mathbf{x}^{(k)}\), we approximate our goal by:</p>
+<p>$$
+\mathbf{0} =∇F(\mathbf{x} )≈∇F(\mathbf{x} ^{(k)})+\frac{∂F^2(\mathbf{x} ^{(k)})}{∂\mathbf{x} ^2} (\mathbf{x} −\mathbf{x} ^{(k)}) 
+$$</p>
+<blockquote>
+<p>Newton’s Method<br />
+Initialize \(x^{(0)}\)<br />
+For \(k=0…K\)<br />
+$$
+∆\mathbf{x} \longleftarrow −(\frac{∂F^2(\mathbf{x} ^{(k)})}{∂\mathbf{x} ^2})^{−1}∇F(\mathbf{x} ^{(k)})
+$$
+$$
+\mathbf{x} ^{(k+1)}\longleftarrow \mathbf{x} ^{(k)}+∆\mathbf{x} 
+$$
+If \(||∆\mathbf{x}||\) is small	\(\quad\quad\)then break<br />
+$$
+\mathbf{x} ^{[1]}\longleftarrow \mathbf{x} ^{(k+1)}
+$$</p>
+</blockquote>
+<p>P17</p>
+<h3 id="simulation-by-newtons-method"><a class="header" href="#simulation-by-newtons-method">Simulation by Newton’s Method</a></h3>
+<p>Specifically to simulation, we have:</p>
+<p>$$
+F (\mathbf{x} )=\frac{1}{2∆t^2} ||\mathbf{x} −\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]}||_M^2+E(\mathbf{x} )
+$$</p>
+<p>$$
+∇F(\mathbf{x} ^{(k)})=\frac{1}{∆t^2}\mathbf{M} (\mathbf{x} ^{(k)}−\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]})−\mathbf{f} (\mathbf{x} ^{(k)})
+$$</p>
+<p>$$
+\frac{∂^2F(\mathbf{x} ^{(k)})}{∂\mathbf{x} ^2} =\frac{1}{∆t^2}\mathbf{M} +\mathbf{H} (\mathbf{x} ^{(k)})
+$$</p>
+<blockquote>
+<p>Initialize \(\mathbf{x}^{(0)}\), often as \(\mathbf{x} ^{[0]}\) or \(\mathbf{x} ^{[0]} +∆t\mathbf{v} ^{[0]}\)<br />
+For \(k=0…K\)<br />
+$$
+\mathrm{Solve}\quad (\frac{1}{∆t^2} \mathbf{M+H} (\mathbf{x} ^{(k)}))∆\mathbf{x} =− \frac{1}{∆t^2}\mathbf{M} (\mathbf{x} ^{(k)}−\mathbf{x} ^{[0]}−∆t\mathbf{v} ^{[0]})+\mathbf{f} (\mathbf{x} ^{(k)})
+$$
+$$
+\mathbf{x} ^{(k+1)}\longleftarrow \mathbf{x} ^{(k)}+∆\mathbf{x} 
+$$
+If ||\(∆\mathbf{x}\)|| is small \(\quad\quad\)	then break<br />
+$$
+\mathbf{x} ^{[1]}\longleftarrow \mathbf{x} ^{(k+1)}
+$$
+$$
+\mathbf{v} ^{[1]}←(\mathbf{x} ^{[1]}−\mathbf{x} ^{[0]})/ ∆t
+$$</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>本文出自CaterpillarStudyGroup，转载请注明出处。</p>
+<p>https://caterpillarstudygroup.github.io/GAMES103_mdbook/</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="7_FEM_FEM.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="8_FEM2_Nonlinear_optimization.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="7_FEM_FEM.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="8_FEM2_Nonlinear_optimization.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="theme/pagetoc.js"></script>
+        <script type="text/javascript" src="theme/mermaid.min.js"></script>
+        <script type="text/javascript" src="theme/mermaid-init.js"></script>
+    </body>
+</html>
