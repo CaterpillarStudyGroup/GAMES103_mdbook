@@ -1,1 +1,0 @@
-# Incremental Potential Contact
