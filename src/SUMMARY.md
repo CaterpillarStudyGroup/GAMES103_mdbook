@@ -70,6 +70,12 @@
     - [Incompressible, Viscous  Navier-Stokes Equations](11_EulerianFluids_Incompressible.md)
     - [Air and Smoke](11_EulerianFluids_Air_Smoke.md)
     - [Summary](./11_EulerianFluids_Summary.md)
+  - [格子动理学方法](Lattice/LatticeKinetic.md)
+    - [动理学基础](Lattice/Boltzmann.md)
+    - [格子气自动机](Lattice/LatticeGas.md)
+    - [格子玻尔兹曼方法](Lattice/LatticeBoltzmann.md)
+    - [边界条件](Lattice/BoundaryConditions.md)
+    - [Summary](Lattice/Summary.md)
 - [SDF](SDF.md)
 
 # 混合仿真代理的仿真

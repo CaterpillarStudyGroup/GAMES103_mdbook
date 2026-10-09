@@ -1,0 +1,46 @@
+<svg viewBox="0 0 680 320" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <title>方格与六边格的各向同性对比</title>
+  <desc>左侧方格只有四个轴向方向，四阶速度张量各向异性，无法得到 Navier-Stokes 方程；右侧六边格有六个等夹角方向，四阶速度张量各向同性。</desc>
+  <defs>
+    <marker id="aRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#E24B4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="aGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#639922" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect x="60" y="50" width="240" height="250" rx="12" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
+  <text x="180" y="72" font-size="13" font-weight="500" fill="#791F1F" text-anchor="middle">方格 · 4 方向（HPP）</text>
+  <text x="180" y="90" font-size="12" fill="#A32D2D" text-anchor="middle">只有轴向方向</text>
+  <path d="M85 105 L275 105 M85 145 L275 145 M85 185 L275 185 M85 225 L275 225 M85 265 L275 265 M85 105 L85 265 M132 105 L132 265 M180 105 L180 265 M228 105 L228 265 M275 105 L275 265" fill="none" stroke="#F09595" stroke-width="0.5"/>
+  <g fill="#FFFFFF" stroke="#A32D2D" stroke-width="0.5">
+    <circle cx="85" cy="105" r="3.5"/><circle cx="132" cy="105" r="3.5"/><circle cx="180" cy="105" r="3.5"/><circle cx="228" cy="105" r="3.5"/><circle cx="275" cy="105" r="3.5"/>
+    <circle cx="85" cy="145" r="3.5"/><circle cx="132" cy="145" r="3.5"/><circle cx="180" cy="145" r="3.5"/><circle cx="228" cy="145" r="3.5"/><circle cx="275" cy="145" r="3.5"/>
+    <circle cx="85" cy="185" r="3.5"/><circle cx="132" cy="185" r="3.5"/><circle cx="228" cy="185" r="3.5"/><circle cx="275" cy="185" r="3.5"/>
+    <circle cx="85" cy="225" r="3.5"/><circle cx="132" cy="225" r="3.5"/><circle cx="180" cy="225" r="3.5"/><circle cx="228" cy="225" r="3.5"/><circle cx="275" cy="225" r="3.5"/>
+    <circle cx="85" cy="265" r="3.5"/><circle cx="132" cy="265" r="3.5"/><circle cx="180" cy="265" r="3.5"/><circle cx="228" cy="265" r="3.5"/><circle cx="275" cy="265" r="3.5"/>
+  </g>
+  <circle cx="180" cy="185" r="6" fill="#E24B4A"/>
+  <path d="M194 185 L222 185" fill="none" stroke="#E24B4A" stroke-width="1.5" marker-end="url(#aRed)"/>
+  <path d="M166 185 L138 185" fill="none" stroke="#E24B4A" stroke-width="1.5" marker-end="url(#aRed)"/>
+  <path d="M180 171 L180 149" fill="none" stroke="#E24B4A" stroke-width="1.5" marker-end="url(#aRed)"/>
+  <path d="M180 199 L180 221" fill="none" stroke="#E24B4A" stroke-width="1.5" marker-end="url(#aRed)"/>
+  <text x="180" y="288" font-size="12" fill="#791F1F" text-anchor="middle">四阶张量各向异性</text>
+  <rect x="380" y="50" width="240" height="250" rx="12" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
+  <text x="500" y="72" font-size="13" font-weight="500" fill="#27500A" text-anchor="middle">六边格 · 6 方向（FHP）</text>
+  <text x="500" y="90" font-size="12" fill="#3B6D11" text-anchor="middle">六个方向夹角均 60°</text>
+  <path d="M500 185 L568 185 M500 185 L534 126 M500 185 L466 126 M500 185 L432 185 M500 185 L466 244 M500 185 L534 244" fill="none" stroke="#C0DD97" stroke-width="1"/>
+  <path d="M568 185 L534 126 L466 126 L432 185 L466 244 L534 244 Z" fill="none" stroke="#C0DD97" stroke-width="1"/>
+  <g fill="#FFFFFF" stroke="#3B6D11" stroke-width="0.5">
+    <circle cx="568" cy="185" r="4"/><circle cx="534" cy="126" r="4"/><circle cx="466" cy="126" r="4"/>
+    <circle cx="432" cy="185" r="4"/><circle cx="466" cy="244" r="4"/><circle cx="534" cy="244" r="4"/>
+  </g>
+  <circle cx="500" cy="185" r="6" fill="#639922"/>
+  <path d="M516 185 L556 185" fill="none" stroke="#639922" stroke-width="1.5" marker-end="url(#aGreen)"/>
+  <path d="M484 185 L444 185" fill="none" stroke="#639922" stroke-width="1.5" marker-end="url(#aGreen)"/>
+  <path d="M508 171 L528 136" fill="none" stroke="#639922" stroke-width="1.5" marker-end="url(#aGreen)"/>
+  <path d="M492 171 L472 136" fill="none" stroke="#639922" stroke-width="1.5" marker-end="url(#aGreen)"/>
+  <path d="M492 199 L472 234" fill="none" stroke="#639922" stroke-width="1.5" marker-end="url(#aGreen)"/>
+  <path d="M508 199 L528 234" fill="none" stroke="#639922" stroke-width="1.5" marker-end="url(#aGreen)"/>
+  <text x="500" y="288" font-size="12" fill="#27500A" text-anchor="middle">四阶张量各向同性</text>
+</svg>
